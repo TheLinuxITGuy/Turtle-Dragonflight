@@ -20,5 +20,9 @@ Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-m
 2. Copy the "tDF" folder to your AddOns folder.
 3. Fire up Turtle WoW. :)
 
+## Known issues
+1. The HD textures for the empty bags icon only works when you reload the UI.
+2. I've only tested this on my monitor which is 2560x1440.
+
 ## Screenshots
 I will add these when I have time.
