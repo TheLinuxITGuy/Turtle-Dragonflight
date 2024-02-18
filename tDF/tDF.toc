@@ -1,0 +1,15 @@
+## Interface: 11200
+## Title: |cff008000Turtle |cff1974d2Dragonflight
+## Author: Youtube/@TheLinuxITGuy
+## Notes: A UI that brings the Dragonflight UI to Turtle WoW.
+## Version: 1.0
+## DefaultState: enabled
+
+tHD-ActionBars.lua
+tDFHordeStatues.lua
+tReduced-actionbar.lua
+tMinimap.lua
+tDF.lua
+tCastbar.lua
+tUnitframes-bighealth-new.lua
+tHD-BagIcons.lua
