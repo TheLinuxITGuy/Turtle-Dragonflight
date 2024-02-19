@@ -22,7 +22,7 @@ Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-m
 
 ## Known issues
 1. The HD textures for the empty bags icon only works when you reload the UI.
-2. I've only tested this on my monitor which is 2560x1440.
+2. I've only tested this on my monitor which is 2560x1440. On 720p and 1080p monitors, the castbar is towards the bottom of the screen. I need to ancor it to the actionbars vs. hardcoding the setpoint.
 
 ## Screenshots
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshot%202024-02-17%20215631.png)
