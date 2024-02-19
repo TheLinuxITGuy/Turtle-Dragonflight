@@ -8,7 +8,7 @@ local rightGryphon = MainMenuBar:CreateTexture(nil, "OVERLAY")
 
 --Checking Horde vs. Alliance wouldn't work, so using races
 local race = UnitRace("player")
-DEFAULT_CHAT_FRAME:AddMessage("Your race is " .. race .. ".")
+--DEFAULT_CHAT_FRAME:AddMessage("Your race is " .. race .. ".")
 
 if race == "Night Elf" then
     leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
