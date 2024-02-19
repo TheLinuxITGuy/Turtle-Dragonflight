@@ -1,16 +1,8 @@
 # Turtle Dragonflight
-A UI that brings the Dragonflight UI to Turtle WoW.
-
-This UI aims to preserve the spirit of the default UI while providing modern quality of life features.
-
-## Credit
-Credit to [shagu](https://github.com/shagu)    
-Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
-Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)    
-Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)
+A UI that brings the Dragonflight UI to Turtle WoW. I've only tested this on resolutions 1440p, 1080p, and 720p.
 
 ## Installation
-#### This is a stand-alone addon. I've combined all the elements from other addons and created this for the Turtle WoW client.    
+#### This is a stand-alone addon made for the Turtle WoW 1.12 client.    
 
 #### Automatic Install using [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/)
 - Click the "+" button and enter the url `https://github.com/TheLinuxITGuy/Turtle-Dragonflight.git`
@@ -22,7 +14,13 @@ Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-m
 
 ## Known issues
 1. The HD textures for the empty bags icon only works when you reload the UI.
-2. I've only tested this on my monitor which is 2560x1440. On 720p and 1080p monitors, the castbar is towards the bottom of the screen. I need to ancor it to the actionbars vs. hardcoding the setpoint.
+2. Debuffs show in the center of the minimap.
+
+## Credit
+Credit to [shagu](https://github.com/shagu)    
+Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
+Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)    
+Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)
 
 ## Screenshots
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshot%202024-02-17%20215631.png)
