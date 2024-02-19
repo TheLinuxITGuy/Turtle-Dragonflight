@@ -36,7 +36,7 @@ background:SetAllPoints(tCastbar)
 local text = tCastbar:CreateFontString(nil, "OVERLAY")
 text:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
 --text:SetFont("Interface\\Addons\\tDF\\fonts\\Prototype.TTF", 12, "OUTLINE")
-text:SetPoint("CENTER", tCastbar, "CENTER", 0, 0)
+text:SetPoint("CENTER", tCastbar, "CENTER", 0, 1)
 text:SetTextColor(1, 1, 1)
 
 -- Create a spark for the tCastbar
