@@ -29,9 +29,16 @@ playerNameText:SetHeight(30)
   TargetofTargetFrame:ClearAllPoints()
    TargetofTargetFrame:SetPoint("BOTTOM", TargetFrame, 38, -15)
 
-  PetFrame:ClearAllPoints()
-  PetFrame:SetPoint("BOTTOM", PlayerFrame, -10, -30)
-  PetFrameTexture:SetTexture[[Interface\Addons\tDF\img\pet]]  
+  -- Hook the PetFrame_Update function
+    local new_PetFrame_Update = PetFrame_Update
+    local new_PetFrame = PetFrame
+    PetFrame_Update = function()
+      -- Call the original function
+      new_PetFrame_Update()
+      PetFrameTexture:SetTexture("Interface\\Addons\\tDF\\img\\pet")
+      PetFrame:ClearAllPoints()
+      PetFrame:SetPoint("BOTTOM", PlayerFrame, -10, -30)
+    end
 
   local original = TargetFrame_CheckClassification
   function TargetFrame_CheckClassification()
