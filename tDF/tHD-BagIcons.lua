@@ -19,3 +19,11 @@ for bag = 0, 4 do
         end
     end
 end
+
+-- Create a local instance of ContainerFrame1PortraitButton
+local button = ContainerFrame1PortraitButton
+-- Reskin the button with a custom image
+button:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+button:SetPoint("TOPLEFT", ContainerFrame1, -1, 2)
+button:SetWidth(50)
+button:SetHeight(50)
