@@ -137,12 +137,29 @@ Full credit goes to him.
 	ReputationWatchStatusBar:ClearAllPoints()
 	ReputationWatchStatusBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 13)
 	
-    -- move pet actionbar above other actionbars
-    PetActionBarFrame:ClearAllPoints()
-    local anchor = MainMenuBarArtFrame
-    anchor = MultiBarBottomLeft:IsVisible() and MultiBarBottomLeft or anchor
-    anchor = MultiBarBottomRight:IsVisible() and MultiBarBottomRight or anchor
+-- move pet actionbar above other actionbars
+PetActionBarFrame:ClearAllPoints()
+local anchor = MainMenuBarArtFrame
+
+-- Create a function to update the anchor and position of PetActionBarFrame
+local function updatePetActionBarPosition()
+    if MultiBarBottomRight:IsVisible() then
+        anchor = MultiBarBottomRight
+    elseif MultiBarBottomLeft:IsVisible() then
+        anchor = MultiBarBottomLeft
+    end
     PetActionBarFrame:SetPoint("BOTTOM", anchor, "TOP", 0, 3)
+end
+
+-- Call the function initially to set the position
+updatePetActionBarPosition()
+
+-- Set scripts to update the position when action bars show/hide
+MultiBarBottomRight:SetScript("OnShow", updatePetActionBarPosition)
+MultiBarBottomRight:SetScript("OnHide", updatePetActionBarPosition)
+MultiBarBottomLeft:SetScript("OnShow", updatePetActionBarPosition)
+MultiBarBottomLeft:SetScript("OnHide", updatePetActionBarPosition)
+
 
     -- ShapeshiftBarFrame
     ShapeshiftBarFrame:ClearAllPoints()
