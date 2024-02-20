@@ -30,8 +30,14 @@ else
     rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Wyvern")
 end
 
+--Size the endcaps
+leftGryphon:SetWidth(100)
+leftGryphon:SetHeight(100)
+rightGryphon:SetWidth(100)
+rightGryphon:SetHeight(100)
+
 -- Position the new textures
-leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -100, 20)
-rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 100, 20)
+leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -80, 5)
+rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 80, 5)
 -- Flip the right texture
 rightGryphon:SetTexCoord(1, 0, 0, 1)

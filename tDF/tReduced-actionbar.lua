@@ -34,6 +34,12 @@ Full credit goes to him.
     MainMenuBarTexture2, MainMenuBarTexture3,
     MainMenuMaxLevelBar2, MainMenuMaxLevelBar3, 
 	--BonusActionBarTexture0,
+    -- shapeshift backgrounds
+    ShapeshiftBarLeft, ShapeshiftBarMiddle, ShapeshiftBarRight,
+  }
+
+  --[[
+    I removed these from the local frames so I can reskin them
     -- micro button panel
     CharacterMicroButton, SpellbookMicroButton, TalentMicroButton,
     QuestLogMicroButton, MainMenuMicroButton, SocialsMicroButton,
@@ -41,9 +47,117 @@ Full credit goes to him.
     -- bag panel
     CharacterBag3Slot, CharacterBag2Slot, CharacterBag1Slot,
     CharacterBag0Slot, MainMenuBarBackpackButton, KeyRingButton,
-    -- shapeshift backgrounds
-    ShapeshiftBarLeft, ShapeshiftBarMiddle, ShapeshiftBarRight,
-  }
+    
+  ]]
+
+  --the micromenu and all the buttons
+  local mbHelp = HelpMicroButton
+  mbHelp:ClearAllPoints()
+  mbHelp:SetPoint("BOTTOMRIGHT", UIParent, 0, 0)
+  local mbMainMenu = MainMenuMicroButton
+  mbMainMenu:ClearAllPoints()
+  mbMainMenu:SetPoint("BOTTOMRIGHT", UIParent, -26, 0)
+  local mbWorldMap = WorldMapMicroButton
+  mbWorldMap:ClearAllPoints()
+  mbWorldMap:SetPoint("BOTTOMRIGHT", UIParent, -52, 0)
+  local mbSocials = SocialsMicroButton
+  mbSocials:ClearAllPoints()
+  mbSocials:SetPoint("BOTTOMRIGHT", UIParent, -78, 0)
+  local mbQuestLog = QuestLogMicroButton
+  mbQuestLog:ClearAllPoints()
+  mbQuestLog:SetPoint("BOTTOMRIGHT", UIParent, -104, 0)
+  local mbTalent = TalentMicroButton
+  mbTalent:ClearAllPoints()
+  mbTalent:SetPoint("BOTTOMRIGHT", UIParent, -130, 0)
+  local mbSpellBook = SpellbookMicroButton
+  mbSpellBook:ClearAllPoints()
+  mbSpellBook:SetPoint("BOTTOMRIGHT", UIParent, -156, 0)
+  local mbCharacter = CharacterMicroButton
+  mbCharacter:ClearAllPoints()
+  mbCharacter:SetPoint("BOTTOMRIGHT", UIParent, -182, 0)
+
+  --the bagmenu
+local bbMain = MainMenuBarBackpackButton
+bbMain:ClearAllPoints()
+bbMain:SetPoint("TOPLEFT", mbHelp, -15, 30)
+bbMain:SetBackdrop(nil)
+--bbMain:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+--bbMain:SetWidth(55)
+--bbMain:SetHeight(55)
+-- Create a new texture
+local bbMainTexture = bbMain:CreateTexture(nil, "OVERLAY")
+-- Set the size of the texture
+bbMainTexture:SetWidth(60)
+bbMainTexture:SetHeight(60)
+-- Set the texture file
+bbMainTexture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+-- Position the texture on the button
+bbMainTexture:SetPoint("CENTER", bbMain)
+
+local lb1 = CharacterBag0Slot
+--lb1:SetWidth(30)
+--lb1:SetHeight(30)
+lb1:ClearAllPoints()
+lb1:SetPoint("TOPLEFT", mbHelp, -60, 30)
+-- Hide the border
+lb1:SetBackdrop(nil)
+--lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+-- Create a new texture
+local lb1Texture = lb1:CreateTexture(nil, "OVERLAY")
+-- Set the size of the texture
+lb1Texture:SetWidth(45)
+lb1Texture:SetHeight(45)
+-- Set the texture file
+lb1Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+-- Position the texture on the button
+lb1Texture:SetPoint("CENTER", lb1)
+
+local lb2 = CharacterBag1Slot
+--bbMain:ClearAllPoints()
+lb2:SetPoint("TOPLEFT", mbHelp, -105, 30)
+lb2:SetBackdrop(nil)
+local lb2Texture = lb2:CreateTexture(nil, "OVERLAY")
+lb2Texture:SetWidth(45)
+lb2Texture:SetHeight(45)
+lb2Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+lb2Texture:SetPoint("CENTER", lb2)
+
+local lb3 = CharacterBag2Slot
+--bbMain:ClearAllPoints()
+lb3:SetPoint("TOPLEFT", mbHelp, -150, 30)
+lb3:SetBackdrop(nil)
+local lb3Texture = lb3:CreateTexture(nil, "OVERLAY")
+lb3Texture:SetWidth(45)
+lb3Texture:SetHeight(45)
+lb3Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+lb3Texture:SetPoint("CENTER", lb3)
+
+local lb4 = CharacterBag3Slot
+--bbMain:ClearAllPoints()
+lb4:SetPoint("TOPLEFT", mbHelp, -195, 30)
+lb3:SetBackdrop(nil)
+local lb4Texture = lb4:CreateTexture(nil, "OVERLAY")
+lb4Texture:SetWidth(45)
+lb4Texture:SetHeight(45)
+lb4Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+lb4Texture:SetPoint("CENTER", lb4)
+
+--[[
+local kr = KeyRingButton
+--bbMain:ClearAllPoints()
+kr:SetPoint("TOPLEFT", mbHelp, -240, 30)
+kr:SetBackdrop(nil)
+local krTexture = kr:CreateTexture(nil, "OVERLAY")
+krTexture:SetWidth(30)
+krTexture:SetHeight(30)
+kr:SetWidth(30)
+kr:SetHeight(30)
+krTexture:SetTexture("Interface\\AddOns\\tDF\\img\\KeyRing-Bag-Icon")
+krTexture:SetPoint("CENTER", kr)
+1
+]]
+
+
 
   -- textures that shall be set empty
   local textures = {
@@ -127,7 +241,8 @@ Full credit goes to him.
     end
 
 	MainMenuExpBar:ClearAllPoints()
-	MainMenuExpBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 13)
+	MainMenuExpBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 2)
+
 	--ActionButton1:ClearAllPoints()
 	--ActionButton1:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 18)
 	
@@ -135,7 +250,7 @@ Full credit goes to him.
 	MultiBarBottomLeft:ClearAllPoints()
 	MultiBarBottomLeft:SetPoint("BOTTOM", MainMenuBar, "TOP", 3, -5)
 	ReputationWatchStatusBar:ClearAllPoints()
-	ReputationWatchStatusBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 13)
+	ReputationWatchStatusBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 2)
 	
 -- move pet actionbar above other actionbars
 PetActionBarFrame:ClearAllPoints()
