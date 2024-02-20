@@ -16,7 +16,7 @@ A UI that brings the Dragonflight UI to Turtle WoW. I've only tested this on res
 1. The HD textures for the empty bags icon only works when you reload the UI.
 2. Debuffs show in the center of the minimap.
 
-## Credit
+## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
 Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)    
