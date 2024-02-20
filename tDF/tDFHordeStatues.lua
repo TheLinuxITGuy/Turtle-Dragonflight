@@ -31,13 +31,13 @@ else
 end
 
 --Size the endcaps
-leftGryphon:SetWidth(100)
-leftGryphon:SetHeight(100)
-rightGryphon:SetWidth(100)
-rightGryphon:SetHeight(100)
+leftGryphon:SetWidth(84)
+leftGryphon:SetHeight(84)
+rightGryphon:SetWidth(84)
+rightGryphon:SetHeight(84)
 
 -- Position the new textures
-leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -80, 5)
-rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 80, 5)
+leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -74, 2)
+rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 74, 2)
 -- Flip the right texture
 rightGryphon:SetTexCoord(1, 0, 0, 1)
