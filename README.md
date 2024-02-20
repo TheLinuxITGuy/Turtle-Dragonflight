@@ -23,4 +23,4 @@ Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)
 Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)
 
 ## Screenshots
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshot%202024-02-17%20215631.png)
+![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Main.png)
