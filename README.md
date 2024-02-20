@@ -16,6 +16,14 @@ A UI that brings the Dragonflight UI to Turtle WoW. I've only tested this on res
 1. The HD textures for the empty bags icon only works when you reload the UI.
 2. Debuffs show in the center of the minimap.
 
+## Features
+- Dragonflight Minimap
+- Dragonflight Actionbar based on Horde or Alliance
+- Dragonflight Unitframes
+- Dragonflight Castbar
+- Dragonflight Bags
+- Dragonflight MicroMenu Location (icons coming soon)
+
 ## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
