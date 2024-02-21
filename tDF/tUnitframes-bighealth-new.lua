@@ -3,6 +3,30 @@
   PlayerFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame]]  
   PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]  
   PlayerFrameHealthBar:SetPoint("TOPLEFT", 106, -23)
+
+  -- Get the Player unitframe
+local playerFrame = PlayerFrame
+-- Change the font of the Player unitframe
+playerFrame.healthbar.TextString:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
+playerFrame.healthbar.TextString:SetTextColor(1, 1, 1)
+playerFrame.manabar.TextString:SetFont(STANDARD_TEXT_FONT, 10,"OUTLINE")
+playerFrame.manabar.TextString:SetTextColor(1, 1, 1)
+local petFrame = PetFrame
+petFrame.healthbar.TextString:SetFont(STANDARD_TEXT_FONT, 8, "OUTLINE")
+petFrame.healthbar.TextString:SetTextColor(1, 1, 1)
+petFrame.manabar.TextString:SetFont(STANDARD_TEXT_FONT, 8, "OUTLINE")
+petFrame.manabar.TextString:SetTextColor(1, 1, 1)
+ -- Center the text over the Heal and Mana bars
+petFrame.healthbar.TextString:SetPoint("CENTER", petFrame.healthbar, "CENTER", 0, 0)
+petFrame.healthbar.TextString:SetJustifyH("CENTER")
+petFrame.manabar.TextString:SetPoint("CENTER", petFrame.manabar, "CENTER", 0, 0)
+petFrame.manabar.TextString:SetJustifyH("CENTER")
+
+-- Get the MainMenuExpBar
+local expBar = MainMenuExpBar
+-- Change the font of the MainMenuExpBar
+expBar.TextString:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
+expBar.TextString:SetTextColor(1, 1, 1)
  
   PlayerFrameHealthBar:SetWidth(120)
   PlayerFrameHealthBar:SetHeight(30)
