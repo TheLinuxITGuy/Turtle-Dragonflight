@@ -1,6 +1,7 @@
 --Define local vars
 local tMinimapBorder = MinimapBorder
 local tMinimapCluster = MinimapCluster
+local tMinimap = Minimap
 local tMinimapToggleButton = MinimapToggleButton
 local tGameTimeFrame = GameTimeFrame
 local tMinimapZoomIn = MinimapZoomIn
@@ -33,19 +34,30 @@ tMinimapZoomOut:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\ZoomOut32-push
 --Mouse click
 tMinimapZoomOut:SetPushedTexture("Interface\\AddOns\\tDF\\img\\ZoomOut32-push.tga")
 
---Minimap:SetPoint("TOPLEFT", MinimapCluster, "BOTTOMLEFT", 0, -10)
---[[
--- Initially hide the button
-tMinimapZoomIn:Hide()
--- When the mouse is over the Minimap, show the button
-tMinimapZoomIn:SetScript("OnEnter", function()
-    tMinimapZoomIn:Show()
+-------------Event-----------------
+-- Get the current minimap zoom level
+local zoomLevel = Minimap:GetZoom()
+-- Create a frame to handle the event
+local frame = CreateFrame("Frame")
+-- Set the OnUpdate script
+frame:SetScript("OnUpdate", function(self, elapsed)
+    local zoomLevel = Minimap:GetZoom()
+-- Check if the zoom level is 0 or 5
+        if zoomLevel == 0 then
+            --print("The minimap is zoomed out to the maximum.")
+            tMinimapZoomOut:Hide()
+            tMinimapZoomIn:Show()
+        elseif zoomLevel == 5 then
+            --print("The minimap is zoomed in to the maximum.")
+            tMinimapZoomIn:Hide()
+            tMinimapZoomOut:Show()
+        else
+            --print("The minimap zoom level is between the minimum and maximum.")
+            tMinimapZoomIn:Show()
+            tMinimapZoomOut:Show()
+        end
 end)
--- When the mouse leaves the Minimap, hide the button
-tMinimapZoomIn:SetScript("OnLeave", function()
-    tMinimapZoomIn:Hide()
-end)
-]]
+-------------Event-----------------
 
 --Sets the Top Minimap background
 tMinimapBorderTop:SetTexture()
