@@ -23,7 +23,6 @@ A UI that brings the Dragonflight UI to Turtle WoW. I've only tested this on res
 ## Known issues
 1. The HD textures for the empty bags icon only works when you reload the UI.
 2. Debuffs show in the center of the minimap.
-3. If you zoom all the way out or in on the Minimap, the classic Blizzard art button shows.
 
 ## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
