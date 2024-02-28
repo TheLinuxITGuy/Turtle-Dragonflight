@@ -50,36 +50,10 @@ Full credit goes to him.
     
   ]]
 
-  --the micromenu and all the buttons
-  local mbHelp = HelpMicroButton
-  mbHelp:ClearAllPoints()
-  mbHelp:SetPoint("BOTTOMRIGHT", UIParent, 0, 0)
-  local mbMainMenu = MainMenuMicroButton
-  mbMainMenu:ClearAllPoints()
-  mbMainMenu:SetPoint("BOTTOMRIGHT", UIParent, -26, 0)
-  local mbWorldMap = WorldMapMicroButton
-  mbWorldMap:ClearAllPoints()
-  mbWorldMap:SetPoint("BOTTOMRIGHT", UIParent, -52, 0)
-  local mbSocials = SocialsMicroButton
-  mbSocials:ClearAllPoints()
-  mbSocials:SetPoint("BOTTOMRIGHT", UIParent, -78, 0)
-  local mbQuestLog = QuestLogMicroButton
-  mbQuestLog:ClearAllPoints()
-  mbQuestLog:SetPoint("BOTTOMRIGHT", UIParent, -104, 0)
-  local mbTalent = TalentMicroButton
-  mbTalent:ClearAllPoints()
-  mbTalent:SetPoint("BOTTOMRIGHT", UIParent, -130, 0)
-  local mbSpellBook = SpellbookMicroButton
-  mbSpellBook:ClearAllPoints()
-  mbSpellBook:SetPoint("BOTTOMRIGHT", UIParent, -156, 0)
-  local mbCharacter = CharacterMicroButton
-  mbCharacter:ClearAllPoints()
-  mbCharacter:SetPoint("BOTTOMRIGHT", UIParent, -182, 0)
-
   --the bagmenu
 local bbMain = MainMenuBarBackpackButton
 bbMain:ClearAllPoints()
-bbMain:SetPoint("TOPLEFT", mbHelp, -15, 30)
+bbMain:SetPoint("TOPLEFT", mbHelp, -15, 60)
 bbMain:SetBackdrop(nil)
 --bbMain:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
 --bbMain:SetWidth(55)
@@ -98,7 +72,7 @@ local lb1 = CharacterBag0Slot
 --lb1:SetWidth(30)
 --lb1:SetHeight(30)
 lb1:ClearAllPoints()
-lb1:SetPoint("TOPLEFT", mbHelp, -60, 30)
+lb1:SetPoint("TOPLEFT", mbHelp, -60, 60)
 -- Hide the border
 lb1:SetBackdrop(nil)
 --lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
@@ -114,7 +88,7 @@ lb1Texture:SetPoint("CENTER", lb1)
 
 local lb2 = CharacterBag1Slot
 --bbMain:ClearAllPoints()
-lb2:SetPoint("TOPLEFT", mbHelp, -105, 30)
+lb2:SetPoint("TOPLEFT", mbHelp, -105, 60)
 lb2:SetBackdrop(nil)
 local lb2Texture = lb2:CreateTexture(nil, "OVERLAY")
 lb2Texture:SetWidth(45)
@@ -124,7 +98,7 @@ lb2Texture:SetPoint("CENTER", lb2)
 
 local lb3 = CharacterBag2Slot
 --bbMain:ClearAllPoints()
-lb3:SetPoint("TOPLEFT", mbHelp, -150, 30)
+lb3:SetPoint("TOPLEFT", mbHelp, -150, 60)
 lb3:SetBackdrop(nil)
 local lb3Texture = lb3:CreateTexture(nil, "OVERLAY")
 lb3Texture:SetWidth(45)
@@ -134,7 +108,7 @@ lb3Texture:SetPoint("CENTER", lb3)
 
 local lb4 = CharacterBag3Slot
 --bbMain:ClearAllPoints()
-lb4:SetPoint("TOPLEFT", mbHelp, -195, 30)
+lb4:SetPoint("TOPLEFT", mbHelp, -195, 60)
 lb3:SetBackdrop(nil)
 local lb4Texture = lb4:CreateTexture(nil, "OVERLAY")
 lb4Texture:SetWidth(45)
