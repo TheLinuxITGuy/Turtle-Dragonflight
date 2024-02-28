@@ -4,7 +4,7 @@ Full credit goes to him.
 ]]
 
 -- general function to hide textures and frames
-  local addonpath = "Interface\\AddOns\\ShaguTweaks"
+  local addonpath = "Interface\\AddOns\\tDF"
   local function hide(frame, texture)
     if not frame then return end
 
@@ -49,89 +49,6 @@ Full credit goes to him.
     CharacterBag0Slot, MainMenuBarBackpackButton, KeyRingButton,
     
   ]]
-
-  --the bagmenu
-local bbMain = MainMenuBarBackpackButton
-bbMain:ClearAllPoints()
-bbMain:SetPoint("TOPLEFT", mbHelp, -15, 60)
-bbMain:SetBackdrop(nil)
---bbMain:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
---bbMain:SetWidth(55)
---bbMain:SetHeight(55)
--- Create a new texture
-local bbMainTexture = bbMain:CreateTexture(nil, "OVERLAY")
--- Set the size of the texture
-bbMainTexture:SetWidth(60)
-bbMainTexture:SetHeight(60)
--- Set the texture file
-bbMainTexture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
--- Position the texture on the button
-bbMainTexture:SetPoint("CENTER", bbMain)
-
-local lb1 = CharacterBag0Slot
---lb1:SetWidth(30)
---lb1:SetHeight(30)
-lb1:ClearAllPoints()
-lb1:SetPoint("TOPLEFT", mbHelp, -60, 60)
--- Hide the border
-lb1:SetBackdrop(nil)
---lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
--- Create a new texture
-local lb1Texture = lb1:CreateTexture(nil, "OVERLAY")
--- Set the size of the texture
-lb1Texture:SetWidth(45)
-lb1Texture:SetHeight(45)
--- Set the texture file
-lb1Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
--- Position the texture on the button
-lb1Texture:SetPoint("CENTER", lb1)
-
-local lb2 = CharacterBag1Slot
---bbMain:ClearAllPoints()
-lb2:SetPoint("TOPLEFT", mbHelp, -105, 60)
-lb2:SetBackdrop(nil)
-local lb2Texture = lb2:CreateTexture(nil, "OVERLAY")
-lb2Texture:SetWidth(45)
-lb2Texture:SetHeight(45)
-lb2Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
-lb2Texture:SetPoint("CENTER", lb2)
-
-local lb3 = CharacterBag2Slot
---bbMain:ClearAllPoints()
-lb3:SetPoint("TOPLEFT", mbHelp, -150, 60)
-lb3:SetBackdrop(nil)
-local lb3Texture = lb3:CreateTexture(nil, "OVERLAY")
-lb3Texture:SetWidth(45)
-lb3Texture:SetHeight(45)
-lb3Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
-lb3Texture:SetPoint("CENTER", lb3)
-
-local lb4 = CharacterBag3Slot
---bbMain:ClearAllPoints()
-lb4:SetPoint("TOPLEFT", mbHelp, -195, 60)
-lb3:SetBackdrop(nil)
-local lb4Texture = lb4:CreateTexture(nil, "OVERLAY")
-lb4Texture:SetWidth(45)
-lb4Texture:SetHeight(45)
-lb4Texture:SetTexture("Interface\\AddOns\\tDF\\img\\bigbag")
-lb4Texture:SetPoint("CENTER", lb4)
-
---[[
-local kr = KeyRingButton
---bbMain:ClearAllPoints()
-kr:SetPoint("TOPLEFT", mbHelp, -240, 30)
-kr:SetBackdrop(nil)
-local krTexture = kr:CreateTexture(nil, "OVERLAY")
-krTexture:SetWidth(30)
-krTexture:SetHeight(30)
-kr:SetWidth(30)
-kr:SetHeight(30)
-krTexture:SetTexture("Interface\\AddOns\\tDF\\img\\KeyRing-Bag-Icon")
-krTexture:SetPoint("CENTER", kr)
-1
-]]
-
-
 
   -- textures that shall be set empty
   local textures = {
