@@ -18,7 +18,7 @@ A UI that brings the Dragonflight UI to Turtle WoW. I've only tested this on res
 - Dragonflight Unitframes
 - Dragonflight Castbar
 - Dragonflight Bags
-- Dragonflight MicroMenu Location (icons coming soon)
+- Dragonflight MicroMenu
 
 ## Known issues
 1. The HD textures for the empty bags icon only works when you reload the UI.
