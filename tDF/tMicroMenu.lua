@@ -1,11 +1,9 @@
 --[[
 Author: YouTube.com/@TheLinuxITGuy
 Built on: Linux Mint Debian Edition 12
-This lua file Hide the original Blizzard art work from 1.12. I've created new buttons and textured them to match
+This lua file hides the original Blizzard art work from 1.12. I've created new buttons and textured them to match
 Dragonflight.
 ]]
-
-
 
 ---------------------------------------------Help Micro Button--------------------------------------------------
 --Hide the original HelpMicroButton
@@ -31,7 +29,6 @@ mbHelp:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local HelpHighlightTexture = mbHelp:GetHighlightTexture()
 HelpHighlightTexture:SetTexCoord(162/256, 198/256, 215/512, 265/512)
-
 --click
 mbHelp:SetScript("OnClick", function(self, button, down)
   ToggleHelpFrame()
