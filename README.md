@@ -33,7 +33,7 @@ Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-m
 ## Screenshots
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewMain.jpg)
 
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Actionbars.png)
+![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewXPbar.png)
 
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Bag-Art.png)
 
