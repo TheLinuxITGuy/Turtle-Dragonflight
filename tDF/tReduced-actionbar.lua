@@ -1,6 +1,9 @@
 --[[
-All code in this file was taken from ShaguTweaks. 
-Full credit goes to him.
+Author: ShaguTweaks
+Modified by: YouTube.com/@TheLinuxITGuy
+Built on: Linux Mint Debian Edition 12
+This lua file hides the original Blizzard art work from 1.12. I've created new buttons and textured them to match
+Dragonflight.
 ]]
 
 -- general function to hide textures and frames
@@ -29,8 +32,8 @@ Full credit goes to him.
    ReputationWatchBarTexture2, ReputationWatchBarTexture3,
 
     -- actionbar backgrounds
-	-- MainMenuBarTexture0,
-    -- MainMenuBarTexture1,
+	  --MainMenuBarTexture0,
+    --MainMenuBarTexture1,
     MainMenuBarTexture2, MainMenuBarTexture3,
     MainMenuMaxLevelBar2, MainMenuMaxLevelBar3, 
 	--BonusActionBarTexture0,
@@ -134,10 +137,6 @@ Full credit goes to him.
 	MainMenuExpBar:ClearAllPoints()
 	MainMenuExpBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 2)
 
-	--ActionButton1:ClearAllPoints()
-	--ActionButton1:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 18)
-	
-	--MainMenuBar:SetPoint("BOTTOM", WorldFrame, "BOTTOM", 0, 28)
 	MultiBarBottomLeft:ClearAllPoints()
 	MultiBarBottomLeft:SetPoint("BOTTOM", MainMenuBar, "TOP", 3, -5)
 	ReputationWatchStatusBar:ClearAllPoints()
@@ -185,3 +184,5 @@ MultiBarBottomLeft:SetScript("OnHide", updatePetActionBarPosition)
     local pet_offset = PetActionBarFrame:IsVisible() and 40 or 0
     CastingBarFrame:SetPoint("BOTTOM", anchor, "TOP", 0, 50 + pet_offset)
   end
+
+MainMenuExpBar:SetAlpha(0) --Required for tXPbar.lua to work

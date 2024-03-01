@@ -9,6 +9,7 @@ tHD-ActionBars.lua
 tDFHordeStatues.lua
 tMicroMenu.lua
 tReduced-actionbar.lua
+tXPbar.lua
 tMinimap.lua
 tDF.lua
 tCastbar.lua
