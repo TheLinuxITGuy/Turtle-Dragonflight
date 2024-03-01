@@ -31,7 +31,7 @@ Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)
 Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)
 
 ## Screenshots
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/newss.jpg)
+![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewMain.jpg)
 
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Actionbars.png)
 
