@@ -10,7 +10,7 @@ MainMenuExpBar:SetAlpha(0) --Required for XPbar.lua to work
 local MyXPBar = CreateFrame("Frame", "MyXPBar", UIParent)
 MyXPBar:SetWidth(510)
 MyXPBar:SetHeight(19)
-MyXPBar:SetPoint("CENTER", UIParent, "CENTER", 0, -588)
+MyXPBar:SetPoint("CENTER", MainMenuExpBar, "CENTER", 0, 2) -- -588
 MyXPBar:Show()
 MyXPBar:SetFrameStrata("HIGH")
 
@@ -23,7 +23,7 @@ MyXPBarTexture:SetAllPoints(MyXPBar)
 -- Create the frame for the blue or purple bar
 local MyXPBarStatus = CreateFrame("StatusBar", "MyXPBarStatus", UIParent)
 MyXPBarStatus:SetWidth(500)
-MyXPBarStatus:SetHeight(10)
+MyXPBarStatus:SetHeight(9)
 MyXPBarStatus:SetPoint("CENTER", MyXPBar, "CENTER", 0, 0)
 MyXPBarStatus:SetMinMaxValues(0, 1)
 MyXPBarStatus:SetValue(1)
