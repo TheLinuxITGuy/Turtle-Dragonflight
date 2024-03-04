@@ -40,21 +40,21 @@ button:SetHeight(50)
 
 --hides the original Blizzard artwork
 MainMenuBarBackpackButton:Hide()
-CharacterBag0Slot:Hide()
-CharacterBag1Slot:Hide()
-CharacterBag2Slot:Hide()
-CharacterBag3Slot:Hide()
+--CharacterBag0Slot:Hide()
+--CharacterBag1Slot:Hide()
+--CharacterBag2Slot:Hide()
+--CharacterBag3Slot:Hide()
 
 -----------------Main Bag icon-----------------
 
 local bbMain = CreateFrame("Button", "MyBagButton", UIParent, "UIPanelButtonTemplate")
-bbMain:SetWidth(35)
-bbMain:SetHeight(35)
+bbMain:SetWidth(40)
+bbMain:SetHeight(40)
 bbMain:SetPoint("TOPLEFT", mbHelp, -25, 45) --the -25 is to the left, the 45 is up
 bbMain:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local MainBagNormalTexture = bbMain:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-MainBagNormalTexture:SetTexCoord(6/512, 84/512, 4/128, 88/128)
+MainBagNormalTexture:SetTexCoord(4/512, 90/512, 2/128, 94/128)
 --MainBagNormalTexture:SetWidth(35)
 --MainBagNormalTexture:SetHeight(35)
 --Set the button's pushed texture
@@ -144,13 +144,23 @@ bbArrow:SetScript("OnClick", function(self, button, down)
 -----------------Bag 1 icon-----------------
 
 local lb1 = CreateFrame("Button", "lb1", UIParent, "UIPanelButtonTemplate")
+CharacterBag0Slot:SetNormalTexture("")
+CharacterBag0Slot:SetPushedTexture("")
+CharacterBag0Slot:SetHighlightTexture("")
+CharacterBag0Slot:ClearAllPoints()
+CharacterBag0Slot:SetWidth(17)
+CharacterBag0Slot:SetHeight(17)
+CharacterBag0Slot:SetPoint("CENTER", lb1, 0, 0)
+
 lb1:SetWidth(25)
 lb1:SetHeight(25)
 lb1:SetPoint("CENTER", bbMain, -50, 0) --the -45 is to the left, the 45 is up
 lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb1NormalTexture = lb1:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb1NormalTexture:SetTexCoord(295/512, 353/512, 64/128, 124/128)
+--lb1NormalTexture:SetTexCoord(295/512, 353/512, 64/128, 124/128) --original b4 changes 3/4/24
+lb1NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
@@ -167,18 +177,28 @@ lb1HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
 lb1:SetScript("OnClick", function(self, button, down)
     ToggleBag(1)
   end)
+  -- Add this line to move lb1 in front of CharacterBag0Slot
+lb1:SetFrameLevel(CharacterBag0Slot:GetFrameLevel() + 1)
 -----------------Bag 1 icon-----------------
 
 -----------------Bag 2 icon-----------------
 
 local lb2 = CreateFrame("Button", "lb2", UIParent, "UIPanelButtonTemplate")
+CharacterBag1Slot:SetNormalTexture("")
+CharacterBag1Slot:SetPushedTexture("")
+CharacterBag1Slot:SetHighlightTexture("")
+CharacterBag1Slot:ClearAllPoints()
+CharacterBag1Slot:SetWidth(17)
+CharacterBag1Slot:SetHeight(17)
+CharacterBag1Slot:SetPoint("CENTER", lb2, 0, 0)
 lb2:SetWidth(25)
 lb2:SetHeight(25)
 lb2:SetPoint("CENTER", bbMain, -75, 0) --the -45 is to the left, the 45 is up
 lb2:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb2NormalTexture = lb2:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb2NormalTexture:SetTexCoord(295/512, 353/512, 64/128, 124/128)
+lb2NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
@@ -195,18 +215,28 @@ lb2HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
 lb2:SetScript("OnClick", function(self, button, down)
     ToggleBag(2)
   end)
+    -- Add this line to move lb2 in front of CharacterBag1Slot
+lb2:SetFrameLevel(CharacterBag1Slot:GetFrameLevel() + 1)
 -----------------Bag 2 icon-----------------
 
 -----------------Bag 3 icon-----------------
 
 local lb3 = CreateFrame("Button", "lb3", UIParent, "UIPanelButtonTemplate")
+CharacterBag2Slot:SetNormalTexture("")
+CharacterBag2Slot:SetPushedTexture("")
+CharacterBag2Slot:SetHighlightTexture("")
+CharacterBag2Slot:ClearAllPoints()
+CharacterBag2Slot:SetWidth(17)
+CharacterBag2Slot:SetHeight(17)
+CharacterBag2Slot:SetPoint("CENTER", lb3, 0, 0)
 lb3:SetWidth(25)
 lb3:SetHeight(25)
 lb3:SetPoint("CENTER", bbMain, -100, 0) --the -45 is to the left, the 45 is up
 lb3:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb3NormalTexture = lb3:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb3NormalTexture:SetTexCoord(295/512, 353/512, 64/128, 124/128)
+lb3NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
@@ -223,18 +253,28 @@ lb3HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
 lb3:SetScript("OnClick", function(self, button, down)
     ToggleBag(3)
   end)
+-- Add this line to move lb3 in front of CharacterBag2Slot
+lb3:SetFrameLevel(CharacterBag2Slot:GetFrameLevel() + 1)
 -----------------Bag 3 icon-----------------
 
 -----------------Bag 4 icon-----------------
 
 local lb4 = CreateFrame("Button", "lb4", UIParent, "UIPanelButtonTemplate")
+CharacterBag3Slot:SetNormalTexture("")
+CharacterBag3Slot:SetPushedTexture("")
+CharacterBag3Slot:SetHighlightTexture("")
+CharacterBag3Slot:ClearAllPoints()
+CharacterBag3Slot:SetWidth(17)
+CharacterBag3Slot:SetHeight(17)
+CharacterBag3Slot:SetPoint("CENTER", lb4, 0, 0)
 lb4:SetWidth(25)
 lb4:SetHeight(25)
 lb4:SetPoint("CENTER", bbMain, -125, 0) --the -45 is to the left, the 45 is up
 lb4:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb4NormalTexture = lb4:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb4NormalTexture:SetTexCoord(295/512, 353/512, 64/128, 124/128)
+lb4NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
@@ -251,6 +291,29 @@ lb4HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
 lb4:SetScript("OnClick", function(self, button, down)
     ToggleBag(4)
   end)
+  -- Add this line to move lb3 in front of CharacterBag2Slot
+lb4:SetFrameLevel(CharacterBag3Slot:GetFrameLevel() + 1)
+
+-- Get the button for CharacterBag3Slot
+local button = getglobal("CharacterBag3Slot")
+if button then
+    -- Check if the Count property exists
+    local count = getglobal(button:GetName() .. "Count")
+    if count then
+        -- Get the current font settings
+        local fontName, fontSize, fontFlags = count:GetFont()
+        -- Set the new font size
+        count:SetFont(STANDARD_TEXT_FONT, 6, "OUTLINE")
+        count:ClearAllPoints()
+        count:SetPoint("CENTER", button, "CENTER")
+    else
+        -- Print a debug message
+        print("CharacterBag3Slot does not have a Count property.")
+    end
+else
+    -- Print a debug message
+    print("CharacterBag3Slot does not exist.")
+end
 -----------------Bag 4 icon-----------------
 
 -----------------Keyring icon-----------------
@@ -280,4 +343,3 @@ kr:SetScript("OnClick", function(self, button, down)
     ToggleKeyRing()
   end)
 -----------------Keyring icon-----------------
-
