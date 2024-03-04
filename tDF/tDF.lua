@@ -13,7 +13,7 @@ end
 
 print("|cff008000Turtle |cff1974d2Dragonflight |cffffffffloaded. Welcome " .. UnitName("player") .. "!")
 
---adds scroll up and down
+--adds scroll up and down to chat
 local scrollspeed = 1
 local function ChatOnMouseWheel()
   if arg1 > 0 then
@@ -42,8 +42,22 @@ end
   ChatTypeInfo.CHANNEL.sticky = 1
   -- repeat message without pressing <alt>
   ChatFrameEditBox:SetAltArrowKeyMode(false)
+
+-- loop over all chat windows
+for i=1, NUM_CHAT_WINDOWS do
+  local chatFrame = getglobal("ChatFrame"..i)
+  if chatFrame then
+    -- enable mouse wheel scrolling
+    chatFrame:EnableMouseWheel(true)
+    chatFrame:SetScript("OnMouseWheel", ChatOnMouseWheel)
+  end
+end
+
+  --[[
   for i=1, NUM_CHAT_WINDOWS do
     -- enable mouse wheel scrolling
     ChatFrame1:EnableMouseWheel(true)
     ChatFrame1:SetScript("OnMouseWheel", ChatOnMouseWheel)
   end
+
+  ]]
