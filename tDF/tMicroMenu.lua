@@ -65,15 +65,160 @@ mbMainMenu:SetScript("OnClick", function(self, button, down)
 end)
 ---------------------------------------------MainMenu Micro Button--------------------------------------------------
 
+---------------------------------------------PvP Micro Button--------------------------------------------------
+--Hide the original TWMiniMapBattlefieldFrame
+TWMiniMapBattlefieldFrame:Hide()
+--Create a new button
+local mbPvP = CreateFrame("Button", "mbPvP", UIParent, "UIPanelButtonTemplate")
+--Set its properties
+mbPvP:ClearAllPoints()
+mbPvP:SetWidth(18)
+mbPvP:SetHeight(25)
+mbPvP:SetPoint("BOTTOMRIGHT", UIParent, -50, 12) --sets the location of the button
+--Set the button's normal texture
+mbPvP:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local PvPNormalTexture = mbPvP:GetNormalTexture()
+PvPNormalTexture:SetTexCoord(0/256, 37/256, 269/512, 319/512)
+--Set the button's pushed texture
+mbPvP:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local PvPPushedTexture = mbPvP:GetPushedTexture()
+PvPPushedTexture:SetTexCoord(161/256, 197/256, 161/512, 211/512)
+--Set the button's highlight texture
+mbPvP:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local PvPHighlightTexture = mbPvP:GetHighlightTexture()
+PvPHighlightTexture:SetTexCoord(161/256, 197/256, 161/512, 211/512)
+--click
+mbPvP:SetScript("OnClick", function(self, button, down)
+  if BattlefieldFrame:IsVisible() then
+    BattlefieldFrame:Hide()
+  else
+    ShowUIPanel(BattlefieldFrame)
+  end
+end)
+---------------------------------------------PvP Micro Button--------------------------------------------------
+
+---------------------------------------------Turtle WoW Shop Micro Button--------------------------------------------------
+--Hide the original TWMinimapShopFrame
+--TWMinimapShopFrame:SetAlpha(0)
+TWMinimapShopFrame:SetParent(UIParent)
+TWMinimapShopFrame:ClearAllPoints()
+TWMinimapShopFrame:SetPoint("BOTTOMLEFT", UIParent, -700, -500)
+TWMinimapShopFrame:SetAlpha(0)
+--Create a new button
+local mbShop = CreateFrame("Button", "mbShop", UIParent, "UIPanelButtonTemplate")
+--Set its properties
+mbShop:SetWidth(18)
+mbShop:SetHeight(25)
+mbShop:SetPoint("BOTTOMRIGHT", UIParent, -70, 12) --sets the location of the button
+--Set the button's normal texture
+mbShop:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local ShopNormalTexture = mbShop:GetNormalTexture()
+ShopNormalTexture:SetTexCoord(41/256, 78/256, 161/512, 211/512)
+--Set the button's pushed texture
+mbShop:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local ShopPushedTexture = mbShop:GetPushedTexture()
+ShopPushedTexture:SetTexCoord(0/256, 38/256, 431/512, 482/512)
+--Set the button's highlight texture
+mbShop:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local ShopHighlightTexture = mbShop:GetHighlightTexture()
+ShopHighlightTexture:SetTexCoord(0/256, 38/256, 431/512, 482/512)
+--click
+mbShop:SetScript("OnClick", function(self, button, down)
+  tws_toggle()
+end)
+---------------------------------------------Turtle WoW Shop Micro Button--------------------------------------------------
+
+---------------------------------------------Looking for Turtle Micro Button--------------------------------------------------
+--Hide the original LFT_Minimap
+--TWMinimapShopFrame:SetAlpha(0)
+LFT_Minimap:SetParent(UIParent)
+LFT_Minimap:ClearAllPoints()
+LFT_Minimap:Hide()
+--Create a new button
+local mbLFT = CreateFrame("Button", "mbLFT", UIParent, "UIPanelButtonTemplate")
+--Set its properties
+mbLFT:SetWidth(18)
+mbLFT:SetHeight(25)
+mbLFT:SetPoint("BOTTOMRIGHT", UIParent, -90, 12) --sets the location of the button
+--Set the button's normal texture
+mbLFT:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local LFTNormalTexture = mbLFT:GetNormalTexture()
+LFTNormalTexture:SetTexCoord(0/256, 38/256, 161/512, 211/512)
+--Set the button's pushed texture
+mbLFT:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local LFTPushedTexture = mbLFT:GetPushedTexture()
+LFTPushedTexture:SetTexCoord(41/256, 78/256, 107/512, 157/512)
+--Set the button's highlight texture
+mbLFT:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local LFTHighlightTexture = mbLFT:GetHighlightTexture()
+LFTHighlightTexture:SetTexCoord(41/256, 78/256, 107/512, 157/512)
+--click
+mbLFT:SetScript("OnClick", function(self, button, down)
+  LFT_Toggle()
+end)
+---------------------------------------------Looking for Turtle Micro Button--------------------------------------------------
+
+---------------------------------------------Radio Micro Button--------------------------------------------------
+--Hide the original EBC_Minimap
+--TWMinimapShopFrame:SetAlpha(0)
+EBC_Minimap:SetParent(UIParent)
+EBC_Minimap:ClearAllPoints()
+EBC_Minimap:Hide()
+--Create a new button
+local mbEBC = CreateFrame("Button", "mbEBC", UIParent, "UIPanelButtonTemplate")
+--Set its properties
+mbEBC:SetWidth(18)
+mbEBC:SetHeight(25)
+mbEBC:SetPoint("BOTTOMRIGHT", UIParent, -110, 12) --sets the location of the button
+--Set the button's normal texture
+mbEBC:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local EBCNormalTexture = mbEBC:GetNormalTexture()
+EBCNormalTexture:SetTexCoord(82/256, 119/256, 325/512, 374/512)
+--Set the button's pushed texture
+mbEBC:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local EBCPushedTexture = mbEBC:GetPushedTexture()
+EBCPushedTexture:SetTexCoord(82/256, 119/256, 378/512, 429/512)
+--Set the button's highlight texture
+mbEBC:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
+--Get the texture object and set its coordinates
+local EBCHighlightTexture = mbEBC:GetHighlightTexture()
+EBCHighlightTexture:SetTexCoord(82/256, 119/256, 378/512, 429/512)
+--click
+function ShowEBCMinimapDropdown()
+  if EBCMinimapDropdown:IsVisible() then
+  EBCMinimapDropdown:Hide()
+else
+  EBCMinimapDropdown:Show()
+end
+end
+mbEBC:SetScript("OnClick", function(self, button, down)
+  --Look into the radio EBCMinimapDropdown:SetClampedToScreen()
+  EBCMinimapDropdown:ClearAllPoints()
+  EBCMinimapDropdown:SetPoint("CENTER", mbEBC, 0, 65)
+  ShowEBCMinimapDropdown()
+end)
+---------------------------------------------Radio Micro Button--------------------------------------------------
+
 ---------------------------------------------WorldMap Micro Button--------------------------------------------------
---Hide the original WorldMapMicroButton
+--Hide the original Map Button
 WorldMapMicroButton:Hide()
 --Create a new button
 local mbWorldMap = CreateFrame("Button", "mbWorldMap", UIParent, "UIPanelButtonTemplate")
 --Set its properties
 mbWorldMap:SetWidth(18)
 mbWorldMap:SetHeight(25)
-mbWorldMap:SetPoint("BOTTOMRIGHT", UIParent, -50, 12) --sets the location of the button
+mbWorldMap:SetPoint("BOTTOMRIGHT", UIParent, -130, 12) --sets the location of the button
 --Set the button's normal texture
 mbWorldMap:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
@@ -103,7 +248,7 @@ local mbSocials = CreateFrame("Button", "mbSocials", UIParent, "UIPanelButtonTem
 --Set its properties
 mbSocials:SetWidth(18)
 mbSocials:SetHeight(25)
-mbSocials:SetPoint("BOTTOMRIGHT", UIParent, -70, 12) --sets the location of the button
+mbSocials:SetPoint("BOTTOMRIGHT", UIParent, -150, 12) --sets the location of the button
 --Set the button's normal texture
 mbSocials:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
@@ -133,7 +278,7 @@ local mbQuestLog = CreateFrame("Button", "mbQuestLog", UIParent, "UIPanelButtonT
 --Set its properties
 mbQuestLog:SetWidth(18)
 mbQuestLog:SetHeight(25)
-mbQuestLog:SetPoint("BOTTOMRIGHT", UIParent, -90, 12) --sets the location of the button
+mbQuestLog:SetPoint("BOTTOMRIGHT", UIParent, -170, 12) --sets the location of the button
 --Set the button's normal texture
 mbQuestLog:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
@@ -165,7 +310,7 @@ local mbTalent = CreateFrame("Button", "mbTalent", UIParent, "UIPanelButtonTempl
 --Set its properties
 mbTalent:SetWidth(18)
 mbTalent:SetHeight(25)
-mbTalent:SetPoint("BOTTOMRIGHT", UIParent, -110, 12) --sets the location of the button
+mbTalent:SetPoint("BOTTOMRIGHT", UIParent, -190, 12) --sets the location of the button
 --Set the button's normal texture
 mbTalent:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
@@ -195,7 +340,7 @@ local mbSpellBook = CreateFrame("Button", "mbSpellBook", UIParent, "UIPanelButto
 --Set its properties
 mbSpellBook:SetWidth(18)
 mbSpellBook:SetHeight(25)
-mbSpellBook:SetPoint("BOTTOMRIGHT", UIParent, -130, 12) --sets the location of the button
+mbSpellBook:SetPoint("BOTTOMRIGHT", UIParent, -210, 12) --sets the location of the button
 --Set the button's normal texture
 mbSpellBook:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
@@ -225,7 +370,7 @@ local mbCharacter = CreateFrame("Button", "mbCharacter", UIParent, "UIPanelButto
 -- Set its properties
 mbCharacter:SetWidth(18)
 mbCharacter:SetHeight(25)
-mbCharacter:SetPoint("BOTTOMRIGHT", UIParent, -150, 12) -- position Character button next to Spellbook
+mbCharacter:SetPoint("BOTTOMRIGHT", UIParent, -230, 12) -- position Character button next to Spellbook
 -- Set the button's normal texture
 mbCharacter:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 -- Get the texture object and set its coordinates
