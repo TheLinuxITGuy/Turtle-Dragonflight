@@ -90,20 +90,16 @@ bbMain:SetScript("OnClick", function(self, button, down)
   bbLeftArrow:Hide()
   --click
   bbLeftArrow:SetScript("OnClick", function(self, button, down)
-      --hide Bags 1-3
-          --ArrowNormalTexture:SetTexCoord(487/512, 503/512, 2/128, 33/128) --pointing left
-          bbLeftArrow:Hide()
-          bbArrow:Show()
-          lb1:Show()
-          lb2:Show()
-          lb3:Show()
-          lb4:Show()
-          kr:Show()
-          CharacterBag0Slot:Show()
-          CharacterBag1Slot:Show()
-          CharacterBag2Slot:Show()
-          CharacterBag3Slot:Show()
-    end)
+    lb1:Show()
+    lb2:Show()
+    lb3:Show()
+    lb4:Show()
+    CharacterBag0Slot:Show()
+    CharacterBag1Slot:Show()
+    CharacterBag2Slot:Show()
+    CharacterBag3Slot:Show()
+    kr:Show()
+  end)
 
 local bbArrow = CreateFrame("Button", "bbArrow", UIParent, "UIPanelButtonTemplate")
 bbArrow:SetWidth(10)
@@ -123,21 +119,37 @@ bbArrow:SetHighlightTexture("")
 local ArrowHighlightTexture = bbArrow:GetHighlightTexture()
 ArrowHighlightTexture:SetTexCoord(104/512, 183/512, 4/128, 88/128)
 --click
-bbArrow:SetScript("OnClick", function(self, button, down)
-    --hide Bags 1-3
-        --ArrowNormalTexture:SetTexCoord(487/512, 503/512, 2/128, 33/128) --pointing left
-        bbArrow:Hide()
-        bbLeftArrow:Show()
-        lb1:Hide()
-        lb2:Hide()
-        lb3:Hide()
-        lb4:Hide()
-        kr:Hide()
-        CharacterBag0Slot:Hide()
-        CharacterBag1Slot:Hide()
-        CharacterBag2Slot:Hide()
-        CharacterBag3Slot:Hide()
+bbArrow:SetScript("OnClick", function(self, button, down) --arrow pointing right
+
+  lb1:Hide()
+  lb2:Hide()
+  lb3:Hide()
+  lb4:Hide()
+  CharacterBag0Slot:Hide()
+  CharacterBag1Slot:Hide()
+  CharacterBag2Slot:Hide()
+  CharacterBag3Slot:Hide()
+  kr:Hide()
+  bbArrow:Hide()
   end)
+
+  -- Checking arrow left or right
+local function UpdateArrows()
+  if lb1:IsVisible() then
+      bbArrow:Show()
+      bbLeftArrow:Hide()
+  else
+      bbArrow:Hide()
+      bbLeftArrow:Show()
+  end
+end
+
+-- Call UpdateArrows on each frame update
+local f = CreateFrame("Frame")
+f:SetScript("OnUpdate", function(self, elapsed)
+  UpdateArrows()
+end)
+
 -----------------Arrow to the left of the Main Bag icon-----------------
 
 -----------------Bag 1 icon-----------------
