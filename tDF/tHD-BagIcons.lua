@@ -40,13 +40,8 @@ button:SetHeight(50)
 
 --hides the original Blizzard artwork
 MainMenuBarBackpackButton:Hide()
---CharacterBag0Slot:Hide()
---CharacterBag1Slot:Hide()
---CharacterBag2Slot:Hide()
---CharacterBag3Slot:Hide()
 
 -----------------Main Bag icon-----------------
-
 local bbMain = CreateFrame("Button", "MyBagButton", UIParent, "UIPanelButtonTemplate")
 bbMain:SetWidth(40)
 bbMain:SetHeight(40)
@@ -98,14 +93,16 @@ bbMain:SetScript("OnClick", function(self, button, down)
       --hide Bags 1-3
           --ArrowNormalTexture:SetTexCoord(487/512, 503/512, 2/128, 33/128) --pointing left
           bbLeftArrow:Hide()
-          bbLeftArrow:Disable()
-          bbArrow:Enable()
           bbArrow:Show()
           lb1:Show()
           lb2:Show()
           lb3:Show()
           lb4:Show()
           kr:Show()
+          CharacterBag0Slot:Show()
+          CharacterBag1Slot:Show()
+          CharacterBag2Slot:Show()
+          CharacterBag3Slot:Show()
     end)
 
 local bbArrow = CreateFrame("Button", "bbArrow", UIParent, "UIPanelButtonTemplate")
@@ -130,19 +127,20 @@ bbArrow:SetScript("OnClick", function(self, button, down)
     --hide Bags 1-3
         --ArrowNormalTexture:SetTexCoord(487/512, 503/512, 2/128, 33/128) --pointing left
         bbArrow:Hide()
-        bbArrow:Disable()
         bbLeftArrow:Show()
-        bbLeftArrow:Enable()
         lb1:Hide()
         lb2:Hide()
         lb3:Hide()
         lb4:Hide()
         kr:Hide()
+        CharacterBag0Slot:Hide()
+        CharacterBag1Slot:Hide()
+        CharacterBag2Slot:Hide()
+        CharacterBag3Slot:Hide()
   end)
 -----------------Arrow to the left of the Main Bag icon-----------------
 
 -----------------Bag 1 icon-----------------
-
 local lb1 = CreateFrame("Button", "lb1", UIParent, "UIPanelButtonTemplate")
 CharacterBag0Slot:SetNormalTexture("")
 CharacterBag0Slot:SetPushedTexture("")
@@ -182,7 +180,6 @@ lb1:SetFrameLevel(CharacterBag0Slot:GetFrameLevel() + 1)
 -----------------Bag 1 icon-----------------
 
 -----------------Bag 2 icon-----------------
-
 local lb2 = CreateFrame("Button", "lb2", UIParent, "UIPanelButtonTemplate")
 CharacterBag1Slot:SetNormalTexture("")
 CharacterBag1Slot:SetPushedTexture("")
@@ -220,7 +217,6 @@ lb2:SetFrameLevel(CharacterBag1Slot:GetFrameLevel() + 1)
 -----------------Bag 2 icon-----------------
 
 -----------------Bag 3 icon-----------------
-
 local lb3 = CreateFrame("Button", "lb3", UIParent, "UIPanelButtonTemplate")
 CharacterBag2Slot:SetNormalTexture("")
 CharacterBag2Slot:SetPushedTexture("")
@@ -258,7 +254,6 @@ lb3:SetFrameLevel(CharacterBag2Slot:GetFrameLevel() + 1)
 -----------------Bag 3 icon-----------------
 
 -----------------Bag 4 icon-----------------
-
 local lb4 = CreateFrame("Button", "lb4", UIParent, "UIPanelButtonTemplate")
 CharacterBag3Slot:SetNormalTexture("")
 CharacterBag3Slot:SetPushedTexture("")
