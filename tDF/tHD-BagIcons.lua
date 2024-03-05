@@ -317,7 +317,8 @@ end
 -----------------Bag 4 icon-----------------
 
 -----------------Keyring icon-----------------
-
+KeyRingButton:ClearAllPoints()
+KeyRingButton:Hide()
 local kr = CreateFrame("Button", "kr", UIParent, "UIPanelButtonTemplate")
 kr:SetWidth(25)
 kr:SetHeight(25)
