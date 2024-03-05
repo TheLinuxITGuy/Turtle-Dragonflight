@@ -79,3 +79,12 @@ MyXPBar:SetScript("OnEvent", function(self, event, ...)
   end
   UpdateXPBar()
 end)
+
+-- Get the player's level
+local playerLevel = UnitLevel("player")
+-- Check if the player is level 60
+if playerLevel == 60 then
+-- Set the frame strata of MainMenuBarMaxLevelBar to be lower than that of MainMenuBar
+MainMenuBarMaxLevelBar:SetFrameStrata("BACKGROUND")
+MyXPBar:SetFrameStrata("BACKGROUND")
+end
