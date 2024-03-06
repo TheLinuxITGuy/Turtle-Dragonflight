@@ -65,3 +65,15 @@ tMinimapBorderTop:SetTexture()
 --Move buffbars to the left of the 1.4x minimap
 tBuffButton0:ClearAllPoints()
 tBuffButton0:SetPoint("TOPRIGHT", MinimapCluster, "TOPLEFT", 10, -10)
+
+--Move Debuffs
+local eventFrame = CreateFrame("Frame")
+-- Set up the event handler
+eventFrame:SetScript("OnUpdate", function(self, elapsed)
+    -- Check if tBuffButton16 exists
+    if tBuffButton16 then
+        tBuffButton16:SetParent(UIParent)
+        tBuffButton16:ClearAllPoints()
+        tBuffButton16:SetPoint("CENTER", tBuffButton0, 0, -125)
+    end
+end)
