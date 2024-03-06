@@ -23,7 +23,7 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 - Mousewheel up/down in Chat
 
 ## Known issues
-- Clicking the PvP Microbutton disables the MainMenu button.
+- The Castbar interrupt keeps going and going off the screen.
 
 ## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
