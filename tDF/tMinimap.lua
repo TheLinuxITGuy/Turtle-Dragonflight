@@ -8,6 +8,7 @@ local tMinimapZoomIn = MinimapZoomIn
 local tMinimapZoomOut = MinimapZoomOut
 local tMinimapBorderTop = MinimapBorderTop
 local tBuffButton0 = BuffButton0
+local tBuffButton16 = BuffButton16
 
 --Set Minimap to DF texture and scale to match DF size
 tMinimapBorder:SetTexture("Interface\\AddOns\\tDF\\img\\Dragonflight-MiniMap")
