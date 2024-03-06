@@ -24,7 +24,7 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 
 ## Known issues
 1. The HD textures for the empty bags icon only works when you reload the UI.
-2. Debuffs show in the center of the minimap.
+2. Clicking the PvP Microbutton kills the MainMenu button.
 
 ## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
