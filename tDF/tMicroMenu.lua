@@ -93,7 +93,7 @@ PvPHighlightTexture:SetTexCoord(161/256, 197/256, 161/512, 211/512)
 --click
 mbPvP:SetScript("OnClick", function(self, button, down)
   if BattlefieldFrame:IsVisible() then
-    BattlefieldFrame:Hide()
+    ToggleGameMenu()
   else
     ShowUIPanel(BattlefieldFrame)
   end
