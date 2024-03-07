@@ -392,3 +392,39 @@ mbCharacter:SetScript("OnClick", function(self, button, down)
     ToggleCharacter("PaperDollFrame")
 end)
 ---------------------------------------------Character Micro Button---------------------------------------------
+
+---------------------------------------------Latency Micro Button---------------------------------------------
+-- Create your own button
+local mbLatency = MainMenuBarPerformanceBarFrameButton
+
+-- Set the normal texture and store a reference to it
+mbLatency.texture = mbLatency:CreateTexture(nil, "BACKGROUND")
+mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\Latency.tga")
+--mbLatency:SetTexCoord(3/32, 28/32, 56/64, 60/64)
+-- Set the position and size of your button
+mbLatency:ClearAllPoints()
+mbLatency:SetPoint("CENTER", mbHelp, 0, -16) -- You can adjust the position as needed
+mbLatency:SetWidth(20)
+mbLatency:SetHeight(15)
+
+-- Add this to update each frame
+mbLatency:SetScript("OnUpdate", function(self, elapsed)
+    -- Get the current latency
+    local _, _, latencyHome = GetNetStats()
+    --this.texture:SetVertexColor(0, 1, 0)
+    -- Change the color based on latency
+    if latencyHome < 200 then
+      mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyGreen.tga")
+        -- Latency is good, set color to green
+        --this.texture:SetVertexColor(0, 1, 0)
+    elseif latencyHome < 300 then
+        -- Latency is poor, set color to yellow
+        --this.texture:SetVertexColor(1, 1, 0)
+        mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyYellow.tga")
+    else
+        -- Latency is bad, set color to red
+        --this.texture:SetVertexColor(1, 0, 0)
+        mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyRed.tga")
+    end
+end)
+---------------------------------------------Latency Micro Button---------------------------------------------
