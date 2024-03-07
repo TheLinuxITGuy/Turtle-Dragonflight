@@ -38,7 +38,7 @@ loginFrame:SetScript("OnEvent", function()
                     -- Create a texture for the frame
                     local texture = frame:CreateTexture(nil, "BACKGROUND")
                     -- Set the texture to your custom image
-                    texture:SetTexture("Interface\\AddOns\\tDF\\img\\bagicons.tga")
+                    texture:SetTexture("Interface\\AddOns\\tDF\\img\\bagbg2.tga")
                     -- Set the size of the texture to match the size of the frame
                     texture:SetWidth(frame:GetWidth())
                     texture:SetHeight(frame:GetHeight())
