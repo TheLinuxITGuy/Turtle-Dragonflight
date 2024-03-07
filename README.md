@@ -19,6 +19,7 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 - Dragonflight Castbar
 - Dragonflight Bags
 - Dragonflight MicroMenu
+- Dragonflight Latency Bar
 - Dragonflight XP bar
 - Mousewheel up/down in Chat
 
