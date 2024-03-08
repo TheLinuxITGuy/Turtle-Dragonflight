@@ -94,6 +94,7 @@ loginframe:SetScript("OnEvent", function(self, event, ...)
         MyXPBar:SetFrameStrata("BACKGROUND")
         MainMenuBarMaxLevelBar:Hide()
         MyXPBar:Hide()
+        MyXPBarTexture:Hide()
     end
 end)
 
