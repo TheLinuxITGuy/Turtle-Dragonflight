@@ -95,7 +95,8 @@ mbPvP:SetScript("OnClick", function(self, button, down)
   if BattlefieldFrame:IsVisible() then
     ToggleGameMenu()
   else
-    ShowUIPanel(BattlefieldFrame)
+    --ShowUIPanel(BattlefieldFrame)
+      ShowTWBGQueueMenu()
   end
 end)
 ---------------------------------------------PvP Micro Button--------------------------------------------------
