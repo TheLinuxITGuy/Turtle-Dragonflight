@@ -92,6 +92,8 @@ loginframe:SetScript("OnEvent", function(self, event, ...)
         -- Set the frame strata of MainMenuBarMaxLevelBar to be lower than that of MainMenuBar
         MainMenuBarMaxLevelBar:SetFrameStrata("BACKGROUND")
         MyXPBar:SetFrameStrata("BACKGROUND")
+        MainMenuBarMaxLevelBar:Hide()
+        MyXPBar:Hide()
     end
 end)
 
