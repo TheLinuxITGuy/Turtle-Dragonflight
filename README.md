@@ -41,7 +41,7 @@ Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-m
 
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Castbar.png)
 
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Minimap.png)
+![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewMinimap.png)
 
 ![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Unit-Frames.png)
 
