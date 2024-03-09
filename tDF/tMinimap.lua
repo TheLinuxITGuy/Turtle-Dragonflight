@@ -1,23 +1,59 @@
---Define local vars
-local tMinimapBorder = MinimapBorder
-local tMinimapCluster = MinimapCluster
-local tMinimap = Minimap
-local tMinimapToggleButton = MinimapToggleButton
-local tGameTimeFrame = GameTimeFrame
 local tMinimapZoomIn = MinimapZoomIn
 local tMinimapZoomOut = MinimapZoomOut
-local tMinimapBorderTop = MinimapBorderTop
 local tBuffButton0 = BuffButton0
 local tBuffButton16 = BuffButton16
 
---Set Minimap to DF texture and scale to match DF size
-tMinimapBorder:SetTexture("Interface\\AddOns\\tDF\\img\\Dragonflight-MiniMap")
---MinimapBorder:SetPoint("TOPLEFT", MinimapCluster, "TOPLEFT", 0, -40)
-tMinimapCluster:SetScale(1.4)
-tMinimapToggleButton:Hide()
-tGameTimeFrame:Hide()
+local f = CreateFrame("Frame")
+f:RegisterEvent("PLAYER_LOGIN")
+f:SetScript("OnEvent", function()
+    -- Move the MinimapCluster off the screen
+    MinimapCluster:ClearAllPoints()
+    MinimapCluster:SetPoint("TOPRIGHT", 0, 5000) -- Move it far off to the right
+    MinimapCluster:SetFrameStrata('BACKGROUND')
+
+    local customMinimap = CreateFrame("Frame", "MyCustomMinimap", UIParent)
+    customMinimap:SetWidth(150*1.36) -- Set the desired size for your minimap (mask size)
+    customMinimap:SetHeight(150*1.36)
+    customMinimap:SetPoint("TOPRIGHT", 0, -20) -- Position your minimap
+
+    -- Set the minimap mask texture (with alpha channel)
+    customMinimap.texture = customMinimap:CreateTexture(nil, "BACKGROUND")
+    customMinimap.texture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapmask.tga")
+    customMinimap.texture:SetAllPoints(customMinimap)
+    customMinimap.texture:SetVertexColor(1, 1, 1, 0) -- Fully transparent
+
+    -- Set the actual Minimap as the child frame (display the game world inside the mask)
+    local actualMinimap = CreateFrame("Frame", "MyActualMinimap", customMinimap)
+    actualMinimap:SetAllPoints(customMinimap)
+
+    -- Set the actual Minimap as the child frame's texture
+    Minimap:SetParent(actualMinimap)
+    Minimap:SetPoint("CENTER", 1, -3)
+    Minimap:SetWidth(131*1.36)
+    Minimap:SetHeight(131*1.36)
+    --Minimap:SetFrameStrata("LOW")
+    Minimap:SetFrameLevel(Minimap:GetFrameLevel() - 1)
+
+    -- Add the Minimap border texture (displayed above the actual Minimap)
+    local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
+    borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapborder.tga")
+    borderTexture:SetAllPoints(customMinimap)
+
+    --Add text over the Minimap
+    MinimapZoneText:SetParent(UIParent)
+    MinimapZoneText:ClearAllPoints()
+    MinimapZoneText:SetPoint("CENTER", customMinimap, 0, 110)
+    MinimapToggleButton:Hide()
+
+    -- Show your custom minimap
+    customMinimap:Show()
+end)
 
 --Sets the ZoomIn and ZoomOut buttons
+tMinimapZoomIn:ClearAllPoints()
+tMinimapZoomOut:ClearAllPoints()
+tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 160, -160)
+tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 145, -180)
 --Normal
 tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
 tMinimapZoomIn:SetWidth(16)
@@ -60,12 +96,9 @@ frame:SetScript("OnUpdate", function(self, elapsed)
 end)
 -------------Event-----------------
 
---Sets the Top Minimap background
-tMinimapBorderTop:SetTexture()
-
 --Move buffbars to the left of the 1.4x minimap
 tBuffButton0:ClearAllPoints()
-tBuffButton0:SetPoint("TOPRIGHT", MinimapCluster, "TOPLEFT", 10, -10)
+tBuffButton0:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", -30, -10)
 
 --Move Debuffs
 local eventFrame = CreateFrame("Frame")
