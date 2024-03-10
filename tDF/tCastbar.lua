@@ -97,6 +97,7 @@ tCastbar:SetScript("OnEvent", function()
       -- Set a flag to revert the color after 1 second
         tCastbar.revertColor = true
         tCastbar.revertTime = GetTime() + 1
+        tCastbar:Hide()
     end
     if event == "SPELLCAST_DELAYED" then
       -- Adjust the max value and the current value
