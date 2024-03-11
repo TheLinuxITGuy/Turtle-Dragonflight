@@ -25,6 +25,8 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 
 ## Known issues
 - The Castbar interrupt keeps going and going off the screen.
+## Video
+https://www.youtube.com/watch?v=TkdsL8XhiHE&t=1145s
 
 ## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
