@@ -98,7 +98,7 @@ end)
 
 --Move buffbars to the left of the 1.4x minimap
 tBuffButton0:ClearAllPoints()
-tBuffButton0:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", -30, -10)
+tBuffButton0:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", -40, -10)
 
 --Move Debuffs
 local eventFrame = CreateFrame("Frame")
