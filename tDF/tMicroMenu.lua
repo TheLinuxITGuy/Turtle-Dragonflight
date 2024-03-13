@@ -90,6 +90,13 @@ mbPvP:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local PvPHighlightTexture = mbPvP:GetHighlightTexture()
 PvPHighlightTexture:SetTexCoord(161/256, 197/256, 161/512, 211/512)
+
+function ShowTWBGQueueMenu()
+  local TWBGQueueMinimapMenuFrame = CreateFrame('Frame', 'TWBGQueueMinimapMenuFrame', UIParent, 'UIDropDownMenuTemplate')
+  UIDropDownMenu_Initialize(TWBGQueueMinimapMenuFrame, BuildTWBGQueueMenu, "MENU");
+  ToggleDropDownMenu(1, nil, TWBGQueueMinimapMenuFrame, "cursor", -150, 25);
+end
+
 --click
 mbPvP:SetScript("OnClick", function(self, button, down)
   if BattlefieldFrame:IsVisible() then
