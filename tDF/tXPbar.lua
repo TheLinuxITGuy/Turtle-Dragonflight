@@ -15,6 +15,7 @@ MyXPBar:Show()
 MyXPBar:SetFrameStrata("HIGH")
 
 local MyXPBarTexture = MyXPBar:CreateTexture("MyXPBarTexture", "ARTWORK")
+--MyXPBarTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP\\Overlay")
 MyXPBarTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP512.tga")
 --MyXPBarTexture:SetVertexColor(0, 0.8, 1)
 MyXPBarTexture:SetTexCoord(0/512, 512/512, 245/512, 264/512)
@@ -22,15 +23,15 @@ MyXPBarTexture:SetAllPoints(MyXPBar)
 
 -- Create the frame for the blue or purple bar
 local MyXPBarStatus = CreateFrame("StatusBar", "MyXPBarStatus", UIParent)
-MyXPBarStatus:SetWidth(500)
+MyXPBarStatus:SetWidth(515)
 MyXPBarStatus:SetHeight(9)
-MyXPBarStatus:SetPoint("CENTER", MyXPBar, "CENTER", 0, 0)
+MyXPBarStatus:SetPoint("CENTER", MyXPBar, "CENTER", -5, 0)
 MyXPBarStatus:SetMinMaxValues(0, 1)
 MyXPBarStatus:SetValue(1)
 
 -- Set the texture
 MyXPBarStatus:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
-MyXPBarStatus:SetStatusBarColor(1, 0, 1, 1)
+--MyXPBarStatus:SetStatusBarColor(1, 0, 1, 1)
 
 -- Create the text
 local MyXPBarText = MyXPBar:CreateFontString(nil, "OVERLAY")
@@ -59,10 +60,16 @@ local function UpdateXPBar()
       -- Check if the player is rested
       if GetXPExhaustion() then
         -- The player is rested, set the status bar color to DF blue
-        MyXPBarStatus:SetStatusBarColor(0.1, 0.1, 1)
+        --MyXPBarStatus:SetStatusBarColor(0.1, 0.1, 1)
+        MyXPBarStatus:SetWidth(500)
+        MyXPBarStatus:SetHeight(500)
+        MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Rested.tga")
     else
         -- The player is not rested, set the status bar color to purple
-        MyXPBarStatus:SetStatusBarColor(1, 0, 1)
+        --MyXPBarStatus:SetStatusBarColor(1, 0, 1)
+        MyXPBarStatus:SetWidth(500)
+        MyXPBarStatus:SetHeight(500)
+        MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Main.tga")
     end
   MyXPBarStatus:SetValue(xpPercent)
   MyXPBarText:SetText(format("%d / %d (%.2f%%)", currentXP, maxXP, xpPercent * 100))
