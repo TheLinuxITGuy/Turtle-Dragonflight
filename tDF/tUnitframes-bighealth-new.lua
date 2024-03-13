@@ -6,9 +6,10 @@ This lua file hides the original Blizzard art work from 1.12. I've created new b
 Dragonflight.
 ]]
   
-  PlayerFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame]]  
-  PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]  
-  PlayerFrameHealthBar:SetPoint("TOPLEFT", 106, -23)
+--UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health.tga
+PlayerFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame]]  
+PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]  
+PlayerFrameHealthBar:SetPoint("TOPLEFT", 106, -23)
 
   -- Get the Player unitframe
 local playerFrame = PlayerFrame
@@ -39,6 +40,10 @@ expBar.TextString:SetTextColor(1, 1, 1)
   PlayerFrameManaBar:SetWidth(120)
   PlayerFrameBackground:SetWidth(122)
   PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
+  -- Change the texture of the Health bar
+  PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health.tga]])
+  --Change the texture of the Mana bar
+  PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
 
   TargetFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame2]]  
   TargetFrameHealthBar:SetPoint("TOPRIGHT", -103, -23)
@@ -48,6 +53,10 @@ expBar.TextString:SetTextColor(1, 1, 1)
   TargetFrameManaBar:SetWidth(123)
   TargetFrameBackground:SetPoint("TOPRIGHT", -103, -22)
   TargetFrameBackground:SetWidth(123)
+  -- Change the texture of the Health bar
+  TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Health.tga]])
+  --Change the texture of the Mana bar
+  TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
   --TargetFrame:SetWidth(120)
   -- TargetLevelText:ClearAllPoints()
   -- TargetLevelText:SetPoint("BOTTOMRIGHT",TargetFrameHealthBar, 65, -20)
@@ -66,10 +75,32 @@ playerNameText:SetHeight(30)
       -- Call the original function
       new_PetFrame_Update()
       PetFrameTexture:SetTexture("Interface\\Addons\\tDF\\img\\pet")
+      PetFrameTexture:SetDrawLayer("BACKGROUND") -- Set the draw layer of the texture
       PetFrame:ClearAllPoints()
       PetFrame:SetPoint("BOTTOM", PlayerFrame, -10, -30)
-    end
-
+      -- Change the frame strata of the HealthBar and ManaBar
+  
+      --PetFrameHealthBar:SetFrameStrata("MEDIUM")
+      PetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Health]])
+        -- Adjust the position of the PetFrameHealthBar
+      PetFrameHealthBar:SetHeight(13)
+      PetFrameHealthBar:ClearAllPoints()
+      PetFrameHealthBar:SetPoint("CENTER", PetFrame, "CENTER", 15, 3)
+      --PetFrameManaBar:SetFrameStrata("MEDIUM")
+      local class = UnitClass("player")
+      if class == "Hunter" then
+        PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Focus]])
+      else
+        PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Mana]])
+      end
+      -- Adjust the position of the PetFrameManaBar
+      PetFrameManaBar:ClearAllPoints()
+      PetFrameManaBar:SetPoint("CENTER", PetFrame, "CENTER", 15, -7)
+      -- Adjust the position of the PetName
+      PetName:ClearAllPoints()
+      PetName:SetPoint("CENTER", PetFrame, "CENTER", 5, 16)
+    end 
+    
   local original = TargetFrame_CheckClassification
   function TargetFrame_CheckClassification()
     local classification = UnitClassification("target")
