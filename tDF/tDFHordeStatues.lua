@@ -8,9 +8,17 @@ Dragonflight.
 MainMenuBarLeftEndCap:Hide()
 MainMenuBarRightEndCap:Hide()
 
+-- Create new frames
+local leftGryphonFrame = CreateFrame("Frame", nil, MainMenuBar)
+local rightGryphonFrame = CreateFrame("Frame", nil, MainMenuBar)
+
+-- Set the new frames to a higher strata
+leftGryphonFrame:SetFrameStrata("HIGH")
+rightGryphonFrame:SetFrameStrata("HIGH")
+
 -- Create new textures
-local leftGryphon = MainMenuBar:CreateTexture(nil, "OVERLAY")
-local rightGryphon = MainMenuBar:CreateTexture(nil, "OVERLAY")
+local leftGryphon = leftGryphonFrame:CreateTexture(nil, "OVERLAY")
+local rightGryphon = rightGryphonFrame:CreateTexture(nil, "OVERLAY")
 
 --Checking Horde vs. Alliance wouldn't work, so using races
 local race = UnitRace("player")
@@ -43,7 +51,7 @@ rightGryphon:SetWidth(84)
 rightGryphon:SetHeight(84)
 
 -- Position the new textures
-leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -74, 2)
-rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 74, 2)
+leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -65, 2)
+rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 65, 2)
 -- Flip the right texture
 rightGryphon:SetTexCoord(1, 0, 0, 1)
