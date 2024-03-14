@@ -2,7 +2,7 @@
 A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1080p, and 720p.
 
 ## Installation
-#### This is a stand-alone addon made for the Turtle WoW 1.12 client.    
+#### This is a stand-alone addon made for the Turtle WoW 1.12.1 client.    
 
 #### Automatic Install using [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/)
 - Click the "+" button and enter the url `https://github.com/TheLinuxITGuy/Turtle-Dragonflight.git`
