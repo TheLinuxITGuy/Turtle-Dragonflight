@@ -18,3 +18,4 @@ tHD-BagIcons.lua
 tCompare.lua
 tSellGrays.lua
 tCooldownNumbers.lua
+tClassColors.lua
