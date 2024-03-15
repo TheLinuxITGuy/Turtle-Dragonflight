@@ -21,27 +21,14 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 - Mousewheel up/down in Chat
 
 ## Known issues
-- The Castbar interrupt keeps going and going off the screen.
-## Video
-https://www.youtube.com/watch?v=TkdsL8XhiHE&t=1145s
+- None at the moment.
 
 ## Special Thanks
 Credit to [shagu](https://github.com/shagu)    
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
 Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)    
-Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)
+Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)    
+Debuffs from [Voidmenull](https://github.com/Voidmenull/DebuffTimers)    
 
-## Screenshots
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewMain.jpg)
-
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewXPbar.png)
-
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Bag-Art.png)
-
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/Castbar.png)
-
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewMinimap.png)
-
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/New%20Unit%20Frames.png)
-
-![image](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/blob/main/Screenshots/NewBags&MicroMenu.png)
+## Video
+[![Video](https://img.youtube.com/vi/TkdsL8XhiHE/maxresdefault.jpg)](https://www.youtube.com/watch?v=TkdsL8XhiHE&t=1145s)
