@@ -1,5 +1,5 @@
 ## Interface: 11200
-## Title: Debuff Timers
+## Title: |cff008000Debuff |cff1974d2Timers
 ## Modified by: YouTube.com/@TheLinuxITGuy
 ## Notes: Timer Overlays for enemy buffs and debuffs
 ## Author: Renew, based on: shirsig - aurae
