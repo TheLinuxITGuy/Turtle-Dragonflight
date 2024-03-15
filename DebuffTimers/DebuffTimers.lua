@@ -550,13 +550,6 @@ AUF.BuffAnchor = "TargetFrameBuff"
 AUF.ClickCast = {}
 AUF.DoubleCheck = {}
 
--- get unitframes
-if getglobal("LunaLUFUnittargetDebuffFrame1") then AUF.DebuffAnchor = "LunaLUFUnittargetDebuffFrame"; AUF.BuffAnchor = "LunaLUFUnittargetBuffFrame" -- luna x2.x
-elseif getglobal("XPerl_Target_BuffFrame") then AUF.DebuffAnchor = "XPerl_Target_BuffFrame_DeBuff"; AUF.BuffAnchor = "XPerl_Target_BuffFrame_Buff" -- xperl
-elseif getglobal("DUF_TargetFrame_Debuffs_1") then AUF.DebuffAnchor = "DUF_TargetFrame_Debuffs_"; AUF.BuffAnchor = "DUF_TargetFrame_Buffs_" -- DUF
-elseif getglobal("pfUITargetDebuff1") then AUF.DebuffAnchor = "pfUITargetDebuff"; AUF.BuffAnchor = "pfUITargetBuff" -- pfUI
-end
-
 function AUF.Debuff:Build()
 	for i=1,16 do
 		AUF.Debuff[i] = CreateFrame("Model", "AUFDebuff"..i, nil, "CooldownFrameTemplate")
@@ -572,8 +565,7 @@ function AUF.Debuff:Build()
 
 		AUF.Debuff[i].Font = AUF.Debuff[i]:CreateFontString(nil, "OVERLAY")
 		AUF.Debuff[i].Font:SetPoint("CENTER", 0, 0)
-		AUF.Debuff[i].Font:SetFont("Fonts\\ARIALN.TTF", AUF_settings.TextSize, "OUTLINE")
-		if getglobal("pfUITargetDebuff1") then AUF.Debuff[i].Font:SetFont("Interface\\AddOns\\pfUI\\fonts\\homespun.ttf", AUF_settings.TextSize, "OUTLINE") end
+		AUF.Debuff[i].Font:SetFont(STANDARD_TEXT_FONT, 12)
 		AUF.Debuff[i].Font:SetJustifyH("CENTER")
 		AUF.Debuff[i].Font:SetTextColor(1,1,1)
 		AUF.Debuff[i].Font:SetText("")
@@ -596,8 +588,8 @@ function AUF.Buff:Build()
 		
 		AUF.Buff[i].Font = AUF.Buff[i]:CreateFontString(nil, "OVERLAY")
 		AUF.Buff[i].Font:SetPoint("CENTER", 0, 0)
-		AUF.Buff[i].Font:SetFont("Fonts\\ARIALN.TTF", AUF_settings.TextSize, "OUTLINE")
-		if getglobal("pfUITargetBuff1") then AUF.Buff[i].Font:SetFont("Interface\\AddOns\\pfUI\\fonts\\homespun.ttf", AUF_settings.TextSize, "OUTLINE") end
+		AUF.Buff[i].Font:SetFont(STANDARD_TEXT_FONT, 12)
+		if getglobal("pfUITargetBuff1") then AUF.Buff[i].Font:SetFont(STANDARD_TEXT_FONT, 12) end
 		AUF.Buff[i].Font:SetJustifyH("CENTER")
 		AUF.Buff[i].Font:SetTextColor(1,1,1)
 		AUF.Buff[i].Font:SetText("")
@@ -1004,10 +996,8 @@ function AUF:SaveOptions()
 	-- text size settings
 	AUF_settings.TextSize = AUF.Options.SizeEditBox:GetNumber()
 	for i=1,16 do
-		AUF.Debuff[i].Font:SetFont("Fonts\\ARIALN.TTF", AUF_settings.TextSize, "OUTLINE")
-		if getglobal("pfUITargetDebuff1") then AUF.Debuff[i].Font:SetFont("Interface\\AddOns\\pfUI\\fonts\\homespun.ttf", AUF_settings.TextSize, "OUTLINE") end
-		AUF.Buff[i].Font:SetFont("Fonts\\ARIALN.TTF", AUF_settings.TextSize, "OUTLINE")
-		if getglobal("pfUITargetBuff1") then AUF.Buff[i].Font:SetFont("Interface\\AddOns\\pfUI\\fonts\\homespun.ttf", AUF_settings.TextSize, "OUTLINE") end
+		AUF.Debuff[i].Font:SetFont(STANDARD_TEXT_FONT, 12)
+		AUF.Buff[i].Font:SetFont(STANDARD_TEXT_FONT, 12)
 	end
 	
 	-- aura save options
