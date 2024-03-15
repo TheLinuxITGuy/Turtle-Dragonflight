@@ -41,10 +41,10 @@ expBar.TextString:SetTextColor(1, 1, 1)
   PlayerFrameBackground:SetWidth(122)
   PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
   -- Change the texture of the Health bar
-  PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health.tga]])
+  --PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health.tga]])
+  PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health-Status.tga]])
   --Change the texture of the Mana bar
   PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
-
   TargetFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame2]]  
   TargetFrameHealthBar:SetPoint("TOPRIGHT", -103, -23)
   TargetFrameHealthBar:SetHeight(30)
@@ -54,7 +54,8 @@ expBar.TextString:SetTextColor(1, 1, 1)
   TargetFrameBackground:SetPoint("TOPRIGHT", -103, -22)
   TargetFrameBackground:SetWidth(123)
   -- Change the texture of the Health bar
-  TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Health.tga]])
+  --TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Health.tga]])
+  TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health-Status.tga]])
   --Change the texture of the Mana bar
   TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
   --TargetFrame:SetWidth(120)
