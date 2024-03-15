@@ -52,12 +52,3 @@ for i=1, NUM_CHAT_WINDOWS do
     chatFrame:SetScript("OnMouseWheel", ChatOnMouseWheel)
   end
 end
-
-  --[[
-  for i=1, NUM_CHAT_WINDOWS do
-    -- enable mouse wheel scrolling
-    ChatFrame1:EnableMouseWheel(true)
-    ChatFrame1:SetScript("OnMouseWheel", ChatOnMouseWheel)
-  end
-
-  ]]
