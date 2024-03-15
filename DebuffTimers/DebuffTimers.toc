@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: Debuff Timers
+## Notes: Timer Overlays for enemy buffs and debuffs
+## Author: Renew, based on: shirsig - aurae
+
+Debuffs.lua
+DebuffTimers.lua
