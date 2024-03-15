@@ -4,12 +4,9 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 ## Installation
 #### This is a stand-alone addon made for the Turtle WoW 1.12.1 client.    
 
-#### Automatic Install using [GitAddonsManager](https://woblight.gitlab.io/overview/gitaddonsmanager/)
-- Click the "+" button and enter the url `https://github.com/TheLinuxITGuy/Turtle-Dragonflight.git`
-
 #### Manual Install
 1. Unpack the Zip file included with this download.
-2. Copy the "tDF" folder to your AddOns folder.
+2. Copy the "DebuffTimers" and "tDF" folder to your AddOns folder.
 3. Fire up Turtle WoW. :)
 
 ## Features
