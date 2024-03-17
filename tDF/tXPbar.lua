@@ -7,6 +7,9 @@ Dragonflight.
 
 MainMenuExpBar:SetAlpha(0) --Required for XPbar.lua to work
 
+local playerLevel = UnitLevel("player")
+if playerLevel < 60 then
+
 local MyXPBar = CreateFrame("Frame", "MyXPBar", UIParent)
 MyXPBar:SetWidth(510)
 MyXPBar:SetHeight(19)
@@ -36,44 +39,53 @@ MyXPBarStatus:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 -- Create the text
 local MyXPBarText = MyXPBar:CreateFontString(nil, "OVERLAY")
 MyXPBarText:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
-MyXPBarText:SetPoint("CENTER", MyXPBar, "CENTER", 0, 0)
-
--- Update function
-local function UpdateXPBar()
-    local currentXP = UnitXP("player")
-    local maxXP = UnitXPMax("player")
-    local xpPercent = currentXP / maxXP
-
-    MyXPBarStatus:SetValue(xpPercent)
-    MyXPBarText:SetText(format("%d / %d (%.2f%%)", currentXP, maxXP, xpPercent * 100))
-end
+MyXPBarText:SetPoint("CENTER", MyXPBar, "CENTER", 0, 2)
 
 -- Register the events
 MyXPBar:RegisterEvent("PLAYER_XP_UPDATE")
 MyXPBar:RegisterEvent("PLAYER_LEVEL_UP")
 MyXPBar:RegisterEvent("PLAYER_ENTERING_WORLD") -- Add this line
 
+-- Update function
 local function UpdateXPBar()
   local currentXP = UnitXP("player")
   local maxXP = UnitXPMax("player")
+  local maxExhXP = GetXPExhaustion("player")
   local xpPercent = currentXP / maxXP
+  local xpMaxPercent = maxExhXP / maxXP -- calculates the Tent XP to a max of 150%
+
+  MyXPBarStatus:SetWidth(500)
+  MyXPBarStatus:SetHeight(500)
+
       -- Check if the player is rested
       if GetXPExhaustion() then
-        -- The player is rested, set the status bar color to DF blue
-        --MyXPBarStatus:SetStatusBarColor(0.1, 0.1, 1)
-        MyXPBarStatus:SetWidth(500)
-        MyXPBarStatus:SetHeight(500)
-        MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Rested.tga")
-    else
+        -- The player is rested
+        if xpMaxPercent == 1.5 then
+          -- Rested XP is exactly 150%
+          MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\TentMax.tga")
+        else
+          -- Rested XP is less than 150%
+          MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Rested.tga")
+        end
+      else
         -- The player is not rested, set the status bar color to purple
         --MyXPBarStatus:SetStatusBarColor(1, 0, 1)
-        MyXPBarStatus:SetWidth(500)
-        MyXPBarStatus:SetHeight(500)
         MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Main.tga")
-    end
+      end
   MyXPBarStatus:SetValue(xpPercent)
-  MyXPBarText:SetText(format("%d / %d (%.2f%%)", currentXP, maxXP, xpPercent * 100))
+  --MyXPBarText:SetText(format("Current: %d / %d (Max: %.2f%%)", currentXP, maxXP, xpMaxPercent * 100))
+  MyXPBarText:SetText(format("Current: %.2f%% | Rested: %.2f%%)", xpPercent *100, xpMaxPercent * 100))
 end
+
+  -- Show the text when the mouse enters the frame
+  MainMenuExpBar:SetScript("OnEnter", function(self)
+    MyXPBarText:Show()
+  end)
+  
+  -- Hide the text when the mouse leaves the frame
+  MainMenuExpBar:SetScript("OnLeave", function(self)
+    MyXPBarText:Hide()
+  end)
 
 -- Update the event handler
 MyXPBar:SetScript("OnEvent", function(self, event, ...)
@@ -87,23 +99,4 @@ MyXPBar:SetScript("OnEvent", function(self, event, ...)
   UpdateXPBar()
 end)
 
--- Create a frame to listen for the PLAYER_LOGIN event
-local loginframe = CreateFrame("Frame")
-
--- Set the script to run when the PLAYER_LOGIN event fires
-loginframe:SetScript("OnEvent", function(self, event, ...)
-    -- Get the player's level
-    local playerLevel = UnitLevel("player")
-    -- Check if the player is level 60
-    if playerLevel == 60 then
-        -- Set the frame strata of MainMenuBarMaxLevelBar to be lower than that of MainMenuBar
-        MainMenuBarMaxLevelBar:SetFrameStrata("BACKGROUND")
-        MyXPBar:SetFrameStrata("BACKGROUND")
-        MainMenuBarMaxLevelBar:Hide()
-        MyXPBar:Hide()
-        MyXPBarTexture:Hide()
-    end
-end)
-
--- Register the PLAYER_LOGIN event
-loginframe:RegisterEvent("PLAYER_LOGIN")
+end --if player < 60
