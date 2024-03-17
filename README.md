@@ -17,7 +17,7 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 - Dragonflight Bags
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
-- Dragonflight XP bar
+- Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
 - Mousewheel up/down in Chat
 
 ## Known issues
