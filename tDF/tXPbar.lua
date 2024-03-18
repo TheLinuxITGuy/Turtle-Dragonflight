@@ -80,6 +80,7 @@ end
   -- Show the text when the mouse enters the frame
   MainMenuExpBar:SetScript("OnEnter", function(self)
     MyXPBarText:Show()
+    UpdateXPBar()
   end)
   
   -- Hide the text when the mouse leaves the frame
