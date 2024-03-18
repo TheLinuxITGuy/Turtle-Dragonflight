@@ -147,8 +147,9 @@ end)
 --TWMinimapShopFrame:SetAlpha(0)
 LFT_Minimap:SetParent(UIParent)
 LFT_Minimap:ClearAllPoints()
+LFT_Minimap:SetPoint("BOTTOMRIGHT", UIParent, -270, 6)
 LFT_Minimap:Hide()
---Create a new button
+-----Creates a new microButton-----
 local mbLFT = CreateFrame("Button", "mbLFT", UIParent, "UIPanelButtonTemplate")
 --Set its properties
 mbLFT:SetWidth(18)
@@ -169,6 +170,41 @@ mbLFT:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local LFTHighlightTexture = mbLFT:GetHighlightTexture()
 LFTHighlightTexture:SetTexCoord(41/256, 78/256, 107/512, 157/512)
+-----Creates a new microButton-----
+
+-----Reskins the eye-----
+-- Create a new frame
+local overlay = CreateFrame("Frame", nil, LFT_MinimapEye:GetParent())
+
+-- Set the frame strata to be higher than LFT_MinimapEye
+overlay:SetFrameStrata("DIALOG")
+
+-- Set the size and position of the overlay to match LFT_MinimapEye
+overlay:SetWidth(LFT_MinimapEye:GetWidth())
+overlay:SetHeight(LFT_MinimapEye:GetHeight())
+overlay:SetPoint("CENTER", LFT_MinimapEye, "CENTER")
+
+-- Set the texture for the overlay
+overlay.texture = overlay:CreateTexture()
+overlay.texture:SetAllPoints()
+overlay.texture:SetTexture("Interface\\AddOns\\tDF\\img\\uigroupfinderflipbookeye.tga")
+overlay.texture:SetTexCoord(10/512, 55/512, 8/256, 55/256)
+
+--findGroupButton
+findGroupButton:SetScript("OnClick", function(self, button, down)
+  LFT_Minimap:Show()
+  overlay.texture:Show()
+  findGroup()
+end)
+
+--leaveQueueButton
+leaveQueueButton:SetScript("OnClick", function(self, button, down)
+  LFT_Minimap:Hide()
+  overlay.texture:Hide()
+  leaveQueue()
+end)
+-----Reskins the eye-----
+
 --click
 mbLFT:SetScript("OnClick", function(self, button, down)
   LFT_Toggle()
