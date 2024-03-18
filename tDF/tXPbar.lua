@@ -8,24 +8,25 @@ Dragonflight.
 MainMenuExpBar:SetAlpha(0) --Required for XPbar.lua to work
 
 local playerLevel = UnitLevel("player")
+local MyXPBar = CreateFrame("Frame", "MyXPBar", UIParent)
+local MyXPBarTexture = MyXPBar:CreateTexture("MyXPBarTexture", "ARTWORK")
+local MyXPBarStatus = CreateFrame("StatusBar", "MyXPBarStatus", UIParent)
+local MyXPBarText = MyXPBar:CreateFontString(nil, "OVERLAY")
+MyXPBar:Hide() --hide initially
+
 if playerLevel < 60 then
 
-local MyXPBar = CreateFrame("Frame", "MyXPBar", UIParent)
 MyXPBar:SetWidth(510)
 MyXPBar:SetHeight(19)
 MyXPBar:SetPoint("CENTER", MainMenuExpBar, "CENTER", 0, 2) -- -588
 MyXPBar:Show()
 MyXPBar:SetFrameStrata("HIGH")
 
-local MyXPBarTexture = MyXPBar:CreateTexture("MyXPBarTexture", "ARTWORK")
---MyXPBarTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP\\Overlay")
 MyXPBarTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP512.tga")
---MyXPBarTexture:SetVertexColor(0, 0.8, 1)
 MyXPBarTexture:SetTexCoord(0/512, 512/512, 245/512, 264/512)
 MyXPBarTexture:SetAllPoints(MyXPBar)
 
 -- Create the frame for the blue or purple bar
-local MyXPBarStatus = CreateFrame("StatusBar", "MyXPBarStatus", UIParent)
 MyXPBarStatus:SetWidth(515)
 MyXPBarStatus:SetHeight(9)
 MyXPBarStatus:SetPoint("CENTER", MyXPBar, "CENTER", 0, 0)
@@ -37,7 +38,6 @@ MyXPBarStatus:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
 --MyXPBarStatus:SetStatusBarColor(1, 0, 1, 1)
 
 -- Create the text
-local MyXPBarText = MyXPBar:CreateFontString(nil, "OVERLAY")
 MyXPBarText:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
 MyXPBarText:SetPoint("CENTER", MyXPBar, "CENTER", 0, 2)
 
@@ -50,7 +50,7 @@ MyXPBar:RegisterEvent("PLAYER_ENTERING_WORLD") -- Add this line
 local function UpdateXPBar()
   local currentXP = UnitXP("player")
   local maxXP = UnitXPMax("player")
-  local maxExhXP = GetXPExhaustion("player")
+  local maxExhXP = GetXPExhaustion("player") or 0
   local xpPercent = currentXP / maxXP
   local xpMaxPercent = maxExhXP / maxXP -- calculates the Tent XP to a max of 150%
 
@@ -73,6 +73,7 @@ local function UpdateXPBar()
         MyXPBarStatus:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Main.tga")
       end
   MyXPBarStatus:SetValue(xpPercent)
+  --MyXPBarStatus:SetValue(xpMaxPercent)
   --MyXPBarText:SetText(format("Current: %d / %d (Max: %.2f%%)", currentXP, maxXP, xpMaxPercent * 100))
   MyXPBarText:SetText(format("Current: %.2f%% | Rested: %.2f%%)", xpPercent *100, xpMaxPercent * 100))
 end
@@ -94,10 +95,45 @@ MyXPBar:SetScript("OnEvent", function(self, event, ...)
       -- Unregister the PLAYER_ENTERING_WORLD event after the first time it's handled
       self:UnregisterEvent("PLAYER_ENTERING_WORLD")
 
+      --ReloadUI()
             -- Hide the ExhaustionTick
             --ExhaustionTick:Hide()
   end
   UpdateXPBar()
 end)
+UpdateXPBar()
 
 end --if player < 60
+
+-------------HIDES THE XP BAR IF YOU'RE 60-------------
+  -- Create a frame to listen for the PLAYER_LOGIN event
+  local loginFrame = CreateFrame("Frame")
+
+  -- Create a variable to track the time
+  local timeSinceLastUpdate = 0
+  
+  -- Set the script to run when the PLAYER_LOGIN event fires
+  loginFrame:SetScript("OnEvent", function()
+      -- Set the OnUpdate script
+      this:SetScript("OnUpdate", function()
+          local elapsed = arg1 or 0
+          timeSinceLastUpdate = timeSinceLastUpdate + elapsed
+          if timeSinceLastUpdate < 1 then
+              return
+          end
+  
+          -- Reset the time
+          timeSinceLastUpdate = 0
+  
+          -- Remove the OnUpdate script
+          this:SetScript("OnUpdate", nil)
+            --print("Grats on 60, removing XP bar.")
+            if UnitLevel("player") == 60 then
+              MyXPBar:Hide()
+            end
+      end)
+  end)
+  
+  -- Register the PLAYER_LOGIN event
+  loginFrame:RegisterEvent("PLAYER_LOGIN")
+  -------------HIDES THE XP BAR IF YOU'RE 60-------------
