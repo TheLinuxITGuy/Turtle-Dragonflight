@@ -13,6 +13,10 @@ end
 
 print("|cff008000Turtle |cff1974d2Dragonflight |cffffffffloaded. Welcome " .. UnitName("player") .. "!")
 
+--adds /rl to reload the UI
+SLASH_RELOAD1 = '/rl'
+function SlashCmdList.RELOAD(msg, editbox) ReloadUI() end
+
 --adds scroll up and down to chat
 local scrollspeed = 1
 local function ChatOnMouseWheel()
