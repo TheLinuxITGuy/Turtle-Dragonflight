@@ -28,7 +28,7 @@ MyXPBarTexture:SetAllPoints(MyXPBar)
 local MyXPBarStatus = CreateFrame("StatusBar", "MyXPBarStatus", UIParent)
 MyXPBarStatus:SetWidth(515)
 MyXPBarStatus:SetHeight(9)
-MyXPBarStatus:SetPoint("CENTER", MyXPBar, "CENTER", -5, 0)
+MyXPBarStatus:SetPoint("CENTER", MyXPBar, "CENTER", 0, 0)
 MyXPBarStatus:SetMinMaxValues(0, 1)
 MyXPBarStatus:SetValue(1)
 
@@ -54,7 +54,7 @@ local function UpdateXPBar()
   local xpPercent = currentXP / maxXP
   local xpMaxPercent = maxExhXP / maxXP -- calculates the Tent XP to a max of 150%
 
-  MyXPBarStatus:SetWidth(500)
+  MyXPBarStatus:SetWidth(512)
   MyXPBarStatus:SetHeight(500)
 
       -- Check if the player is rested
