@@ -242,7 +242,7 @@ end
 
 -- OnUpdate script to change the TexCoords every 0.1 seconds
 local timeSinceLastUpdate = 0
-local updateInterval = .25 -- Adjust this to change the speed of the animation
+local updateInterval = .1 -- Adjust this to change the speed of the animation
 overlay:SetScript("OnUpdate", function(self, elapsed)
   local elapsed = arg1 or 0
   timeSinceLastUpdate = timeSinceLastUpdate + elapsed
