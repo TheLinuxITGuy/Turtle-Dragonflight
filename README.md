@@ -25,7 +25,6 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 - Special bars show over the top of Bar 2 on the action bar randomly.
 
 ## Special Thanks
-Credit to [shagu](https://github.com/shagu)    
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
 Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)    
 Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)    
