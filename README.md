@@ -21,7 +21,6 @@ A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1
 - Mousewheel up/down in Chat
 
 ## Known issues
-- The bags will show over the top of the gold rings sometimes. I'm not sure what I do to reproduce it, but I am going to look into it.
 - Special bars show over the top of Bar 2 on the action bar randomly.
 
 ## Special Thanks
