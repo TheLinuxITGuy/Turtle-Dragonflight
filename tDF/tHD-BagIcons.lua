@@ -184,12 +184,12 @@ CharacterBag0Slot:SetNormalTexture("")
 CharacterBag0Slot:SetPushedTexture("")
 CharacterBag0Slot:SetHighlightTexture("")
 CharacterBag0Slot:ClearAllPoints()
-CharacterBag0Slot:SetWidth(17)
-CharacterBag0Slot:SetHeight(17)
-CharacterBag0Slot:SetPoint("CENTER", lb1, 0, 0)
+CharacterBag0Slot:SetWidth(17) --changes the actual button
+CharacterBag0Slot:SetHeight(17) 
+CharacterBag0Slot:SetPoint("CENTER", lb1, -.75, .75)
 
-lb1:SetWidth(25)
-lb1:SetHeight(25)
+lb1:SetWidth(35) --25
+lb1:SetHeight(35) --25
 lb1:SetPoint("CENTER", bbMain, -50, 0) --the -45 is to the left, the 45 is up
 lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb1NormalTexture = lb1:GetNormalTexture()
@@ -214,7 +214,7 @@ lb1:SetScript("OnClick", function(self, button, down)
     ToggleBag(1)
   end)
   -- Add this line to move lb1 in front of CharacterBag0Slot
-lb1:SetFrameLevel(CharacterBag0Slot:GetFrameLevel() + 1)
+--lb1:SetFrameLevel(CharacterBag0Slot:GetFrameLevel() + 1)
 -----------------Bag 1 icon-----------------
 
 -----------------Bag 2 icon-----------------
@@ -225,10 +225,10 @@ CharacterBag1Slot:SetHighlightTexture("")
 CharacterBag1Slot:ClearAllPoints()
 CharacterBag1Slot:SetWidth(17)
 CharacterBag1Slot:SetHeight(17)
-CharacterBag1Slot:SetPoint("CENTER", lb2, 0, 0)
-lb2:SetWidth(25)
-lb2:SetHeight(25)
-lb2:SetPoint("CENTER", bbMain, -75, 0) --the -45 is to the left, the 45 is up
+CharacterBag1Slot:SetPoint("CENTER", lb2, -.75, .75)
+lb2:SetWidth(35) --25
+lb2:SetHeight(35) --25
+lb2:SetPoint("CENTER", bbMain, -85, 0) --the -45 is to the left, the 45 is up
 lb2:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb2NormalTexture = lb2:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
@@ -251,7 +251,7 @@ lb2:SetScript("OnClick", function(self, button, down)
     ToggleBag(2)
   end)
     -- Add this line to move lb2 in front of CharacterBag1Slot
-lb2:SetFrameLevel(CharacterBag1Slot:GetFrameLevel() + 1)
+--lb2:SetFrameLevel(CharacterBag1Slot:GetFrameLevel() + 1)
 -----------------Bag 2 icon-----------------
 
 -----------------Bag 3 icon-----------------
@@ -262,10 +262,10 @@ CharacterBag2Slot:SetHighlightTexture("")
 CharacterBag2Slot:ClearAllPoints()
 CharacterBag2Slot:SetWidth(17)
 CharacterBag2Slot:SetHeight(17)
-CharacterBag2Slot:SetPoint("CENTER", lb3, 0, 0)
-lb3:SetWidth(25)
-lb3:SetHeight(25)
-lb3:SetPoint("CENTER", bbMain, -100, 0) --the -45 is to the left, the 45 is up
+CharacterBag2Slot:SetPoint("CENTER", lb3, -.75, .75)
+lb3:SetWidth(35) --25
+lb3:SetHeight(35) --25
+lb3:SetPoint("CENTER", bbMain, -120, 0) --the -45 is to the left, the 45 is up
 lb3:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb3NormalTexture = lb3:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
@@ -288,7 +288,7 @@ lb3:SetScript("OnClick", function(self, button, down)
     ToggleBag(3)
   end)
 -- Add this line to move lb3 in front of CharacterBag2Slot
-lb3:SetFrameLevel(CharacterBag2Slot:GetFrameLevel() + 1)
+--lb3:SetFrameLevel(CharacterBag2Slot:GetFrameLevel() + 1)
 -----------------Bag 3 icon-----------------
 
 -----------------Bag 4 icon-----------------
@@ -299,10 +299,10 @@ CharacterBag3Slot:SetHighlightTexture("")
 CharacterBag3Slot:ClearAllPoints()
 CharacterBag3Slot:SetWidth(17)
 CharacterBag3Slot:SetHeight(17)
-CharacterBag3Slot:SetPoint("CENTER", lb4, 0, 0)
-lb4:SetWidth(25)
-lb4:SetHeight(25)
-lb4:SetPoint("CENTER", bbMain, -125, 0) --the -45 is to the left, the 45 is up
+CharacterBag3Slot:SetPoint("CENTER", lb4, -.75, .75)
+lb4:SetWidth(35) --25
+lb4:SetHeight(35) --25
+lb4:SetPoint("CENTER", bbMain, -155, 0) --the -45 is to the left, the 45 is up
 lb4:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb4NormalTexture = lb4:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
@@ -325,8 +325,9 @@ lb4:SetScript("OnClick", function(self, button, down)
     ToggleBag(4)
   end)
   -- Add this line to move lb3 in front of CharacterBag2Slot
-lb4:SetFrameLevel(CharacterBag3Slot:GetFrameLevel() + 1)
+--lb4:SetFrameLevel(CharacterBag3Slot:GetFrameLevel() + 1)
 
+--Adds text for hunter on bag 4
 -- Get the button for CharacterBag3Slot
 local button = getglobal("CharacterBag3Slot")
 if button then
@@ -353,9 +354,9 @@ end
 KeyRingButton:ClearAllPoints()
 KeyRingButton:Hide()
 local kr = CreateFrame("Button", "kr", UIParent, "UIPanelButtonTemplate")
-kr:SetWidth(25)
-kr:SetHeight(25)
-kr:SetPoint("CENTER", bbMain, -150, 0) --the -45 is to the left, the 45 is up
+kr:SetWidth(35) --25
+kr:SetHeight(35) --25
+kr:SetPoint("CENTER", bbMain, -190, 0) --the -45 is to the left, the 45 is up
 kr:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2key.tga")
 local krNormalTexture = kr:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
