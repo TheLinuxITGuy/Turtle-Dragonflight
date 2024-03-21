@@ -75,7 +75,7 @@ local function UpdateXPBar()
   MyXPBarStatus:SetValue(xpPercent)
   --MyXPBarStatus:SetValue(xpMaxPercent)
   --MyXPBarText:SetText(format("Current: %d / %d (Max: %.2f%%)", currentXP, maxXP, xpMaxPercent * 100))
-  MyXPBarText:SetText(format("Current: %.2f%% | Rested: %.2f%%)", xpPercent *100, xpMaxPercent * 100))
+  MyXPBarText:SetText(format("XP: %.2f%% | Rested: %.2f%%", xpPercent *100, xpMaxPercent * 100))
 end
 
   -- Show the text when the mouse enters the frame
