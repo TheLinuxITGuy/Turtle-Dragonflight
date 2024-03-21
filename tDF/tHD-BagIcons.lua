@@ -194,8 +194,7 @@ lb1:SetPoint("CENTER", bbMain, -50, 0) --the -45 is to the left, the 45 is up
 lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb1NormalTexture = lb1:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
---lb1NormalTexture:SetTexCoord(295/512, 353/512, 64/128, 124/128) --original b4 changes 3/4/24
-lb1NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+lb1NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
 
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
@@ -232,7 +231,7 @@ lb2:SetPoint("CENTER", bbMain, -85, 0) --the -45 is to the left, the 45 is up
 lb2:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb2NormalTexture = lb2:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb2NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+lb2NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
 
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
@@ -269,7 +268,7 @@ lb3:SetPoint("CENTER", bbMain, -120, 0) --the -45 is to the left, the 45 is up
 lb3:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb3NormalTexture = lb3:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb3NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+lb3NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
 
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
@@ -306,7 +305,7 @@ lb4:SetPoint("CENTER", bbMain, -155, 0) --the -45 is to the left, the 45 is up
 lb4:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb4NormalTexture = lb4:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb4NormalTexture:SetTexCoord(295/512, 354/512, 1/128, 60/128)
+lb4NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
 
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
