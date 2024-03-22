@@ -56,3 +56,10 @@ for i=1, NUM_CHAT_WINDOWS do
     chatFrame:SetScript("OnMouseWheel", ChatOnMouseWheel)
   end
 end
+
+--Moves pfQuest if exists to bottom left corner
+if pfBrowserIcon then
+  pfBrowserIcon:SetParent(UIParent)
+  pfBrowserIcon:ClearAllPoints()
+  pfBrowserIcon:SetPoint("BOTTOMLEFT", UIParent, 0, 0)
+end
