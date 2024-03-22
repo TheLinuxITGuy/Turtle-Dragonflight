@@ -110,11 +110,12 @@ end)
 
 ---------------------------------------------Turtle WoW Shop Micro Button--------------------------------------------------
 --Hide the original TWMinimapShopFrame
---TWMinimapShopFrame:SetAlpha(0)
 TWMinimapShopFrame:SetParent(UIParent)
 TWMinimapShopFrame:ClearAllPoints()
-TWMinimapShopFrame:SetPoint("BOTTOMLEFT", UIParent, -700, -500)
-TWMinimapShopFrame:SetAlpha(0)
+TWMinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
+--TWMinimapShopFrame:SetAlpha(0)
+TWMinimapShopFrame:SetHeight(0)
+TWMinimapShopFrame:SetWidth(0)
 --Create a new button
 local mbShop = CreateFrame("Button", "mbShop", UIParent, "UIPanelButtonTemplate")
 --Set its properties
