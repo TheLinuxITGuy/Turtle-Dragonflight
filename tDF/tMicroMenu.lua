@@ -113,7 +113,7 @@ end)
 TWMinimapShopFrame:SetParent(UIParent)
 TWMinimapShopFrame:ClearAllPoints()
 TWMinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
---TWMinimapShopFrame:SetAlpha(0)
+TWMinimapShopFrame:SetAlpha(0)
 TWMinimapShopFrame:SetHeight(0)
 TWMinimapShopFrame:SetWidth(0)
 --Create a new button
