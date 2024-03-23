@@ -169,7 +169,7 @@ MultiBarBottomLeft:SetScript("OnHide", updatePetActionBarPosition)
     -- ShapeshiftBarFrame
     ShapeshiftBarFrame:ClearAllPoints()
     local offset = 0
-    local anchor = ActionButton1
+    local anchor = MultiBarBottomLeftButton1
     anchor = MultiBarBottomLeft:IsVisible() and MultiBarBottomLeft or anchor
     anchor = MultiBarBottomRight:IsVisible() and MultiBarBottomRight or anchor
 
