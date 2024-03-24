@@ -175,7 +175,7 @@ MultiBarBottomLeft:SetScript("OnHide", updatePetActionBarPosition)
 
     offset = anchor == ActionButton1 and ( MainMenuExpBar:IsVisible() or ReputationWatchBar:IsVisible() ) and 6 or 0
     offset = anchor == ActionButton1 and offset + 6 or offset
-    ShapeshiftBarFrame:SetPoint("BOTTOMLEFT", anchor, "TOPLEFT", 8, 2 + offset)
+    ShapeshiftBarFrame:SetPoint("BOTTOMLEFT", anchor, "TOPLEFT", -10, 2 + offset)
 
     -- move castbar ontop of other bars
     local anchor = MainMenuBarArtFrame
