@@ -13,6 +13,7 @@ local MyXPBarTexture = MyXPBar:CreateTexture("MyXPBarTexture", "ARTWORK")
 local MyXPBarStatus = CreateFrame("StatusBar", "MyXPBarStatus", UIParent)
 local MyXPBarText = MyXPBar:CreateFontString(nil, "OVERLAY")
 MyXPBar:Hide() --hide initially
+local ticker = ExhaustionTick
 
 if playerLevel < 60 then
 
@@ -25,6 +26,17 @@ MyXPBar:SetFrameStrata("HIGH")
 MyXPBarTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP512.tga")
 MyXPBarTexture:SetTexCoord(0/512, 512/512, 245/512, 264/512)
 MyXPBarTexture:SetAllPoints(MyXPBar)
+
+ticker:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ticker.tga")
+local tickerNormalTexture = ticker:GetNormalTexture()
+ticker:SetWidth(10) --12
+ticker:SetHeight(24)
+ticker:SetPoint("TOPLEFT", MyXPBarTexture, "TOPLEFT", 0, 5)
+tickerNormalTexture:SetTexCoord(18/32, 28/32, 8/32, 30/32) --16 28 8 23
+
+ticker:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\ticker.tga")
+local tickerHighlightTexture = ticker:GetHighlightTexture()
+tickerHighlightTexture:SetTexCoord(2/32, 16/32, 8/32, 23/32)
 
 -- Create the frame for the blue or purple bar
 MyXPBarStatus:SetWidth(515)
