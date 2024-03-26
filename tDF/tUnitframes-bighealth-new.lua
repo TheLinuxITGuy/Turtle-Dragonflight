@@ -11,13 +11,45 @@ PlayerFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame]]
 PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]  
 PlayerFrameHealthBar:SetPoint("TOPLEFT", 106, -23)
 
-  -- Get the Player unitframe
+
+--[[
+Original
+-- Get the Player unitframe
 local playerFrame = PlayerFrame
 -- Change the font of the Player unitframe
 playerFrame.healthbar.TextString:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
 playerFrame.healthbar.TextString:SetTextColor(1, 1, 1)
 playerFrame.manabar.TextString:SetFont(STANDARD_TEXT_FONT, 10,"OUTLINE")
 playerFrame.manabar.TextString:SetTextColor(1, 1, 1)
+]]
+  
+-- Get the Player unitframe
+local playerFrame = PlayerFrame
+
+-- Function to update health and mana text
+local function UpdateText()
+  local health = UnitHealth("player")
+  local maxHealth = UnitHealthMax("player")
+  local healthPercent = math.floor((health / maxHealth) * 100)
+
+  local mana = UnitMana("player")
+  local maxMana = UnitManaMax("player")
+  local manaPercent = math.floor((mana / maxMana) * 100)
+
+  playerFrame.healthbar.TextString:SetText(string.format("%d%%", healthPercent))
+  playerFrame.manabar.TextString:SetText(string.format("%d%%", manaPercent))
+end
+
+-- Change the font of the Player unitframe
+playerFrame.healthbar.TextString:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
+playerFrame.healthbar.TextString:SetTextColor(1, 1, 1)
+playerFrame.manabar.TextString:SetFont(STANDARD_TEXT_FONT, 10,"OUTLINE")
+playerFrame.manabar.TextString:SetTextColor(1, 1, 1)
+-- Register the function to update text on health and mana changes
+playerFrame:SetScript("OnUpdate", UpdateText)
+
+----new code for %'s ^^^
+
 local petFrame = PetFrame
 petFrame.healthbar.TextString:SetFont(STANDARD_TEXT_FONT, 8, "OUTLINE")
 petFrame.healthbar.TextString:SetTextColor(1, 1, 1)
@@ -44,6 +76,14 @@ expBar.TextString:SetTextColor(1, 1, 1)
   --PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health.tga]])
   PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health-Status.tga]])
   --Change the texture of the Mana bar
+ -- local powerType, powerToken = UnitPowerType("player")
+  --if powerToken == "MANA" then
+   -- PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana.tga]])
+   -- PlayerFrameManaBar:SetStatusBarColor(0, 0, 0, 1)
+  --else
+    --PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
+    --PlayerFrameManaBar:SetStatusBarColor(0, 0, 0, 0)
+  --end
   PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
   TargetFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame2]]  
   TargetFrameHealthBar:SetPoint("TOPRIGHT", -103, -23)
