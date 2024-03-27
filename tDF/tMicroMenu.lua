@@ -29,6 +29,18 @@ mbHelp:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local HelpHighlightTexture = mbHelp:GetHighlightTexture()
 HelpHighlightTexture:SetTexCoord(162/256, 198/256, 215/512, 265/512)
+--GameTooltip
+mbHelp:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(HelpMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(HelpMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbHelp:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbHelp:SetScript("OnClick", function(self, button, down)
   ToggleHelpFrame()
@@ -59,6 +71,20 @@ mbMainMenu:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local MainMenuHighlightTexture = mbMainMenu:GetHighlightTexture()
 MainMenuHighlightTexture:SetTexCoord(122/256, 157/256, 323/512, 372/512)
+-----Creates a new microButton-----
+
+--GameTooltip
+mbMainMenu:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(MainMenuMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(MainMenuMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbMainMenu:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbMainMenu:SetScript("OnClick", function(self, button, down)
   ToggleGameMenu()
@@ -96,7 +122,20 @@ function ShowTWBGQueueMenu()
   UIDropDownMenu_Initialize(TWBGQueueMinimapMenuFrame, BuildTWBGQueueMenu, "MENU");
   ToggleDropDownMenu(1, nil, TWBGQueueMinimapMenuFrame, "cursor", -150, 25);
 end
+-----Creates a new microButton-----
 
+--GameTooltip
+mbPvP:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText("Player vs. Player", 1, 1, 1, 1, true)
+  GameTooltip:AddLine("Compete against the enemy faction in the battlegrounds.", nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbPvP:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbPvP:SetScript("OnClick", function(self, button, down)
   if BattlefieldFrame:IsVisible() then
@@ -137,6 +176,20 @@ mbShop:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local ShopHighlightTexture = mbShop:GetHighlightTexture()
 ShopHighlightTexture:SetTexCoord(0/256, 38/256, 431/512, 482/512)
+-----Creates a new microButton-----
+
+--GameTooltip
+mbShop:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText("Donation Rewards", 1, 1, 1, 1, true)
+  GameTooltip:AddLine("Thank you for supporting Turtle WoW.", nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbShop:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbShop:SetScript("OnClick", function(self, button, down)
   tws_toggle()
@@ -172,6 +225,19 @@ mbLFT:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 local LFTHighlightTexture = mbLFT:GetHighlightTexture()
 LFTHighlightTexture:SetTexCoord(41/256, 78/256, 107/512, 157/512)
 -----Creates a new microButton-----
+
+--GameTooltip
+mbLFT:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText("Looking for Turtles", 1, 1, 1, 1, true)
+  GameTooltip:AddLine("Find other players to fill your party. Running to the dungeon is required.", nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbLFT:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 
 -----Reskins the eye-----
 -- Create a new frame
@@ -302,6 +368,18 @@ mbEBC:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local EBCHighlightTexture = mbEBC:GetHighlightTexture()
 EBCHighlightTexture:SetTexCoord(82/256, 119/256, 378/512, 429/512)
+--GameTooltip
+mbEBC:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText("Everlook Broadcasting Co.", 1, 1, 1, 1, true)
+  GameTooltip:AddLine("Listen to some awesome tunes while you play Turtle WoW.", nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbEBC:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 function ShowEBCMinimapDropdown()
   if EBCMinimapDropdown:IsVisible() then
@@ -342,6 +420,18 @@ mbWorldMap:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local WorldMapHighlightTexture = mbWorldMap:GetHighlightTexture()
 WorldMapHighlightTexture:SetTexCoord(202/256, 237/256, 54/512, 102/512)
+--GameTooltip
+mbWorldMap:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(WorldMapMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(WorldMapMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbWorldMap:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbWorldMap:SetScript("OnClick", function(self, button, down)
   ToggleWorldMap()
@@ -372,6 +462,18 @@ mbSocials:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local SocialsHighlightTexture = mbSocials:GetHighlightTexture()
 SocialsHighlightTexture:SetTexCoord(42/256, 77/256, 0/512, 48/512)
+--GameTooltip
+mbSocials:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(SocialsMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(SocialsMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbSocials:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbSocials:SetScript("OnClick", function(self, button, down)
   ToggleFriendsFrame()
@@ -402,6 +504,18 @@ mbQuestLog:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local QuestLogHighlightTexture = mbQuestLog:GetHighlightTexture()
 QuestLogHighlightTexture:SetTexCoord(42/256, 77/256, 432/512, 480/512)
+--GameTooltip
+mbQuestLog:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(QuestLogMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(QuestLogMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbQuestLog:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbQuestLog:SetScript("OnClick", function(self, button, down)
   ToggleQuestLog()
@@ -434,6 +548,19 @@ mbTalent:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
 local TalentHighlightTexture = mbTalent:GetHighlightTexture()
 TalentHighlightTexture:SetTexCoord(82/256, 117/256, 0/512, 48/512)
+------
+--GameTooltip
+mbTalent:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(TalentMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(TalentMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbTalent:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbTalent:SetScript("OnClick", function(self, button, down)
   ToggleTalentFrame()
@@ -464,6 +591,20 @@ mbSpellBook:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga"
 --Get the texture object and set its coordinates
 local SpellbookHighlightTexture = mbSpellBook:GetHighlightTexture()
 SpellbookHighlightTexture:SetTexCoord(190/256, 225/256, 432/512, 480/512)
+
+------
+--GameTooltip
+mbSpellBook:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText("Spellbook & Abilities", 1, 1, 1, 1, true)
+  GameTooltip:AddLine("All of your spells and abilities. To move a spell or ability to your Action Bar, open the Spellbook & Abilities window, left-click that spell or ability, and drag it down to your Action Bar.", nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbSpellBook:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
 --click
 mbSpellBook:SetScript("OnClick", function(self, button, down)
   ToggleSpellBook(BOOKTYPE_SPELL)
@@ -478,6 +619,7 @@ local mbCharacter = CreateFrame("Button", "mbCharacter", UIParent, "UIPanelButto
 -- Set its properties
 mbCharacter:SetWidth(18)
 mbCharacter:SetHeight(25)
+mbCharacter:ClearAllPoints()
 mbCharacter:SetPoint("BOTTOMRIGHT", UIParent, -230, 12) -- position Character button next to Spellbook
 -- Set the button's normal texture
 mbCharacter:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
@@ -494,6 +636,20 @@ mbCharacter:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga"
 -- Get the texture object and set its coordinates
 local CharacterHighlightTexture = mbCharacter:GetHighlightTexture()
 CharacterHighlightTexture:SetTexCoord(82/256, 116/256, 216/512, 264/512) -- adjust these values as needed
+------
+--GameTooltip
+mbCharacter:SetScript("OnEnter", function()
+  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetText(CharacterMicroButton.tooltipText, 1, 1, 1, 1, true)
+  GameTooltip:AddLine(CharacterMicroButton.newbieText, nil, nil, nil, true)
+  GameTooltip:Show()
+end)
+
+mbCharacter:SetScript("OnLeave", function()
+  GameTooltip:Hide()
+end)
+------
+
 --click
 mbCharacter:SetScript("OnClick", function(self, button, down)
     -- code to run when the button is clicked
