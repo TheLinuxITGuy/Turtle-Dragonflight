@@ -184,8 +184,8 @@ CharacterBag0Slot:SetNormalTexture("")
 CharacterBag0Slot:SetPushedTexture("")
 CharacterBag0Slot:SetHighlightTexture("")
 CharacterBag0Slot:ClearAllPoints()
-CharacterBag0Slot:SetWidth(17) --changes the actual button
-CharacterBag0Slot:SetHeight(17) 
+CharacterBag0Slot:SetWidth(18) --changes the actual button
+CharacterBag0Slot:SetHeight(18) 
 CharacterBag0Slot:SetPoint("CENTER", lb1, -.75, .75)
 
 lb1:SetWidth(35) --25
@@ -195,13 +195,18 @@ lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb1NormalTexture = lb1:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
 lb1NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
+------------------------------------
 
+
+
+------------------------------------
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
 lb1:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 --Get the texture object and set its coordinates
 local lb1PushedTexture = lb1:GetPushedTexture()
+--lb1PushedTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
 lb1PushedTexture:SetTexCoord(422/512, 475/512, 65/128, 118/128)
 --Set the button's highlight texture
 lb1:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
@@ -222,8 +227,8 @@ CharacterBag1Slot:SetNormalTexture("")
 CharacterBag1Slot:SetPushedTexture("")
 CharacterBag1Slot:SetHighlightTexture("")
 CharacterBag1Slot:ClearAllPoints()
-CharacterBag1Slot:SetWidth(17)
-CharacterBag1Slot:SetHeight(17)
+CharacterBag1Slot:SetWidth(18)
+CharacterBag1Slot:SetHeight(18)
 CharacterBag1Slot:SetPoint("CENTER", lb2, -.75, .75)
 lb2:SetWidth(35) --25
 lb2:SetHeight(35) --25
@@ -259,8 +264,8 @@ CharacterBag2Slot:SetNormalTexture("")
 CharacterBag2Slot:SetPushedTexture("")
 CharacterBag2Slot:SetHighlightTexture("")
 CharacterBag2Slot:ClearAllPoints()
-CharacterBag2Slot:SetWidth(17)
-CharacterBag2Slot:SetHeight(17)
+CharacterBag2Slot:SetWidth(18)
+CharacterBag2Slot:SetHeight(18)
 CharacterBag2Slot:SetPoint("CENTER", lb3, -.75, .75)
 lb3:SetWidth(35) --25
 lb3:SetHeight(35) --25
@@ -296,8 +301,8 @@ CharacterBag3Slot:SetNormalTexture("")
 CharacterBag3Slot:SetPushedTexture("")
 CharacterBag3Slot:SetHighlightTexture("")
 CharacterBag3Slot:ClearAllPoints()
-CharacterBag3Slot:SetWidth(17)
-CharacterBag3Slot:SetHeight(17)
+CharacterBag3Slot:SetWidth(18)
+CharacterBag3Slot:SetHeight(18)
 CharacterBag3Slot:SetPoint("CENTER", lb4, -.75, .75)
 lb4:SetWidth(35) --25
 lb4:SetHeight(35) --25
@@ -326,6 +331,7 @@ lb4:SetScript("OnClick", function(self, button, down)
   -- Add this line to move lb3 in front of CharacterBag2Slot
 --lb4:SetFrameLevel(CharacterBag3Slot:GetFrameLevel() + 1)
 
+--[[
 --Adds text for hunter on bag 4
 -- Get the button for CharacterBag3Slot
 local button = getglobal("CharacterBag3Slot")
@@ -347,6 +353,8 @@ else
     -- Print a debug message
     print("CharacterBag3Slot does not exist.")
 end
+]]
+
 -----------------Bag 4 icon-----------------
 
 -----------------Keyring icon-----------------
