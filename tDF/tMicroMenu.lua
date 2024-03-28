@@ -327,6 +327,13 @@ findGroupButton:SetScript("OnClick", function(self, button, down)
   findGroup()
 end)
 
+--findMoreButton
+findMoreButton:SetScript("OnClick", function(self, button, down)
+  LFT_Minimap:Show()
+  overlay.texture:Show()
+  findGroup()
+end)
+
 --leaveQueueButton
 leaveQueueButton:SetScript("OnClick", function(self, button, down)
   LFT_Minimap:Hide()
