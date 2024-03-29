@@ -110,6 +110,12 @@ eventFrame:SetScript("OnUpdate", function(self, elapsed)
         tBuffButton16:ClearAllPoints()
         tBuffButton16:SetPoint("CENTER", tBuffButton0, 0, -125)
     end
+
+    if tTempEnchant1 then
+        tTempEnchant1:SetParent(UIParent)
+        tTempEnchant1:ClearAllPoints()
+        tTempEnchant1:SetPoint("CENTER", tBuffButton0, 0, -40)
+    end
 end)
 
 ------------------Add Clock------------------
