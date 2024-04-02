@@ -114,7 +114,7 @@ eventFrame:SetScript("OnUpdate", function(self, elapsed)
     if tTempEnchant1 then
         tTempEnchant1:SetParent(UIParent)
         tTempEnchant1:ClearAllPoints()
-        tTempEnchant1:SetPoint("CENTER", tBuffButton0, 0, -40)
+        tTempEnchant1:SetPoint("CENTER", tBuffButton0, 0, -50)
     end
 end)
 
