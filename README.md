@@ -1,5 +1,5 @@
 # Turtle Dragonflight
-A UI that brings the Dragonflight UI to Turtle WoW. Tested resolutions: 1440p, 1080p, and 720p.
+A UI that brings the Dragonflight UI to Turtle WoW.
 
 ## Installation
 #### This is a stand-alone addon made for the Turtle WoW 1.12.1 client.    
