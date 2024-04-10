@@ -1,4 +1,4 @@
-ShaguTweaks = CreateFrame("Frame")
+local ShaguTweaks = CreateFrame("Frame")
 
   --Shagu's GetExpansion function from his helpers.lua
     ShaguTweaks.GetExpansion = function()
