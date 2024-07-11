@@ -61,6 +61,22 @@ petFrame.healthbar.TextString:SetJustifyH("CENTER")
 petFrame.manabar.TextString:SetPoint("CENTER", petFrame.manabar, "CENTER", 0, 0)
 petFrame.manabar.TextString:SetJustifyH("CENTER")
 
+-- Party space fix with pet
+if petFrame:IsVisible() then
+  --print("petFrame is visible")
+  --local PartyMemberFrame1 = partyMember1
+  if PartyMemberFrame1:IsVisible() then
+    --print("partyMember1 exists")
+    PartyMemberFrame1:SetParent(petFrame)
+    PartyMemberFrame1:ClearAllPoints()
+    PartyMemberFrame1:SetPoint("BOTTOMLEFT", petFrame, 0, -75)
+  else
+    --print("partyMember1 does not exist")
+  end
+else
+  --print("petFrame is not visible")
+end
+
 -- Get the MainMenuExpBar
 local expBar = MainMenuExpBar
 -- Change the font of the MainMenuExpBar
