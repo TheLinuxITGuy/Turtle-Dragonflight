@@ -78,8 +78,7 @@ Dragonflight.
   for id, frame in pairs(frames) do hide(frame) end
   
   --hide error frames
- 
- UIErrorsFrame:Hide();
+  --UIErrorsFrame:Hide();
 
   -- clear textures
   for id, frame in pairs(textures) do hide(frame, 1) end
