@@ -13,8 +13,8 @@ local leftGryphonFrame = CreateFrame("Frame", nil, MainMenuBar)
 local rightGryphonFrame = CreateFrame("Frame", nil, MainMenuBar)
 
 -- Set the new frames to a higher strata
-leftGryphonFrame:SetFrameStrata("HIGH")
-rightGryphonFrame:SetFrameStrata("HIGH")
+leftGryphonFrame:SetFrameStrata("TOOLTIP")
+rightGryphonFrame:SetFrameStrata("TOOLTIP")
 
 -- Create new textures
 local leftGryphon = leftGryphonFrame:CreateTexture(nil, "OVERLAY")
