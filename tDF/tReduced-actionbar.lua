@@ -176,6 +176,11 @@ MultiBarBottomLeft:SetScript("OnHide", updatePetActionBarPosition)
     offset = anchor == ActionButton1 and offset + 6 or offset
     ShapeshiftBarFrame:SetPoint("BOTTOMLEFT", anchor, "TOPLEFT", -10, 2 + offset)
 
+    -- new to support 3rd bar
+    if MultiBarBottomRightButton1 then
+    	ShapeshiftBarFrame:SetPoint("BOTTOMLEFT", anchor, "TOPLEFT", -10, 10 + offset)
+    end
+
     -- move castbar ontop of other bars
     local anchor = MainMenuBarArtFrame
     anchor = MultiBarBottomLeft:IsVisible() and MultiBarBottomLeft or anchor
