@@ -11,3 +11,67 @@ for _, g in pairs({MainMenuBarTexture1, MainMenuBarTexture0, BonusActionBarTextu
         g:SetTexture("Interface\\Addons\\tDF\\img\\UI-MainMenuBar-Dwarf")
     end
 end
+
+local frameBotLeft = CreateFrame("Frame")
+frameBotLeft:SetScript("OnUpdate", function()
+    for i = 1, 12 do
+        local button = getglobal("MultiBarBottomLeftButton" .. i)
+        if button then
+            button:SetWidth(36)
+            button:SetHeight(36)
+            button:SetNormalTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframe.tga")
+            button:SetHighlightTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframehighlight.tga")
+            local texture = button:GetNormalTexture()
+            texture:SetWidth(36)
+            texture:SetHeight(36)
+        end
+    end
+end)
+
+local frameRight = CreateFrame("Frame")
+frameRight:SetScript("OnUpdate", function()
+    for i = 1, 12 do
+        local button = getglobal("MultiBarRightButton" .. i)
+        if button then
+            button:SetWidth(36)
+            button:SetHeight(36)
+            button:SetNormalTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframe.tga")
+            button:SetHighlightTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframehighlight.tga")
+            local texture = button:GetNormalTexture()
+            texture:SetWidth(36)
+            texture:SetHeight(36)
+        end
+    end
+end)
+
+local frameBotRight2 = CreateFrame("Frame")
+frameBotRight2:SetScript("OnUpdate", function()
+    for i = 1, 12 do
+        local button = getglobal("MultiBarLeftButton" .. i)
+        if button then
+            button:SetWidth(36)
+            button:SetHeight(36)
+            button:SetNormalTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframe.tga")
+            button:SetHighlightTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframehighlight.tga")
+            local texture = button:GetNormalTexture()
+            texture:SetWidth(36)
+            texture:SetHeight(36)
+        end
+    end
+end)
+
+local frameBotRight = CreateFrame("Frame")
+frameBotRight:SetScript("OnUpdate", function()
+    for i = 1, 12 do
+        local button = getglobal("MultiBarBottomRightButton" .. i)
+        if button then
+            button:SetWidth(36)
+            button:SetHeight(36)
+            button:SetNormalTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframe.tga")
+            button:SetHighlightTexture("Interface\\Addons\\tDF\\img\\uiactionbariconframehighlight.tga")
+            local texture = button:GetNormalTexture()
+            texture:SetWidth(36)
+            texture:SetHeight(36)
+        end
+    end
+end)
