@@ -25,6 +25,13 @@ playerFrame.manabar.TextString:SetTextColor(1, 1, 1)
   
 -- Get the Player unitframe
 local playerFrame = PlayerFrame
+playerFrame:ClearAllPoints()
+playerFrame:SetPoint("CENTER", ActionButton1, -100, 250)
+
+--Get the Target unitframe
+local targetFrame = TargetFrame
+targetFrame:ClearAllPoints()
+targetFrame:SetPoint("CENTER", ActionButton12, 100, 250)
 
 -- Function to update health and mana text
 local function UpdateText()
@@ -221,17 +228,17 @@ if petFrame:IsVisible() then
   --local PartyMemberFrame1 = partyMember1
   if PartyMemberFrame1:IsVisible() then
     --print("partyMember1 exists")
-    PartyMemberFrame1:SetParent(PlayerFrame)
+    --PartyMemberFrame1:SetParent(PlayerFrame)
     PartyMemberFrame1:ClearAllPoints()
-    PartyMemberFrame1:SetPoint("BOTTOMLEFT", PlayerFrame, 30, -100)
+    PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -100)
   else
     --print("partyMember1 does not exist")
   end
 else
   --print("petFrame is not visible")
-    PartyMemberFrame1:SetParent(PlayerFrame)
+    --PartyMemberFrame1:SetParent(PlayerFrame)
     PartyMemberFrame1:ClearAllPoints()
-    PartyMemberFrame1:SetPoint("BOTTOMLEFT", PlayerFrame, 30, -100)
+    PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -100)
 end
     
   end)
