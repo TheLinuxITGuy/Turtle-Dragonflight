@@ -19,6 +19,7 @@ The Dragonflight UI for Turtle WoW.
 - Dragonflight Latency Bar
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
 - Mousewheel up/down in Chat
+- ShaguTweak's Debuff Timer
 
 ## Known issues
 - Special bars show over the top of Bar 2 on the action bar randomly.
