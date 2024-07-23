@@ -20,7 +20,7 @@ The Dragonflight UI for Turtle WoW.
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
 
 ## Known issues
-- Special bars show over the top of Bar 2 on the action bar randomly.
+- None as of now.
 
 ## Special Thanks
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
