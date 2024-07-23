@@ -18,6 +18,7 @@ The Dragonflight UI for Turtle WoW.
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
+- Now built on ShaguTweaks. Hit escape and select "tDF Options" for a complete list of customization options.
 
 ## Known issues
 - None as of now.
