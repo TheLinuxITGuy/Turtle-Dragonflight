@@ -2,7 +2,7 @@
 The Dragonflight UI for Turtle WoW.
 
 ## Installation
-#### This is a stand-alone addon made for the Turtle WoW 1.12.1 client.    
+#### This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on ShaguTweaks. PLEASE DO NOT TRY TO RUN SHAGU TWEAKS ALONGSIDE TURTLE DRAGONFLIGHT.    
 
 #### Manual Install
 1. Unpack the Zip file included with this download.
@@ -18,16 +18,12 @@ The Dragonflight UI for Turtle WoW.
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
-- Mousewheel up/down in Chat
-- ShaguTweak's Debuff Timer
 
 ## Known issues
 - Special bars show over the top of Bar 2 on the action bar randomly.
 
 ## Special Thanks
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
-Code from [ShaguTweaks-mods](https://github.com/GryllsAddons/ShaguTweaks-mods)    
-Code from [ShaguTweaks-more-mods](https://github.com/CrimsonHollow/ShaguTweaks-more-mods)    
 
 ## Video
 [![Video](https://img.youtube.com/vi/TkdsL8XhiHE/maxresdefault.jpg)](https://www.youtube.com/watch?v=TkdsL8XhiHE&t=1145s)
