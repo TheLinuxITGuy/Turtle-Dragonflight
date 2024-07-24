@@ -172,7 +172,7 @@ module.enable = function(self)
     wait:Hide()
 
 -- Party space fix with pet
-  if petFrame:IsVisible() then
+  if PetFrame:IsVisible() then
     --print("petFrame is visible")
     --local PartyMemberFrame1 = partyMember1
     if PartyMemberFrame1:IsVisible() then
