@@ -89,3 +89,4 @@ tBagIcons.lua
 tReducedActionBar.lua
 tGryphons.lua
 tUnitframes.lua
+tLootAtMouse.lua
