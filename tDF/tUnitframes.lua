@@ -22,7 +22,27 @@ module.enable = function(self)
   PlayerFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame]]  
   PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]  
   PlayerFrameHealthBar:SetPoint("TOPLEFT", 106, -23)
-
+  
+  --fix target color
+  local original = TargetFrame_CheckFaction
+  function TargetFrame_CheckFaction(self)
+    original(self)
+  
+    local reaction = UnitReaction("target", "player")
+  
+    if UnitIsPlayer("target") then
+      local _, class = UnitClass("target")
+      local class = RAID_CLASS_COLORS[class] or { r = .5, g = .5, b = .5, a = 1 }
+      TargetFrameNameBackground:SetVertexColor(class.r, class.g, class.b, 1)
+      TargetFrameNameBackground:Show()
+    elseif reaction and reaction > 4 then
+      TargetFrameNameBackground:Hide()
+    else
+      TargetFrameNameBackground:Show()
+    end
+  end
+  --end fix target color
+  
   --[[
   -- Get the Player unitframe
   local playerFrame = PlayerFrame
