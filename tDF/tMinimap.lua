@@ -47,6 +47,13 @@ f:SetScript("OnEvent", function()
     MinimapZoneText:SetPoint("CENTER", customMinimap, 0, 110)
     MinimapToggleButton:Hide()
 
+    --MiniMapTrackingFrame
+        -- Clear existing points
+        MiniMapTrackingFrame:ClearAllPoints()
+        -- Set new point relative to MiniMapZoneText
+        MiniMapTrackingFrame:SetPoint("TOPRIGHT", UIParent, -0,2)
+    --MiniMapTrackingFrame
+
     -- Show your custom minimap
     customMinimap:Show()
 end)
