@@ -23,8 +23,9 @@ end
 
 module.enable = function(self)
   PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame")
-  PlayerFrameHealthBar:SetPoint("TOPLEFT", 106, -22)
+  PlayerFrameHealthBar:SetPoint("TOPLEFT", 103, -22)
   PlayerFrameHealthBar:SetHeight(30)
+  PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
 
   PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
 
@@ -34,9 +35,9 @@ module.enable = function(self)
 
 -- DF Texture
 
-    PlayerFrameHealthBar:SetWidth(120)
+    PlayerFrameHealthBar:SetWidth(123)
     PlayerFrameHealthBar:SetHeight(30)
-    PlayerFrameManaBar:SetWidth(120)
+    PlayerFrameManaBar:SetWidth(123)
     PlayerFrameBackground:SetWidth(122)
     PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
     -- Change the texture of the Health bar
@@ -189,6 +190,6 @@ module.enable = function(self)
       PartyMemberFrame1:ClearAllPoints()
       PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
   end
-  
+
   end)
 end
