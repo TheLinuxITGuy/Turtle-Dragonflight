@@ -5,7 +5,8 @@ local mod = math.mod or mod
 
 local current_config = {}
 local max_width = 500
-local max_height = 680
+--local max_height = 680
+local max_height = 500
 
 local settings = CreateFrame("Frame", "AdvancedSettingsGUI", UIParent)
 settings:Hide()
@@ -16,6 +17,7 @@ settings:SetScript("OnHide", function()
   UpdateMicroButtons()
 end)
 
+--settings:SetPoint("TOP", UIParent, "TOP", 0, -10)
 settings:SetPoint("CENTER", UIParent, "CENTER", 0, 0)
 settings:SetWidth(max_width)
 settings:SetHeight(max_height)
