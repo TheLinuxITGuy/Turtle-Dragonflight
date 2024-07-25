@@ -72,7 +72,7 @@ mods\hide-errors.lua
 mods\chat-tweaks.lua
 mods\hide-gryphons.lua
 mods\worldmap-colors.lua
-mods\unitframes-bighealth.lua
+# mods\unitframes-bighealth.lua
 mods\unitframes-classportrait.lua
 mods\cooldown-numbers.lua
 mods\turtle-wow.lua
