@@ -8,6 +8,9 @@ The Dragonflight UI for Turtle WoW.
 1. Unpack the Zip file included with this download.
 2. Copy the "tDF" folder to your AddOns folder.
 3. Fire up Turtle WoW. :)
+   
+## Video
+[![Video](https://img.youtube.com/vi/TkdsL8XhiHE/maxresdefault.jpg)](https://www.youtube.com/watch?v=TkdsL8XhiHE&t=1145s)
 
 ## Features
 - Dragonflight Minimap
@@ -25,6 +28,3 @@ The Dragonflight UI for Turtle WoW.
 
 ## Special Thanks
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
-
-## Video
-[![Video](https://img.youtube.com/vi/TkdsL8XhiHE/maxresdefault.jpg)](https://www.youtube.com/watch?v=TkdsL8XhiHE&t=1145s)
