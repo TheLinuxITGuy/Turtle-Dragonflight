@@ -87,6 +87,8 @@ tXPbar.lua
 tMicroMenu.lua
 tBagIcons.lua
 tReducedActionBar.lua
-tGryphons.lua
 tUnitframes.lua
 tLootAtMouse.lua
+tChatFrame.lua
+tMainActionBar.lua
+tGryphons.lua

@@ -5,13 +5,11 @@ This lua file hides the original Blizzard art work from 1.12. I've created new b
 Dragonflight.
 ]]
 
---[[
-for _, g in pairs({MainMenuBarTexture1, MainMenuBarTexture0, BonusActionBarTexture1}) do
+for _, g in pairs({MainMenuBarTexture1, MainMenuBarTexture0, BonusActionBarTexture1, BonusActionBarTexture0, BonusActionBarTexture2}) do
     if g then
-        g:SetTexture("Interface\\Addons\\tDF\\img\\UI-MainMenuBar-Dwarf")
+        g:SetTexture("")
     end
 end
-]]
 
 local frameBotLeft = CreateFrame("Frame")
 frameBotLeft:SetScript("OnUpdate", function()
