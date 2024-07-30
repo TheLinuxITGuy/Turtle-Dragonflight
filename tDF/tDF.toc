@@ -92,3 +92,4 @@ tLootAtMouse.lua
 tChatFrame.lua
 tMainActionBar.lua
 tGryphons.lua
+tFont.lua
