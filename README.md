@@ -2,7 +2,8 @@
 The Dragonflight UI for Turtle WoW.
 
 ## Installation
-#### This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on ShaguTweaks. PLEASE DO NOT TRY TO RUN ShaguTweaks ALONGSIDE TURTLE DRAGONFLIGHT.    
+#### This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on ShaguTweaks. 
+PLEASE DO NOT TRY TO RUN ShaguTweaks ALONGSIDE TURTLE DRAGONFLIGHT.    
 
 #### Manual Install
 1. Unpack the Zip file included with this download.
