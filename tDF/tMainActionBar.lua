@@ -4,30 +4,42 @@ for _, barName in pairs({"MainMenuBar", "BonusActionBarFrame"}) do
     local bar = getglobal(barName)
 
     -- Create a new frame
-    local frame = CreateFrame("Frame", nil, bar)
+    local Leftframe = CreateFrame("Frame", nil, bar)
+    local Rightframe = CreateFrame("Frame", nil, bar)
 
     -- Set the size of the frame
-    frame:SetWidth(508)
-    frame:SetHeight(46)
+    --frame:SetWidth(512)
+    --frame:SetHeight(48)
+    Leftframe:SetWidth(256)
+    Leftframe:SetHeight(256)
+    Rightframe:SetWidth(256)
+    Rightframe:SetHeight(256)
 
     -- Set the frame's position to the center of the bar
-    frame:SetPoint("CENTER", MainMenuBar, "CENTER", 0, -5)
+    Leftframe:SetPoint("CENTER", MainMenuBar, "CENTER", -125, -5)
+    Rightframe:SetPoint("CENTER", MainMenuBar, "CENTER", 130, -5)
 
     -- Set the strata of the bar and your frame
     bar:SetFrameStrata("LOW")
-    frame:SetFrameStrata("LOW")
+    Leftframe:SetFrameStrata("LOW")
+    Rightframe:SetFrameStrata("LOW")
 
     -- Create a texture for the frame on the OVERLAY layer
-    local texture = frame:CreateTexture(nil, "BACKGROUND")
+    local Lefttexture = Leftframe:CreateTexture(nil, "BACKGROUND")
+    local Righttexture = Rightframe:CreateTexture(nil, "BACKGROUND")
 
     -- Set the texture's image file (replace "Interface\\Addons\\tDF\\img\\MainActionBar3.tga" with the actual path)
-    texture:SetTexture("Interface\\Addons\\tDF\\img\\MainActionBar3.tga")
+    Lefttexture:SetTexture("Interface\\Addons\\tDF\\img\\HDActionBar.tga")
+    Righttexture:SetTexture("Interface\\Addons\\tDF\\img\\HDActionBar.tga")
 
     -- Set the texture to cover the entire frame
-    texture:SetAllPoints(frame)
+    Lefttexture:SetAllPoints(Leftframe)
+    Righttexture:SetAllPoints(Rightframe)
+    Righttexture:SetTexCoord(1, 0, 0, 1)
 
     -- Show the frame
-    frame:Show()
+    Leftframe:Show()
+    Rightframe:Show()
 end
 
 -- Set the strata of all ActionButtons to be above your frame
