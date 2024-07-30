@@ -28,3 +28,4 @@ The Dragonflight UI for Turtle WoW.
 
 ## Special Thanks
 Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
+Code and new ideas from [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
