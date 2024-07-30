@@ -6,7 +6,7 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on Shagu
 #### Please DO NOT try to run ShaguTweaks alongside tDF.    
 
 #### Manual Install
-1. Unpack the Zip file included with this download.
+1. Unpack the zip file included with this download.
 2. Copy the "tDF" folder to your AddOns folder.
 3. Fire up Turtle WoW. :)
    
