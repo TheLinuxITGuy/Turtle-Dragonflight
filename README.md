@@ -15,7 +15,7 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on Shagu
 
 ## Features
 - Dragonflight Minimap
-- Dragonflight Actionbar based on Horde or Alliance
+- Dragonflight ActionBars
 - Dragonflight Unitframes
 - Dragonflight Castbar
 - Dragonflight Bags
