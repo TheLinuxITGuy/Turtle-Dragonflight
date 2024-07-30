@@ -27,5 +27,5 @@ The Dragonflight UI for Turtle WoW.
 - None as of now.
 
 ## Special Thanks
-Code from [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
-Code and new ideas from [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
+Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
+My buddy [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
