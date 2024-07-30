@@ -195,6 +195,7 @@ lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb1NormalTexture = lb1:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
 lb1NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
+lb1:SetFrameStrata("LOW")
 ------------------------------------
 
 
@@ -237,7 +238,7 @@ lb2:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb2NormalTexture = lb2:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
 lb2NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-
+lb2:SetFrameStrata("LOW")
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
@@ -274,7 +275,7 @@ lb3:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb3NormalTexture = lb3:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
 lb3NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-
+lb3:SetFrameStrata("LOW")
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
@@ -311,7 +312,7 @@ lb4:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local lb4NormalTexture = lb4:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
 lb4NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-
+lb4:SetFrameStrata("LOW")
 --MainBagNormalTexture:SetWidth(25)
 --MainBagNormalTexture:SetHeight(25)
 --Set the button's pushed texture
