@@ -15,7 +15,7 @@ module.enable = function(self)
         local x, y = GetCursorPosition()
         local scale = UIParent:GetEffectiveScale()
         LootFrame:ClearAllPoints()
-        LootFrame:SetPoint("TOPRIGHT", UIParent, "BOTTOMLEFT", x / scale - 10, y / scale + 10)
+        LootFrame:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x / scale - 10, y / scale + 10)
     end
 
     local f = CreateFrame("Frame")
