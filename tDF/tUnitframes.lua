@@ -29,7 +29,7 @@ module.enable = function(self)
 
   PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
 
-  TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame")
+  TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
   TargetFrameHealthBar:SetPoint("TOPRIGHT", -106, -22)
   TargetFrameHealthBar:SetHeight(30)
 
@@ -106,7 +106,7 @@ module.enable = function(self)
     elseif ( classification == "rare"  ) then
       TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame-Rare")
     else
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame")
+      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
     end
   end
 
