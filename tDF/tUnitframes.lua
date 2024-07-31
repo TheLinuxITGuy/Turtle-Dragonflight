@@ -9,7 +9,6 @@ local module = ShaguTweaks:register({
   enabled = true,
 })
 
-
 local addonpath
 local tocs = { "", "-master", "-tbc", "-wotlk" }
 for _, name in pairs(tocs) do
@@ -22,40 +21,60 @@ for _, name in pairs(tocs) do
 end
 
 module.enable = function(self)
-  PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame")
-  PlayerFrameHealthBar:SetPoint("TOPLEFT", 103, -22)
-  PlayerFrameHealthBar:SetHeight(30)
-  PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
-
-  PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
-
-  TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
-  TargetFrameHealthBar:SetPoint("TOPRIGHT", -106, -22)
-  TargetFrameHealthBar:SetHeight(30)
-
 -- DF Texture
 
-    PlayerFrameHealthBar:SetWidth(123)
-    PlayerFrameHealthBar:SetHeight(30)
-    PlayerFrameManaBar:SetWidth(123)
-    PlayerFrameBackground:SetWidth(122)
-    PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
-    -- Change the texture of the Health bar
-    --PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health.tga]])
-    PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health-Status.tga]])
-    PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
-    TargetFrameTexture:SetTexture[[Interface\Addons\tDF\img\UI-TargetingFrame2]]  
-    TargetFrameHealthBar:SetPoint("TOPRIGHT", -103, -23)
-    TargetFrameHealthBar:SetHeight(30)
-    TargetFrameHealthBar:SetWidth(123)
-    TargetFrameManaBar:SetPoint("TOPRIGHT", -103, -52)
-    TargetFrameManaBar:SetWidth(123)
-    TargetFrameBackground:SetPoint("TOPRIGHT", -103, -22)
-    TargetFrameBackground:SetWidth(123)
-    -- Change the texture of the Health bar
-    TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Health-Status.tga]])
-    --Change the texture of the Mana bar
-    TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
+  --Player Frame
+  PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF.tga")
+  --PlayerFrameBackground:SetWidth(122)
+  PlayerFrameBackground:SetTexture("")
+  PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
+  PlayerFrameHealthBar:SetWidth(130)
+  PlayerFrameHealthBar:SetHeight(30)
+  PlayerFrameManaBar:SetWidth(125)
+  PlayerFrameHealthBar:SetPoint("TOPLEFT", 100, -29)
+  PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
+  PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
+  PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]])               
+  PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
+  --Move playername
+  local playerName = PlayerFrame.name
+  -- Adjust the position of the name text
+  playerName:ClearAllPoints()
+  playerName:SetPoint("CENTER", PlayerFrame, "CENTER", 22, 25)
+  -- Move player level text
+  local playerLevelText = PlayerLevelText
+  -- Adjust the position of the level text
+  playerLevelText:ClearAllPoints()
+  playerLevelText:SetPoint("CENTER", PlayerFrame, "CENTER", 102, 25)
+  --Resize Player portrait
+  local playerPortrait = PlayerFrame.portrait
+  playerPortrait:SetHeight(62)
+  playerPortrait:SetWidth(62)
+
+  --Target Frame
+  TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
+  TargetFrameHealthBar:SetPoint("TOPRIGHT", -100, -29)
+  TargetFrameHealthBar:SetWidth(130)
+  TargetFrameHealthBar:SetHeight(30)
+  TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]]) 
+  TargetFrameManaBar:SetPoint("TOPRIGHT", -96, -52)
+  TargetFrameManaBar:SetWidth(130)
+  TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
+  TargetFrameBackground:SetTexture("")
+  --Move Targetname
+  local targetName = TargetFrame.name
+  -- Adjust the position of the name text
+  targetName:ClearAllPoints()
+  targetName:SetPoint("CENTER", TargetFrame, "CENTER", -62, 25)
+  -- Move Target level text
+  local targetLevelText = TargetLevelText
+  -- Adjust the position of the level text
+  targetLevelText:ClearAllPoints()
+  targetLevelText:SetPoint("CENTER", TargetFrame, "CENTER", -104, 25)
+  --Resize Target portrait
+  local targetPortrait = TargetFrame.portrait
+  targetPortrait:SetHeight(60)
+  targetPortrait:SetWidth(60)
 
 --DF Texture ends
 
@@ -106,10 +125,10 @@ module.enable = function(self)
     elseif ( classification == "rare"  ) then
       TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame-Rare")
     else
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
+      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
+      --TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
     end
   end
-
 
   local wait = CreateFrame("Frame")
   wait:RegisterEvent("PLAYER_ENTERING_WORLD")
@@ -135,11 +154,11 @@ module.enable = function(self)
   wait:SetScript("OnUpdate", function()
     -- move text strings a bit higher
     if PlayerFrameHealthBar.TextString then
-      PlayerFrameHealthBar.TextString:SetPoint("TOP", PlayerFrameHealthBar, "BOTTOM", 0, 23)
+      PlayerFrameHealthBar.TextString:SetPoint("TOP", PlayerFrameHealthBar, "BOTTOM", 0, 32)
     end
 
     if TargetFrameHealthBar.TextString then
-      TargetFrameHealthBar.TextString:SetPoint("TOP", TargetFrameHealthBar, "BOTTOM", -2, 23)
+      TargetFrameHealthBar.TextString:SetPoint("TOP", TargetFrameHealthBar, "BOTTOM", 2, 32)
     end
 
     -- use class color for player (if enabled)
@@ -174,19 +193,13 @@ module.enable = function(self)
 
 -- Party space fix with pet
   if PetFrame:IsVisible() then
-    --print("petFrame is visible")
-    --local PartyMemberFrame1 = partyMember1
     if PartyMemberFrame1:IsVisible() then
-      --print("partyMember1 exists")
-      --PartyMemberFrame1:SetParent(PlayerFrame)
       PartyMemberFrame1:ClearAllPoints()
       PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
     else
       --print("partyMember1 does not exist")
     end
   else
-    --print("petFrame is not visible")
-      --PartyMemberFrame1:SetParent(PlayerFrame)
       PartyMemberFrame1:ClearAllPoints()
       PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
   end
