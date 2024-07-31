@@ -21,6 +21,47 @@ for _, name in pairs(tocs) do
 end
 
 module.enable = function(self)
+--abbrev Names
+    local function abbrevname(t)
+        return string.sub(t,1,1)..". "
+    end
+
+    local function getNameString(unitstr)
+        local name = UnitName(unitstr)
+        local size = 8
+
+        -- first try to only abbreviate the first word
+        if name and strlen(name) > size then
+            name = string.gsub(name, "^(%S+) ", abbrevname)
+        end
+
+        -- abbreviate all if it still doesn't fit
+        if name and strlen(name) > size then
+            name = string.gsub(name, "(%S+) ", abbrevname)
+        end
+
+        return name
+    end
+
+    local function abbrevName(frame, unit)
+        local name = getNameString(unit)
+        if name and frame.name then
+            frame.name:SetText(name)
+        end
+    end
+
+    local target = CreateFrame("Frame")
+    target:RegisterEvent("PLAYER_TARGET_CHANGED")
+    target:SetScript("OnEvent", function()
+        abbrevName(TargetFrame, "target")
+    end)
+
+    local tot = CreateFrame("Frame", nil, TargetFrame)
+    tot:SetScript("OnUpdate", function()
+        abbrevName(TargetofTargetFrame, "targettarget")
+    end)
+--end abbrev Names
+
 -- DF Texture
 
   --Player Frame
@@ -61,16 +102,18 @@ module.enable = function(self)
   TargetFrameManaBar:SetWidth(130)
   TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
   TargetFrameBackground:SetTexture("")
-  --Move Targetname
-  local targetName = TargetFrame.name
-  -- Adjust the position of the name text
-  targetName:ClearAllPoints()
-  targetName:SetPoint("CENTER", TargetFrame, "CENTER", -62, 25)
+
   -- Move Target level text
   local targetLevelText = TargetLevelText
   -- Adjust the position of the level text
   targetLevelText:ClearAllPoints()
   targetLevelText:SetPoint("CENTER", TargetFrame, "CENTER", -104, 25)
+    --Move Targetname
+  local targetName = TargetFrame.name
+  -- Adjust the position of the name text
+  targetName:ClearAllPoints()
+  targetName:SetPoint("CENTER", targetLevelText, "CENTER", 45, 0)
+
   --Resize Target portrait
   local targetPortrait = TargetFrame.portrait
   targetPortrait:SetHeight(60)
