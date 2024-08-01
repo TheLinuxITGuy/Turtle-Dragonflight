@@ -1,4 +1,4 @@
-# tDF (Turtle Dragonflight)
+               # tDF (Turtle Dragonflight)
 The Dragonflight UI for Turtle WoW.
 
 ## Installation
@@ -29,4 +29,4 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on Shagu
 
 ## Special Thanks
 Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
-My buddy [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
+Local discord brainstormer, [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
