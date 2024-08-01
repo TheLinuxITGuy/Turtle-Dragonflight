@@ -198,3 +198,4 @@ end)
   end
 
 MainMenuExpBar:SetAlpha(0) --Required for tXPbar.lua to work
+MainMenuBarPerformanceBarFrame:Hide()
