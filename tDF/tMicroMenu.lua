@@ -257,7 +257,6 @@ overlay.texture:SetAllPoints()
 overlay.texture:SetTexture("Interface\\AddOns\\tDF\\img\\uigroupfinderflipbookeye.tga")
 overlay.texture:SetTexCoord(10/512, 55/512, 8/256, 55/256)
 
- -- Animation works, but it gets cut off before it finishes
 ----------------ANIMATION----------------
 -- Define the TexCoords for each frame of the animation
 local texCoords = {
@@ -316,6 +315,31 @@ overlay:SetScript("OnUpdate", function(self, elapsed)
   if timeSinceLastUpdate > updateInterval then
       timeSinceLastUpdate = 0
       UpdateTexCoords()
+  end
+end)
+
+--when group is formed
+local frame = CreateFrame("Frame")
+frame:RegisterEvent("PARTY_MEMBERS_CHANGED")
+
+frame:SetScript("OnEvent", function(self, event, ...)
+  if GetNumPartyMembers() > 0 then
+    --DEFAULT_CHAT_FRAME:AddMessage("The group has been formed!")
+    --code here to stop the animation
+    overlay:SetScript("OnUpdate", nil)
+    overlay.texture:SetTexCoord(10/512, 55/512, 8/256, 55/256)
+  else
+    -- Reattach the OnUpdate script to restart the animation
+    overlay:SetScript("OnUpdate", function(self, elapsed)
+      local elapsed = arg1 or 0
+      timeSinceLastUpdate = timeSinceLastUpdate + elapsed
+      if timeSinceLastUpdate > updateInterval then
+          timeSinceLastUpdate = 0
+          UpdateTexCoords()
+      end
+    end)  
+    UpdateTexCoords()
+    LFT_Minimap:Hide()
   end
 end)
 ----------------ANIMATION----------------
@@ -659,8 +683,8 @@ end)
 
 --click
 mbCharacter:SetScript("OnClick", function(self, button, down)
-    -- code to run when the button is clicked
-    ToggleCharacter("PaperDollFrame")
+  -- code to run when the button is clicked
+  ToggleCharacter("PaperDollFrame")
 end)
 ---------------------------------------------Character Micro Button---------------------------------------------
 
@@ -680,22 +704,22 @@ mbLatency:SetHeight(15)
 
 -- Add this to update each frame
 mbLatency:SetScript("OnUpdate", function(self, elapsed)
-    -- Get the current latency
-    local _, _, latencyHome = GetNetStats()
-    --this.texture:SetVertexColor(0, 1, 0)
-    -- Change the color based on latency
-    if latencyHome < 200 then
-      mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyGreen.tga")
-        -- Latency is good, set color to green
-        --this.texture:SetVertexColor(0, 1, 0)
-    elseif latencyHome < 300 then
-        -- Latency is poor, set color to yellow
-        --this.texture:SetVertexColor(1, 1, 0)
-        mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyYellow.tga")
-    else
-        -- Latency is bad, set color to red
-        --this.texture:SetVertexColor(1, 0, 0)
-        mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyRed.tga")
-    end
+  -- Get the current latency
+  local _, _, latencyHome = GetNetStats()
+  --this.texture:SetVertexColor(0, 1, 0)
+  -- Change the color based on latency
+  if latencyHome < 200 then
+    mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyGreen.tga")
+      -- Latency is good, set color to green
+      --this.texture:SetVertexColor(0, 1, 0)
+  elseif latencyHome < 300 then
+      -- Latency is poor, set color to yellow
+      --this.texture:SetVertexColor(1, 1, 0)
+      mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyYellow.tga")
+  else
+      -- Latency is bad, set color to red
+      --this.texture:SetVertexColor(1, 0, 0)
+      mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyRed.tga")
+  end
 end)
 ---------------------------------------------Latency Micro Button---------------------------------------------
