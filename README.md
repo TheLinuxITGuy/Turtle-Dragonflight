@@ -26,6 +26,7 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on Shagu
 
 ## Known issues
 - Long mob names show behind the level/get cut off on the TargetUnit Frame.
+- Stealth/Stance bars work, they are just invisible.
 
 ## Special Thanks
 Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
