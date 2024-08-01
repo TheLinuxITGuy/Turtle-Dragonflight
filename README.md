@@ -25,7 +25,7 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client based on Shagu
 - Now built on ShaguTweaks. Hit escape and select "tDF Options" for a complete list of customization options.
 
 ## Known issues
-- None as of now.
+- Long mob names show behind the level/get cut off on the TargetUnit Frame.
 
 ## Special Thanks
 Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
