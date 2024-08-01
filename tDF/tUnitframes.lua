@@ -121,6 +121,29 @@ module.enable = function(self)
 
 --DF Texture ends
 
+--PLAYERS TARGETS ALL GREEN
+-- enable class color backgrounds
+local original = TargetFrame_CheckFaction
+function TargetFrame_CheckFaction(self)
+  original(self)
+
+  local reaction = UnitReaction("target", "player")
+
+  if UnitIsPlayer("target") then
+    local _, class = UnitClass("target")
+    local class = { r = 0, g = 1, b = 0, a = 1 }
+    TargetFrameNameBackground:SetVertexColor(class.r, class.g, class.b, 1)
+    TargetFrameNameBackground:Show()
+  elseif reaction and reaction > 4 then
+    TargetFrameNameBackground:Hide()
+  else
+    TargetFrameNameBackground:Show()
+  end
+end
+local _, class = UnitClass("player")
+local class = { r = 0, g = 1, b = 0, a = 1 }
+--END PLAYER TARGETS ALL GREEN
+
 --DF Pet
     -- Hook the PetFrame_Update function
       local new_PetFrame_Update = PetFrame_Update
