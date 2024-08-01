@@ -64,60 +64,60 @@ module.enable = function(self)
 
 -- DF Texture
 
-  --Player Frame
-  PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF.tga")
-  --PlayerFrameBackground:SetWidth(122)
-  PlayerFrameBackground:SetTexture("")
-  PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
-  PlayerFrameHealthBar:SetWidth(130)
-  PlayerFrameHealthBar:SetHeight(30)
-  PlayerFrameManaBar:SetWidth(125)
-  PlayerFrameHealthBar:SetPoint("TOPLEFT", 100, -29)
-  PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
-  PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
-  PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]])               
-  PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
-  --Move playername
-  local playerName = PlayerFrame.name
-  -- Adjust the position of the name text
-  playerName:ClearAllPoints()
-  playerName:SetPoint("CENTER", PlayerFrame, "CENTER", 22, 25)
-  -- Move player level text
-  local playerLevelText = PlayerLevelText
-  -- Adjust the position of the level text
-  playerLevelText:ClearAllPoints()
-  playerLevelText:SetPoint("CENTER", PlayerFrame, "CENTER", 102, 25)
-  --Resize Player portrait
-  local playerPortrait = PlayerFrame.portrait
-  playerPortrait:SetHeight(62)
-  playerPortrait:SetWidth(62)
+--Player Frame
+PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF.tga")
+--PlayerFrameBackground:SetWidth(122)
+PlayerFrameBackground:SetTexture("")
+PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
+PlayerFrameHealthBar:SetWidth(130)
+PlayerFrameHealthBar:SetHeight(30)
+PlayerFrameManaBar:SetWidth(125)
+PlayerFrameHealthBar:SetPoint("TOPLEFT", 100, -29)
+PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
+PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
+PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]])               
+PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
+--Move playername
+local playerName = PlayerFrame.name
+-- Adjust the position of the name text
+playerName:ClearAllPoints()
+playerName:SetPoint("CENTER", PlayerFrame, "CENTER", 22, 25)
+-- Move player level text
+local playerLevelText = PlayerLevelText
+-- Adjust the position of the level text
+playerLevelText:ClearAllPoints()
+playerLevelText:SetPoint("CENTER", PlayerFrame, "CENTER", 102, 25)
+--Resize Player portrait
+local playerPortrait = PlayerFrame.portrait
+playerPortrait:SetHeight(62)
+playerPortrait:SetWidth(62)
 
-  --Target Frame
-  TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
-  TargetFrameHealthBar:SetPoint("TOPRIGHT", -100, -29)
-  TargetFrameHealthBar:SetWidth(130)
-  TargetFrameHealthBar:SetHeight(30)
-  TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]]) 
-  TargetFrameManaBar:SetPoint("TOPRIGHT", -96, -52)
-  TargetFrameManaBar:SetWidth(130)
-  TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
-  TargetFrameBackground:SetTexture("")
+--Target Frame
+TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
+TargetFrameHealthBar:SetPoint("TOPRIGHT", -100, -29)
+TargetFrameHealthBar:SetWidth(130)
+TargetFrameHealthBar:SetHeight(30)
+TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]]) 
+TargetFrameManaBar:SetPoint("TOPRIGHT", -96, -52)
+TargetFrameManaBar:SetWidth(130)
+TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
+TargetFrameBackground:SetTexture("")
 
-  -- Move Target level text
-  local targetLevelText = TargetLevelText
-  -- Adjust the position of the level text
-  targetLevelText:ClearAllPoints()
-  targetLevelText:SetPoint("CENTER", TargetFrame, "CENTER", -104, 25)
-    --Move Targetname
-  local targetName = TargetFrame.name
-  -- Adjust the position of the name text
-  targetName:ClearAllPoints()
-  targetName:SetPoint("CENTER", targetLevelText, "CENTER", 45, 0)
+-- Move Target level text
+local targetLevelText = TargetLevelText
+-- Adjust the position of the level text
+targetLevelText:ClearAllPoints()
+targetLevelText:SetPoint("CENTER", TargetFrame, "CENTER", -104, 25)
+  --Move Targetname
+local targetName = TargetFrame.name
+-- Adjust the position of the name text
+targetName:ClearAllPoints()
+targetName:SetPoint("CENTER", targetLevelText, "CENTER", 45, 0)
 
-  --Resize Target portrait
-  local targetPortrait = TargetFrame.portrait
-  targetPortrait:SetHeight(60)
-  targetPortrait:SetWidth(60)
+--Resize Target portrait
+local targetPortrait = TargetFrame.portrait
+targetPortrait:SetHeight(60)
+targetPortrait:SetWidth(60)
 
 --DF Texture ends
 
@@ -145,76 +145,76 @@ local class = { r = 0, g = 1, b = 0, a = 1 }
 --END PLAYER TARGETS ALL GREEN
 
 --DF Pet
-    -- Hook the PetFrame_Update function
-      local new_PetFrame_Update = PetFrame_Update
-      local new_PetFrame = PetFrame
-      PetFrame_Update = function()
-        -- Call the original function
-        new_PetFrame_Update()
-        PetFrameTexture:SetTexture("Interface\\Addons\\tDF\\img\\pet")
-        PetFrameTexture:SetDrawLayer("BACKGROUND") -- Set the draw layer of the texture
-        PetFrame:ClearAllPoints()
-        PetFrame:SetPoint("BOTTOM", PlayerFrame, -10, -30)
-        -- Change the frame strata of the HealthBar and ManaBar
-    
-        --PetFrameHealthBar:SetFrameStrata("MEDIUM")
-        PetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Health]])
-          -- Adjust the position of the PetFrameHealthBar
-        PetFrameHealthBar:SetHeight(13)
-        PetFrameHealthBar:ClearAllPoints()
-        PetFrameHealthBar:SetPoint("CENTER", PetFrame, "CENTER", 15, 3)
-        --PetFrameManaBar:SetFrameStrata("MEDIUM")
-        local class = UnitClass("player")
-        if class == "Hunter" then
-          PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Focus]])
-        else
-          PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Mana]])
-        end
-        -- Adjust the position of the PetFrameManaBar
-        PetFrameManaBar:ClearAllPoints()
-        PetFrameManaBar:SetPoint("CENTER", PetFrame, "CENTER", 15, -7)
-        -- Adjust the position of the PetName
-        PetName:ClearAllPoints()
-        PetName:SetPoint("CENTER", PetFrame, "CENTER", 5, 16)
-      end 
+-- Hook the PetFrame_Update function
+  local new_PetFrame_Update = PetFrame_Update
+  local new_PetFrame = PetFrame
+  PetFrame_Update = function()
+    -- Call the original function
+    new_PetFrame_Update()
+    PetFrameTexture:SetTexture("Interface\\Addons\\tDF\\img\\pet")
+    PetFrameTexture:SetDrawLayer("BACKGROUND") -- Set the draw layer of the texture
+    PetFrame:ClearAllPoints()
+    PetFrame:SetPoint("BOTTOM", PlayerFrame, -10, -30)
+    -- Change the frame strata of the HealthBar and ManaBar
+
+    --PetFrameHealthBar:SetFrameStrata("MEDIUM")
+    PetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Health]])
+      -- Adjust the position of the PetFrameHealthBar
+    PetFrameHealthBar:SetHeight(13)
+    PetFrameHealthBar:ClearAllPoints()
+    PetFrameHealthBar:SetPoint("CENTER", PetFrame, "CENTER", 15, 3)
+    --PetFrameManaBar:SetFrameStrata("MEDIUM")
+    local class = UnitClass("player")
+    if class == "Hunter" then
+      PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Focus]])
+    else
+      PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Mana]])
+    end
+    -- Adjust the position of the PetFrameManaBar
+    PetFrameManaBar:ClearAllPoints()
+    PetFrameManaBar:SetPoint("CENTER", PetFrame, "CENTER", 15, -7)
+    -- Adjust the position of the PetName
+    PetName:ClearAllPoints()
+    PetName:SetPoint("CENTER", PetFrame, "CENTER", 5, 16)
+  end 
 --DF Pet ends
 
-  local original = TargetFrame_CheckClassification
-  function TargetFrame_CheckClassification()
-    local classification = UnitClassification("target")
-    if ( classification == "worldboss" ) then
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame-Elite")
-    elseif ( classification == "rareelite"  ) then
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame-Elite")
-    elseif ( classification == "elite"  ) then
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame-Elite")
-    elseif ( classification == "rare"  ) then
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame-Rare")
-    else
-      TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
-      --TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
-    end
+local original = TargetFrame_CheckClassification
+function TargetFrame_CheckClassification()
+  local classification = UnitClassification("target")
+  if ( classification == "worldboss" ) then
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.tga")
+  elseif ( classification == "rareelite"  ) then
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.tga")
+  elseif ( classification == "elite"  ) then
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.tga")
+  elseif ( classification == "rare"  ) then
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Rare.tga")
+  else
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
+    --TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
+  end
+end
+
+local wait = CreateFrame("Frame")
+wait:RegisterEvent("PLAYER_ENTERING_WORLD")
+wait:SetScript("OnEvent", function()
+  if ShaguTweaks.DarkMode then
+    PlayerFrameTexture:SetVertexColor(.3,.3,.3,.9)
+    TargetFrameTexture:SetVertexColor(.3,.3,.3,.9)
   end
 
-  local wait = CreateFrame("Frame")
-  wait:RegisterEvent("PLAYER_ENTERING_WORLD")
-  wait:SetScript("OnEvent", function()
-    if ShaguTweaks.DarkMode then
-      PlayerFrameTexture:SetVertexColor(.3,.3,.3,.9)
-      TargetFrameTexture:SetVertexColor(.3,.3,.3,.9)
-    end
+-- adjust healthbar colors to frame colors
+local original = TargetFrame_CheckFaction
+  function TargetFrame_CheckFaction(self)
+    original(self)
 
-    -- adjust healthbar colors to frame colors
-    local original = TargetFrame_CheckFaction
-    function TargetFrame_CheckFaction(self)
-      original(self)
-
-      if TargetFrameHealthBar._SetStatusBarColor then
-        local r, g, b, a = TargetFrameNameBackground:GetVertexColor()
-        TargetFrameHealthBar:_SetStatusBarColor(r, g, b, a)
-      end
+    if TargetFrameHealthBar._SetStatusBarColor then
+      local r, g, b, a = TargetFrameNameBackground:GetVertexColor()
+      TargetFrameHealthBar:_SetStatusBarColor(r, g, b, a)
     end
-  end)
+  end
+end)
 
   -- delay to first draw
   wait:SetScript("OnUpdate", function()
