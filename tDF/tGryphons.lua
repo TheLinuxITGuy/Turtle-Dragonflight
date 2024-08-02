@@ -1,9 +1,9 @@
 --[[
 Author: YouTube.com/@TheLinuxITGuy
 Built on: Linux Mint Debian Edition 12
-This lua file hides the original Blizzard art work from 1.12. I've created new buttons and textured them to match
-Dragonflight.
+This lua file replaces the original 1.12.1 Gryphons with the ones from Dragonflight.
 ]]
+
 -- Hide the original gryphons
 MainMenuBarLeftEndCap:Hide()
 MainMenuBarRightEndCap:Hide()
@@ -24,46 +24,28 @@ local rightGryphon = rightGryphonFrame:CreateTexture(nil, "OVERLAY")
 local race = UnitRace("player")
 --DEFAULT_CHAT_FRAME:AddMessage("Your race is " .. race .. ".")
 
+-- Set common properties
+leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -100, -2)
+rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 103, -2)
+
+-- Set texture based on race
+local texturePath
 if race == "Night Elf" then
-    leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 10)
-    rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 10)
-elseif race == "Human" then
-    leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 10)
-    rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 10)
-elseif race == "Gnome" then
-    leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 10)
-    rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 10)
-elseif race == "Dwarf" then
-    leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 10)
-    rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 10)
-elseif race == "High Elf" then
-    leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Gryphon")
-    leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 10)
-    rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 10)
+    texturePath = "Interface\\Addons\\tDF\\img\\GryphonNew.tga"
+elseif race == "Human" or race == "Gnome" or race == "Dwarf" or race == "High Elf" then
+    texturePath = "Interface\\Addons\\tDF\\img\\GryphonNew.tga"
 else
-    leftGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Wyvern")
-    rightGryphon:SetTexture("Interface\\Addons\\tDF\\img\\Wyvern")
-    leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 0)
-    rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 0)
+    texturePath = "Interface\\Addons\\tDF\\img\\WyvernNew.tga"
 end
 
---Size the endcaps
-leftGryphon:SetWidth(90)
-leftGryphon:SetHeight(90)
-rightGryphon:SetWidth(90)
-rightGryphon:SetHeight(90)
+leftGryphon:SetTexture(texturePath)
+rightGryphon:SetTexture(texturePath)
 
--- Position the new textures - I put this in the races because Horde was off a bit
---leftGryphon:SetPoint("LEFT", MainMenuBarArtFrame, "LEFT", -68, 10)
---rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 73, 10)
+--Size the endcaps
+leftGryphon:SetWidth(150)
+leftGryphon:SetHeight(150)
+rightGryphon:SetWidth(150)
+rightGryphon:SetHeight(150)
+
 -- Flip the right texture
 rightGryphon:SetTexCoord(1, 0, 0, 1)
