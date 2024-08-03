@@ -74,3 +74,13 @@ frameBotRight:SetScript("OnUpdate", function()
         end
     end
 end)
+
+-- Get the right action bar frame
+local rightActionBar = MultiBarRight
+
+-- Get the current position of the right action bar
+local point, relativeTo, relativePoint, xOfs, yOfs = rightActionBar:GetPoint()
+
+-- Reposition the right action bar 10 pixels up
+rightActionBar:ClearAllPoints()
+rightActionBar:SetPoint(point, relativeTo, relativePoint, xOfs, yOfs + 10)

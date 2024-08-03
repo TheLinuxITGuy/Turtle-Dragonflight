@@ -198,4 +198,7 @@ end)
   end
 
 MainMenuExpBar:SetAlpha(0) --Required for tXPbar.lua to work
-MainMenuBarPerformanceBarFrame:Hide()
+--MainMenuBarPerformanceBarFrame:Hide()
+--Hide the original MainMenuBarPerformanceBarFrame
+MainMenuBarPerformanceBarFrame:ClearAllPoints()
+MainMenuBarPerformanceBarFrame:SetPoint("BOTTOMLEFT", UIParent, -300, -300)

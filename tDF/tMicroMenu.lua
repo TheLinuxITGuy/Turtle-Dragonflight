@@ -11,26 +11,27 @@ HelpMicroButton:Hide()
 --Create a new Help button
 mbHelp = CreateFrame("Button", "mbHelp", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbHelp:SetWidth(18)
-mbHelp:SetHeight(25)
+mbHelp:SetWidth(28)
+mbHelp:SetHeight(38)
 mbHelp:SetPoint("BOTTOMRIGHT", UIParent, -10, 12) --sets the location of the button
+
 --Set the button's normal texture
-mbHelp:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbHelp:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\question-regular.tga")
 local HelpNormalTexture = mbHelp:GetNormalTexture()
-HelpNormalTexture:SetTexCoord(202/256, 237/256, 215/512, 265/512)
+HelpNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbHelp:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbHelp:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\question-faded.tga")
 local HelpPushedTexture = mbHelp:GetPushedTexture()
-HelpPushedTexture:SetTexCoord(162/256, 198/256, 215/512, 265/512)
+HelpPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbHelp:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbHelp:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\question-highlight.tga")
 local HelpHighlightTexture = mbHelp:GetHighlightTexture()
-HelpHighlightTexture:SetTexCoord(162/256, 198/256, 215/512, 265/512)
+HelpHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --GameTooltip
-mbHelp:SetScript("OnEnter", function()
+mbHelp:SetScript("OnEnter", function()  
   GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
   GameTooltip:SetText(HelpMicroButton.tooltipText, 1, 1, 1, 1, true)
   GameTooltip:AddLine(HelpMicroButton.newbieText, nil, nil, nil, true)
@@ -53,25 +54,24 @@ MainMenuMicroButton:Hide()
 --Create a new button
 local mbMainMenu = CreateFrame("Button", "mbMainMenu", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbMainMenu:SetWidth(18)
-mbMainMenu:SetHeight(25)
-mbMainMenu:SetPoint("BOTTOMRIGHT", UIParent, -30, 12) --sets the location of the button
+mbMainMenu:SetWidth(28)
+mbMainMenu:SetHeight(38)
+mbMainMenu:SetPoint("BOTTOMRIGHT", mbHelp, -30, 0) --sets the location of the button original -30, 12
+
 --Set the button's normal texture
-mbMainMenu:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbMainMenu:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-regular.tga")
 local MainMenuNormalTexture = mbMainMenu:GetNormalTexture()
-MainMenuNormalTexture:SetTexCoord(2/256, 37/256, 107/512, 157/512)
+MainMenuNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbMainMenu:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbMainMenu:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-faded.tga")
 local MainMenuPushedTexture = mbMainMenu:GetPushedTexture()
-MainMenuPushedTexture:SetTexCoord(122/256, 157/256, 323/512, 372/512)
+MainMenuPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbMainMenu:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbMainMenu:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-highlight.tga")
 local MainMenuHighlightTexture = mbMainMenu:GetHighlightTexture()
-MainMenuHighlightTexture:SetTexCoord(122/256, 157/256, 323/512, 372/512)
------Creates a new microButton-----
+MainMenuHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
 
 --GameTooltip
 mbMainMenu:SetScript("OnEnter", function()
@@ -98,31 +98,30 @@ TWMiniMapBattlefieldFrame:Hide()
 local mbPvP = CreateFrame("Button", "mbPvP", UIParent, "UIPanelButtonTemplate")
 --Set its properties
 mbPvP:ClearAllPoints()
-mbPvP:SetWidth(18)
-mbPvP:SetHeight(25)
-mbPvP:SetPoint("BOTTOMRIGHT", UIParent, -50, 12) --sets the location of the button
+mbPvP:SetWidth(28)
+mbPvP:SetHeight(38)
+mbPvP:SetPoint("BOTTOMRIGHT", mbMainMenu, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbPvP:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbPvP:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\book-regular.tga")
 local PvPNormalTexture = mbPvP:GetNormalTexture()
-PvPNormalTexture:SetTexCoord(0/256, 37/256, 269/512, 319/512)
+PvPNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbPvP:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbPvP:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\book-faded.tga")
 local PvPPushedTexture = mbPvP:GetPushedTexture()
-PvPPushedTexture:SetTexCoord(161/256, 197/256, 161/512, 211/512)
+PvPPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbPvP:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbPvP:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\book-highlight.tga")
 local PvPHighlightTexture = mbPvP:GetHighlightTexture()
-PvPHighlightTexture:SetTexCoord(161/256, 197/256, 161/512, 211/512)
+PvPHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
 
 function ShowTWBGQueueMenu()
   local TWBGQueueMinimapMenuFrame = CreateFrame('Frame', 'TWBGQueueMinimapMenuFrame', UIParent, 'UIDropDownMenuTemplate')
   UIDropDownMenu_Initialize(TWBGQueueMinimapMenuFrame, BuildTWBGQueueMenu, "MENU");
   ToggleDropDownMenu(1, nil, TWBGQueueMinimapMenuFrame, "cursor", -150, 25);
 end
------Creates a new microButton-----
 
 --GameTooltip
 mbPvP:SetScript("OnEnter", function()
@@ -158,25 +157,24 @@ TWMinimapShopFrame:SetWidth(0)
 --Create a new button
 local mbShop = CreateFrame("Button", "mbShop", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbShop:SetWidth(18)
-mbShop:SetHeight(25)
-mbShop:SetPoint("BOTTOMRIGHT", UIParent, -70, 12) --sets the location of the button
+mbShop:SetWidth(28)
+mbShop:SetHeight(38)
+mbShop:SetPoint("BOTTOMRIGHT", mbPvP, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbShop:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbShop:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-regular.tga")
 local ShopNormalTexture = mbShop:GetNormalTexture()
-ShopNormalTexture:SetTexCoord(41/256, 78/256, 161/512, 211/512)
+ShopNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbShop:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbShop:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-faded.tga")
 local ShopPushedTexture = mbShop:GetPushedTexture()
-ShopPushedTexture:SetTexCoord(0/256, 38/256, 431/512, 482/512)
+ShopPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbShop:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbShop:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-highlight.tga")
 local ShopHighlightTexture = mbShop:GetHighlightTexture()
-ShopHighlightTexture:SetTexCoord(0/256, 38/256, 431/512, 482/512)
------Creates a new microButton-----
+ShopHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
 
 --GameTooltip
 mbShop:SetScript("OnEnter", function()
@@ -201,30 +199,29 @@ end)
 --TWMinimapShopFrame:SetAlpha(0)
 LFT_Minimap:SetParent(UIParent)
 LFT_Minimap:ClearAllPoints()
-LFT_Minimap:SetPoint("BOTTOMRIGHT", UIParent, -270, 6)
+LFT_Minimap:SetPoint("BOTTOMRIGHT", UIParent, -270, 55  )
 LFT_Minimap:Hide()
 -----Creates a new microButton-----
 local mbLFT = CreateFrame("Button", "mbLFT", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbLFT:SetWidth(18)
-mbLFT:SetHeight(25)
-mbLFT:SetPoint("BOTTOMRIGHT", UIParent, -90, 12) --sets the location of the button
+mbLFT:SetWidth(28)
+mbLFT:SetHeight(38)
+mbLFT:SetPoint("BOTTOMRIGHT", mbShop, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbLFT:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbLFT:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-regular.tga")
 local LFTNormalTexture = mbLFT:GetNormalTexture()
-LFTNormalTexture:SetTexCoord(0/256, 38/256, 161/512, 211/512)
+LFTNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbLFT:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbLFT:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-faded.tga")
 local LFTPushedTexture = mbLFT:GetPushedTexture()
-LFTPushedTexture:SetTexCoord(41/256, 78/256, 107/512, 157/512)
+LFTPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbLFT:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbLFT:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-highlight.tga")
 local LFTHighlightTexture = mbLFT:GetHighlightTexture()
-LFTHighlightTexture:SetTexCoord(41/256, 78/256, 107/512, 157/512)
------Creates a new microButton-----
+LFTHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
 
 --GameTooltip
 mbLFT:SetScript("OnEnter", function()
@@ -381,9 +378,9 @@ EBC_Minimap:Hide()
 --Create a new button
 local mbEBC = CreateFrame("Button", "mbEBC", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbEBC:SetWidth(18)
-mbEBC:SetHeight(25)
-mbEBC:SetPoint("BOTTOMRIGHT", UIParent, -110, 12) --sets the location of the button
+mbEBC:SetWidth(28)
+mbEBC:SetHeight(38)
+mbEBC:SetPoint("BOTTOMRIGHT", mbLFT, -30, 0 ) --sets the location of the button
 --Set the button's normal texture
 mbEBC:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
 --Get the texture object and set its coordinates
@@ -433,24 +430,25 @@ WorldMapMicroButton:Hide()
 --Create a new button
 local mbWorldMap = CreateFrame("Button", "mbWorldMap", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbWorldMap:SetWidth(18)
-mbWorldMap:SetHeight(25)
-mbWorldMap:SetPoint("BOTTOMRIGHT", UIParent, -130, 12) --sets the location of the button
+mbWorldMap:SetWidth(28)
+mbWorldMap:SetHeight(38)
+mbWorldMap:SetPoint("BOTTOMRIGHT", mbEBC, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbWorldMap:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbWorldMap:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-regular.tga")
 local WorldMapNormalTexture = mbWorldMap:GetNormalTexture()
-WorldMapNormalTexture:SetTexCoord(162/256, 196/256, 107/512, 157/512)
+WorldMapNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbWorldMap:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbWorldMap:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-faded.tga")
 local WorldMapPushedTexture = mbWorldMap:GetPushedTexture()
-WorldMapPushedTexture:SetTexCoord(202/256, 237/256, 54/512, 102/512)
+WorldMapPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbWorldMap:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbWorldMap:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-highlight.tga")
 local WorldMapHighlightTexture = mbWorldMap:GetHighlightTexture()
-WorldMapHighlightTexture:SetTexCoord(202/256, 237/256, 54/512, 102/512)
+WorldMapHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --GameTooltip
 mbWorldMap:SetScript("OnEnter", function()
   GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -475,25 +473,25 @@ SocialsMicroButton:Hide()
 --Create a new button
 local mbSocials = CreateFrame("Button", "mbSocials", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbSocials:SetWidth(18)
-mbSocials:SetHeight(25)
-mbSocials:SetPoint("BOTTOMRIGHT", UIParent, -150, 12) --sets the location of the button
+mbSocials:SetWidth(28)
+mbSocials:SetHeight(38)
+mbSocials:SetPoint("BOTTOMRIGHT", mbWorldMap, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbSocials:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbSocials:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-regular.tga")
 local SocialsNormalTexture = mbSocials:GetNormalTexture()
-SocialsNormalTexture:SetTexCoord(42/256, 76/256, 54/512, 102/512)
+SocialsNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbSocials:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbSocials:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-faded.tga")
 local SocialsPushedTexture = mbSocials:GetPushedTexture()
-SocialsPushedTexture:SetTexCoord(42/256, 77/256, 0/512, 48/512)
+SocialsPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbSocials:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbSocials:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-highlight.tga")
 local SocialsHighlightTexture = mbSocials:GetHighlightTexture()
-SocialsHighlightTexture:SetTexCoord(42/256, 77/256, 0/512, 48/512)
---GameTooltip
+SocialsHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 mbSocials:SetScript("OnEnter", function()
   GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
   GameTooltip:SetText(SocialsMicroButton.tooltipText, 1, 1, 1, 1, true)
@@ -517,25 +515,25 @@ QuestLogMicroButton:Hide()
 --Create a new button
 local mbQuestLog = CreateFrame("Button", "mbQuestLog", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbQuestLog:SetWidth(18)
-mbQuestLog:SetHeight(25)
-mbQuestLog:SetPoint("BOTTOMRIGHT", UIParent, -170, 12) --sets the location of the button
+mbQuestLog:SetWidth(28)
+mbQuestLog:SetHeight(38)
+mbQuestLog:SetPoint("BOTTOMRIGHT", mbSocials, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbQuestLog:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbQuestLog:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-regular.tga")
 local QuestLogNormalTexture = mbQuestLog:GetNormalTexture()
-QuestLogNormalTexture:SetTexCoord(202/256, 237/256, 270/512, 318/512)
+QuestLogNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbQuestLog:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbQuestLog:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-faded.tga")
 local QuestLogPushedTexture = mbQuestLog:GetPushedTexture()
-QuestLogPushedTexture:SetTexCoord(42/256, 77/256, 432/512, 480/512)
+QuestLogPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbQuestLog:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbQuestLog:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-highlight.tga")
 local QuestLogHighlightTexture = mbQuestLog:GetHighlightTexture()
-QuestLogHighlightTexture:SetTexCoord(42/256, 77/256, 432/512, 480/512)
---GameTooltip
+QuestLogHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 mbQuestLog:SetScript("OnEnter", function()
   GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
   GameTooltip:SetText(QuestLogMicroButton.tooltipText, 1, 1, 1, 1, true)
@@ -561,26 +559,25 @@ TalentMicroButton:SetPoint("BOTTOMLEFT", UIParent, -30, -30)
 --Create a new button
 local mbTalent = CreateFrame("Button", "mbTalent", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbTalent:SetWidth(18)
-mbTalent:SetHeight(25)
-mbTalent:SetPoint("BOTTOMRIGHT", UIParent, -190, 12) --sets the location of the button
+mbTalent:SetWidth(28)
+mbTalent:SetHeight(38)
+mbTalent:SetPoint("BOTTOMRIGHT", mbQuestLog, -30, 0) --sets the location of the button
+
 --Set the button's normal texture
-mbTalent:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbTalent:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-regular.tga")
 local TalentNormalTexture = mbTalent:GetNormalTexture()
-TalentNormalTexture:SetTexCoord(162/256, 197/256, 0/512, 48/512)
+TalentNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's pushed texture
-mbTalent:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbTalent:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-faded.tga")
 local TalentPushedTexture = mbTalent:GetPushedTexture()
-TalentPushedTexture:SetTexCoord(82/256, 117/256, 0/512, 48/512)
+TalentPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 --Set the button's highlight texture
-mbTalent:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
+mbTalent:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-highlight.tga")
 local TalentHighlightTexture = mbTalent:GetHighlightTexture()
-TalentHighlightTexture:SetTexCoord(82/256, 117/256, 0/512, 48/512)
-------
---GameTooltip
+TalentHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 mbTalent:SetScript("OnEnter", function()
   GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
   GameTooltip:SetText(TalentMicroButton.tooltipText, 1, 1, 1, 1, true)
@@ -591,7 +588,7 @@ end)
 mbTalent:SetScript("OnLeave", function()
   GameTooltip:Hide()
 end)
-------
+
 --click
 mbTalent:SetScript("OnClick", function(self, button, down)
   ToggleTalentFrame()
@@ -604,27 +601,25 @@ SpellbookMicroButton:Hide()
 --Create a new button
 local mbSpellBook = CreateFrame("Button", "mbSpellBook", UIParent, "UIPanelButtonTemplate")
 --Set its properties
-mbSpellBook:SetWidth(18)
-mbSpellBook:SetHeight(25)
-mbSpellBook:SetPoint("BOTTOMRIGHT", UIParent, -210, 12) --sets the location of the button
---Set the button's normal texture
-mbSpellBook:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
-local SpellbookNormalTexture = mbSpellBook:GetNormalTexture()
-SpellbookNormalTexture:SetTexCoord(122/256, 157/256, 54/512, 102/512)
---Set the button's pushed texture
-mbSpellBook:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
-local SpellbookPushedTexture = mbSpellBook:GetPushedTexture()
-SpellbookPushedTexture:SetTexCoord(190/256, 225/256, 432/512, 480/512)
---Set the button's highlight texture
-mbSpellBook:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
---Get the texture object and set its coordinates
-local SpellbookHighlightTexture = mbSpellBook:GetHighlightTexture()
-SpellbookHighlightTexture:SetTexCoord(190/256, 225/256, 432/512, 480/512)
+mbSpellBook:SetWidth(28)
+mbSpellBook:SetHeight(38)
+mbSpellBook:SetPoint("BOTTOMRIGHT", mbTalent, -30, 0) --sets the location of the button
 
-------
---GameTooltip
+--Set the button's normal texture
+mbSpellBook:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-regular.tga")
+local SpellbookNormalTexture = mbSpellBook:GetNormalTexture()
+SpellbookNormalTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
+--Set the button's pushed texture
+mbSpellBook:SetPushedTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-faded.tga")
+local SpellbookPushedTexture = mbSpellBook:GetPushedTexture()
+SpellbookPushedTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
+--Set the button's highlight texture
+mbSpellBook:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-highlight.tga")
+local SpellbookHighlightTexture = mbSpellBook:GetHighlightTexture()
+SpellbookHighlightTexture:SetTexCoord(36/128, 86/128, 29/128, 98/128)
+
 mbSpellBook:SetScript("OnEnter", function()
   GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
   GameTooltip:SetText("Spellbook & Abilities", 1, 1, 1, 1, true)
@@ -642,35 +637,80 @@ mbSpellBook:SetScript("OnClick", function(self, button, down)
 end)
 ---------------------------------------------Spellbook Micro Button--------------------------------------------------
 
----------------------------------------------Character Micro Button---------------------------------------------
+---------------------------------------------Character Micro Button--------------------------------------------------
 -- Hide the original CharacterMicroButton
 CharacterMicroButton:Hide()
+
 -- Create a new button
 local mbCharacter = CreateFrame("Button", "mbCharacter", UIParent, "UIPanelButtonTemplate")
+
 -- Set its properties
-mbCharacter:SetWidth(18)
-mbCharacter:SetHeight(25)
+mbCharacter:SetWidth(28)
+mbCharacter:SetHeight(38)
 mbCharacter:ClearAllPoints()
-mbCharacter:SetPoint("BOTTOMRIGHT", UIParent, -230, 12) -- position Character button next to Spellbook
+mbCharacter:SetPoint("BOTTOMRIGHT", mbSpellBook, -30, 0) -- position Character button next to Spellbook
+
 -- Set the button's normal texture
 mbCharacter:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
--- Get the texture object and set its coordinates
 local CharacterNormalTexture = mbCharacter:GetNormalTexture()
 CharacterNormalTexture:SetTexCoord(2/256, 37/256, 324/512, 372/512)
+
 -- Set the button's pushed texture
 mbCharacter:SetPushedTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
--- Get the texture object and set its coordinates
 local CharacterPushedTexture = mbCharacter:GetPushedTexture()
-CharacterPushedTexture:SetTexCoord(82/256, 116/256, 216/512, 264/512) -- adjust these values as needed 
+CharacterPushedTexture:SetTexCoord(82/256, 116/256, 216/512, 264/512)
+
 -- Set the button's highlight texture
 mbCharacter:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
--- Get the texture object and set its coordinates
 local CharacterHighlightTexture = mbCharacter:GetHighlightTexture()
-CharacterHighlightTexture:SetTexCoord(82/256, 116/256, 216/512, 264/512) -- adjust these values as needed
-------
---GameTooltip
+CharacterHighlightTexture:SetTexCoord(82/256, 116/256, 216/512, 264/512)
+
+-- Create the character portrait texture
+local portraitTexture = mbCharacter:CreateTexture(nil, "OVERLAY")
+portraitTexture:SetWidth(25) -- adjust size as needed
+portraitTexture:SetHeight(25)
+portraitTexture:SetPoint("CENTER", mbCharacter, "CENTER", 0, 0) -- adjust position as needed
+
+-- Function to set the portrait texture
+local function SetCharacterPortrait()
+    local portraitTexture = mbCharacter:CreateTexture(nil, "OVERLAY")
+    -- Set the portrait texture to the character's portrait
+    SetPortraitTexture(portraitTexture, "player")
+    portraitTexture:SetWidth(25) -- adjust size as needed
+    portraitTexture:SetHeight(25)
+    portraitTexture:SetPoint("CENTER", mbCharacter, "CENTER", 0, 0) -- adjust position as needed
+end
+
+-- Create a frame to listen for the PLAYER_LOGIN event
+local loginFrame = CreateFrame("Frame")
+local timeSinceLastUpdate = 0
+
+-- Set the script to run when the PLAYER_LOGIN event fires
+loginFrame:SetScript("OnEvent", function()
+    -- Set the OnUpdate script
+    this:SetScript("OnUpdate", function()
+        timeSinceLastUpdate = timeSinceLastUpdate + arg1
+        if timeSinceLastUpdate < 1 then
+            return
+        end
+
+        -- Reset the time
+        timeSinceLastUpdate = 0
+
+        -- Remove the OnUpdate script
+        this:SetScript("OnUpdate", nil)
+
+        -- Set the portrait texture 
+        SetCharacterPortrait()
+    end)
+end)
+
+-- Register the PLAYER_LOGIN event
+loginFrame:RegisterEvent("PLAYER_LOGIN")
+
+-- GameTooltip
 mbCharacter:SetScript("OnEnter", function()
-  GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+  GameTooltip:SetOwner(mbCharacter, "ANCHOR_RIGHT")
   GameTooltip:SetText(CharacterMicroButton.tooltipText, 1, 1, 1, 1, true)
   GameTooltip:AddLine(CharacterMicroButton.newbieText, nil, nil, nil, true)
   GameTooltip:Show()
@@ -679,14 +719,12 @@ end)
 mbCharacter:SetScript("OnLeave", function()
   GameTooltip:Hide()
 end)
-------
 
---click
+-- Click
 mbCharacter:SetScript("OnClick", function(self, button, down)
-  -- code to run when the button is clicked
   ToggleCharacter("PaperDollFrame")
 end)
----------------------------------------------Character Micro Button---------------------------------------------
+---------------------------------------------Character Micro Button--------------------------------------------------
 
 ---------------------------------------------Latency Micro Button---------------------------------------------
 -- Create your own button
@@ -698,9 +736,9 @@ mbLatency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\Latency.tga")
 --mbLatency:SetTexCoord(3/32, 28/32, 56/64, 60/64)
 -- Set the position and size of your button
 mbLatency:ClearAllPoints()
-mbLatency:SetPoint("CENTER", mbHelp, 0, -16) -- You can adjust the position as needed
-mbLatency:SetWidth(20)
-mbLatency:SetHeight(15)
+mbLatency:SetPoint("CENTER", mbHelp, 1, -20) -- You can adjust the position as needed
+mbLatency:SetWidth(22)
+mbLatency:SetHeight(13)
 
 -- Add this to update each frame
 mbLatency:SetScript("OnUpdate", function(self, elapsed)
