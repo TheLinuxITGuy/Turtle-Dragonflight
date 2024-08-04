@@ -25,9 +25,9 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 - Customization Options (Escape -> "tDF Options" for a list of customization options)
 
 ## Known issues
-- Long mob names show behind the level/get cut off on the TargetUnit Frame.
+- Long mob names show behind the level on the TargetUnitFrame.
 - Stealth/Stance bars work, they are just invisible.
-- Character portrait button only shows after reload or switching to another character.
+- Character portrait button on the Color MicroMenu only shows after reload or switching to another character.
 - Rogue poisons when using more than 1 need to be adjusted.
 
 ## Special Thanks
