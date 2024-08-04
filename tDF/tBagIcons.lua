@@ -71,7 +71,7 @@ MainMenuBarBackpackButton:Hide()
 local bbMain = CreateFrame("Button", "MyBagButton", UIParent, "UIPanelButtonTemplate")
 bbMain:SetWidth(50)
 bbMain:SetHeight(50)
-bbMain:SetPoint("TOPLEFT", mbHelp, -20, 60) --the -25 is to the left, the 45 is up
+bbMain:SetPoint("BOTTOMRIGHT", UIParent, -15, 50) --the -25 is to the left, the 45 is up
 bbMain:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
 local MainBagNormalTexture = bbMain:GetNormalTexture()
 --MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)

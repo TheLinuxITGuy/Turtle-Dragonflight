@@ -78,13 +78,15 @@ mods\cooldown-numbers.lua
 mods\turtle-wow.lua
 mods\superwow.lua
 # mods\reduced-actionbar.lua
+mods\tMicroMenuGray.lua
+mods\tMicroMenu.lua
 
 #Turtle Dragonflight
 tMinimap.lua
 tCastbar.lua
 tActionBars.lua
 tXPbar.lua
-tMicroMenu.lua
+tDefaultMicroMenu.lua
 tBagIcons.lua
 tReducedActionBar.lua
 tUnitframes.lua
