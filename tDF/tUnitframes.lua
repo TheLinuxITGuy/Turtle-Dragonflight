@@ -184,17 +184,27 @@ overlay:SetScript("OnUpdate", function(self, elapsed)
   end
 end)
 ----------------ANIMATION----------------
-overlay:Hide() --hide initially
+
 ----------------SHOW/HIDE ANIMATION----------------
--- Show the overlay when the player is in a rested zone, hide when leaving
-overlay:RegisterEvent("PLAYER_UPDATE_RESTING")
-overlay:SetScript("OnEvent", function(self, event)
+overlay:Hide()
+
+-- Function to check and update the resting state
+local function UpdateRestingState()
     if IsResting() then
-        this:Show()
+        overlay:Show()
     else
-        this:Hide()
+        overlay:Hide()
     end
-end)
+end
+
+-- Register the event
+overlay:RegisterEvent("PLAYER_UPDATE_RESTING")
+overlay:RegisterEvent("PLAYER_ENTERING_WORLD") -- check on login
+overlay:SetScript("OnEvent", UpdateRestingState)
+
+-- Initial check when the addon is loaded
+UpdateRestingState()
+
 ----------------SHOW/HIDE ANIMATION----------------
 
 --Target Frame
