@@ -17,7 +17,7 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 - Dragonflight Minimap
 - Dragonflight ActionBars
 - Dragonflight Unitframes
-- Dragonflight Castbar
+- Dragonflight Castbar & Timer
 - Dragonflight Bags
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
