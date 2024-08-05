@@ -12,12 +12,11 @@ Dragonflight.
 --CastingBarText
 
 local castbar = CastingBarFrame
-castbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarStandard2")
+castbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
 castbar:SetHeight(castbar:GetHeight())
 castbar:SetWidth(castbar:GetWidth())
 
 local castbartext = CastingBarText
---castbartext:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
 castbartext:ClearAllPoints()
 castbartext:SetPoint("CENTER", castbar, "CENTER", 0, -15)
 castbartext:SetTextColor(1,1,1)
@@ -25,19 +24,17 @@ castbartext:SetTextColor(1,1,1)
 local border = CastingBarBorder
 border:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame2.tga")
 -- Set the border size to match the castbar
-border:SetWidth(castbar:GetWidth()+5.5) -- castbar:GetWidth() + 5
-border:SetHeight(castbar:GetHeight()+5.5) -- castbar:GetWidth() + 5
+border:SetWidth(castbar:GetWidth()+5.5) 
+border:SetHeight(castbar:GetHeight()+5.5) 
 border:ClearAllPoints()
 border:SetPoint("CENTER", castbar, "CENTER", 0, 0)
 
 local spark = CastingBarSpark
 spark:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarSpark")
 spark:ClearAllPoints()
-spark:SetPoint("CENTER", castbar, "CENTER", -10,0)
+spark:SetPoint("CENTER", castbar, "CENTER", 0,0)
 spark:SetHeight(32/1.5)
 spark:SetWidth(32/1.5)
---spark:SetWidth(10)
---spark:SetHeight(22)
 
 local flash = CastingBarFlash
 flash:ClearAllPoints()

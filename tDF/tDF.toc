@@ -84,6 +84,7 @@ mods\tMicroMenu.lua
 #Turtle Dragonflight
 tMinimap.lua
 tCastbar.lua
+tTimers.lua
 tActionBars.lua
 tXPbar.lua
 tDefaultMicroMenu.lua
