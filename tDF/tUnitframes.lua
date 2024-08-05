@@ -125,8 +125,8 @@ end)
 -- Create a new frame
 --local overlay = CreateFrame("Frame", nil, PlayerRestIcon:GetParent())
 local overlay = CreateFrame("Frame", "overlay", UIParent)
-overlay:SetWidth(32)
-overlay:SetHeight(32)
+overlay:SetWidth(24)
+overlay:SetHeight(24)
 overlay:SetPoint("CENTER", PlayerFrame, "CENTER", -20, 30) -- Position the NEW RESTED icon
 
 --remove the original blizzard zzz
