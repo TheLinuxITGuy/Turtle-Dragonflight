@@ -184,7 +184,7 @@ overlay:SetScript("OnUpdate", function(self, elapsed)
   end
 end)
 ----------------ANIMATION----------------
-
+overlay:Hide() --hide initially
 ----------------SHOW/HIDE ANIMATION----------------
 -- Show the overlay when the player is in a rested zone, hide when leaving
 overlay:RegisterEvent("PLAYER_UPDATE_RESTING")
