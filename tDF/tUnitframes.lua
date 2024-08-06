@@ -135,7 +135,7 @@ PlayerRestIcon:ClearAllPoints()
 PlayerRestIcon:SetPoint("TOPLEFT", PlayerFrame, -3000, 0)
 
 -- Set the frame strata to be higher than PlayerRestIcon
-overlay:SetFrameStrata("DIALOG")
+--overlay:SetFrameStrata("DIALOG")
 
 -- Set the size and position of the overlay to match PlayerRestIcon
 --overlay:SetWidth(PlayerRestIcon:GetWidth())
