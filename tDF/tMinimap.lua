@@ -2,6 +2,7 @@ local tMinimapZoomIn = MinimapZoomIn
 local tMinimapZoomOut = MinimapZoomOut
 local tBuffButton0 = BuffButton0
 local tBuffButton16 = BuffButton16
+local tTempEnchant1 = TempEnchant1
 local tMinimapCluster = MinimapCluster
 local tMinimap = Minimap
 
@@ -125,6 +126,9 @@ eventFrame:SetScript("OnUpdate", function(self, elapsed)
         tTempEnchant1:ClearAllPoints()
         tTempEnchant1:SetPoint("CENTER", tBuffButton0, 0, -50)
     end
+
+    
+
 end)
 
 --Moves pfQuest if exists to bottom left corner
