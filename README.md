@@ -27,7 +27,6 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 ## Known issues
 - Long mob names show behind the level on the TargetUnitFrame.
 - Stealth/Stance bars work, they are just invisible.
-- Character portrait button on the Color MicroMenu only shows after reload or switching to another character.
 - Rogue poisons when using more than 1 need to be adjusted.
 - The zzz doesn't go away until zone change when under a tent.
 
