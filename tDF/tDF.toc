@@ -4,7 +4,7 @@
 ## Notes: The Dragonflight UI for Turtle WoW.
 ## Version: GIT
 ## DefaultState: enabled
-## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache
+## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft
 
 # locales
 locales\locales_deDE.lua
@@ -80,6 +80,7 @@ mods\superwow.lua
 # mods\reduced-actionbar.lua
 mods\tMicroMenuGray.lua
 mods\tMicroMenu.lua
+mods\tBagSort.lua
 
 #Turtle Dragonflight
 tMinimap.lua
