@@ -14,7 +14,7 @@ module.enable = function(self)
     local tBagSort = CreateFrame("Button", "tBagSort", ContainerFrame1, "UIPanelButtonTemplate")
     tBagSort:SetWidth(18) -- Adjust the width to fit the texture
     tBagSort:SetHeight(18) -- Adjust the height to fit the texture
-    tBagSort:SetPoint("TOPRIGHT", ContainerFrame1, -25, -30) -- Position the button
+    tBagSort:SetPoint("TOPRIGHT", ContainerFrame1, -30, -30) -- Position the button
 
     -- Remove the text
     tBagSort:SetText("")
