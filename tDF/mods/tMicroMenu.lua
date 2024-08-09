@@ -17,15 +17,18 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
+  local mbButtonX = 28
+  local mbButtonY = 36
+  local theSpaceBetween = -29
   ---------------------------------------------Help Micro Button--------------------------------------------------
   --Hide the original HelpMicroButton
   HelpMicroButton:Hide()
   --Create a new Help button
   mbHelp = CreateFrame("Button", "mbHelp", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbHelp:SetWidth(28)
-  mbHelp:SetHeight(38)
-  mbHelp:SetPoint("BOTTOMRIGHT", UIParent, -10, 12) --sets the location of the button
+  mbHelp:SetWidth(mbButtonX)
+  mbHelp:SetHeight(mbButtonY)
+  mbHelp:SetPoint("BOTTOMRIGHT", UIParent, -10, 8) --sets the location of mbHelp
 
   --Set the button's normal texture
   mbHelp:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\question-regular.tga")
@@ -66,9 +69,9 @@ module.enable = function(self)
   --Create a new button
   local mbMainMenu = CreateFrame("Button", "mbMainMenu", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbMainMenu:SetWidth(28)
-  mbMainMenu:SetHeight(38)
-  mbMainMenu:SetPoint("BOTTOMRIGHT", mbHelp, -30, 0) --sets the location of the button original -30, 12
+  mbMainMenu:SetWidth(mbButtonX)
+  mbMainMenu:SetHeight(mbButtonY)
+  mbMainMenu:SetPoint("BOTTOMRIGHT", mbHelp, theSpaceBetween, 0) --sets the location of the button original -30, 12
 
   --Set the button's normal texture
   mbMainMenu:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-regular.tga")
@@ -110,9 +113,9 @@ module.enable = function(self)
   local mbPvP = CreateFrame("Button", "mbPvP", UIParent, "UIPanelButtonTemplate")
   --Set its properties
   mbPvP:ClearAllPoints()
-  mbPvP:SetWidth(28)
-  mbPvP:SetHeight(38)
-  mbPvP:SetPoint("BOTTOMRIGHT", mbMainMenu, -30, 0) --sets the location of the button
+  mbPvP:SetWidth(mbButtonX) --28
+  mbPvP:SetHeight(mbButtonY) --38
+  mbPvP:SetPoint("BOTTOMRIGHT", mbMainMenu, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbPvP:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\book-regular.tga")
@@ -169,9 +172,9 @@ module.enable = function(self)
   --Create a new button
   local mbShop = CreateFrame("Button", "mbShop", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbShop:SetWidth(28)
-  mbShop:SetHeight(38)
-  mbShop:SetPoint("BOTTOMRIGHT", mbPvP, -30, 0) --sets the location of the button
+  mbShop:SetWidth(mbButtonX)
+  mbShop:SetHeight(mbButtonY)
+  mbShop:SetPoint("BOTTOMRIGHT", mbPvP, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbShop:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-regular.tga")
@@ -217,9 +220,9 @@ module.enable = function(self)
   -----Creates a new microButton-----
   local mbLFT = CreateFrame("Button", "mbLFT", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbLFT:SetWidth(28)
-  mbLFT:SetHeight(38)
-  mbLFT:SetPoint("BOTTOMRIGHT", mbShop, -30, 0) --sets the location of the button
+  mbLFT:SetWidth(mbButtonX)
+  mbLFT:SetHeight(mbButtonY)
+  mbLFT:SetPoint("BOTTOMRIGHT", mbShop, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbLFT:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-regular.tga")
@@ -391,9 +394,9 @@ module.enable = function(self)
   --Create a new button
   local mbEBC = CreateFrame("Button", "mbEBC", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbEBC:SetWidth(28)
-  mbEBC:SetHeight(38)
-  mbEBC:SetPoint("BOTTOMRIGHT", mbLFT, -30, 0 ) --sets the location of the button
+  mbEBC:SetWidth(mbButtonX)
+  mbEBC:SetHeight(mbButtonY)
+  mbEBC:SetPoint("BOTTOMRIGHT", mbLFT, theSpaceBetween, 0 ) --sets the location of the button
   --Set the button's normal texture
   mbEBC:SetNormalTexture("Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga")
   --Get the texture object and set its coordinates
@@ -443,9 +446,9 @@ module.enable = function(self)
   --Create a new button
   local mbWorldMap = CreateFrame("Button", "mbWorldMap", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbWorldMap:SetWidth(28)
-  mbWorldMap:SetHeight(38)
-  mbWorldMap:SetPoint("BOTTOMRIGHT", mbEBC, -30, 0) --sets the location of the button
+  mbWorldMap:SetWidth(mbButtonX)
+  mbWorldMap:SetHeight(mbButtonY)
+  mbWorldMap:SetPoint("BOTTOMRIGHT", mbEBC, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbWorldMap:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-regular.tga")
@@ -486,9 +489,9 @@ module.enable = function(self)
   --Create a new button
   local mbSocials = CreateFrame("Button", "mbSocials", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbSocials:SetWidth(28)
-  mbSocials:SetHeight(38)
-  mbSocials:SetPoint("BOTTOMRIGHT", mbWorldMap, -30, 0) --sets the location of the button
+  mbSocials:SetWidth(mbButtonX)
+  mbSocials:SetHeight(mbButtonY)
+  mbSocials:SetPoint("BOTTOMRIGHT", mbWorldMap, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbSocials:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-regular.tga")
@@ -528,9 +531,9 @@ module.enable = function(self)
   --Create a new button
   local mbQuestLog = CreateFrame("Button", "mbQuestLog", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbQuestLog:SetWidth(28)
-  mbQuestLog:SetHeight(38)
-  mbQuestLog:SetPoint("BOTTOMRIGHT", mbSocials, -30, 0) --sets the location of the button
+  mbQuestLog:SetWidth(mbButtonX)
+  mbQuestLog:SetHeight(mbButtonY)
+  mbQuestLog:SetPoint("BOTTOMRIGHT", mbSocials, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbQuestLog:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-regular.tga")
@@ -572,9 +575,9 @@ module.enable = function(self)
   --Create a new button
   local mbTalent = CreateFrame("Button", "mbTalent", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbTalent:SetWidth(28)
-  mbTalent:SetHeight(38)
-  mbTalent:SetPoint("BOTTOMRIGHT", mbQuestLog, -30, 0) --sets the location of the button
+  mbTalent:SetWidth(mbButtonX)
+  mbTalent:SetHeight(mbButtonY)
+  mbTalent:SetPoint("BOTTOMRIGHT", mbQuestLog, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbTalent:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-regular.tga")
@@ -614,9 +617,9 @@ module.enable = function(self)
   --Create a new button
   local mbSpellBook = CreateFrame("Button", "mbSpellBook", UIParent, "UIPanelButtonTemplate")
   --Set its properties
-  mbSpellBook:SetWidth(28)
-  mbSpellBook:SetHeight(38)
-  mbSpellBook:SetPoint("BOTTOMRIGHT", mbTalent, -30, 0) --sets the location of the button
+  mbSpellBook:SetWidth(mbButtonX)
+  mbSpellBook:SetHeight(mbButtonY)
+  mbSpellBook:SetPoint("BOTTOMRIGHT", mbTalent, theSpaceBetween, 0) --sets the location of the button
 
   --Set the button's normal texture
   mbSpellBook:SetNormalTexture("Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-regular.tga")
@@ -657,10 +660,10 @@ module.enable = function(self)
   local mbCharacter = CreateFrame("Button", "mbCharacter", UIParent, "UIPanelButtonTemplate")
 
   -- Set its properties
-  mbCharacter:SetWidth(28)
-  mbCharacter:SetHeight(38)
+  mbCharacter:SetWidth(mbButtonX)
+  mbCharacter:SetHeight(mbButtonY)
   mbCharacter:ClearAllPoints()
-  mbCharacter:SetPoint("BOTTOMRIGHT", mbSpellBook, -30, 0) -- position Character button next to Spellbook
+  mbCharacter:SetPoint("BOTTOMRIGHT", mbSpellBook, theSpaceBetween, 0) -- position Character button next to Spellbook
 
   -- Helper function to set texture coordinates
   local function SetButtonTexCoords(button, left, right, top, bottom)
@@ -690,8 +693,8 @@ module.enable = function(self)
       local portraitTexture = mbCharacter:CreateTexture(nil, "OVERLAY")
       -- Set the portrait texture to the character's portrait
       SetPortraitTexture(portraitTexture, "player")
-      portraitTexture:SetWidth(25) -- adjust size as needed
-      portraitTexture:SetHeight(25)
+      portraitTexture:SetWidth(23) -- adjust size as needed
+      portraitTexture:SetHeight(23)
       portraitTexture:SetPoint("CENTER", mbCharacter, "CENTER", 0, 0) -- adjust position as needed
   end
 
