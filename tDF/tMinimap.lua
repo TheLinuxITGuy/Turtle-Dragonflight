@@ -1,5 +1,5 @@
-local tMinimapZoomIn = MinimapZoomIn
-local tMinimapZoomOut = MinimapZoomOut
+tMinimapZoomIn = MinimapZoomIn
+tMinimapZoomOut = MinimapZoomOut
 local tBuffButton0 = BuffButton0
 local tBuffButton16 = BuffButton16
 local tTempEnchant1 = TempEnchant1
@@ -78,8 +78,9 @@ end)
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
 tMinimapZoomOut:ClearAllPoints()
-tMinimapZoomIn:SetPoint("RIGHT", customMinimap, -5, 245)
-tMinimapZoomOut:SetPoint("RIGHT", customMinimap, -20, 230)
+tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 200, -170)
+tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 185, -190)
+
 --Normal
 tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
 tMinimapZoomIn:SetWidth(16)
