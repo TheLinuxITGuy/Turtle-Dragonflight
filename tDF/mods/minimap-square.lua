@@ -26,4 +26,9 @@ module.enable = function(self)
 
   Minimap.border:SetBackdropBorderColor(.9,.8,.5,1)
   Minimap.border:SetBackdropColor(.4,.4,.4,1)
+
+  tMinimapZoomIn:ClearAllPoints()
+  tMinimapZoomOut:ClearAllPoints()
+  tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 200, -210)
+  tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 185, -210)
 end
