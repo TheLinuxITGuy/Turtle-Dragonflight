@@ -6,14 +6,14 @@ local module = ShaguTweaks:register({
   description = T["Adds a small 24h clock to the mini map."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },
   category = T["World & MiniMap"],
-  enabled = nil,
+  enabled = true,
 })
 
 ------------------Add Clock------------------
 MinimapClock = CreateFrame("Frame", "Clock", Minimap)
 MinimapClock:Hide()
 MinimapClock:SetFrameLevel(64)
-MinimapClock:SetPoint("CENTER", MinimapZoneText, 0, -225)
+MinimapClock:SetPoint("TOPRIGHT", customMinimap, 5, 0)
 MinimapClock:SetWidth(68)
 MinimapClock:SetHeight(23)
 MinimapClock:SetBackdrop({
@@ -22,19 +22,19 @@ MinimapClock:SetBackdrop({
   tile = true, tileSize = 8, edgeSize = 16,
   insets = { left = 3, right = 3, top = 3, bottom = 3 }
 })
-MinimapClock:SetBackdropBorderColor(.9,.8,.5,1)
-MinimapClock:SetBackdropColor(.4,.4,.4,1)
+MinimapClock:SetBackdropBorderColor(.9,.8,.5,0) --Sets Alpha to 0
+MinimapClock:SetBackdropColor(.4,.4,.4,0) --Sets Alpha to 0
 
 module.enable = function(self)
   MinimapClock:Show()
   MinimapClock:EnableMouse(true)
 
   MinimapClock.text = MinimapClock:CreateFontString("Status", "LOW", "GameFontNormal")
-  MinimapClock.text:SetFont(STANDARD_TEXT_FONT, 12, "OUTLINE")
+  MinimapClock.text:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
   MinimapClock.text:SetAllPoints(MinimapClock)
   MinimapClock.text:SetFontObject(GameFontWhite)
   MinimapClock:SetScript("OnUpdate", function()
-      this.text:SetText(date("%I:%M %p"))
+      this.text:SetText(date("%I:%M ")) --%p
   end)
 
   MinimapClock:SetScript("OnEnter", function()
