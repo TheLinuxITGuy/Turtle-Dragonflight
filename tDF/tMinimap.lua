@@ -52,7 +52,7 @@ f:SetScript("OnEvent", function()
     -- Clear existing points
     MiniMapTrackingFrame:ClearAllPoints()
     -- Set new point relative to MiniMapZoneText
-    MiniMapTrackingFrame:SetPoint("LEFT", MinimapZoneText, -28, 0)
+    MiniMapTrackingFrame:SetPoint("LEFT", MinimapZoneText, -32, 0)
     -- Set the scale to 50%
     MiniMapTrackingFrame:SetScale(0.75)
     -- Hide the border textures based on dimensions
