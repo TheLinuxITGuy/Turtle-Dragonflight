@@ -45,15 +45,31 @@ f:SetScript("OnEvent", function()
     --Add text over the Minimap
     MinimapZoneText:SetParent(UIParent)
     MinimapZoneText:ClearAllPoints()
-    MinimapZoneText:SetPoint("CENTER", customMinimap, 0, 110)
+    MinimapZoneText:SetPoint("LEFT", customMinimap, -10, 110)
     MinimapToggleButton:Hide()
 
-    --MiniMapTrackingFrame
-        -- Clear existing points
-        MiniMapTrackingFrame:ClearAllPoints()
-        -- Set new point relative to MiniMapZoneText
-        MiniMapTrackingFrame:SetPoint("TOPRIGHT", UIParent, -0,2)
-    --MiniMapTrackingFrame
+--MiniMapTrackingFrame
+    -- Clear existing points
+    MiniMapTrackingFrame:ClearAllPoints()
+    -- Set new point relative to MiniMapZoneText
+    MiniMapTrackingFrame:SetPoint("LEFT", MinimapZoneText, -28, 0)
+    -- Set the scale to 50%
+    MiniMapTrackingFrame:SetScale(0.75)
+    -- Hide the border textures based on dimensions
+    local regions = {MiniMapTrackingFrame:GetRegions()}
+    for _, region in ipairs(regions) do
+        if region and region:GetObjectType() == "Texture" then
+            local width, height = region:GetWidth(), region:GetHeight()
+            if width > 30 and height > 30 then
+                region:Hide()
+            end
+        end
+    end
+--MiniMapTrackingFrame
+
+
+
+
 
     -- Show your custom minimap
     customMinimap:Show()
@@ -62,8 +78,8 @@ end)
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
 tMinimapZoomOut:ClearAllPoints()
-tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 160, -160)
-tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 145, -180)
+tMinimapZoomIn:SetPoint("RIGHT", customMinimap, -5, 245)
+tMinimapZoomOut:SetPoint("RIGHT", customMinimap, -20, 230)
 --Normal
 tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
 tMinimapZoomIn:SetWidth(16)
