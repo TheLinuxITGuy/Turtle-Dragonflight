@@ -212,7 +212,7 @@ end)
 --TWMinimapShopFrame:SetAlpha(0)
 LFT_Minimap:SetParent(UIParent)
 LFT_Minimap:ClearAllPoints()
-LFT_Minimap:SetPoint("BOTTOMRIGHT", UIParent, -270, 6)
+LFT_Minimap:SetPoint("CENTER", mbHelp, -250, 50)
 LFT_Minimap:Hide()
 -----Creates a new microButton-----
 local mbLFT = CreateFrame("Button", "mbLFT", UIParent, "UIPanelButtonTemplate")
