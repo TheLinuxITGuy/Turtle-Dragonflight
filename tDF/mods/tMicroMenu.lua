@@ -17,9 +17,9 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
-  local mbButtonX = 28
-  local mbButtonY = 36
-  local theSpaceBetween = -29
+  local mbButtonX = 18 --28
+  local mbButtonY = 25 --36
+  local theSpaceBetween = -20 -- -29
   ---------------------------------------------Help Micro Button--------------------------------------------------
   --Hide the original HelpMicroButton
   HelpMicroButton:Hide()
@@ -693,8 +693,8 @@ module.enable = function(self)
       local portraitTexture = mbCharacter:CreateTexture(nil, "OVERLAY")
       -- Set the portrait texture to the character's portrait
       SetPortraitTexture(portraitTexture, "player")
-      portraitTexture:SetWidth(23) -- adjust size as needed
-      portraitTexture:SetHeight(23)
+      portraitTexture:SetWidth(16) -- 23 adjust size as needed
+      portraitTexture:SetHeight(16)
       portraitTexture:SetPoint("CENTER", mbCharacter, "CENTER", 0, 0) -- adjust position as needed
   end
 
@@ -752,9 +752,9 @@ module.enable = function(self)
   --mbLatency:SetTexCoord(3/32, 28/32, 56/64, 60/64)
   -- Set the position and size of your button
   mbLatency:ClearAllPoints()
-  mbLatency:SetPoint("CENTER", mbHelp, 1, -20) -- You can adjust the position as needed
-  mbLatency:SetWidth(22)
-  mbLatency:SetHeight(13)
+  mbLatency:SetPoint("CENTER", mbHelp, 1, -16) -- You can adjust the position as needed
+  mbLatency:SetWidth(20)
+  mbLatency:SetHeight(15)
 
   -- Add this to update each frame
   mbLatency:SetScript("OnUpdate", function(self, elapsed)
