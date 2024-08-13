@@ -148,11 +148,59 @@ eventFrame:SetScript("OnUpdate", function(self, elapsed)
 
 end)
 
---Moves pfQuest if exists to bottom left corner
-if pfBrowserIcon then
+if MBB_MinimapButtonFrame then
+    -- reposition MBB to the bottom of the styleFrame (under the minimap)
+    -- show the button OnEnter and hide when OnLeave
+    
+    if IsAddOnLoaded("MinimapButtonBag-TurtleWoW") then
+        MBB_MinimapButtonFrame_Texture:SetTexture("Interface\\Icons\\Inv_misc_bag_10_green")
+    else
+        MBB_MinimapButtonFrame_Texture:SetTexture("Interface\\Icons\\Inv_misc_bag_10")
+    end            
+
+    MBB_MinimapButtonFrame:ClearAllPoints()
+    MBB_MinimapButtonFrame:SetPoint("BOTTOMLEFT", UIParent, 0, 0)
+       
+    
+    local function showButton(button)
+        button:SetAlpha(1)
+    end
+
+    local function hideButton(button)
+        button:SetAlpha(0)  
+    end            
+
+    hideButton(MBB_MinimapButtonFrame)
+    local hide = CreateFrame("BUTTON", nil, MBB_MinimapButtonFrame)
+    hide:SetAllPoints(hide:GetParent())
+
+    hide:SetScript("OnEnter", function()
+        showButton(MBB_MinimapButtonFrame)
+    end)
+
+    hide:SetScript("OnLeave", function()
+        hide.timer = GetTime() + 6
+        hide:SetScript("OnUpdate", function()            
+            if (GetTime() > hide.timer) then
+                MBB_HideButtons() -- MBB function to hide buttons
+                hideButton(MBB_MinimapButtonFrame)
+                hide:SetScript("OnUpdate", nil)
+            end
+        end)
+    end)
+    
+    hide:RegisterForClicks("LeftButtonDown","RightButtonDown")
+    hide:SetScript("OnClick", function()
+        MBB_OnClick(arg1)
+    end)
+end
+
+--Moves pfQuest if exists to bottom left corner, do nothing if MBB is detected
+if pfBrowserIcon and MBB_MinimapButtonFrame then
+else if pfBrowserIcon then 
   pfBrowserIcon:SetParent(UIParent)
   pfBrowserIcon:ClearAllPoints()
-  pfBrowserIcon:SetPoint("BOTTOMLEFT", UIParent, 0, 0)
+  pfBrowserIcon:SetPoint("BOTTOMLEFT", UIParent, 0, 0) end
 end
 
 --"You've got mail!"" -AOL 1998
