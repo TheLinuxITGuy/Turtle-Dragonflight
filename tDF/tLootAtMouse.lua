@@ -3,7 +3,7 @@ local T = ShaguTweaks.T
 
 local module = ShaguTweaks:register({
     title = T["Loot Table at Mouse"],
-    description = T["The loot table displays to the left of the cursor."],
+    description = T["The loot table displays to the right of the cursor."],
     expansions = { ["vanilla"] = true, ["tbc"] = true },
     category = T["Tooltip & Items"],
     enabled = nil,
