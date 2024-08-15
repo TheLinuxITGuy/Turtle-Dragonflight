@@ -83,6 +83,7 @@ mods\superwow.lua
 mods\tMicroMenuGray.lua
 mods\tMicroMenu.lua
 mods\tBagSort.lua
+mods\actionbar-on-key-down.lua
 
 #Turtle Dragonflight
 tMinimap.lua

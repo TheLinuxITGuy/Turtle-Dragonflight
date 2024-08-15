@@ -1,5 +1,7 @@
 ShaguTweaks_translation = ShaguTweaks_translation or {}
 ShaguTweaks_translation["zhTW"] = {
+  ["Action Bar"] = nil,
+  ["Action buttons will be activated on key down."] = nil,
   ["Adds a castbar to the nameplate based on combat log estimations."] = nil,
   ["Adds a “Sell Junk” button to every merchant window, that sells all grey items."] = nil,
   ["Adds a small 24h clock to the mini map."] = nil,
