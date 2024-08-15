@@ -14,7 +14,7 @@ local module = ShaguTweaks:register({
 
 local castbar = CreateFrame("StatusBar", "ShaguTargetCastbar", TargetFrame)
 castbar:SetPoint("BOTTOM", TargetFrame, "BOTTOM", -12, -4)
-castbar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
+castbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
 castbar:SetStatusBarColor(1, .8, 0, 1)
 castbar:SetWidth(140)
 castbar:SetHeight(10)
@@ -41,25 +41,27 @@ castbar.bg:SetVertexColor(.1, .1, 0, .8)
 castbar.bg:SetAllPoints(true)
 
 castbar.spark = castbar:CreateTexture(nil, "OVERLAY")
-castbar.spark:SetTexture("Interface\\CastingBar\\UI-CastingBar-Spark")
+castbar.spark:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarSpark")
 castbar.spark:SetWidth(20)
 castbar.spark:SetHeight(20)
 castbar.spark:SetBlendMode("ADD")
 
 castbar.backdrop = CreateFrame("Frame", nil, castbar)
 castbar.backdrop:SetFrameStrata("BACKGROUND")
-castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -3, 3)
-castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 3, -3)
+castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -2, 2)
+castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 2, -2)
 castbar.backdrop:SetBackdrop({
-  edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
-  tile = true, tileSize = 8, edgeSize = 12,
-  insets = { left = 3, right = 3, top = 3, bottom = 3 }
+  bgFile = "Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame2.tga"
 })
 
-castbar.text = castbar:CreateFontString(nil, "HIGH", "GameFontWhite")
-castbar.text:SetPoint("CENTER", castbar, "CENTER", 0, 0)
+castbar.text = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
+castbar.text:SetPoint("CENTER", castbar, "CENTER", 0, -15)
 local font, size, opts = castbar.text:GetFont()
-castbar.text:SetFont(font, size - 2, "THINOUTLINE")
+castbar.text:SetFont(font, size - 2, opts)
+
+castbar.timerText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
+castbar.timerText:SetPoint("CENTER", castbar, "CENTER", 0, 0)
+castbar.timerText:SetFont(font, size - 2, opts)
 
 module.enable = function(self)
   local oldUpdate = TargetFrame:GetScript("OnUpdate")
@@ -95,6 +97,9 @@ module.enable = function(self)
       cur = cur > max and max or cur
       cur = cur < 0 and 0 or cur
 
+      local rem = max - cur
+      rem = string.format("%.1f"..T["s"], rem)
+
       castbar:Show()
       castbar:SetMinMaxValues(0, duration / 1000)
       castbar:SetValue(cur)
@@ -104,6 +109,7 @@ module.enable = function(self)
       castbar.spark:SetPoint("CENTER", castbar, "LEFT", x, 0)
 
       castbar.text:SetText(cast)
+      castbar.timerText:SetText(rem)
 
       if texture then
         castbar.texture.icon:SetTexture(texture)

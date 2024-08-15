@@ -61,6 +61,7 @@ mods\move-unitframes.lua
 mods\target-castbar.lua
 mods\target-debufftimer.lua
 mods\social-colors.lua
+mods\improved-castbar.lua
 mods\item-colors.lua
 mods\chat-links.lua
 mods\health-numbers.lua
