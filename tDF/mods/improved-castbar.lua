@@ -29,8 +29,8 @@ castbar.spark:SetBlendMode("ADD")
 
 castbar.backdrop = CreateFrame("Frame", nil, castbar)
 castbar.backdrop:SetFrameStrata("HIGH")
-castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -3, 3)
-castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 3, -3)
+castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -2, 3)
+castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 2, -3)
 castbar.backdrop:SetBackdrop({
   bgFile = "Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame2.tga"
 })
