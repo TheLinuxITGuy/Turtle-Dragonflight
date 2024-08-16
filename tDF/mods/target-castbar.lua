@@ -47,7 +47,7 @@ castbar.spark:SetHeight(20)
 castbar.spark:SetBlendMode("ADD")
 
 castbar.backdrop = CreateFrame("Frame", nil, castbar)
-castbar.backdrop:SetFrameStrata("BACKGROUND")
+castbar.backdrop:SetFrameStrata("HIGH")
 castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -2, 2)
 castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 2, -2)
 castbar.backdrop:SetBackdrop({
