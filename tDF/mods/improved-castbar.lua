@@ -8,7 +8,7 @@ local module = ShaguTweaks:register({
   enabled = nil,
 })
 
-local castbar = CreateFrame("StatusBar", "ShaguTargetCastbar", UIParent)
+local castbar = CreateFrame("StatusBar", "tDFImprovedCastbar", UIParent)
 castbar:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 225)
 castbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
 castbar:SetStatusBarColor(1, .8, 0, 1)
@@ -44,19 +44,17 @@ castbar.timerText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
 castbar.timerText:SetPoint("CENTER", castbar, "CENTER", 0, 0)
 castbar.timerText:SetFont(font, size, opts)
 
+CastingBarFrame:UnregisterAllEvents()
+CastingBarFrame:Hide()
+
 
 module.enable = function(self)
   local UnitCastingInfo = ShaguTweaks.UnitCastingInfo
   local UnitChannelInfo = ShaguTweaks.UnitChannelInfo
 
-  --local castbar = CreateFrame("FRAME", "STImprovedCastbar", CastingBarFrame)
-  CastingBarFrame:UnregisterAllEvents()
-  CastingBarFrame:Hide()
-
   if ShaguTweaks.DarkMode then
     castbar.texture:SetBackdropBorderColor( .3, .3, .3, .9)
   end
-
 
   local name = GetUnitName("player")
 
