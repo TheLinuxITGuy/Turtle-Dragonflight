@@ -4,7 +4,8 @@
 ## Notes: The Dragonflight UI for Turtle WoW.
 ## Version: GIT
 ## DefaultState: enabled
-## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft
+## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
+## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB
 
 # locales
 locales\locales_deDE.lua
@@ -31,13 +32,13 @@ helpers.lua
 config.lua
 
 # libraries
-libs\libtipscan.lua
-libs\libspell.lua
-libs\libcast.lua
-libs\libdebuff.lua
-libs\libunitscan.lua
-libs\libhealth.lua
-libs\libnameplate.lua
+libs\libtipscan-tDF.lua
+libs\libspell-tDF.lua
+libs\libcast-tDF.lua
+libs\libdebuff-tDF.lua
+libs\libunitscan-tDF.lua
+libs\libhealth-tDF.lua
+libs\libnameplate-tDF.lua
 
 # custom
 mods\custom.lua
@@ -81,6 +82,36 @@ mods\superwow.lua
 mods\tMicroMenuGray.lua
 mods\tMicroMenu.lua
 mods\tBagSort.lua
+
+# ShaguPlates
+ShaguPlates.lua
+init\env.xml
+init\compat.xml
+init\api.xml
+init\libs.xml
+init\modules.xml
+
+# ShaguPlates\api\api.lua
+# ShaguPlates\api\config.lua
+# ShaguPlates\api\ui-widgets.lua
+# ShaguPlates\compat\vanilla.lua
+# ShaguPlates\env\locales_enUS.lua
+# ShaguPlates\env\tables.lua
+# ShaguPlates\env\profiles.lua
+# ShaguPlates\env\translations_enUS.lua
+# ShaguPlates\libs\libtipscan.lua
+# ShaguPlates\libs\libspell.lua
+# ShaguPlates\libs\libcast.lua
+# ShaguPlates\libs\libdebuff.lua
+# ShaguPlates\libs\librange.lua
+# ShaguPlates\libs\libunitscan.lua
+# ShaguPlates\libs\libtooltip.lua
+# ShaguPlates\libs\libhealth.lua
+# ShaguPlates\libs\libpredict.lua
+# ShaguPlates\modules\cooldown.lua
+# ShaguPlates\modules\settings.lua
+# ShaguPlates\modules\nameplates.lua
+# ShaguPlates\modules\superwow.lua
 
 #Turtle Dragonflight
 tMinimap.lua
