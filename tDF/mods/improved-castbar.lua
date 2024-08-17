@@ -23,8 +23,8 @@ castbar.bg:SetAllPoints(true)
 
 castbar.spark = castbar:CreateTexture(nil, "OVERLAY")
 castbar.spark:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarSpark")
-castbar.spark:SetWidth(20)
-castbar.spark:SetHeight(20)
+castbar.spark:SetWidth(22)
+castbar.spark:SetHeight(30)
 castbar.spark:SetBlendMode("ADD")
 
 castbar.backdrop = CreateFrame("Frame", nil, castbar)
