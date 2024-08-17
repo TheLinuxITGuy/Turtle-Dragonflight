@@ -1,34 +1,28 @@
--- load ShaguPlates environment
-setfenv(1, ShaguPlates:GetEnvironment())
-
---[[ libdebuff ]]--
--- A ShaguPlates library that detects and saves all ongoing debuffs of players, NPCs and enemies.
--- The functions UnitDebuff is exposed to the modules which allows to query debuffs like you
--- would on later expansions.
---
---  libdebuff:UnitDebuff(unit, id)
---    Returns debuff informations on the given effect of the specified unit.
---    name, rank, texture, stacks, dtype, duration, timeleft
+local _G = ShaguTweaks.GetGlobalEnv()
+local L = ShaguTweaks.L
+local GetExpansion = ShaguTweaks.GetExpansion
+local libtipscan = ShaguTweaks.libtipscan
+local libspell = ShaguTweaks.libspell
+local hooksecurefunc = ShaguTweaks.hooksecurefunc
+local QueueFunction = ShaguTweaks.QueueFunction
+local cmatch = ShaguTweaks.cmatch
 
 -- return instantly if we're not on a vanilla client
-if ShaguPlates.client > 11200 then return end
-
--- return instantly when another libdebuff is already active
-if ShaguPlates.api.libdebuff then return end
+if GetExpansion() ~= "vanilla" then return end
 
 -- fix a typo (missing $) in ruRU capture index
 if GetLocale() == "ruRU" then
   SPELLREFLECTSELFOTHER = gsub(SPELLREFLECTSELFOTHER, "%%2s", "%%2%$s")
 end
 
-local libdebuff = CreateFrame("Frame", "pfdebuffsScanner", UIParent)
+local libdebuff = CreateFrame("Frame", "ShaguTweaksDebuffsScanner", UIParent)
 local scanner = libtipscan:GetScanner("libdebuff")
 local _, class = UnitClass("player")
 local lastspell
 
 function libdebuff:GetDuration(effect, rank)
   if L["debuffs"][effect] then
-    local rank = rank and tonumber((string.gsub(rank, RANK, ""))) or 0
+    local rank = rank and tonumber((string.gsub(rank, RANK .. " ", ""))) or 0
     local rank = L["debuffs"][effect][rank] and rank or libdebuff:GetMaxRank(effect)
     local duration = L["debuffs"][effect][rank]
 
@@ -70,8 +64,7 @@ function libdebuff:GetMaxRank(effect)
 end
 
 function libdebuff:UpdateUnits()
-  if not ShaguPlates.uf or not ShaguPlates.uf.target then return end
-  ShaguPlates.uf:RefreshUnit(ShaguPlates.uf.target, "aura")
+  TargetDebuffButton_Update()
 end
 
 function libdebuff:AddPending(unit, unitlevel, effect, duration)
@@ -274,5 +267,4 @@ function libdebuff:UnitDebuff(unit, id)
   return effect, rank, texture, stacks, dtype, duration, timeleft
 end
 
--- add libdebuff to ShaguPlates API
-ShaguPlates.api.libdebuff = libdebuff
+ShaguTweaks.libdebuff = libdebuff

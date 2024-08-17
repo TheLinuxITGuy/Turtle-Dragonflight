@@ -1,8 +1,7 @@
--- load ShaguPlates environment
-setfenv(1, ShaguPlates:GetEnvironment())
-
--- return instantly when another libspell is already active
-if ShaguPlates.api.libspell then return end
+local _G = ShaguTweaks.GetGlobalEnv()
+local GetExpansion = ShaguTweaks.GetExpansion
+local libtipscan = ShaguTweaks.libtipscan
+local hooksecurefunc = ShaguTweaks.hooksecurefunc
 
 local scanner = libtipscan:GetScanner("libspell")
 local libspell = {}
@@ -16,7 +15,6 @@ local spellmaxrank = {}
 function libspell.GetSpellMaxRank(name)
   local cache = spellmaxrank[name]
   if cache then return cache[1], cache[2] end
-  local name = string.lower(name)
 
   local rank = { 0, nil}
   for i = 1, GetNumSpellTabs() do
@@ -24,7 +22,7 @@ function libspell.GetSpellMaxRank(name)
     local bookType = BOOKTYPE_SPELL
     for id = offset + 1, offset + num do
       local spellName, spellRank = GetSpellName(id, bookType)
-      if name == string.lower(spellName) then
+      if spellName == name then
         if not rank[2] then rank[2] = spellRank end
 
         local _, _, numRank = string.find(spellRank, " (%d+)$")
@@ -46,7 +44,6 @@ end
 -- return:      [number],[string]   spell index and spellbook id
 local spellindex = {}
 function libspell.GetSpellIndex(name, rank)
-  local name = string.lower(name)
   local cache = spellindex[name..(rank or "")]
   if cache then return cache[1], cache[2] end
 
@@ -57,16 +54,15 @@ function libspell.GetSpellIndex(name, rank)
     local bookType = BOOKTYPE_SPELL
     for id = offset + 1, offset + num do
       local spellName, spellRank = GetSpellName(id, bookType)
-      if rank and rank == spellRank and name == string.lower(spellName) then
+      if rank and rank == spellRank and name == spellName then
         spellindex[name..rank] = { id, bookType }
         return id, bookType
-      elseif not rank and name == string.lower(spellName) then
+      elseif not rank and name == spellName then
         spellindex[name] = { id, bookType }
         return id, bookType
       end
     end
   end
-
   spellindex[name..(rank or "")] = { nil }
   return nil
 end
@@ -99,11 +95,6 @@ function libspell.GetSpellInfo(index, bookType)
     name = sname or index
     rank = srank or libspell.GetSpellMaxRank(name)
     id, bookType = libspell.GetSpellIndex(name, rank)
-
-    -- correct name in case of wrong upper/lower cases
-    if id and bookType then
-      name = GetSpellName(id, bookType)
-    end
   else
     name, rank = GetSpellName(index, bookType)
     id, bookType = libspell.GetSpellIndex(name, rank)
@@ -135,12 +126,4 @@ function libspell.GetSpellInfo(index, bookType)
   return name, rank, icon, castingTime, minRange, maxRange
 end
 
--- Reset all spell caches whenever new spells are learned/unlearned
-local resetcache = CreateFrame("Frame")
-resetcache:RegisterEvent("LEARNED_SPELL_IN_TAB")
-resetcache:SetScript("OnEvent", function()
-  spellmaxrank, spellindex, spellinfo = {}, {}, {}
-end)
-
--- add libspell to ShaguPlates API
-ShaguPlates.api.libspell = libspell
+ShaguTweaks.libspell = libspell

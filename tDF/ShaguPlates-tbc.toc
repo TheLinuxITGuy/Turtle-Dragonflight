@@ -1,0 +1,15 @@
+## Interface: 20400
+## Title: |cff33ffccShagu|cffffffffPlates
+## Author: Shagu
+## Notes: Nameplate addon featuring castbars and class colors
+## Version: 5.4.5
+## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
+## SavedVariablesPerCharacter: ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB
+
+ShaguPlates.lua
+
+init\env.xml
+init\compat.xml
+init\api.xml
+init\libs.xml
+init\modules.xml

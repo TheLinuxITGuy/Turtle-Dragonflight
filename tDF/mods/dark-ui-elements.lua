@@ -250,4 +250,6 @@ module.enable = function(self)
       DarkenFrame(this)
     end
   end)
+  MinimapClock:SetBackdropBorderColor(.9,.8,.5,0) --Sets Alpha to 0
+  MinimapClock:SetBackdropColor(.4,.4,.4,0) --Sets Alpha to 0
 end
