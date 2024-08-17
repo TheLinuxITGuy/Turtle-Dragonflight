@@ -3,7 +3,7 @@ local T = ShaguTweaks.T
 
 local module = ShaguTweaks:register({
   title = T["Movable Unit Frames Extended"],
-  description = T["Party frames, Buffs, Weapon Buffs and Debuffs can be moved while <Shift> and <Ctrl> are pressed together. Drag the first (end) buff or debuff to move."],
+  description = T["mufe_desc"],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
   category = T["Unit Frames"],
   enabled = nil,
@@ -17,7 +17,7 @@ local movables = {
 }
 
 local nonmovables = {
-  --"Minimap",
+  "MyCustomMinimap",
   "tDFImprovedCastbar",
   "BuffButton0", -- buffs
   "BuffButton16", -- debuffs

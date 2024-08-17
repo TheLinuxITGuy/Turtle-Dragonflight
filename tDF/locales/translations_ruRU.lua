@@ -54,6 +54,7 @@ ShaguTweaks_translation["ruRU"] = {
   ["Nameplate Class Colors"] = "Классы индикатора здоровья",
   ["Nameplate Scale"] = "Масштаб индикаторов здоровья",
   ["Party frames, Buffs, Weapon Buffs and Debuffs can be moved while <Shift> and <Ctrl> are pressed together. Drag the first (end) buff or debuff to move."] = "Окна группы, баффов и дебаффов можно перемещать, удерживая клавиши <Shift> и <Ctrl> вместе.",
+  ["mufe_desc"] = "Фреймы группы, баффы, баффы оружия, дебаффы, миникарту и улучшенную панель каста можно перемещать, удерживая клавиши <Shift> и <Ctrl>. Перетащите первый бафф справа или дебафф для перемещения.",
   ["Player"] = "Игрок",
   ["Player and Target unit frames can be moved while <Shift> and <Ctrl> are pressed together."] = "Окна игрока и цели можно перемещать, удерживая клавиши <Shift> и <Ctrl> вместе.",
   ["Real Health Numbers"] = "Реальные цифры здоровья",

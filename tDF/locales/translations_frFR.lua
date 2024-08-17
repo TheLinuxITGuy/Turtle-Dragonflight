@@ -54,6 +54,7 @@ ShaguTweaks_translation["frFR"] = {
   ["Nameplate Class Colors"] = nil,
   ["Nameplate Scale"] = nil,
   ["Party frames, Buffs, Weapon Buffs and Debuffs can be moved while <Shift> and <Ctrl> are pressed together. Drag the first (end) buff or debuff to move."] = nil,
+  ["mufe_desc"] = "Party frames, Buffs, Weapon Buffs, Debuffs, Minimap and Improved Castbar can be moved while <Shift> and <Ctrl> are pressed together. Drag the first (end) buff or debuff to move.",
   ["Player"] = nil,
   ["Player and Target unit frames can be moved while <Shift> and <Ctrl> are pressed together."] = nil,
   ["Real Health Numbers"] = nil,
