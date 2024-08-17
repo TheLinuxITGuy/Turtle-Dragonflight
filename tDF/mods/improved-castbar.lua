@@ -44,6 +44,15 @@ castbar.timerText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
 castbar.timerText:SetPoint("CENTER", castbar, "CENTER", 0, 0)
 castbar.timerText:SetFont(font, size, opts)
 
+castbar.lag = castbar:CreateTexture(nil, "OVERLAY")
+castbar.lag:SetPoint("TOPRIGHT", castbar, "TOPRIGHT", 0, 0)
+castbar.lag:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 0, 0)
+castbar.lag:SetTexture(1,.2,.2,.5)
+
+castbar.lagText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
+castbar.lagText:SetPoint("RIGHT", castbar, "RIGHT", 0, -15)
+castbar.lagText:SetFont(font, size - 2, opts)
+
 CastingBarFrame:UnregisterAllEvents()
 CastingBarFrame:Hide()
 
@@ -92,8 +101,13 @@ module.enable = function(self)
       local x = castbar:GetWidth()*percent
       castbar.spark:SetPoint("CENTER", castbar, "LEFT", x, 0)
 
+      local _, _, lag = GetNetStats()
+      local width = castbar:GetWidth() / (duration/1000) * (lag/1000)
+      castbar.lag:SetWidth(math.min(castbar:GetWidth(), width))
+
       castbar.text:SetText(cast)
       castbar.timerText:SetText(rem)
+      castbar.lagText:SetText(lag .. "ms")
 
     else
       castbar:Hide()
