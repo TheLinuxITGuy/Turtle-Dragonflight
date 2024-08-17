@@ -1,7 +1,6 @@
--- load ShaguPlates environment
-setfenv(1, ShaguPlates:GetEnvironment())
-
-if ShaguPlates.libhealth then return end
+local _G = ShaguTweaks.GetGlobalEnv()
+local L = ShaguTweaks.L
+local GetExpansion = ShaguTweaks.GetExpansion
 
 local mobdb = {}
 local target, dmg, perc, diff = nil, 0, 0, 0, 0
@@ -17,13 +16,14 @@ libhealth:RegisterEvent("PLAYER_ENTERING_WORLD")
 libhealth:SetScript("OnEvent", function()
   if event == "PLAYER_ENTERING_WORLD" then
     -- create initial health cache tables
-    ShaguPlates_cache["libhealth"] = ShaguPlates_cache["libhealth"] or {}
-    mobdb = ShaguPlates_cache["libhealth"]
+    ShaguTweaks_cache = ShaguTweaks_cache or {}
+    ShaguTweaks_cache["libhealth"] = ShaguTweaks_cache["libhealth"] or {}
+    mobdb = ShaguTweaks_cache["libhealth"]
 
     -- load enable state and set functions
-    libhealth.enabled = ShaguPlates_config["global"]["libhealth"] == "1" and true or nil
-    libhealth.reqhit = (tonumber(ShaguPlates_config["global"]["libhealth_hit"]) or 4)
-    libhealth.reqdmg = (tonumber(ShaguPlates_config["global"]["libhealth_dmg"]) or 0.5) * 100
+    libhealth.enabled = true
+    libhealth.reqhit = 2
+    libhealth.reqdmg = 10
   end
 
   -- return as we're not supposed to be here
@@ -103,6 +103,6 @@ local function GetUnitHealthByName(self, unit, level, cur, max)
 end
 
 -- add api calls to global tree
-ShaguPlates.libhealth = libhealth
-ShaguPlates.libhealth.GetUnitHealth = GetUnitHealth
-ShaguPlates.libhealth.GetUnitHealthByName = GetUnitHealthByName
+ShaguTweaks.libhealth = libhealth
+ShaguTweaks.libhealth.GetUnitHealth = GetUnitHealth
+ShaguTweaks.libhealth.GetUnitHealthByName = GetUnitHealthByName

@@ -1,62 +1,34 @@
--- load ShaguPlates environment
-setfenv(1, ShaguPlates:GetEnvironment())
-
---[[ libunitscan ]]--
--- A ShaguPlates library that detects and saves all kind of unit related informations.
--- Such as level, class, elite-state and playertype. Each query causes the library
--- to automatically scan for the target if not already existing. Player-data is
--- persisted within the ShaguPlates_playerDB where the mob data is a throw-away table.
--- The automatic target scanner is only working for vanilla due to client limitations
--- on further expansions.
---
--- External functions:
---   GetUnitData(name, active)
---     Returns information of the given unitname. Returns nil if no match is found.
---     When nothing is found and the active flag is set, the autoscanner will
---     automatically pick it up and try to fill the missing entry by targetting the unit.
---
---     class[String] - The class of the unit
---     level[Number] - The level of the unit
---     elite[String] - The elite state of the unit (See UnitClassification())
---     player[Boolean] - Returns true if unit is a player
---     guild[String] - Returns guild name of unit is a player
---
--- Internal functions:
---   libunitscan:AddData(db, name, class, level, elite)
---     Adds unit data to a given db. Where db should be either "players" or "mobs"
---
-
--- return instantly when another libunitscan is already active
-if ShaguPlates.api.libunitscan then return end
+local _G = ShaguTweaks.GetGlobalEnv()
+local GetExpansion = ShaguTweaks.GetExpansion
+local L = ShaguTweaks.L
 
 local units = { players = {}, mobs = {} }
 local queue = { }
 
-function GetUnitData(name, active)
+local libunitscan = CreateFrame("Frame", "ShaguTweaksUnitScan", UIParent)
+
+function ShaguTweaks.GetUnitData(name, active)
   if units["players"][name] then
     local ret = units["players"][name]
-    return ret.class, ret.level, ret.elite, true, ret.guild
+    return ret.class, ret.level, ret.elite, true
   elseif units["mobs"][name] then
     local ret = units["mobs"][name]
-    return ret.class, ret.level, ret.elite, nil, nil
+    return ret.class, ret.level, ret.elite, nil
   elseif active then
     queue[name] = true
     libunitscan:Show()
   end
 end
 
-local function AddData(db, name, class, level, elite, guild)
-  if not name or not db then return end
-  units[db] = units[db] or {}
+local function AddData(db, name, class, level, elite)
+  if not name then return end
   units[db][name] = units[db][name] or {}
   units[db][name].class = class or units[db][name].class
   units[db][name].level = level or units[db][name].level
   units[db][name].elite = elite or units[db][name].elite
-  units[db][name].guild = guild or units[db][name].guild
   queue[name] = nil
 end
 
-local libunitscan = CreateFrame("Frame", "pfUnitScan", UIParent)
 libunitscan:RegisterEvent("PLAYER_ENTERING_WORLD")
 libunitscan:RegisterEvent("FRIENDLIST_UPDATE")
 libunitscan:RegisterEvent("GUILD_ROSTER_UPDATE")
@@ -68,16 +40,16 @@ libunitscan:RegisterEvent("CHAT_MSG_SYSTEM")
 libunitscan:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 libunitscan:SetScript("OnEvent", function()
   if event == "PLAYER_ENTERING_WORLD" then
-
-    -- load ShaguPlates_playerDB
-    units.players = ShaguPlates_playerDB
+    -- load database
+    ShaguTweaks_cache = ShaguTweaks_cache or {}
+    ShaguTweaks_cache["players"] = ShaguTweaks_cache["players"] or {}
+    units.players = ShaguTweaks_cache["players"]
 
     -- update own character details
     local name = UnitName("player")
     local _, class = UnitClass("player")
     local level = UnitLevel("player")
-    local guild = GetGuildInfo("player")
-    AddData("players", name, class, level, nil, guild)
+    AddData("players", name, class, level)
 
   elseif event == "FRIENDLIST_UPDATE" then
     local name, class, level
@@ -90,12 +62,11 @@ libunitscan:SetScript("OnEvent", function()
     end
 
   elseif event == "GUILD_ROSTER_UPDATE" then
-    local name, class, level, _, guild
+    local name, class, level, _
     for i = 1, GetNumGuildMembers() do
       name, _, _, level, class = GetGuildRosterInfo(i)
-      guild = GetGuildInfo("player")
       class = L["class"][class] or nil
-      AddData("players", name, class, level, nil, guild)
+      AddData("players", name, class, level)
     end
 
   elseif event == "RAID_ROSTER_UPDATE" then
@@ -107,22 +78,21 @@ libunitscan:SetScript("OnEvent", function()
     end
 
   elseif event == "PARTY_MEMBERS_CHANGED" then
-    local name, class, level, unit, _, guild
+    local name, class, level, unit, _
     for i = 1, GetNumPartyMembers() do
       unit = "party" .. i
       _, class = UnitClass(unit)
       name = UnitName(unit)
       level = UnitLevel(unit)
-      guild = GetGuildInfo(unit)
-      AddData("players", name, class, level, nil, guild)
+      AddData("players", name, class, level)
     end
 
   elseif event == "WHO_LIST_UPDATE" or event == "CHAT_MSG_SYSTEM" then
     local name, class, level, _
     for i = 1, GetNumWhoResults() do
-      name, guild, level, _, class, _ = GetWhoInfo(i)
+      name, _, level, _, class, _ = GetWhoInfo(i)
       class = L["class"][class] or nil
-      AddData("players", name, class, level, nil, guild)
+      AddData("players", name, class, level)
     end
 
   elseif event == "UPDATE_MOUSEOVER_UNIT" or event == "PLAYER_TARGET_CHANGED" then
@@ -132,8 +102,7 @@ libunitscan:SetScript("OnEvent", function()
       _, class = UnitClass(scan)
       level = UnitLevel(scan)
       name = UnitName(scan)
-      guild = GetGuildInfo(scan)
-      AddData("players", name, class, level, nil, guild)
+      AddData("players", name, class, level)
     else
       _, class = UnitClass(scan)
       elite = UnitClassification(scan)
@@ -146,7 +115,7 @@ end)
 
 -- since TargetByName can only be triggered within vanilla,
 -- we can't auto-scan targets on further expansions.
-if ShaguPlates.client <= 11200 then
+if GetExpansion() == "vanilla" then
   -- setup sound function switches
   local SoundOn = PlaySound
   local SoundOff = function() return end
@@ -173,5 +142,3 @@ if ShaguPlates.client <= 11200 then
     this:Hide()
   end)
 end
-
-ShaguPlates.api.libunitscan = libunitscan

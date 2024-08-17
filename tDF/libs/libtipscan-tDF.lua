@@ -1,35 +1,6 @@
--- load ShaguPlates environment
-setfenv(1, ShaguPlates:GetEnvironment())
-
---[[ libtipscan ]]--
--- A ShaguPlates library that provides tooltip scanner.
---
---  libtipscan:GetScanner(name)
---    returns or resets a scanner for use with tooltip methods
---
---  libtipscan:List()
---    prints a list of all active scanners
---
---  The scanner tooltip returned by :GetScanner has all the Set____ GameTooltip methods with a built-in full clear
---  In addition the scanner has the following custom methods
---  <scanner>:Text()
---    return a table with all the left, right texts in {[line] = {left, right}} format
---  <scanner>:Find(text, [exact])
---    returns true (linenumber) and [the text found or the captures made if text is a pattern]
---    exact is optional flag making it look only for exact matches
---  <scanner>:Color(r,g,b)
---    returns true (linenumber) if the r,g,b color tuple is found as text color on the scanner
---    accepts color table as argument as well (eg. <scanner>:Color(RED_FONT_COLOR) )
---  <scanner>:Line(line_number)
---    returns left, right text from that tooltip line
---  <scanner>:List()
---    prints a list of all available scanner methods
-
--- return instantly when another libtipscan is already active
-if ShaguPlates.api.libtipscan then return end
-
+local _G = ShaguTweaks.GetGlobalEnv()
 local libtipscan = {}
-local baseName = "ShaguPlatesScan"
+local baseName = "ShaguTweaksTooltip"
 local methods = {
   "SetBagItem", "SetAction", "SetAuctionItem", "SetAuctionSellItem", "SetBuybackItem",
   "SetCraftItem", "SetCraftSpell", "SetHyperlink", "SetInboxItem", "SetInventoryItem",
@@ -167,7 +138,6 @@ libtipscan._registry = setmetatable({},{__index = function(t,k)
     local old = v[method]
     v[method] = function(v, a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
       v:ClearLines()
-      v:SetOwner(WorldFrame, "ANCHOR_NONE")
       return old(v, a1,a2,a3,a4,a5,a6,a7,a8,a9,a10)
     end
   end
@@ -196,5 +166,4 @@ function libtipscan:List()
   end
 end
 
--- add libtipscan to ShaguPlates API
-ShaguPlates.api.libtipscan = libtipscan
+ShaguTweaks.libtipscan = libtipscan

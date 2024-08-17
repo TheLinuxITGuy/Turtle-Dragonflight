@@ -1,61 +1,45 @@
--- load ShaguPlates environment
-setfenv(1, ShaguPlates:GetEnvironment())
-
---[[ libcast ]]--
--- A ShaguPlates library that detects and saves all ongoing castbars of players, NPCs and enemies.
--- The library also includes spells that usually don't have a castbar like Multi-Shot and Aimed Shot.
--- This is exclusivly used for vanilla in order to provide UnitChannelInfo and UnitCastingInfo functions.
---
--- External functions:
---   UnitChannelInfo(unit)
---     Returns information on the spell currently cast by the specified unit.
---     Returns nil if no spell is being cast.
---
---     cast[String] - The name of the spell, or nil if no spell is being cast.
---     nameSubtext[String] - (DUMMY) The string describing the rank of the spell, e.g. "Rank 1".
---     text[String] - The name to be displayed.
---     texture[String] - The texture path associated with the spell.
---     startTime[Number] - Specifies when casting has begun, in milliseconds.
---     endTime[Number] - Specifies when casting will end, in milliseconds.
---     isTradeSkill[Boolean] - (DUMMY) Specifies if the cast is a tradeskill
---
---   UnitCastingInfo(unit)
---     Returns information on the spell currently channeled by the specified unit.
---     Returns nil if no spell is being channeled.
---
---     cast[String] - The name of the spell, or nil if no spell is being cast.
---     nameSubtext[String] - (DUMMY) The string describing the rank of the spell, e.g. "Rank 1".
---     text[String] - The name to be displayed.
---     texture[String] - The texture path associated with the spell.
---     startTime[Number] - Specifies when casting has begun, in milliseconds.
---     endTime[Number] - Specifies when casting will end, in milliseconds.
---     isTradeSkill[Boolean] - (DUMMY) Specifies if the cast is a tradeskill
---
--- Internal functions:
---   libcast:AddAction(mob, spell, channel)
---     Adds a spell to the database by using ShaguPlates's spell database
---     to obtain durations and icons
---
---   libcast:RemoveAction(mob, spell)
---     Removes the castbar of a given mob, if `spell` is an interrupt.
---     spell can be set to "INTERRUPT" to force remove an action.
---
+local _G = ShaguTweaks.GetGlobalEnv()
+local L = ShaguTweaks.L
+local GetExpansion = ShaguTweaks.GetExpansion
+local libtipscan = ShaguTweaks.libtipscan
+local libspell = ShaguTweaks.libspell
+local hooksecurefunc = ShaguTweaks.hooksecurefunc
+local cmatch = ShaguTweaks.cmatch
 
 -- return instantly if we're not on a vanilla client
-if ShaguPlates.client > 11200 then return end
+if GetExpansion() ~= "vanilla" then return end
 
--- return instantly when another libcast is already active
-if ShaguPlates.api.libcast then return end
+local valid_units = {}
+valid_units["pet"] = true
+valid_units["player"] = true
+valid_units["target"] = true
+valid_units["mouseover"] = true
+
+valid_units["pettarget"] = true
+valid_units["playertarget"] = true
+valid_units["targettarget"] = true
+valid_units["mouseovertarget"] = true
+valid_units["targettargettarget"] = true
+
+for i=1,4 do valid_units["party" .. i] = true end
+for i=1,4 do valid_units["partypet" .. i] = true end
+for i=1,40 do valid_units["raid" .. i] = true end
+for i=1,40 do valid_units["raidpet" .. i] = true end
+
+for i=1,4 do valid_units["party" .. i .. "target"] = true end
+for i=1,4 do valid_units["partypet" .. i .. "target"] = true end
+for i=1,40 do valid_units["raid" .. i .. "target"] = true end
+for i=1,40 do valid_units["raidpet" .. i .. "target"] = true end
 
 local lastcasttex, lastrank, _
 local scanner = libtipscan:GetScanner("libcast")
 
-local libcast = CreateFrame("Frame", "pfEnemyCast")
+local libcast = CreateFrame("Frame", "ShaguTweaksEnemyCast")
 local player = UnitName("player")
 
-UnitChannelInfo = _G.UnitChannelInfo or function(unit)
+ShaguTweaks.UnitChannelInfo = _G.UnitChannelInfo or function(unit)
   -- convert to name if unitstring was given
-  unit = pfValidUnits[unit] and UnitName(unit) or unit
+  unit = valid_units[unit] and UnitName(unit) or unit
 
   local cast, nameSubtext, text, texture, startTime, endTime, isTradeSkill
   local db = libcast.db[unit]
@@ -83,9 +67,9 @@ UnitChannelInfo = _G.UnitChannelInfo or function(unit)
   return cast, nameSubtext, text, texture, startTime, endTime, isTradeSkill
 end
 
-UnitCastingInfo = _G.UnitCastingInfo or function(unit)
+ShaguTweaks.UnitCastingInfo = _G.UnitCastingInfo or function(unit)
   -- convert to name if unitstring was given
-  unit = pfValidUnits[unit] and UnitName(unit) or unit
+  unit = valid_units[unit] and UnitName(unit) or unit
 
   local cast, nameSubtext, text, texture, startTime, endTime, isTradeSkill
   local db = libcast.db[unit]
@@ -181,11 +165,10 @@ libcast:RegisterEvent("SPELLCAST_CHANNEL_START")
 libcast:RegisterEvent("SPELLCAST_CHANNEL_STOP")
 libcast:RegisterEvent("SPELLCAST_CHANNEL_UPDATE")
 
-local mob, spell, icon, _
 libcast:SetScript("OnEvent", function()
   -- Fill database with player casts
   if event == "SPELLCAST_START" then
-    icon = L["spells"][arg1] and L["spells"][arg1].icon and string.format("%s%s", "Interface\\Icons\\", L["spells"][arg1].icon) or lastcasttex
+    local icon = L["spells"][arg1] and L["spells"][arg1].icon and string.format("%s%s", "Interface\\Icons\\", L["spells"][arg1].icon) or lastcasttex
     -- add cast action to the database
     this.db[player].cast = arg1
     this.db[player].rank = lastrank
@@ -241,6 +224,8 @@ libcast:SetScript("OnEvent", function()
     end
   -- Fill database with environmental casts
   elseif arg1 then
+    local mob, spell, _
+
     -- (.+) begins to cast (.+).
     mob, spell = cmatch(arg1, SPELLCASTOTHERSTART)
     if libcast:AddAction(mob, spell) then return end
@@ -274,12 +259,12 @@ libcast:SetScript("OnEvent", function()
     if libcast:RemoveAction(mob, spell) then return end
 
     -- You interrupt (.+)'s (.+).
-    mob, _ = cmatch(arg1, SPELLINTERRUPTSELFOTHER)
-    if libcast:RemoveAction(mob, "INTERRUPT") then return end
+    mob, spell = cmatch(arg1, SPELLINTERRUPTSELFOTHER)
+    if libcast:RemoveAction(mob, spell) then return end
 
     -- (.+) interrupts (.+)'s (.+).
-    _, mob, _ = cmatch(arg1, SPELLINTERRUPTOTHEROTHER)
-    if libcast:RemoveAction(mob, "INTERRUPT") then return end
+    _, mob, spell = cmatch(arg1, SPELLINTERRUPTOTHEROTHER)
+    if libcast:RemoveAction(mob, spell) then return end
   end
 end)
 
@@ -375,7 +360,7 @@ end
 
 local function CastCustom(spell)
   if not spell then return end
-  if not UnitCastingInfo(UnitName("player")) then
+  if not ShaguTweaks.UnitCastingInfo(UnitName("player")) then
     for custom, func in pairs(libcast.customcast) do
       if strfind(strlower(spell), custom) or strlower(spell) == custom then
         func(true)
@@ -421,5 +406,4 @@ hooksecurefunc("UseAction", function(slot, target, button)
   CastCustom(spellName)
 end, true)
 
--- add libcast to ShaguPlates API
-ShaguPlates.api.libcast = libcast
+ShaguTweaks.libcast = libcast
