@@ -21,6 +21,7 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
+- tDF Nameplates
 - Customization Options (Escape -> "tDF Options" for a list of customization options)
 
 ## Known issues
