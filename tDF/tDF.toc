@@ -5,7 +5,7 @@
 ## Version: GIT
 ## DefaultState: enabled
 ## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
-## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB
+## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB, CRAP_Cache, CRAP_Config
 
 # locales
 locales\locales_deDE.lua
@@ -91,27 +91,19 @@ init\api.xml
 init\libs.xml
 init\modules.xml
 
-# ShaguPlates\api\api.lua
-# ShaguPlates\api\config.lua
-# ShaguPlates\api\ui-widgets.lua
-# ShaguPlates\compat\vanilla.lua
-# ShaguPlates\env\locales_enUS.lua
-# ShaguPlates\env\tables.lua
-# ShaguPlates\env\profiles.lua
-# ShaguPlates\env\translations_enUS.lua
-# ShaguPlates\libs\libtipscan.lua
-# ShaguPlates\libs\libspell.lua
-# ShaguPlates\libs\libcast.lua
-# ShaguPlates\libs\libdebuff.lua
-# ShaguPlates\libs\librange.lua
-# ShaguPlates\libs\libunitscan.lua
-# ShaguPlates\libs\libtooltip.lua
-# ShaguPlates\libs\libhealth.lua
-# ShaguPlates\libs\libpredict.lua
-# ShaguPlates\modules\cooldown.lua
-# ShaguPlates\modules\settings.lua
-# ShaguPlates\modules\nameplates.lua
-# ShaguPlates\modules\superwow.lua
+# CRAP
+core.lua
+options.lua
+overrides.lua
+scripts.lua
+
+libs\libtipscan-CRAP.lua
+libs\libspell-CRAP.lua
+libs\libpredict-CRAP.lua
+libs\librange-CRAP.lua
+
+Templates.xml
+GroupFrame.xml
 
 #Turtle Dragonflight
 tMinimap.lua
