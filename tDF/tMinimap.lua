@@ -7,8 +7,8 @@ local tMinimapCluster = MinimapCluster
 local tMinimap = Minimap
 
 local f = CreateFrame("Frame")
-f:RegisterEvent("PLAYER_LOGIN")
-f:SetScript("OnEvent", function()
+--f:RegisterEvent("PLAYER_LOGIN")
+--f:SetScript("OnEvent", function()
     -- Move the MinimapCluster off the screen
     tMinimapCluster:ClearAllPoints()
     tMinimapCluster:SetPoint("TOPRIGHT", 0, 5000) -- Move it far off to the right
@@ -73,7 +73,8 @@ f:SetScript("OnEvent", function()
 
     -- Show your custom minimap
     customMinimap:Show()
-end)
+--end
+--)
 
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
@@ -120,32 +121,6 @@ frame:SetScript("OnUpdate", function(self, elapsed)
             tMinimapZoomIn:Show()
             tMinimapZoomOut:Show()
         end
-end)
--------------Event-----------------
-
---Move buffbars to the left of the 1.4x minimap
-tBuffButton0:ClearAllPoints()
-tBuffButton0:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", -50, -6)
-
---Move Debuffs
-local eventFrame = CreateFrame("Frame")
--- Set up the event handler
-eventFrame:SetScript("OnUpdate", function(self, elapsed)
-    -- Check if tBuffButton16 exists
-    if tBuffButton16 then
-        tBuffButton16:SetParent(UIParent)
-        tBuffButton16:ClearAllPoints()
-        tBuffButton16:SetPoint("CENTER", tBuffButton0, 0, -125)
-    end
-
-    if tTempEnchant1 then
-        tTempEnchant1:SetParent(UIParent)
-        tTempEnchant1:ClearAllPoints()
-        tTempEnchant1:SetPoint("CENTER", tBuffButton0, 0, -50)
-    end
-
-    
-
 end)
 
 if MBB_MinimapButtonFrame then

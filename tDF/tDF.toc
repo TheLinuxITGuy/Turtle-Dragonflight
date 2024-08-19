@@ -58,10 +58,13 @@ mods\worldmap-window.lua
 mods\blue-shaman.lua
 mods\nameplate-classcolor.lua
 mods\nameplate-castbar.lua
+mods\move-unitframes-extended.lua
 mods\move-unitframes.lua
 mods\target-castbar.lua
 mods\target-debufftimer.lua
 mods\social-colors.lua
+mods\improved-castbar.lua
+mods\improved-interface-options.lua
 mods\item-colors.lua
 mods\chat-links.lua
 mods\health-numbers.lua
@@ -82,6 +85,7 @@ mods\superwow.lua
 mods\tMicroMenuGray.lua
 mods\tMicroMenu.lua
 mods\tBagSort.lua
+mods\actionbar-on-key-down.lua
 mods\tHideBags.lua
 # mods\tHideMicroMenu.lua
 
