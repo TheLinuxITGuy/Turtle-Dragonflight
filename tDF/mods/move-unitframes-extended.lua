@@ -19,6 +19,7 @@ local movables = {
 local nonmovables = {
   "MyCustomMinimap",
   "tDFImprovedCastbar",
+  "MyBagButton",
   "BuffButton0", -- buffs
   "BuffButton16", -- debuffs
   "TempEnchant1" -- weapon buffs
