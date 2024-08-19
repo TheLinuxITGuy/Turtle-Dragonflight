@@ -82,6 +82,8 @@ mods\superwow.lua
 mods\tMicroMenuGray.lua
 mods\tMicroMenu.lua
 mods\tBagSort.lua
+mods\tHideBags.lua
+# mods\tHideMicroMenu.lua
 
 # ShaguPlates
 ShaguPlates.lua
