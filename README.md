@@ -31,6 +31,6 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 - The zzz doesn't go away until zone change when under a tent.
 
 ## Special Thanks
-Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
-Local discord brainstormer [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
-Amazing fixes from [scorpzor](https://github.com/scorpzor)
+- Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)    
+- Local discord brainstormer [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
+- Amazing fixes from [scorpzor](https://github.com/scorpzor)
