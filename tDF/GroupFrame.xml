@@ -1,0 +1,314 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/..\FrameXML\UI.xsd">
+    <Script file="group.lua" />
+    <Button name="GroupFrame" parent="UIParent" frameLevel="3" frameStrata="LOW" movable="true" resizable="true" clampedToScreen="true" hidden="true">
+        <Backdrop edgeFile="Interface\Tooltips\UI-Tooltip-Border">
+            <EdgeSize val="16" />
+        </Backdrop>
+        <Frames>
+            <Button name="$parentMemberFrame1" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parent">
+                        <Offset x="5" y="-5" />
+                    </Anchor>
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame2" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame1" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame3" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame2" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame4" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame3" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame5" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame4" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame6" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame1" relativePoint="TOPRIGHT" />
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 2" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame7" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame6" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame8" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame7" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame9" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame8" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame10" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame9" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame11" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame6" relativePoint="TOPRIGHT" />
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 3" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame12" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame11" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame13" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame12" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame14" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame13" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame15" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame14" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame16" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame11" relativePoint="TOPRIGHT" />
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 4" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame17" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame16" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame18" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame17" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame19" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame18" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame20" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame19" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame21" inherits="GroupMemberFrameTemplate">
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 5" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame22" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame21" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame23" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame22" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame24" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame23" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame25" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame24" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame26" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame21" relativePoint="TOPRIGHT" />
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 6" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame27" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame26" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame28" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame27" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame29" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame28" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame30" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame29" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame31" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame26" relativePoint="TOPRIGHT" />
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 7" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame32" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame31" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame33" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame32" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame34" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame33" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame35" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame34" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame36" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame31" relativePoint="TOPRIGHT" />
+                </Anchors>
+                <Layers>
+                    <Layer level="OVERLAY">
+                        <FontString name="$parentGroupHeader" text="Group 8" inherits="GameFontNormalSmall">
+                            <Anchors>
+                                <Anchor point="TOP" relativeTo="$parent">
+                                    <Offset x="0" y="20" />
+                                </Anchor>
+                            </Anchors>
+                        </FontString>
+                    </Layer>
+                </Layers>
+            </Button>
+            <Button name="$parentMemberFrame37" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame36" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame38" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame37" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame39" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame38" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+            <Button name="$parentMemberFrame40" inherits="GroupMemberFrameTemplate">
+                <Anchors>
+                    <Anchor point="TOPLEFT" relativeTo="$parentMemberFrame39" relativePoint="BOTTOMLEFT" />
+                </Anchors>
+            </Button>
+        </Frames>
+        <Scripts>
+            <OnEvent>
+                GroupFrame_OnEvent()
+            </OnEvent>
+            <OnDragStart>
+                GroupFrame_OnDragStart()
+            </OnDragStart>
+            <OnDragStop>
+                GroupFrame_OnDragStop()
+            </OnDragStop>
+            <OnLoad>
+                GroupFrame_OnLoad()
+            </OnLoad>
+            <OnSizeChanged>
+                GroupFrame_OnSizeChanged()
+            </OnSizeChanged>
+        </Scripts>
+    </Button>
+</Ui>
