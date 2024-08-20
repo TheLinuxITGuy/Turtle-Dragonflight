@@ -33,5 +33,4 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 ## Special Thanks
 - Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
 - Code from [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods)
-- Local discord brainstormer [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
-- Amazing fixes from [scorpzor](https://github.com/scorpzor)
+- Amazing fixes from [Ark](https://github.com/CrimsonHollow/tDF-more-mods) & [scorpzor](https://github.com/scorpzor)
