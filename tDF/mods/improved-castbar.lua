@@ -53,11 +53,10 @@ castbar.lagText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
 castbar.lagText:SetPoint("RIGHT", castbar, "RIGHT", 0, -15)
 castbar.lagText:SetFont(font, size - 2, opts)
 
-CastingBarFrame:UnregisterAllEvents()
-CastingBarFrame:Hide()
-
 
 module.enable = function(self)
+  CastingBarFrame:UnregisterAllEvents()
+  CastingBarFrame:Hide()
   local UnitCastingInfo = ShaguTweaks.UnitCastingInfo
   local UnitChannelInfo = ShaguTweaks.UnitChannelInfo
 
