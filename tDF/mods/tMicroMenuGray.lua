@@ -9,13 +9,14 @@ local T = ShaguTweaks.T
 
 local module = ShaguTweaks:register({
   title = T["Gray MicroMenu"],
-  description = T["Smaller gray MicroMenu. Please uncheck Colorful if you use this option. They will overlap."],
+  description = T["Smaller gray MicroMenu."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },
   category = T["General"],
   enabled = nil,
 })
 
 module.enable = function(self)
+  microbutton_removemi()
   local microbar_buttons =
   {
     {

@@ -34,18 +34,6 @@ SpellbookMicroButton:Hide()
 CharacterMicroButton:ClearAllPoints()
 CharacterMicroButton:Hide()
 
-EBC_Minimap:SetParent(UIParent)
-EBC_Minimap:ClearAllPoints()
-EBC_Minimap:Hide()
-
-LFT_Minimap:SetParent(UIParent)
-LFT_Minimap:ClearAllPoints()
-LFT_Minimap:Hide()
-
-EBC_Minimap:SetParent(UIParent)
-EBC_Minimap:ClearAllPoints()
-EBC_Minimap:Hide()
-
 
 function create_microbutton(Name,
   NormalTexture,
@@ -253,4 +241,25 @@ function create_microbutton_latency(wow_latency_button, offset_x, offset_y)
   end)
 
   return latency
+end
+
+function microbutton_removemi()
+  EBC_Minimap:SetParent(UIParent)
+  EBC_Minimap:ClearAllPoints()
+  EBC_Minimap:Hide()
+  
+  LFT_Minimap:SetParent(UIParent)
+  LFT_Minimap:ClearAllPoints()
+  LFT_Minimap:Hide()
+  
+  EBC_Minimap:SetParent(UIParent)
+  EBC_Minimap:ClearAllPoints()
+  EBC_Minimap:Hide()
+  
+  TWMinimapShopFrame:SetParent(UIParent)
+  TWMinimapShopFrame:ClearAllPoints()
+  TWMinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
+  TWMinimapShopFrame:SetAlpha(0)
+  TWMinimapShopFrame:SetHeight(0)
+  TWMinimapShopFrame:SetWidth(0)
 end
