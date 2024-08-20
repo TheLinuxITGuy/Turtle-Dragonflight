@@ -46,7 +46,7 @@ castbar.spark:SetWidth(20)
 castbar.spark:SetHeight(20)
 castbar.spark:SetBlendMode("ADD")
 
-castbar.backdrop = CreateFrame("Frame", nil, castbar)
+castbar.backdrop = CreateFrame("Frame", "BORDER", castbar)
 castbar.backdrop:SetFrameStrata("MEDIUM")
 castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -2, 2)
 castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 2, -2)
@@ -67,6 +67,10 @@ module.enable = function(self)
   local oldUpdate = TargetFrame:GetScript("OnUpdate")
   TargetFrame:SetScript("OnUpdate", function(arg)
     if oldUpdate then oldUpdate(arg) end
+
+    if ShaguTweaks.DarkMode then
+      castbar.backdrop:SetBackdropColor( .3, .3, .3, .9)
+    end
 
     local query = this.unit
     local channel = false
