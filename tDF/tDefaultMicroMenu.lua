@@ -26,6 +26,7 @@ QuestLogMicroButton:ClearAllPoints()
 QuestLogMicroButton:Hide()
 
 TalentMicroButton:ClearAllPoints()
+TalentMicroButton:SetPoint("BOTTOMLEFT", UIParent, -30, -30)
 TalentMicroButton:Hide()
 
 SpellbookMicroButton:ClearAllPoints()
