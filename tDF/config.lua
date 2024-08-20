@@ -97,6 +97,28 @@ settings.defaults:SetScript("OnClick", function()
   settings:defaults()
 end)
 
+local opposite_table =
+{
+  ["Colorful MicroMenu"] = {"Gray MicroMenu"},
+  ["Gray MicroMenu"] = {"Colorful MicroMenu"}
+}
+
+local linked_table =
+{
+  ["Movable Unit Frames Extended"] = {"Improved Castbar", "Movable Unit Frames"}
+}
+
+function flip_config(c_name, list, bool)
+  local pt_match = list[c_name]
+  if pt_match then
+    for i, item in ipairs(pt_match) do
+      settings.entries[item]:SetChecked(bool)
+      current_config[item] = bool and 1 or 0
+    end
+  end
+end
+
+
 settings.load = function(self)
   settings.entries = settings.entries or {}
   local expansion = ShaguTweaks:GetExpansion()
@@ -174,6 +196,8 @@ settings.load = function(self)
       button:SetScript("OnClick", function()
         if this:GetChecked() then
           current_config[this.title] = 1
+          flip_config(this.title, opposite_table, false)
+          flip_config(this.title, linked_table, true)
         else
           current_config[this.title] = 0
         end
