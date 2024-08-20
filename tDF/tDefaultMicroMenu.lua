@@ -263,4 +263,6 @@ function microbutton_removemi()
   TWMinimapShopFrame:SetAlpha(0)
   TWMinimapShopFrame:SetHeight(0)
   TWMinimapShopFrame:SetWidth(0)
+
+  TWMiniMapBattlefieldFrame:Hide()
 end
