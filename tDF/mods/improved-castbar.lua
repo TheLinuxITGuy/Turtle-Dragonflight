@@ -62,7 +62,7 @@ module.enable = function(self)
   local UnitChannelInfo = ShaguTweaks.UnitChannelInfo
 
   if ShaguTweaks.DarkMode then
-    castbar.texture:SetBackdropBorderColor( .3, .3, .3, .9)
+    castbar.backdrop:SetBackdropBorderColor( .3, .3, .3, .9)
   end
 
   local name = GetUnitName("player")
