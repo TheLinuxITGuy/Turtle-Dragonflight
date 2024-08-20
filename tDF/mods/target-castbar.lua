@@ -58,10 +58,12 @@ castbar.text = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
 castbar.text:SetPoint("CENTER", castbar, "CENTER", 0, -15)
 local font, size, opts = castbar.text:GetFont()
 castbar.text:SetFont(font, size - 2, opts)
+castbar.text:SetTextColor(1,1,1)
 
 castbar.timerText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
 castbar.timerText:SetPoint("CENTER", castbar, "CENTER", 0, 0)
 castbar.timerText:SetFont(font, size - 2, opts)
+castbar.timerText:SetTextColor(1,1,1)
 
 module.enable = function(self)
   local oldUpdate = TargetFrame:GetScript("OnUpdate")
