@@ -303,7 +303,7 @@ module.enable = function(self)
     offset = offset - theSpaceBetween
   end
 
-  local microbutton_eye = create_microbutton_eye(tDFmicrobutton, -250, 55)
+  local microbutton_eye = create_microbutton_eye(tDFmicrobutton, -140, 50)
 
   local mbLatency = create_microbutton_latency(MainMenuBarPerformanceBarFrameButton, 1, -8)
 end
