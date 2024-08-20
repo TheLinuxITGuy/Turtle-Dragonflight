@@ -17,6 +17,7 @@ local movables = {
 }
 
 local nonmovables = {
+  "tDFmicrobutton",
   "MyCustomMinimap", -- minimap
   "tDFImprovedCastbar", -- player castbar
   "MyBagButton", -- bags bar

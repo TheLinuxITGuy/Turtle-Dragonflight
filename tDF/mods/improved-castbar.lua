@@ -27,7 +27,7 @@ castbar.spark:SetWidth(20)
 castbar.spark:SetHeight(20)
 castbar.spark:SetBlendMode("ADD")
 
-castbar.backdrop = CreateFrame("Frame", nil, castbar)
+castbar.backdrop = CreateFrame("Frame", "BORDER", castbar)
 castbar.backdrop:SetFrameStrata("MEDIUM")
 castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -2, 3)
 castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 2, -3)
@@ -56,16 +56,15 @@ castbar.lagText:SetPoint("RIGHT", castbar, "RIGHT", 0, -15)
 castbar.lagText:SetFont(font, size - 2, opts)
 castbar.lagText:SetTextColor(1,1,1)
 
-CastingBarFrame:UnregisterAllEvents()
-CastingBarFrame:Hide()
-
 
 module.enable = function(self)
+  CastingBarFrame:UnregisterAllEvents()
+  CastingBarFrame:Hide()
   local UnitCastingInfo = ShaguTweaks.UnitCastingInfo
   local UnitChannelInfo = ShaguTweaks.UnitChannelInfo
 
   if ShaguTweaks.DarkMode then
-    castbar.backdrop:SetBackdropBorderColor( .3, .3, .3, .9)
+    castbar.backdrop:SetBackdropColor( .3, .3, .3, .9)
   end
 
   local name = GetUnitName("player")
