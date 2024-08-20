@@ -97,20 +97,6 @@ init\api.xml
 init\libs.xml
 init\modules.xml
 
-# CRAP
-core.lua
-options.lua
-overrides.lua
-scripts.lua
-
-libs\libtipscan-CRAP.lua
-libs\libspell-CRAP.lua
-libs\libpredict-CRAP.lua
-libs\librange-CRAP.lua
-
-Templates.xml
-GroupFrame.xml
-
 #Turtle Dragonflight
 tMinimap.lua
 tCastbar.lua
