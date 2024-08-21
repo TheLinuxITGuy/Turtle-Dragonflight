@@ -15,7 +15,7 @@ module.enable = function(self)
     local x, y = GetCursorPosition()
     local scale = UIParent:GetEffectiveScale()
     GameTooltip:ClearAllPoints()
-    GameTooltip:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x / scale - 10, y / scale + 10)
+    GameTooltip:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMLEFT", x / scale, y / scale)
   end
 
 GameTooltip:SetOwner(UIParent, "ANCHOR_CURSOR")
