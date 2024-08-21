@@ -89,6 +89,7 @@ mods\actionbar-on-key-down.lua
 mods\tHideBags.lua
 mods\tLootAtMouse.lua
 mods\tTooltipAtMouse.lua
+mods\tHidetDFmicrobutton.lua
 
 # ShaguPlates
 ShaguPlates.lua
