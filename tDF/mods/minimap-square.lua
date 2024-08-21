@@ -10,14 +10,11 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
-  MinimapBorder:SetTexture(nil)
-  Minimap:SetPoint("CENTER", MinimapCluster, "TOP", 9, -98)
   Minimap:SetMaskTexture("Interface\\BUTTONS\\WHITE8X8")
 
   Minimap.border = CreateFrame("Frame", nil, Minimap)
-  Minimap.border:SetFrameStrata("BACKGROUND")
-  Minimap.border:SetFrameLevel(1)
-  Minimap.border:SetPoint("TOPLEFT", Minimap, "TOPLEFT", -3, 3)
+  Minimap.border:SetFrameStrata("MEDIUM")
+  Minimap.border:SetPoint("TOPLEFT", Minimap, "TOPLEFT", -4, 3)
   Minimap.border:SetPoint("BOTTOMRIGHT", Minimap, "BOTTOMRIGHT", 3, -3)
   Minimap.border:SetBackdrop({
     edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",

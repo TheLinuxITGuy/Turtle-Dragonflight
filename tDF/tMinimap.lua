@@ -38,9 +38,9 @@ local f = CreateFrame("Frame")
     tMinimap:SetFrameLevel(tMinimap:GetFrameLevel() - 1)
 
     -- Add the Minimap border texture (displayed above the actual Minimap)
-    local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
-    borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapborder.tga")
-    borderTexture:SetAllPoints(customMinimap)
+    customMinimap.borderTexture = customMinimap:CreateTexture(nil, "BORDER")
+    customMinimap.borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapborder.tga")
+    customMinimap.borderTexture:SetAllPoints(customMinimap)
 
     --Add text over the Minimap
     MinimapZoneText:SetParent(UIParent)
