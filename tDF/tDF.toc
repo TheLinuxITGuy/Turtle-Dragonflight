@@ -87,7 +87,8 @@ mods\tMicroMenu.lua
 mods\tBagSort.lua
 mods\actionbar-on-key-down.lua
 mods\tHideBags.lua
-# mods\tHideMicroMenu.lua
+mods\tLootAtMouse.lua
+mods\tTooltipAtMouse.lua
 
 # ShaguPlates
 ShaguPlates.lua
@@ -107,7 +108,6 @@ tDefaultMicroMenu.lua
 tBagIcons.lua
 tReducedActionBar.lua
 tUnitframes.lua
-tLootAtMouse.lua
 tChatFrame.lua
 tMainActionBar.lua
 tGryphons.lua
