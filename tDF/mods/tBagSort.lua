@@ -21,17 +21,17 @@ module.enable = function(self)
 
     -- Set the button texture to the Blizzard default bag texture and fit it to the frame
     local normalTexture = tBagSort:CreateTexture()
-    normalTexture:SetTexture("Interface\\Buttons\\Button-Backpack-Up")
+    normalTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
     normalTexture:SetAllPoints(tBagSort)
     tBagSort:SetNormalTexture(normalTexture)
 
     local pushedTexture = tBagSort:CreateTexture()
-    pushedTexture:SetTexture("Interface\\Buttons\\Button-Backpack-Down")
+    pushedTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
     pushedTexture:SetAllPoints(tBagSort)
     tBagSort:SetPushedTexture(pushedTexture)
 
     local highlightTexture = tBagSort:CreateTexture()
-    highlightTexture:SetTexture("Interface\\Buttons\\Button-Backpack-Highlight")
+    highlightTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
     highlightTexture:SetAllPoints(tBagSort)
     tBagSort:SetHighlightTexture(highlightTexture)
 
