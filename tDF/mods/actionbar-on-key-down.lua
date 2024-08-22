@@ -7,7 +7,7 @@ local module = ShaguTweaks:register({
     description = T["Action buttons will be activated on key down."],
     expansions = { ["vanilla"] = true, ["tbc"] = nil },
     category = T["Action Bar"],
-    enabled = nil,
+    enabled = true,
 })
 
 module.enable = function(self)
