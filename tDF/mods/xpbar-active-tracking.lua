@@ -6,7 +6,7 @@ local module = ShaguTweaks:register({
     description = T["Continuously track rested XP while resting."],
     expansions = { ["vanilla"] = true, ["tbc"] = true },
     category = T["XP & Reputation"],
-    enabled = nil,
+    enabled = true,
 })
 
 module.enable = function(self)
