@@ -6,7 +6,7 @@ local module = ShaguTweaks:register({
   description = T["mufe_desc"],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
   category = T["Unit Frames"],
-  enabled = nil,
+  enabled = true,
 })
 
 local movables = { 
