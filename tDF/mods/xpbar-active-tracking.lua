@@ -10,19 +10,15 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
-    xpbar_watcher_tent:RegisterEvent("PLAYER_UPDATE_RESTING")
-    xpbar_watcher_tent:SetScript("OnEvent", function()
-        if event == "PLAYER_UPDATE_RESTING" then
-            if not xpbar_hide(xpbar) then
-                if IsResting() and (GetXPExhaustion("player") / UnitXPMax("player") ~= 1.5) then
-                    xpbar.text:Show()
-                    xpbar_watcher_tent:SetScript("OnUpdate", function()
-                        xpbar_update(xpbar, false)
-                    end)
-                else
-                    xpbar.text:Hide()
-                    xpbar_watcher_tent:SetScript("OnUpdate", nil)
-                end
+    xpbar_watcher_rest:RegisterEvent("UPDATE_EXHAUSTION")
+    xpbar_watcher_rest:RegisterEvent("PLAYER_UPDATE_RESTING")
+    xpbar_watcher_rest:SetScript("OnEvent", function()
+        if not xpbar_hide(xpbar) then
+            if IsResting() and (GetXPExhaustion("player") / UnitXPMax("player") ~= 1.5) then
+                xpbar.text:Show()
+                xpbar_update(xpbar, false)
+            else
+                xpbar.text:Hide()
             end
         end
     end)

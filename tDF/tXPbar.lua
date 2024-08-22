@@ -128,20 +128,15 @@ end
 xpbar = xpbar or xpbar_create("tDFxpbar")
 
 xpbar_watcher = CreateFrame("Frame")
-xpbar_watcher_tent = CreateFrame("Frame")
+xpbar_watcher_rest = CreateFrame("Frame")
 
 xpbar_watcher:RegisterEvent("PLAYER_ENTERING_WORLD")
 xpbar_watcher:RegisterEvent("PLAYER_LEVEL_UP")
+xpbar_watcher:RegisterEvent("PLAYER_XP_UPDATE")
 xpbar_watcher:SetScript("OnEvent", function()
     xpbar = xpbar or xpbar_create()
-    if event == "PLAYER_ENTERING_WORLD" then
-        if not xpbar_hide(xpbar) then
-            xpbar_update(xpbar, false)
-        end
-    elseif event == "PLAYER_LEVEL_UP" then
-        if not xpbar_hide(xpbar) then
-            xpbar_update(xpbar, false)
-        end
+    if not xpbar_hide(xpbar) then
+        xpbar_update(xpbar, false)
     end
 end)
 
@@ -158,5 +153,5 @@ end)
 MainMenuExpBar:SetScript("OnLeave", function(self)
     xpbar.text:Hide()
     xpbar_watcher:SetScript("OnUpdate", nil)
-    xpbar_watcher_tent:SetScript("OnUpdate", nil)
+    xpbar_watcher_rest:SetScript("OnUpdate", nil)
 end)
