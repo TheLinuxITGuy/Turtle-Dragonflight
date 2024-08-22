@@ -90,6 +90,7 @@ mods\tHideBags.lua
 mods\tLootAtMouse.lua
 mods\tTooltipAtMouse.lua
 mods\tHidetDFmicrobutton.lua
+mods\xpbar-active-tracking.lua
 
 # ShaguPlates
 ShaguPlates.lua
