@@ -110,7 +110,7 @@ function xpbar_create(name)
     xpbar.text = xpbar:CreateFontString(nil, "OVERLAY")
     xpbar.text:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
     xpbar.text:SetPoint("CENTER", xpbar, "CENTER", 0, 1)
-    xpbar.text:Hide()
+    --xpbar.text:Hide()
     
     xpbar.restedbar = CreateFrame("StatusBar", nil, xpbar)
     xpbar.restedbar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
@@ -139,7 +139,7 @@ xpbar_watcher:SetScript("OnEvent", function()
         xpbar_update(xpbar, false)
     end
 end)
-
+xpbar.text:Show()
 MainMenuExpBar:SetScript("OnEnter", function(self)
     xpbar.text:Show()
     xpbar_update(xpbar, false)
