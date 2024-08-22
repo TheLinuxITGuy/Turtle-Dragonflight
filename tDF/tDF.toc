@@ -63,7 +63,6 @@ mods\move-unitframes.lua
 mods\target-castbar.lua
 mods\target-debufftimer.lua
 mods\social-colors.lua
-mods\improved-castbar.lua
 mods\improved-interface-options.lua
 mods\item-colors.lua
 mods\chat-links.lua
@@ -91,6 +90,7 @@ mods\tLootAtMouse.lua
 mods\tTooltipAtMouse.lua
 mods\tHidetDFmicrobutton.lua
 mods\xpbar-active-tracking.lua
+mods\latency-castbar.lua
 
 # ShaguPlates
 ShaguPlates.lua
