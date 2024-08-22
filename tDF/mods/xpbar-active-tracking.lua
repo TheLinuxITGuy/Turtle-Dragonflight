@@ -14,7 +14,7 @@ module.enable = function(self)
     xpbar_watcher_tent:SetScript("OnEvent", function()
         if event == "PLAYER_UPDATE_RESTING" then
             if not xpbar_hide(xpbar) then
-                if IsResting() then
+                if IsResting() and (GetXPExhaustion("player") / UnitXPMax("player") ~= 1.5) then
                     xpbar.text:Show()
                     xpbar_watcher_tent:SetScript("OnUpdate", function()
                         xpbar_update(xpbar, false)
