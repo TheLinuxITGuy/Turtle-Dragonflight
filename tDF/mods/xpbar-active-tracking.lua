@@ -18,7 +18,7 @@ module.enable = function(self)
                 xpbar.text:Show()
                 xpbar_update(xpbar, false)
             else
-                xpbar.text:Hide()
+                --xpbar.text:Hide()
             end
         end
     end)
