@@ -58,7 +58,9 @@ borderTexture:Show()
 -- Position and style MinimapZoneText within the border frame
 MinimapZoneText:SetParent(borderFrame) -- Set the parent to the new border frame
 MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("LEFT", borderFrame, "LEFT", -14, 6) -- Center the text within the border frame
+MinimapZoneText:SetPoint("LEFT", borderFrame, "LEFT", 5, 6) -- Center the text within the border frame
+MinimapZoneText:SetJustifyH("LEFT") -- Ensure the text justifies to the left and grows to the right
+
 
 -- Optionally hide MinimapToggleButton
 MinimapToggleButton:Hide()
@@ -67,7 +69,7 @@ MinimapToggleButton:Hide()
     -- Clear existing points
     MiniMapTrackingFrame:ClearAllPoints()
     -- Set new point relative to MiniMapZoneText
-    MiniMapTrackingFrame:SetPoint("LEFT", MinimapZoneText, -14, 2.5)
+    MiniMapTrackingFrame:SetPoint("LEFT", borderFrame, -35, 12)
     -- Set the scale to 50%
     MiniMapTrackingFrame:SetScale(0.6)
     -- Hide the border textures based on dimensions
@@ -94,8 +96,8 @@ MinimapToggleButton:Hide()
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
 tMinimapZoomOut:ClearAllPoints()
-tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 180, -170)
-tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165, -190)
+tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165, -170)
+tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150, -190)
 
 --Normal
 tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
