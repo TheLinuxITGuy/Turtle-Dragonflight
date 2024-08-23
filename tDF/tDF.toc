@@ -91,6 +91,7 @@ mods\tTooltipAtMouse.lua
 mods\tHidetDFmicrobutton.lua
 mods\xpbar-active-tracking.lua
 mods\latency-castbar.lua
+mods\bag-search.lua
 
 # ShaguPlates
 ShaguPlates.lua

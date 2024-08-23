@@ -41,20 +41,37 @@ local f = CreateFrame("Frame")
     local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
     borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapborder.tga")
     borderTexture:SetAllPoints(customMinimap)
+	
+-- Create a frame for the border around MinimapZoneText
+local borderFrame = CreateFrame("Frame", "BorderFrameForZoneText", UIParent)
+borderFrame:SetWidth(180) -- Width of the border frame (adjust as needed)
+borderFrame:SetHeight(30) -- Height of the border frame (adjust as needed)
+borderFrame:SetPoint("CENTER", customMinimap, 15, 105) -- Position relative to the customMinimap
+borderFrame:Show()
 
-    --Add text over the Minimap
-    MinimapZoneText:SetParent(UIParent)
-    MinimapZoneText:ClearAllPoints()
-    MinimapZoneText:SetPoint("LEFT", customMinimap, -10, 110)
-    MinimapToggleButton:Hide()
+-- Add a texture to the borderFrame
+local borderTexture = borderFrame:CreateTexture(nil, "BACKGROUND")
+borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\MinimapBorder.tga")
+borderTexture:SetAllPoints(borderFrame) -- Make the texture fill the entire frame
+borderTexture:Show()
+
+-- Position and style MinimapZoneText within the border frame
+MinimapZoneText:SetParent(borderFrame) -- Set the parent to the new border frame
+MinimapZoneText:ClearAllPoints()
+MinimapZoneText:SetPoint("LEFT", borderFrame, "LEFT", 5, 6) -- Center the text within the border frame
+MinimapZoneText:SetJustifyH("LEFT") -- Ensure the text justifies to the left and grows to the right
+
+
+-- Optionally hide MinimapToggleButton
+MinimapToggleButton:Hide()
 
 --MiniMapTrackingFrame
     -- Clear existing points
     MiniMapTrackingFrame:ClearAllPoints()
     -- Set new point relative to MiniMapZoneText
-    MiniMapTrackingFrame:SetPoint("LEFT", MinimapZoneText, -32, 0)
+    MiniMapTrackingFrame:SetPoint("LEFT", borderFrame, -35, 12)
     -- Set the scale to 50%
-    MiniMapTrackingFrame:SetScale(0.75)
+    MiniMapTrackingFrame:SetScale(0.6)
     -- Hide the border textures based on dimensions
     local regions = {MiniMapTrackingFrame:GetRegions()}
     for _, region in ipairs(regions) do
@@ -79,8 +96,8 @@ local f = CreateFrame("Frame")
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
 tMinimapZoomOut:ClearAllPoints()
-tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 200, -170)
-tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 185, -190)
+tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165, -170)
+tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150, -190)
 
 --Normal
 tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
