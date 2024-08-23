@@ -13,7 +13,7 @@ local module = ShaguTweaks:register({
 MinimapClock = CreateFrame("Frame", "MinimapClock", UIParent)
 MinimapClock:Hide()
 MinimapClock:SetFrameLevel(64)
-MinimapClock:SetPoint("TOPRIGHT", Minimap, 20, 35)
+MinimapClock:SetPoint("TOPRIGHT", Minimap, 25, 37)
 MinimapClock:SetWidth(68)
 MinimapClock:SetHeight(23)
 MinimapClock:SetBackdrop({
@@ -30,7 +30,7 @@ module.enable = function(self)
   MinimapClock:EnableMouse(true)
 
   MinimapClock.text = MinimapClock:CreateFontString("Status", "LOW", "GameFontNormal")
-  MinimapClock.text:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
+  MinimapClock.text:SetFont(STANDARD_TEXT_FONT, 10, "None")
   MinimapClock.text:SetAllPoints(MinimapClock)
   MinimapClock.text:SetFontObject(GameFontWhite)
   MinimapClock:SetScript("OnUpdate", function()
