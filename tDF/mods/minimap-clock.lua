@@ -13,7 +13,7 @@ local module = ShaguTweaks:register({
 MinimapClock = CreateFrame("Frame", "MinimapClock", UIParent)
 MinimapClock:Hide()
 MinimapClock:SetFrameLevel(64)
-MinimapClock:SetPoint("TOPRIGHT", Minimap, 25, 37)
+MinimapClock:SetPoint("TOPRIGHT", Minimap, 25, 36)
 MinimapClock:SetWidth(68)
 MinimapClock:SetHeight(23)
 MinimapClock:SetBackdrop({
