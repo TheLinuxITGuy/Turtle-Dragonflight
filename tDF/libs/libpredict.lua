@@ -56,7 +56,7 @@ function libpredict:ParseComm(sender, msg)
   elseif msg == "Resurrection/stop/" then
     msgtype = "RessStop"
   elseif msg then
-    local msgobj = {strsplit("/", msg)}
+    --local msgobj = {strsplit("/", msg)}
 
     if msgobj and msgobj[1] and msgobj[2] then
       -- legacy healcomm object
