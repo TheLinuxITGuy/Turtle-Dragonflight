@@ -237,6 +237,18 @@ freeBagSlotsFrame:RegisterEvent("BAG_UPDATE")
 freeBagSlotsFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 freeBagSlotsFrame:SetScript("OnEvent", UpdateFreeBagSlots)
 
--- Initial update
-UpdateFreeBagSlots()
+--UpdateFreeBagSlots()
+
+-- Frame to handle the timer
+local timerFrame = CreateFrame("Frame")
+local elapsed = 0
+
+timerFrame:SetScript("OnUpdate", function()
+    local arg1 = arg1 or 0
+    elapsed = elapsed + arg1
+    if elapsed >= 10 then
+        UpdateFreeBagSlots()
+        elapsed = 0
+    end
+end)
 --freeslots
