@@ -94,6 +94,42 @@ bbMain:SetScript("OnClick", function(self, button, down)
   end)
 -----------------Main Bag icon-----------------
 
+--freeslots
+-- Create a frame to display the number of free bag slots
+local freeBagSlotsFrame = CreateFrame("Frame", "FreeBagSlotsFrame", UIParent)
+freeBagSlotsFrame:SetWidth(50)
+freeBagSlotsFrame:SetHeight(20)
+freeBagSlotsFrame:SetPoint("CENTER", bbMain, "CENTER", 0, -12)
+
+-- Create a font string to show the number of free bag slots
+local freeBagSlotsText = freeBagSlotsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+freeBagSlotsText:SetPoint("CENTER", freeBagSlotsFrame, "CENTER", 0, 0)
+freeBagSlotsText:SetVertexColor(1, 1, 1)
+
+-- Function to update the number of free bag slots
+local function UpdateFreeBagSlots()
+    local freeSlots = 0
+    for bag = 0, 4 do
+        local numSlots = GetContainerNumSlots(bag)
+        for slot = 1, numSlots do
+            local texture, itemCount, locked, quality, readable = GetContainerItemInfo(bag, slot)
+            if not texture then
+                freeSlots = freeSlots + 1
+            end
+        end
+    end
+    freeBagSlotsText:SetText("(" .. freeSlots .. ")")
+end
+
+-- Register events to update the number of free bag slots
+freeBagSlotsFrame:RegisterEvent("BAG_UPDATE")
+freeBagSlotsFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
+freeBagSlotsFrame:SetScript("OnEvent", UpdateFreeBagSlots)
+
+-- Initial update
+UpdateFreeBagSlots()
+--freeslots
+
 -----------------Arrow to the left of the Main Bag icon-----------------
   --Point left
   local bbLeftArrow = CreateFrame("Button", "bbArrow", UIParent, "UIPanelButtonTemplate")
