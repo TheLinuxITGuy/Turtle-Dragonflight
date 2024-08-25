@@ -75,12 +75,25 @@ frameBotRight:SetScript("OnUpdate", function()
     end
 end)
 
+--Set the MultiBarRight closer to center of screen on the Y axis
 -- Get the right action bar frame
 local rightActionBar = MultiBarRight
+
+-- Get the screen height
+local screenHeight = UIParent:GetHeight()
+
+-- Calculate the center position on the y-axis
+local centerY = screenHeight / 2
+
+-- Assuming each button has the same height
+local buttonHeight = rightActionBar:GetHeight() / 12
+
+-- Calculate the offset to center buttons 6 and 7
+local offsetY = centerY - (buttonHeight * 3)
 
 -- Get the current position of the right action bar
 local point, relativeTo, relativePoint, xOfs, yOfs = rightActionBar:GetPoint()
 
--- Reposition the right action bar 10 pixels up
+-- Reposition the right action bar to center buttons 6 and 7 on the y-axis
 rightActionBar:ClearAllPoints()
-rightActionBar:SetPoint(point, relativeTo, relativePoint, xOfs, yOfs + 10)
+rightActionBar:SetPoint(point, relativeTo, relativePoint, xOfs, offsetY)
