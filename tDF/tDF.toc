@@ -5,7 +5,7 @@
 ## Version: GIT
 ## DefaultState: enabled
 ## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
-## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB, CRAP_Cache, CRAP_Config
+## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB, SUCC_bagOptions
 
 # locales
 locales\locales_deDE.lua
@@ -76,12 +76,10 @@ mods\hide-errors.lua
 mods\chat-tweaks.lua
 mods\hide-gryphons.lua
 mods\worldmap-colors.lua
-# mods\unitframes-bighealth.lua
 mods\unitframes-classportrait.lua
 mods\cooldown-numbers.lua
 mods\turtle-wow.lua
 mods\superwow.lua
-# mods\reduced-actionbar.lua
 mods\tMicroMenuGray.lua
 mods\tMicroMenu.lua
 mods\tBagSort.lua
@@ -93,6 +91,7 @@ mods\tHidetDFmicrobutton.lua
 mods\xpbar-active-tracking.lua
 mods\latency-castbar.lua
 mods\bag-search.lua
+mods\SUCC-bag.lua
 
 # ShaguPlates
 ShaguPlates.lua
