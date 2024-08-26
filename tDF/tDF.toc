@@ -6,6 +6,7 @@
 ## DefaultState: enabled
 ## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
 ## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB, SUCC_bagOptions
+## X-Embeds: Ace2, FuBarPlugin-2.0, CompostLib, DewDropLib, TabletLib
 
 # locales
 locales\locales_deDE.lua
@@ -40,6 +41,14 @@ libs\libdebuff-tDF.lua
 libs\libunitscan-tDF.lua
 libs\libhealth-tDF.lua
 libs\libnameplate-tDF.lua
+
+# libs for All-In-One to work
+libs\AceLibrary\AceLibrary.lua
+libs\AceOO-2.0\AceOO-2.0.lua
+libs\AceAddon-2.0\AceAddon-2.0.lua
+libs\AceDB-2.0\AceDB-2.0.lua
+libs\AceEvent-2.0\AceEvent-2.0.lua
+tDFALLINONE.lua
 
 # custom
 mods\custom.lua
