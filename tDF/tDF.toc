@@ -30,6 +30,7 @@ locales\translations_zhTW.lua
 main.lua
 helpers.lua
 config.lua
+tDFutils.lua
 
 # libraries
 libs\libtipscan-tDF.lua
