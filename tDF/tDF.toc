@@ -6,7 +6,7 @@
 ## DefaultState: enabled
 ## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
 ## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB, SUCC_bagOptions
-## X-Embeds: Ace2, FuBarPlugin-2.0, CompostLib, DewDropLib, TabletLib
+## X-Embeds: Ace2
 
 # locales
 locales\locales_deDE.lua
