@@ -42,4 +42,4 @@ TurtleWoW/
 ## Special Thanks
 - Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
 - Code from [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods)
-- Amazing fixes from [Ark](https://github.com/CrimsonHollow/tDF-more-mods) & [scorpzor](https://github.com/scorpzor)
+- Amazing fixes from [Ark](https://github.com/CrimsonHollow/tDF-more-mods) , [scorpzor](https://github.com/scorpzor) & [Gold](https://github.com/G0ldhart)
