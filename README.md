@@ -4,10 +4,20 @@ The Dragonflight UI for Turtle WoW.
 ## Installation
 This is a stand-alone addon made for the Turtle WoW 1.12.1 client. 
 
-#### Manual Install
+#### tDF Install
 1. Unpack the zip file included with this download.
 2. Copy the "tDF" folder to your AddOns folder.
-3. Fire up Turtle WoW. :)
+
+#### Interface Install
+- Copy the contents of the included "Interface" folder into your Interface folder.
+- Folder structure:
+  
+<pre>
+TurtleWoW/
+└── Interface/
+    ├── Minimap
+    └── TargetingFrame
+</pre>
    
 ## Video
 [![Video](https://img.youtube.com/vi/AD1jRnHu_lo/maxresdefault.jpg)](https://www.youtube.com/watch?v=AD1jRnHu_lo)
