@@ -65,9 +65,7 @@ module.enable = function(self)
 -- DF Texture
 
 --Player Frame
-PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF.tga")
---PlayerFrameBackground:SetWidth(122)
-PlayerFrameBackground:SetTexture("")
+PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF.blp")
 PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
 PlayerFrameHealthBar:SetWidth(130)
 PlayerFrameHealthBar:SetHeight(30)
@@ -77,6 +75,12 @@ PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
 PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
 PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]])               
 PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
+--Player Frame Background Texture
+PlayerFrameBackground:SetWidth(256)
+PlayerFrameBackground:SetHeight(128)
+PlayerFrameBackground:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF-Background.blp")
+PlayerFrameBackground:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", 0, 0)
+
 --Move playername
 local playerName = PlayerFrame.name
 -- Adjust the position of the name text
@@ -224,15 +228,19 @@ UpdateRestingState()
 ----------------SHOW/HIDE ANIMATION----------------
 
 --Target Frame
-TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
+TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
 TargetFrameHealthBar:SetPoint("TOPRIGHT", -100, -29)
 TargetFrameHealthBar:SetWidth(130)
-TargetFrameHealthBar:SetHeight(30)
+TargetFrameHealthBar:SetHeight(31)
 TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]]) 
-TargetFrameManaBar:SetPoint("TOPRIGHT", -96, -52)
-TargetFrameManaBar:SetWidth(130)
-TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.tga]])
-TargetFrameBackground:SetTexture("")
+TargetFrameManaBar:SetPoint("TOPRIGHT", -95, -53)
+TargetFrameManaBar:SetWidth(132)
+TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.blp]])
+--Target Frame Background Texture
+TargetFrameBackground:SetWidth(256)
+TargetFrameBackground:SetHeight(128)
+TargetFrameBackground:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1-Background.blp")
+TargetFrameBackground:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", 0, 0)
 
 -- Move Target level text
 local targetLevelText = TargetLevelText
@@ -247,8 +255,8 @@ targetName:SetPoint("CENTER", targetLevelText, "CENTER", 45, 0)
 
 --Resize Target portrait
 local targetPortrait = TargetFrame.portrait
-targetPortrait:SetHeight(60)
-targetPortrait:SetWidth(60)
+targetPortrait:SetHeight(61)
+targetPortrait:SetWidth(61)
 
 --DF Texture ends
 
@@ -314,15 +322,15 @@ local original = TargetFrame_CheckClassification
 function TargetFrame_CheckClassification()
   local classification = UnitClassification("target")
   if ( classification == "worldboss" ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.tga")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Boss.blp")
   elseif ( classification == "rareelite"  ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.tga")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-RareElite.blp")
   elseif ( classification == "elite"  ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.tga")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.blp")
   elseif ( classification == "rare"  ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Rare.tga")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Rare.blp")
   else
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.tga")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
     --TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
   end
 end
