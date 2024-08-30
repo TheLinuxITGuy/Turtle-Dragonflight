@@ -105,6 +105,7 @@ mods\xpbar-show-full.lua
 mods\xpbar-xp-hide.lua
 mods\minimap-scale.lua
 
+
 # ShaguPlates
 ShaguPlates.lua
 init\env.xml
