@@ -180,7 +180,7 @@ local modern = {
   },
   ["nameplates"] = {
     ["heighthealth"] = "14",
-    ["healthtexture"] = "Interface\\AddOns\\tDF\\img\\bar",
+    ["healthtexture"] = "Interface\\AddOns\\tDF\\img\\bar_tukui",
     ["health"] = {
       ["offset"] = "-10",
     },
