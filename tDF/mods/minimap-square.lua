@@ -26,6 +26,6 @@ module.enable = function(self)
 
   tMinimapZoomIn:ClearAllPoints()
   tMinimapZoomOut:ClearAllPoints()
-  tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 200, -210)
-  tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 185, -210)
+  tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165, -213)
+  tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150, -213)
 end
