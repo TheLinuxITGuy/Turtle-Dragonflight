@@ -201,7 +201,7 @@ local customMailIcon = "Interface\\AddOns\\tDF\\img\\mail.tga"
 
 --Set it
 MiniMapMailFrame:ClearAllPoints()
-MiniMapMailFrame:SetPoint("TOPRIGHT", tMinimap, "TOPRIGHT", -200, -200)
+MiniMapMailFrame:SetPoint("TOPRIGHT", tMinimap, "TOPRIGHT", -150, -150)
 MiniMapMailBorder:Hide()
 MiniMapMailIcon:SetTexture(customMailIcon)
 MiniMapMailIcon:SetWidth(32)
