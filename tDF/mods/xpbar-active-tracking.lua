@@ -9,6 +9,8 @@ local module = ShaguTweaks:register({
     enabled = true,
 })
 
+ShaguTweaks_config = ShaguTweaks_config or {}
+
 module.enable = function(self)
     xpbar_watcher_rest:RegisterEvent("UPDATE_EXHAUSTION")
     xpbar_watcher_rest:RegisterEvent("PLAYER_UPDATE_RESTING")
@@ -16,9 +18,11 @@ module.enable = function(self)
         if not xpbar_hide(xpbar) then
             if IsResting() and (GetXPExhaustion("player") / UnitXPMax("player") ~= 1.5) then
                 xpbar.text:Show()
-                xpbar_update(xpbar, false)
+                xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
             else
-                --xpbar.text:Hide()
+                if ShaguTweaks_config["Hide XP outdoors"] == 1 then
+                    xpbar.text:Hide()
+                end
             end
         end
     end)

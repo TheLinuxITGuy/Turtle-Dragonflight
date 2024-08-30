@@ -36,44 +36,6 @@ CharacterMicroButton:ClearAllPoints()
 CharacterMicroButton:Hide()
 
 
-function create_microbutton(Name,
-  NormalTexture,
-  NormalTextureCoord,
-  PushedTexture,
-  PushedTextureCoord,
-  HighlightTexture,
-  HighlightTextureCoord,
-  f_OnEnter,
-  f_OnLeave,
-  f_OnClick,
-  offset_x,
-  offset_y,
-  parent_frame)
-  local mbButtonX = 18
-  local mbButtonY = 25
-  local frame = CreateFrame("Button", Name, parent_frame, "UIPanelButtonTemplate")
-  frame:SetWidth(mbButtonX)
-  frame:SetHeight(mbButtonY)
-  frame:SetPoint("BOTTOMRIGHT", parent_frame, offset_x, offset_y)
-
-  frame:SetNormalTexture(NormalTexture)
-  local i_NormalTexture = frame:GetNormalTexture()
-  i_NormalTexture:SetTexCoord(NormalTextureCoord[1], NormalTextureCoord[2], NormalTextureCoord[3], NormalTextureCoord[4])
-
-  frame:SetPushedTexture(PushedTexture)
-  local i_PushedTexture = frame:GetPushedTexture()
-  i_PushedTexture:SetTexCoord(PushedTextureCoord[1], PushedTextureCoord[2], PushedTextureCoord[3], PushedTextureCoord[4])
-
-  frame:SetHighlightTexture(HighlightTexture)
-  local i_HighlightTexture = frame:GetHighlightTexture()
-  i_HighlightTexture:SetTexCoord(HighlightTextureCoord[1], HighlightTextureCoord[2], HighlightTextureCoord[3], HighlightTextureCoord[4])
-
-  frame:SetScript("OnEnter", f_OnEnter)
-  frame:SetScript("OnLeave", f_OnLeave)
-  frame:SetScript("OnClick", f_OnClick)
-  return frame
-end
-
 function ShowTWBGQueueMenu()
   local TWBGQueueMinimapMenuFrame = CreateFrame('Frame', 'TWBGQueueMinimapMenuFrame', UIParent, 'UIDropDownMenuTemplate')
   UIDropDownMenu_Initialize(TWBGQueueMinimapMenuFrame, BuildTWBGQueueMenu, "MENU");

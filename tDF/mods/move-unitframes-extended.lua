@@ -20,7 +20,7 @@ local nonmovables = {
   "tDFmicrobutton",
   "MyCustomMinimap", -- minimap
   "tDFImprovedCastbar", -- player castbar
-  "MyBagButton", -- bags bar
+  "tDFbagMain", -- bags bar
   "BuffButton0", -- buffs
   "BuffButton16", -- debuffs
   "TempEnchant1" -- weapon buffs

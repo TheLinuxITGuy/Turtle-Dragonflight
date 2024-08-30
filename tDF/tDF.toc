@@ -31,6 +31,7 @@ locales\translations_zhTW.lua
 main.lua
 helpers.lua
 config.lua
+tDFutils.lua
 
 # libraries
 libs\libtipscan-tDF.lua
@@ -100,6 +101,10 @@ mods\xpbar-active-tracking.lua
 mods\latency-castbar.lua
 mods\bag-search.lua
 mods\SUCC-bag.lua
+mods\xpbar-show-full.lua
+mods\xpbar-xp-hide.lua
+mods\minimap-scale.lua
+
 
 # ShaguPlates
 ShaguPlates.lua

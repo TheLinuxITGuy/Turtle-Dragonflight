@@ -179,10 +179,10 @@ local modern = {
     ["hideincombat"] = "0",
   },
   ["nameplates"] = {
-    ["heighthealth"] = "10",
-    ["healthtexture"] = "Interface\\AddOns\\tDF\\img\\bar_gradient",
+    ["heighthealth"] = "14",
+    ["healthtexture"] = "Interface\\AddOns\\tDF\\img\\bar_tukui",
     ["health"] = {
-      ["offset"] = "10",
+      ["offset"] = "-10",
     },
   },
   ["bars"] = {

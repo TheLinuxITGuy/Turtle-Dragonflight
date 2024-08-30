@@ -1,12 +1,179 @@
---[[
-Author: YouTube.com/@TheLinuxITGuy
-Built on: Linux Mint Debian Edition 12
-This lua file hides the original Blizzard art work from 1.12. I've created new buttons and textured them to match
-Dragonflight.
-]]
+local _G = ShaguTweaks.GetGlobalEnv()
+local create_button = tDF.create_button
+
+-----------------Inside the bag Top Left Bag icon-----------------
+-- Create a local instance of ContainerFrame1PortraitButton
+local button = ContainerFrame1PortraitButton
+-- Reskin the button with a custom image
+button:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+button:SetPoint("TOPLEFT", ContainerFrame1, -1, 2)
+button:SetWidth(50)
+button:SetHeight(50)
+-----------------Inside the bag Top Left Bag icon-----------------
+
+MainMenuBarBackpackButton:Hide()
+KeyRingButton:ClearAllPoints()
+KeyRingButton:Hide()
+
+ShaguTweaks_config = ShaguTweaks_config or {}
+ShaguTweaks_config["tDFbags_hide"] = ShaguTweaks_config["tDFbags_hide"] or 0
+
+local bags_texture = "Interface\\AddOns\\tDF\\img\\bagslots2x1.tga"
+local bags_keys_texture = "Interface\\AddOns\\tDF\\img\\bagslots2key.tga"
+local normal_txc = {295/512, 354/512, 64/128, 124/128}
+--local normal_txc = {296/512, 356/512, 2/128, 62/128}
+local pushed_txc = {422/512, 475/512, 65/128, 118/128}
+local highlight_txc = {358/512, 414/512, 1/128, 56/128}
+local bags_data =
+{
+    {
+        Name = "tDFbag1",
+        offset_x = -50,
+        f_OnClick = function() ToggleBag(1) end
+    },
+    {
+        Name = "tDFbag2",
+        offset_x = -85,
+        f_OnClick = function() ToggleBag(2) end
+    },
+    {
+        Name = "tDFbag3",
+        offset_x = -120,
+        f_OnClick = function() ToggleBag(3) end
+    },
+    {
+        Name = "tDFbag4",
+        offset_x = -155,
+        f_OnClick = function() ToggleBag(4) end
+    },
+}
+
+local function bags_override(frame, parent_frame)
+    frame:SetNormalTexture("")
+    frame:SetPushedTexture("")
+    frame:SetHighlightTexture("")
+    frame:ClearAllPoints()
+    frame:SetWidth(18)
+    frame:SetHeight(18)
+    frame:SetPoint("CENTER", parent_frame, -.75, .75)
+    --frame:SetWidth(25)
+    --frame:SetHeight(25)
+    --frame:SetPoint("CENTER", parent_frame, -2, 2)
+    --frame:SetFrameLevel(2)
+end
+
+local function bags_main_onclick()
+    if IsShiftKeyDown() then
+        ToggleBag(0)
+        ToggleBag(1)
+        ToggleBag(2)
+        ToggleBag(3)
+        ToggleBag(4)
+    else
+        ToggleBag(0)
+    end
+end
+
+function bags_showall()
+    tDFbag1:Show()
+    tDFbag2:Show()
+    tDFbag3:Show()
+    tDFbag4:Show()
+    tDFbagKeys:Show()
+    CharacterBag0Slot:Show()
+    CharacterBag1Slot:Show()
+    CharacterBag2Slot:Show()
+    CharacterBag3Slot:Show()
+end
+
+function bags_hideall()
+    tDFbag1:Hide()
+    tDFbag2:Hide()
+    tDFbag3:Hide()
+    tDFbag4:Hide()
+    tDFbagKeys:Hide()
+    CharacterBag0Slot:Hide()
+    CharacterBag1Slot:Hide()
+    CharacterBag2Slot:Hide()
+    CharacterBag3Slot:Hide()
+end
+
+local function bags_toggle()
+    local tx = tDFbagArrow:GetNormalTexture()
+    if ShaguTweaks_config["tDFbags_hide"] == 1 then
+        bags_showall()
+        ShaguTweaks_config["tDFbags_hide"] = 0
+        tx:SetTexCoord(488/512, 504/512, 38/128, 70/128)
+    else
+        bags_hideall()
+        ShaguTweaks_config["tDFbags_hide"] = 1
+        tx:SetTexCoord(487/512, 503/512, 2/128, 33/128)
+    end
+end
+
+local function freeSlots()
+    local free = 0
+    for i = 0, 4 do
+        for slot = 1, GetContainerNumSlots(i) do
+            local link = GetContainerItemLink(i, slot)
+            if not (link) then
+                free = free + 1
+            end
+        end
+    end
+    if this.text then
+        this.text:SetText("(" .. free .. ")")
+    end
+end
+
+local bags_main = create_button("tDFbagMain", UIParent, "BOTTOMRIGHT", 50, 50,
+    bags_texture, bags_texture, bags_texture,
+    {4/512, 90/512, 2/128, 94/128},
+    {204/512, 280/512, 4/128, 88/128},
+    {104/512, 185/512, 4/128, 90/128},
+    -15, 50, nil, nil, bags_main_onclick)
+
+-- Create a frame to display the number of free bag slots
+local tDFbagFreeSlots = CreateFrame("Frame", "tDFbagFreeSlots", tDFbagMain)
+tDFbagFreeSlots:SetWidth(50)
+tDFbagFreeSlots:SetHeight(20)
+tDFbagFreeSlots:SetPoint("CENTER", tDFbagMain, "CENTER", 0, -12)
+tDFbagFreeSlots.text = tDFbagFreeSlots:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+tDFbagFreeSlots.text:SetPoint("CENTER", tDFbagFreeSlots, "CENTER", 0, 0)
+tDFbagFreeSlots.text:SetVertexColor(1, 1, 1)
+tDFbagFreeSlots:RegisterEvent("BAG_UPDATE")
+tDFbagFreeSlots:SetScript("OnEvent", freeSlots)
+
+for i, button in ipairs(bags_data) do
+    local frame = create_button(button.Name, bags_main, "CENTER", 35, 35,
+    bags_texture, bags_texture, bags_texture,
+    normal_txc, pushed_txc, highlight_txc,
+    button.offset_x, 0, nil, nil, button.f_OnClick)
+
+    frame:SetFrameStrata("LOW")
+    --frame:SetFrameLevel(3)
+
+    bags_override(_G["CharacterBag" .. i - 1 .. "Slot"], frame)
+end
+
+local bags_keys = create_button("tDFbagKeys", tDFbagMain, "CENTER", 35, 35,
+    bags_keys_texture, bags_keys_texture, bags_keys_texture,
+    {4/128, 62/128, 63/128, 124/128},
+    {68/128, 122/128, 63/128, 124/128},
+    {4/128, 62/128, 1/128, 56/128},
+    -190, 0, nil, nil, function() ToggleKeyRing() end)
+
+local bags_arrow = create_button("tDFbagArrow", tDFbagMain, "CENTER", 10, 15,
+    bags_texture, bags_texture, bags_texture,
+    {488/512, 504/512, 38/128, 70/128},
+    {0, 0, 0, 0},
+    {0, 0, 0, 0},
+    -28, 0, nil, nil, bags_toggle)
+
 -----------------Inside the bag empty slot icon-----------------
 -- Iterate through each bag (0 is backpack, 1-4 are the bag slots)
 -- Create a frame to listen for the PLAYER_LOGIN event
+
 local loginFrame = CreateFrame("Frame")
 
 -- Create a variable to track the time
@@ -26,6 +193,19 @@ loginFrame:SetScript("OnEvent", function()
 
         -- Remove the OnUpdate script
         this:SetScript("OnUpdate", nil)
+
+        freeSlots(tDFbagFreeSlots)
+
+        if ShaguTweaks_config["Hide Bags"] == 0 then
+            local tx = tDFbagArrow:GetNormalTexture()
+            if ShaguTweaks_config["tDFbags_hide"] == 1 then
+                bags_hideall()
+                tx:SetTexCoord(487/512, 503/512, 2/128, 33/128)
+            else
+                bags_showall()
+                tx:SetTexCoord(488/512, 504/512, 38/128, 70/128)
+            end
+        end
 
         for bag = 0, 4 do
             -- Get the number of slots in the bag
@@ -51,387 +231,5 @@ loginFrame:SetScript("OnEvent", function()
 end)
 
 -- Register the PLAYER_LOGIN event
-loginFrame:RegisterEvent("PLAYER_LOGIN")
------------------Inside the bag empty slot icon-----------------
+loginFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 
------------------Inside the bag Top Left Bag icon-----------------
--- Create a local instance of ContainerFrame1PortraitButton
-local button = ContainerFrame1PortraitButton
--- Reskin the button with a custom image
-button:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
-button:SetPoint("TOPLEFT", ContainerFrame1, -1, 2)
-button:SetWidth(50)
-button:SetHeight(50)
------------------Inside the bag Top Left Bag icon-----------------
-
---hides the original Blizzard artwork
-MainMenuBarBackpackButton:Hide()
-
------------------Main Bag icon-----------------
-local bbMain = CreateFrame("Button", "MyBagButton", UIParent, "UIPanelButtonTemplate")
-bbMain:SetWidth(50)
-bbMain:SetHeight(50)
-bbMain:SetPoint("BOTTOMRIGHT", UIParent, -15, 50) --the -25 is to the left, the 45 is up
-bbMain:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-local MainBagNormalTexture = bbMain:GetNormalTexture()
---MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-MainBagNormalTexture:SetTexCoord(4/512, 90/512, 2/128, 94/128)
---MainBagNormalTexture:SetWidth(35)
---MainBagNormalTexture:SetHeight(35)
---Set the button's pushed texture
-bbMain:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local MainBagPushedTexture = bbMain:GetPushedTexture()
-MainBagPushedTexture:SetTexCoord(204/512, 280/512, 4/128, 88/128)
---Set the button's highlight texture
-bbMain:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local MainBagHighlightTexture = bbMain:GetHighlightTexture()
-MainBagHighlightTexture:SetTexCoord(104/512, 185/512, 4/128, 90/128)
---click
-bbMain:SetScript("OnClick", function(self, button, down)
-    ToggleBag(0)
-  end)
------------------Main Bag icon-----------------
-
---freeslots
--- Create a frame to display the number of free bag slots
-local freeBagSlotsFrame = CreateFrame("Frame", "FreeBagSlotsFrame", UIParent)
-freeBagSlotsFrame:SetWidth(50)
-freeBagSlotsFrame:SetHeight(20)
-freeBagSlotsFrame:SetPoint("CENTER", bbMain, "CENTER", 0, -12)
-
--- Create a font string to show the number of free bag slots
-local freeBagSlotsText = freeBagSlotsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-freeBagSlotsText:SetPoint("CENTER", freeBagSlotsFrame, "CENTER", 0, 0)
-freeBagSlotsText:SetVertexColor(1, 1, 1)
-
--- Function to update the number of free bag slots
-local function UpdateFreeBagSlots()
-    local freeSlots = 0
-    for bag = 0, 4 do
-        local numSlots = GetContainerNumSlots(bag)
-        for slot = 1, numSlots do
-            local texture, itemCount, locked, quality, readable = GetContainerItemInfo(bag, slot)
-            if not texture then
-                freeSlots = freeSlots + 1
-            end
-        end
-    end
-    freeBagSlotsText:SetText("(" .. freeSlots .. ")")
-end
-
--- Register events to update the number of free bag slots
-freeBagSlotsFrame:RegisterEvent("BAG_UPDATE")
-freeBagSlotsFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
-freeBagSlotsFrame:SetScript("OnEvent", UpdateFreeBagSlots)
-
--- Initial update
---UpdateFreeBagSlots()
-
--- Frame to handle the timer
-local timerFrame = CreateFrame("Frame")
-local elapsed = 0
-
-timerFrame:SetScript("OnUpdate", function()
-    local arg1 = arg1 or 0
-    elapsed = elapsed + arg1
-    if elapsed >= 10 then
-        UpdateFreeBagSlots()
-        elapsed = 0
-    end
-end)
---freeslots
-
------------------Arrow to the left of the Main Bag icon-----------------
-  --Point left
-  local bbLeftArrow = CreateFrame("Button", "bbArrow", UIParent, "UIPanelButtonTemplate")
-  bbLeftArrow:SetWidth(10)
-  bbLeftArrow:SetHeight(15)
-  bbLeftArrow:SetPoint("CENTER", bbMain, -28, 0) --the -25 is to the left, the 45 is up
-  bbLeftArrow:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-  local ArrowLeftNormalTexture = bbArrow:GetNormalTexture()
-  ArrowLeftNormalTexture:SetTexCoord(487/512, 503/512, 2/128, 33/128)--pointing left
-  --Set the button's pushed texture
-  bbLeftArrow:SetPushedTexture("")
-  --Get the texture object and set its coordinates
-  local ArrowLeftPushedTexture = bbLeftArrow:GetPushedTexture()
-  ArrowLeftPushedTexture:SetTexCoord(204/512, 280/512, 4/128, 88/128)
-  --Set the button's highlight texture
-  bbLeftArrow:SetHighlightTexture("")
-  --Get the texture object and set its coordinates
-  local ArrowLeftHighlightTexture = bbLeftArrow:GetHighlightTexture()
-  ArrowLeftHighlightTexture:SetTexCoord(104/512, 183/512, 4/128, 88/128)
-  bbLeftArrow:Hide()
-  --click
-  bbLeftArrow:SetScript("OnClick", function(self, button, down)
-    lb1:Show()
-    lb2:Show()
-    lb3:Show()
-    lb4:Show()
-    CharacterBag0Slot:Show()
-    CharacterBag1Slot:Show()
-    CharacterBag2Slot:Show()
-    CharacterBag3Slot:Show()
-    kr:Show()
-  end)
-
-local bbArrow = CreateFrame("Button", "bbArrow", UIParent, "UIPanelButtonTemplate")
-bbArrow:SetWidth(10)
-bbArrow:SetHeight(15)
-bbArrow:SetPoint("CENTER", bbMain, -28, 0) --the -25 is to the left, the 45 is up
-bbArrow:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-local ArrowNormalTexture = bbArrow:GetNormalTexture()
-ArrowNormalTexture:SetTexCoord(488/512, 504/512, 38/128, 70/128) --pointing right
---Set the button's pushed texture
-bbArrow:SetPushedTexture("")
---Get the texture object and set its coordinates
-local ArrowPushedTexture = bbArrow:GetPushedTexture()
-ArrowPushedTexture:SetTexCoord(204/512, 280/512, 4/128, 88/128)
---Set the button's highlight texture
-bbArrow:SetHighlightTexture("")
---Get the texture object and set its coordinates
-local ArrowHighlightTexture = bbArrow:GetHighlightTexture()
-ArrowHighlightTexture:SetTexCoord(104/512, 183/512, 4/128, 88/128)
---click
-bbArrow:SetScript("OnClick", function(self, button, down) --arrow pointing right
-
-  lb1:Hide()
-  lb2:Hide()
-  lb3:Hide()
-  lb4:Hide()
-  CharacterBag0Slot:Hide()
-  CharacterBag1Slot:Hide()
-  CharacterBag2Slot:Hide()
-  CharacterBag3Slot:Hide()
-  kr:Hide()
-  bbArrow:Hide()
-  end)
-
-  -- Checking arrow left or right
-local function UpdateArrows()
-  if lb1:IsVisible() then
-      bbArrow:Show()
-      bbLeftArrow:Hide()
-  else
-      bbArrow:Hide()
-      bbLeftArrow:Show()
-  end
-end
-
--- Call UpdateArrows on each frame update
-local f = CreateFrame("Frame")
-f:SetScript("OnUpdate", function(self, elapsed)
-  UpdateArrows()
-end)
-
------------------Arrow to the left of the Main Bag icon-----------------
-
------------------Bag 1 icon-----------------
-local lb1 = CreateFrame("Button", "lb1", UIParent, "UIPanelButtonTemplate")
-CharacterBag0Slot:SetNormalTexture("")
-CharacterBag0Slot:SetPushedTexture("")
-CharacterBag0Slot:SetHighlightTexture("")
-CharacterBag0Slot:ClearAllPoints()
-CharacterBag0Slot:SetWidth(18) --changes the actual button
-CharacterBag0Slot:SetHeight(18) 
-CharacterBag0Slot:SetPoint("CENTER", lb1, -.75, .75)
-
-lb1:SetWidth(35) --25
-lb1:SetHeight(35) --25
-lb1:SetPoint("CENTER", bbMain, -50, 0) --the -45 is to the left, the 45 is up
-lb1:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-local lb1NormalTexture = lb1:GetNormalTexture()
---MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb1NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-lb1:SetFrameStrata("LOW")
-------------------------------------
-
-
-
-------------------------------------
---MainBagNormalTexture:SetWidth(25)
---MainBagNormalTexture:SetHeight(25)
---Set the button's pushed texture
-lb1:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb1PushedTexture = lb1:GetPushedTexture()
---lb1PushedTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
-lb1PushedTexture:SetTexCoord(422/512, 475/512, 65/128, 118/128)
---Set the button's highlight texture
-lb1:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb1HighlightTexture = lb1:GetHighlightTexture()
-lb1HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
---click
-lb1:SetScript("OnClick", function(self, button, down)
-    ToggleBag(1)
-  end)
-  -- Add this line to move lb1 in front of CharacterBag0Slot
---lb1:SetFrameLevel(CharacterBag0Slot:GetFrameLevel() + 1)
------------------Bag 1 icon-----------------
-
------------------Bag 2 icon-----------------
-local lb2 = CreateFrame("Button", "lb2", UIParent, "UIPanelButtonTemplate")
-CharacterBag1Slot:SetNormalTexture("")
-CharacterBag1Slot:SetPushedTexture("")
-CharacterBag1Slot:SetHighlightTexture("")
-CharacterBag1Slot:ClearAllPoints()
-CharacterBag1Slot:SetWidth(18)
-CharacterBag1Slot:SetHeight(18)
-CharacterBag1Slot:SetPoint("CENTER", lb2, -.75, .75)
-lb2:SetWidth(35) --25
-lb2:SetHeight(35) --25
-lb2:SetPoint("CENTER", bbMain, -85, 0) --the -45 is to the left, the 45 is up
-lb2:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-local lb2NormalTexture = lb2:GetNormalTexture()
---MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb2NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-lb2:SetFrameStrata("LOW")
---MainBagNormalTexture:SetWidth(25)
---MainBagNormalTexture:SetHeight(25)
---Set the button's pushed texture
-lb2:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb2PushedTexture = lb2:GetPushedTexture()
-lb2PushedTexture:SetTexCoord(422/512, 475/512, 65/128, 118/128)
---Set the button's highlight texture
-lb2:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb2HighlightTexture = lb2:GetHighlightTexture()
-lb2HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
---click
-lb2:SetScript("OnClick", function(self, button, down)
-    ToggleBag(2)
-  end)
-    -- Add this line to move lb2 in front of CharacterBag1Slot
---lb2:SetFrameLevel(CharacterBag1Slot:GetFrameLevel() + 1)
------------------Bag 2 icon-----------------
-
------------------Bag 3 icon-----------------
-local lb3 = CreateFrame("Button", "lb3", UIParent, "UIPanelButtonTemplate")
-CharacterBag2Slot:SetNormalTexture("")
-CharacterBag2Slot:SetPushedTexture("")
-CharacterBag2Slot:SetHighlightTexture("")
-CharacterBag2Slot:ClearAllPoints()
-CharacterBag2Slot:SetWidth(18)
-CharacterBag2Slot:SetHeight(18)
-CharacterBag2Slot:SetPoint("CENTER", lb3, -.75, .75)
-lb3:SetWidth(35) --25
-lb3:SetHeight(35) --25
-lb3:SetPoint("CENTER", bbMain, -120, 0) --the -45 is to the left, the 45 is up
-lb3:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-local lb3NormalTexture = lb3:GetNormalTexture()
---MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb3NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-lb3:SetFrameStrata("LOW")
---MainBagNormalTexture:SetWidth(25)
---MainBagNormalTexture:SetHeight(25)
---Set the button's pushed texture
-lb3:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb3PushedTexture = lb3:GetPushedTexture()
-lb3PushedTexture:SetTexCoord(422/512, 475/512, 65/128, 118/128)
---Set the button's highlight texture
-lb3:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb3HighlightTexture = lb3:GetHighlightTexture()
-lb3HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
---click
-lb3:SetScript("OnClick", function(self, button, down)
-    ToggleBag(3)
-  end)
--- Add this line to move lb3 in front of CharacterBag2Slot
---lb3:SetFrameLevel(CharacterBag2Slot:GetFrameLevel() + 1)
------------------Bag 3 icon-----------------
-
------------------Bag 4 icon-----------------
-local lb4 = CreateFrame("Button", "lb4", UIParent, "UIPanelButtonTemplate")
-CharacterBag3Slot:SetNormalTexture("")
-CharacterBag3Slot:SetPushedTexture("")
-CharacterBag3Slot:SetHighlightTexture("")
-CharacterBag3Slot:ClearAllPoints()
-CharacterBag3Slot:SetWidth(18)
-CharacterBag3Slot:SetHeight(18)
-CharacterBag3Slot:SetPoint("CENTER", lb4, -.75, .75)
-lb4:SetWidth(35) --25
-lb4:SetHeight(35) --25
-lb4:SetPoint("CENTER", bbMain, -155, 0) --the -45 is to the left, the 45 is up
-lb4:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
-local lb4NormalTexture = lb4:GetNormalTexture()
---MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-lb4NormalTexture:SetTexCoord(295/512, 354/512, 64/128, 124/128)
-lb4:SetFrameStrata("LOW")
---MainBagNormalTexture:SetWidth(25)
---MainBagNormalTexture:SetHeight(25)
---Set the button's pushed texture
-lb4:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb4PushedTexture = lb4:GetPushedTexture()
-lb4PushedTexture:SetTexCoord(422/512, 475/512, 65/128, 118/128)
---Set the button's highlight texture
-lb4:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2x1.tga")
---Get the texture object and set its coordinates
-local lb4HighlightTexture = lb4:GetHighlightTexture()
-lb4HighlightTexture:SetTexCoord(358/512, 414/512, 1/128, 56/128)
---click
-lb4:SetScript("OnClick", function(self, button, down)
-    ToggleBag(4)
-  end)
-  -- Add this line to move lb3 in front of CharacterBag2Slot
---lb4:SetFrameLevel(CharacterBag3Slot:GetFrameLevel() + 1)
-
---[[
---Adds text for hunter on bag 4
--- Get the button for CharacterBag3Slot
-local button = getglobal("CharacterBag3Slot")
-if button then
-    -- Check if the Count property exists
-    local count = getglobal(button:GetName() .. "Count")
-    if count then
-        -- Get the current font settings
-        local fontName, fontSize, fontFlags = count:GetFont()
-        -- Set the new font size
-        count:SetFont(STANDARD_TEXT_FONT, 6, "OUTLINE")
-        count:ClearAllPoints()
-        count:SetPoint("CENTER", button, "CENTER")
-    else
-        -- Print a debug message
-        print("CharacterBag3Slot does not have a Count property.")
-    end
-else
-    -- Print a debug message
-    print("CharacterBag3Slot does not exist.")
-end
-]]
-
------------------Bag 4 icon-----------------
-
------------------Keyring icon-----------------
-KeyRingButton:ClearAllPoints()
-KeyRingButton:Hide()
-local kr = CreateFrame("Button", "kr", UIParent, "UIPanelButtonTemplate")
-kr:SetWidth(35) --25
-kr:SetHeight(35) --25
-kr:SetPoint("CENTER", bbMain, -190, 0) --the -45 is to the left, the 45 is up
-kr:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bagslots2key.tga")
-local krNormalTexture = kr:GetNormalTexture()
---MainBagNormalTexture:SetTexCoord(2/256, 80/256, 2/512, 86/512)
-krNormalTexture:SetTexCoord(4/128, 62/128, 63/128, 124/128)
---MainBagNormalTexture:SetWidth(25)
---MainBagNormalTexture:SetHeight(25)
---Set the button's pushed texture
-kr:SetPushedTexture("Interface\\AddOns\\tDF\\img\\bagslots2key.tga")
---Get the texture object and set its coordinates
-local krPushedTexture = kr:GetPushedTexture()
-krPushedTexture:SetTexCoord(68/128, 122/128, 63/128, 124/128)
---Set the button's highlight texture
-kr:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\bagslots2key.tga")
---Get the texture object and set its coordinates
-local krHighlightTexture = kr:GetHighlightTexture()
-krHighlightTexture:SetTexCoord(4/128, 62/128, 1/128, 56/128)
---click
-kr:SetScript("OnClick", function(self, button, down)
-    ToggleKeyRing()
-  end)
------------------Keyring icon-----------------

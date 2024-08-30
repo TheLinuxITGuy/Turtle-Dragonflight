@@ -7,6 +7,10 @@ Dragonflight.
 
 MainMenuExpBar:SetAlpha(0) -- Required for XPbar.lua to work
 
+ShaguTweaks_config = ShaguTweaks_config or {}
+ShaguTweaks_config["Hide XP outdoors"] = ShaguTweaks_config["Hide XP outdoors"] or 0
+ShaguTweaks_config["Always show detailed XP"] = ShaguTweaks_config["Always show detailed XP"] or 0
+
 function xpbar_update(xpbar, show_full)
     local currentXP = UnitXP("player")
     local maxXP = UnitXPMax("player")
@@ -110,8 +114,7 @@ function xpbar_create(name)
     xpbar.text = xpbar:CreateFontString(nil, "OVERLAY")
     xpbar.text:SetFont(STANDARD_TEXT_FONT, 10, "OUTLINE")
     xpbar.text:SetPoint("CENTER", xpbar, "CENTER", 0, 1)
-    --xpbar.text:Hide()
-    
+
     xpbar.restedbar = CreateFrame("StatusBar", nil, xpbar)
     xpbar.restedbar:SetStatusBarTexture("Interface\\TargetingFrame\\UI-StatusBar")
     xpbar.restedbar:SetPoint("CENTER", xpbar, "CENTER", 0, 0)
@@ -136,13 +139,13 @@ xpbar_watcher:RegisterEvent("PLAYER_XP_UPDATE")
 xpbar_watcher:SetScript("OnEvent", function()
     xpbar = xpbar or xpbar_create()
     if not xpbar_hide(xpbar) then
-        xpbar_update(xpbar, false)
+        xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
     end
 end)
-xpbar.text:Show()
+
 MainMenuExpBar:SetScript("OnEnter", function(self)
     xpbar.text:Show()
-    xpbar_update(xpbar, false)
+    xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
     xpbar_watcher:SetScript("OnUpdate", function()
         if IsShiftKeyDown() then
             xpbar_update(xpbar, true)
@@ -151,7 +154,10 @@ MainMenuExpBar:SetScript("OnEnter", function(self)
     end)
 end)
 MainMenuExpBar:SetScript("OnLeave", function(self)
-    xpbar.text:Hide()
+    xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
+    if ShaguTweaks_config["Hide XP outdoors"] == 1 and not IsResting() then
+        xpbar.text:Hide()
+    end
     xpbar_watcher:SetScript("OnUpdate", nil)
     xpbar_watcher_rest:SetScript("OnUpdate", nil)
 end)

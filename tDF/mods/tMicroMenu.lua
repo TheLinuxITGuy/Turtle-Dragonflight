@@ -7,6 +7,7 @@ Dragonflight.
 
 local _G = ShaguTweaks.GetGlobalEnv()
 local T = ShaguTweaks.T
+local create_button = tDF.create_button
 
 local module = ShaguTweaks:register({
   title = T["Colorful MicroMenu"],
@@ -287,19 +288,22 @@ module.enable = function(self)
   local offset = 0
 
   for i, button in ipairs(microbar_buttons) do
-    local frame = create_microbutton(button.Name,
+    local frame = create_button(button.Name,
+    tDFmicrobutton,
+    "BOTTOMRIGHT",
+    18,
+    25,
     button.NormalTexture,
-    button.NormalTextureCoord,
     button.PushedTexture,
-    button.PushedTextureCoord,
     button.HighlightTexture,
+    button.NormalTextureCoord,
+    button.PushedTextureCoord,
     button.HighlightTextureCoord,
-    button.f_OnEnter,
-    button.f_OnLeave,
-    button.f_OnClick,
     offset,
     0,
-    tDFmicrobutton)
+    button.f_OnEnter,
+    button.f_OnLeave,
+    button.f_OnClick)
 
     offset = offset - theSpaceBetween
   end

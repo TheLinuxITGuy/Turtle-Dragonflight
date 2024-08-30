@@ -17,7 +17,7 @@ for _, barName in pairs({"MainMenuBar", "BonusActionBarFrame"}) do
 
     -- Set the frame's position to the center of the bar
     Leftframe:SetPoint("CENTER", MainMenuBar, "CENTER", -125, -5)
-    Rightframe:SetPoint("CENTER", MainMenuBar, "CENTER", 130, -5)
+    Rightframe:SetPoint("CENTER", MainMenuBar, "CENTER", 127, -5)
 
     -- Set the strata of the bar and your frame
     bar:SetFrameStrata("LOW")

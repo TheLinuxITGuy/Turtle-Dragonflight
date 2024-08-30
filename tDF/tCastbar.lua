@@ -45,7 +45,7 @@ flash:SetPoint("CENTER", UIParent, 5000, 0)
 local T = ShaguTweaks.T
 local GetExpansion = ShaguTweaks.GetExpansion
 
-local castbar = CreateFrame("StatusBar", "tDFImprovedCastbar", UIParent)
+castbar = CreateFrame("StatusBar", "tDFImprovedCastbar", UIParent)
 castbar:SetPoint("BOTTOM", UIParent, "BOTTOM", 0, 225)
 castbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
 castbar:SetStatusBarColor(1, .8, 0, 1)
@@ -82,6 +82,18 @@ castbar.timerText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
 castbar.timerText:SetPoint("CENTER", castbar, "CENTER", 0, 0)
 castbar.timerText:SetFont(font, size, opts)
 castbar.timerText:SetTextColor(1,1,1)
+
+castbar.lag = castbar:CreateTexture(nil, "OVERLAY")
+castbar.lag:SetPoint("TOPRIGHT", castbar, "TOPRIGHT", 0, 0)
+castbar.lag:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 0, 0)
+castbar.lag:SetTexture(1,.2,.2,.5)
+castbar.lag:Hide()
+
+castbar.lagText = castbar:CreateFontString(nil, "HIGH", "GameFontNormal")
+castbar.lagText:SetPoint("RIGHT", castbar, "RIGHT", 0, -15)
+castbar.lagText:SetFont(font, size - 2, opts)
+castbar.lagText:SetTextColor(1,1,1)
+castbar.lagText:Hide()
 
 CastingBarFrame:UnregisterAllEvents()
 CastingBarFrame:Hide()
@@ -128,8 +140,13 @@ castbar:SetScript("OnUpdate", function()
     local x = castbar:GetWidth()*percent
     castbar.spark:SetPoint("CENTER", castbar, "LEFT", x, 0)
 
+    local _, _, lag = GetNetStats()
+    local width = castbar:GetWidth() / (duration/1000) * (lag/1000)
+    castbar.lag:SetWidth(math.min(castbar:GetWidth(), width))
+
     castbar.text:SetText(cast)
     castbar.timerText:SetText(rem)
+    castbar.lagText:SetText(lag .. "ms")
 
   else
     castbar:Hide()
