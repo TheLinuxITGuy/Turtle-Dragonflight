@@ -11,5 +11,6 @@ local module = ShaguTweaks:register({
 module.enable = function(self)
     tDFbagMain:Hide()
     tDFbagArrow:Hide()
+    tDFbagFreeSlots:Hide()
     bags_hideall()
 end

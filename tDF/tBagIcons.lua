@@ -111,12 +111,38 @@ local function bags_toggle()
     end
 end
 
+local function freeSlots()
+    local free = 0
+    for i = 0, 4 do
+        for slot = 1, GetContainerNumSlots(i) do
+            local link = GetContainerItemLink(i, slot)
+            if not (link) then
+                free = free + 1
+            end
+        end
+    end
+    if this.text then
+        this.text:SetText("(" .. free .. ")")
+    end
+end
+
 local bags_main = create_button("tDFbagMain", UIParent, "BOTTOMRIGHT", 50, 50,
     bags_texture, bags_texture, bags_texture,
     {4/512, 90/512, 2/128, 94/128},
     {204/512, 280/512, 4/128, 88/128},
     {104/512, 185/512, 4/128, 90/128},
     -15, 50, nil, nil, bags_main_onclick)
+
+-- Create a frame to display the number of free bag slots
+local tDFbagFreeSlots = CreateFrame("Frame", "tDFbagFreeSlots", tDFbagMain)
+tDFbagFreeSlots:SetWidth(50)
+tDFbagFreeSlots:SetHeight(20)
+tDFbagFreeSlots:SetPoint("CENTER", tDFbagMain, "CENTER", 0, -12)
+tDFbagFreeSlots.text = tDFbagFreeSlots:CreateFontString(nil, "OVERLAY", "GameFontNormal")
+tDFbagFreeSlots.text:SetPoint("CENTER", tDFbagFreeSlots, "CENTER", 0, 0)
+tDFbagFreeSlots.text:SetVertexColor(1, 1, 1)
+tDFbagFreeSlots:RegisterEvent("BAG_UPDATE")
+tDFbagFreeSlots:SetScript("OnEvent", freeSlots)
 
 for i, button in ipairs(bags_data) do
     local frame = create_button(button.Name, bags_main, "CENTER", 35, 35,
@@ -168,6 +194,8 @@ loginFrame:SetScript("OnEvent", function()
         -- Remove the OnUpdate script
         this:SetScript("OnUpdate", nil)
 
+        freeSlots(tDFbagFreeSlots)
+
         if ShaguTweaks_config["Hide Bags"] == 0 then
             local tx = tDFbagArrow:GetNormalTexture()
             if ShaguTweaks_config["tDFbags_hide"] == 1 then
@@ -205,50 +233,3 @@ end)
 -- Register the PLAYER_LOGIN event
 loginFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
 
---freeslots
--- Create a frame to display the number of free bag slots
-local freeBagSlotsFrame = CreateFrame("Frame", "FreeBagSlotsFrame", UIParent)
-freeBagSlotsFrame:SetWidth(50)
-freeBagSlotsFrame:SetHeight(20)
-freeBagSlotsFrame:SetPoint("CENTER", bbMain, "CENTER", 0, -12)
-
--- Create a font string to show the number of free bag slots
-local freeBagSlotsText = freeBagSlotsFrame:CreateFontString(nil, "OVERLAY", "GameFontNormal")
-freeBagSlotsText:SetPoint("CENTER", freeBagSlotsFrame, "CENTER", 0, 0)
-freeBagSlotsText:SetVertexColor(1, 1, 1)
-
--- Function to update the number of free bag slots
-local function UpdateFreeBagSlots()
-    local freeSlots = 0
-    for bag = 0, 4 do
-        local numSlots = GetContainerNumSlots(bag)
-        for slot = 1, numSlots do
-            local texture, itemCount, locked, quality, readable = GetContainerItemInfo(bag, slot)
-            if not texture then
-                freeSlots = freeSlots + 1
-            end
-        end
-    end
-    freeBagSlotsText:SetText("(" .. freeSlots .. ")")
-end
-
--- Register events to update the number of free bag slots
-freeBagSlotsFrame:RegisterEvent("BAG_UPDATE")
-freeBagSlotsFrame:RegisterEvent("PLAYER_ENTERING_WORLD")
-freeBagSlotsFrame:SetScript("OnEvent", UpdateFreeBagSlots)
-
---UpdateFreeBagSlots()
-
--- Frame to handle the timer
-local timerFrame = CreateFrame("Frame")
-local elapsed = 0
-
-timerFrame:SetScript("OnUpdate", function()
-    local arg1 = arg1 or 0
-    elapsed = elapsed + arg1
-    if elapsed >= 10 then
-        UpdateFreeBagSlots()
-        elapsed = 0
-    end
-end)
---freeslots
