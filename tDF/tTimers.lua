@@ -9,7 +9,7 @@ for i = 1, MIRRORTIMER_NUMTIMERS do
     local frame = getglobal("MirrorTimer"..i)
     frame:GetRegions():Hide()
     frame:SetWidth(200)
-    frame:SetHeight(14)
+    frame:SetHeight(15)
     frame:SetScript("OnUpdate", function()
     if this.paused or not this.timer then return end
         MirrorTimerFrame_OnUpdate(this, arg1)
@@ -24,6 +24,11 @@ for i = 1, MIRRORTIMER_NUMTIMERS do
     frame.border:SetHeight(frame:GetHeight()+5.5)
     frame.border:ClearAllPoints()
     frame.border:SetPoint("CENTER", frame, "CENTER", 0, 0) 
+
+    frame.bg = frame:CreateTexture(nil, "BACKGROUND")
+    frame.bg:SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
+    frame.bg:SetVertexColor(.1, .1, 0, .8)
+    frame.bg:SetAllPoints(frame)
 
     frame.statusbar = getglobal("MirrorTimer"..i.."StatusBar")
     frame.statusbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
