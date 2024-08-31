@@ -5,8 +5,6 @@ local tBuffButton16 = BuffButton16
 local tTempEnchant1 = TempEnchant1
 local tMinimapCluster = MinimapCluster
 local tMinimap = Minimap
-local scaletMiniMap = 1.75
-local scaletMinimapZoomInOut = 1.35
 
 local f = CreateFrame("Frame")
 --f:RegisterEvent("PLAYER_LOGIN")
@@ -17,8 +15,8 @@ local f = CreateFrame("Frame")
     tMinimapCluster:SetFrameStrata('BACKGROUND')
 
     local customMinimap = CreateFrame("Frame", "MyCustomMinimap", UIParent)
-    customMinimap:SetWidth(150*scaletMiniMap) -- Set the desired size for your minimap (mask size)
-    customMinimap:SetHeight(150*scaletMiniMap)
+    customMinimap:SetWidth(150*1.36) -- Set the desired size for your minimap (mask size)
+    customMinimap:SetHeight(150*1.36)
     customMinimap:SetPoint("TOPRIGHT", 0, -20) -- Position your minimap
 
     -- Set the minimap mask texture (with alpha channel)
@@ -34,8 +32,8 @@ local f = CreateFrame("Frame")
     -- Set the actual Minimap as the child frame's texture
     tMinimap:SetParent(actualMinimap)
     tMinimap:SetPoint("CENTER", 1, -3)
-    tMinimap:SetWidth(131*scaletMiniMap)
-    tMinimap:SetHeight(131*scaletMiniMap)
+    tMinimap:SetWidth(131*1.36)
+    tMinimap:SetHeight(131*1.36)
     --Minimap:SetFrameStrata("LOW")
     tMinimap:SetFrameLevel(tMinimap:GetFrameLevel() - 1)
 
@@ -46,9 +44,9 @@ local f = CreateFrame("Frame")
 	
 -- Create a frame for the border around MinimapZoneText
 local borderFrame = CreateFrame("Frame", "BorderFrameForZoneText", UIParent)
-borderFrame:SetWidth(151*scaletMiniMap) -- Width of the border frame (adjust as needed)
-borderFrame:SetHeight(34) -- Height of the border frame (adjust as needed)
-borderFrame:SetPoint("CENTER", customMinimap, 0, 135) -- Position relative to the customMinimap
+borderFrame:SetWidth(180) -- Width of the border frame (adjust as needed)
+borderFrame:SetHeight(30) -- Height of the border frame (adjust as needed)
+borderFrame:SetPoint("CENTER", customMinimap, 15, 105) -- Position relative to the customMinimap
 borderFrame:Show()
 
 -- Add a texture to the borderFrame
@@ -60,7 +58,7 @@ borderTexture:Show()
 -- Position and style MinimapZoneText within the border frame
 MinimapZoneText:SetParent(borderFrame) -- Set the parent to the new border frame
 MinimapZoneText:ClearAllPoints()
-MinimapZoneText:SetPoint("LEFT", borderFrame, "LEFT", 7, 7) -- Center the text within the border frame
+MinimapZoneText:SetPoint("LEFT", borderFrame, "LEFT", 5, 6) -- Center the text within the border frame
 MinimapZoneText:SetJustifyH("LEFT") -- Ensure the text justifies to the left and grows to the right
 
 
@@ -98,8 +96,8 @@ MinimapToggleButton:Hide()
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
 tMinimapZoomOut:ClearAllPoints()
-tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165*scaletMinimapZoomInOut, -170*scaletMinimapZoomInOut)
-tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150*scaletMinimapZoomInOut, -190*scaletMinimapZoomInOut)
+tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165, -170)
+tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150, -190)
 
 --Normal
 tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
@@ -203,7 +201,7 @@ local customMailIcon = "Interface\\AddOns\\tDF\\img\\mail.tga"
 
 --Set it
 MiniMapMailFrame:ClearAllPoints()
-MiniMapMailFrame:SetPoint("TOPRIGHT", tMinimap, "TOPRIGHT", -200, -200)
+MiniMapMailFrame:SetPoint("TOPRIGHT", tMinimap, "TOPRIGHT", -150, -150)
 MiniMapMailBorder:Hide()
 MiniMapMailIcon:SetTexture(customMailIcon)
 MiniMapMailIcon:SetWidth(32)
