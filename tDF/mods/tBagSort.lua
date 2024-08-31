@@ -1,43 +1,19 @@
+local create_button = tDF.create_button
 
 -- Create the button
-tBagSort = CreateFrame("Button", "tBagSort", ContainerFrame1, "UIPanelButtonTemplate")
-tBagSort:SetWidth(18) -- Adjust the width to fit the texture
-tBagSort:SetHeight(18) -- Adjust the height to fit the texture
-tBagSort:SetPoint("TOPRIGHT", ContainerFrame1, -12, -30) -- Position the button
-
--- Remove the text
-tBagSort:SetText("")
-
--- Set the button texture to the Blizzard default bag texture and fit it to the frame
-local normalTexture = tBagSort:CreateTexture()
-normalTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
-normalTexture:SetAllPoints(tBagSort)
-tBagSort:SetNormalTexture(normalTexture)
-
-local pushedTexture = tBagSort:CreateTexture()
-pushedTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
-pushedTexture:SetAllPoints(tBagSort)
-tBagSort:SetPushedTexture(pushedTexture)
-
-local highlightTexture = tBagSort:CreateTexture()
-highlightTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
-highlightTexture:SetAllPoints(tBagSort)
-tBagSort:SetHighlightTexture(highlightTexture)
-
--- GameTooltip
-tBagSort:SetScript("OnEnter", function()
-    GameTooltip:SetOwner(tBagSort, "ANCHOR_RIGHT")
+local button_tx = "Interface\\AddOns\\tDF\\img\\BagSort"
+local tBagSort = create_button("tBagSort", ContainerFrame1, "TOPRIGHT", 18, 18,
+button_tx, button_tx, button_tx, nil, nil, nil, -12, -30,
+function()
+    GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
     GameTooltip:SetText("Sort Bags", 1, 1, 1, 1, true)
     GameTooltip:AddLine("This button sorts your bags to keep all of your items well organized.", nil, nil, nil, true)
     GameTooltip:Show()
-end)
-
-tBagSort:SetScript("OnLeave", function()
+end,
+function()
     GameTooltip:Hide()
-end)
-
--- Set the button's script to run SortBags() when clicked
-tBagSort:SetScript("OnClick", function()
+end,
+function()
     SortBags()
 end)
 
@@ -69,8 +45,7 @@ end
 local CONTAINERS
 
 function _G.SortBags()
-    --CONTAINERS = {0, 1, 2, 3, 4}
-    CONTAINERS = {4, 3, 2, 1, 0}
+    CONTAINERS = {0, 1, 2, 3, 4}
     Start()
 end
 
@@ -445,13 +420,13 @@ end
 function ContainerClass(container)
     if container ~= 0 and container ~= BANK_CONTAINER then
         local name = GetBagName(container)
-        if name then		
+        if name then
             for class, info in CLASSES do
                 for _, itemID in info.containers do
                     if name == GetItemInfo(itemID) then
                         return class
                     end
-                end	
+                end
             end
         end
     end
