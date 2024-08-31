@@ -59,15 +59,12 @@ mods\equip-compare.lua
 mods\minimap-clock.lua
 mods\minimap-square.lua
 mods\minimap-tweaks.lua
-mods\nameplate-scale.lua
 mods\sell-junk.lua
 mods\unitframes-classcolor.lua
 mods\vendor-values.lua
 mods\worldmap-coordinates.lua
 mods\worldmap-window.lua
 mods\blue-shaman.lua
-mods\nameplate-classcolor.lua
-mods\nameplate-castbar.lua
 mods\move-unitframes-extended.lua
 mods\move-unitframes.lua
 mods\target-castbar.lua
