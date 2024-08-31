@@ -28,7 +28,9 @@ for i = 1, MIRRORTIMER_NUMTIMERS do
     frame.bg = frame:CreateTexture(nil, "BACKGROUND")
     frame.bg:SetTexture("Interface\\TARGETINGFRAME\\UI-StatusBar")
     frame.bg:SetVertexColor(.1, .1, 0, .8)
-    frame.bg:SetAllPoints(frame)
+    frame.bg:SetPoint("CENTER", frame, 0, 0)
+    frame.bg:SetWidth(200.2)
+    frame.bg:SetHeight(15)
 
     frame.statusbar = getglobal("MirrorTimer"..i.."StatusBar")
     frame.statusbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
