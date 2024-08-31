@@ -1,5 +1,6 @@
 local _G = ShaguTweaks.GetGlobalEnv()
 local T = ShaguTweaks.T
+local create_button = tDF.create_button
 
 local module = ShaguTweaks:register({
     title = T["All-In-One-Bag"],
@@ -753,6 +754,7 @@ module.enable = function(self)
 			CloseAllBags = function() SBFrameClose(SUCC_bag) end
 			ToggleKeyRing = function() SBFrameToggle(SUCC_bag.keyring) end
 			SUCC_search()
+			_G.SetSortBagsRightToLeft(1)
 			-- configuration
 			SLASH_SUCC_BAG1 = '/tdfb'
 		elseif event == 'PLAYER_ENTERING_WORLD' then
@@ -1131,44 +1133,20 @@ module.enable = function(self)
 
 	--Start BagSort
 	-- Create the button
-	local tBagSort = CreateFrame("Button", "tBagSort", SUCC_bag, "UIPanelButtonTemplate")
-	tBagSort:SetWidth(18) -- Adjust the width to fit the texture
-	tBagSort:SetHeight(18) -- Adjust the height to fit the texture
-	tBagSort:SetPoint("TOPLEFT", SUCC_bag, 50, -3) -- Position the button
-
-	-- Remove the text
-	tBagSort:SetText("")
-
-	-- Set the button texture to the Blizzard default bag texture and fit it to the frame
-	local normalTexture = tBagSort:CreateTexture()
-	normalTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
-	normalTexture:SetAllPoints(tBagSort)
-	tBagSort:SetNormalTexture(normalTexture)
-
-	local pushedTexture = tBagSort:CreateTexture()
-	pushedTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
-	pushedTexture:SetAllPoints(tBagSort)
-	tBagSort:SetPushedTexture(pushedTexture)
-
-	local highlightTexture = tBagSort:CreateTexture()
-	highlightTexture:SetTexture("Interface\\AddOns\\tDF\\img\\BagSort")
-	highlightTexture:SetAllPoints(tBagSort)
-	tBagSort:SetHighlightTexture(highlightTexture)
-
-	-- GameTooltip
-	tBagSort:SetScript("OnEnter", function()
-		GameTooltip:SetOwner(tBagSort, "ANCHOR_RIGHT")
+	local button_tx = "Interface\\AddOns\\tDF\\img\\BagSort"
+	local tBagSort = create_button("tBagSort", SUCC_bag, "TOPLEFT", 18, 18,
+    button_tx, button_tx, button_tx, nil, nil, nil, 50, -3,
+	function()
+		GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
 		GameTooltip:SetText("Sort Bags", 1, 1, 1, 1, true)
 		GameTooltip:AddLine("This button sorts your bags to keep all of your items well organized.", nil, nil, nil, true)
 		GameTooltip:Show()
-	end)
-
-	tBagSort:SetScript("OnLeave", function()
+	end,
+	function()
 		GameTooltip:Hide()
-	end)
-
-	-- Set the button's script to run SortBags() when clicked
-	tBagSort:SetScript("OnClick", function()
+	end,
+	function()
 		SortBags()
 	end)
+
 end
