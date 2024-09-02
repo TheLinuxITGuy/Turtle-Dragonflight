@@ -492,7 +492,6 @@ end
 			buttons(SUCC_bag.bank, 1)
 			buttons(SUCC_bag.keyring, 1)
 			search.button:Hide()
-			search.icon:Hide()
 		end
 
 			search.edit:SetScript("OnEditFocusGained", function()
@@ -533,7 +532,6 @@ end
         buttons(SUCC_bag.bank, 1)
         buttons(SUCC_bag.keyring, 1)
         search.button:Hide()
-        search.icon:Hide()
     else
         search.edit:SetTextColor(1, 1, 1, 1) -- Full opacity for typed text
         -- Grey out all items except the ones matching the search
@@ -549,7 +547,6 @@ end
         -- Show the close button and icon
         if not search.button:IsVisible() then
             search.button:Show()
-            search.icon:Show()
         end
     end
 end)
