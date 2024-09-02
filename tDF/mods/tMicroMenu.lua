@@ -7,7 +7,7 @@ Dragonflight.
 
 local _G = ShaguTweaks.GetGlobalEnv()
 local T = ShaguTweaks.T
-local create_button = tDF.create_button
+local create_button = tDF.utils.create_button
 
 local module = ShaguTweaks:register({
   title = T["Colorful MicroMenu"],
