@@ -147,26 +147,21 @@ function create_microbutton_eye(parent_frame, x, y)
   end)
   ----------------ANIMATION----------------
 
-  --findGroupButton
-  findGroupButton:SetScript("OnClick", function(self, button, down)
-    LFT_Minimap:Show()
-    overlay.texture:Show()
-    findGroup()
-  end)
-
-  --findMoreButton
-  findMoreButton:SetScript("OnClick", function(self, button, down)
-    LFT_Minimap:Show()
-    overlay.texture:Show()
-    findGroup()
-  end)
-
-  --leaveQueueButton
-  leaveQueueButton:SetScript("OnClick", function(self, button, down)
-    LFT_Minimap:Hide()
-    overlay.texture:Hide()
-    leaveQueue()
-  end)
+    findGroupButton.HookScript = findGroupButton.HookScript or ShaguTweaks.HookScript
+    findMoreButton.HookScript = findMoreButton.HookScript or ShaguTweaks.HookScript
+    leaveQueueButton.HookScript = leaveQueueButton.HookScript or ShaguTweaks.HookScript
+    findGroupButton:HookScript("OnClick", function(self, button, down)
+        LFT_Minimap:Show()
+        overlay.texture:Show()
+        end)
+    findMoreButton:HookScript("OnClick", function(self, button, down)
+        LFT_Minimap:Show()
+        overlay.texture:Show()
+        end)
+    leaveQueueButton:HookScript("OnClick", function(self, button, down)
+        LFT_Minimap:Hide()
+        overlay.texture:Hide()
+        end)
 
   return overlay
 end

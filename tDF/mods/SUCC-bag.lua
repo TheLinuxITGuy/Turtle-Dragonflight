@@ -1,6 +1,6 @@
 local _G = ShaguTweaks.GetGlobalEnv()
 local T = ShaguTweaks.T
-local create_button = tDF.create_button
+local create_button = tDF.utils.create_button
 
 local module = ShaguTweaks:register({
     title = T["All-In-One-Bag"],
@@ -727,10 +727,10 @@ module.enable = function(self)
 			FrameUpdate(SUCC_bag.bank, -1)
 		elseif ( event == 'PLAYER_MONEY' or event == 'PLAYERBANKBAGSLOTS_CHANGED' ) then
 			BankUpdateBagSlotStatus()
-		elseif event == 'ADDON_LOADED' then
+		elseif event == 'PLAYER_ENTERING_WORLD' then
 		--elseif event == 'ADDON_LOADED' and arg1 == 'SUCC-bag' then
 			SUCC_bagOptions = SUCC_bagOptions or SUCC_bagDefaults()
-			this:UnregisterEvent('ADDON_LOADED')
+			--this:UnregisterEvent('ADDON_LOADED')
 			BankFrame:UnregisterEvent('BANKFRAME_OPENED')
 			this:RegisterEvent('BAG_CLOSED')
 			this:RegisterEvent('BAG_UPDATE')
@@ -739,7 +739,7 @@ module.enable = function(self)
 			this:RegisterEvent('CURSOR_UPDATE')
 			this:RegisterEvent('BANKFRAME_OPENED')
 			this:RegisterEvent('BANKFRAME_CLOSED')
-			this:RegisterEvent("PLAYER_ENTERING_WORLD")
+			--this:RegisterEvent("PLAYER_ENTERING_WORLD")
 			this.bags = {0, 1, 2, 3, 4}
 			Essentials(this)
 			Essentials(this.keyring)
@@ -764,7 +764,7 @@ module.enable = function(self)
 
 	SUCC_bag = CreateFrame('Frame', 'SUCC_bag', UIParent)
 	SUCC_bag:SetPoint('BOTTOMRIGHT', UIParent, -55, 55)
-	SUCC_bag:RegisterEvent('ADDON_LOADED')
+	SUCC_bag:RegisterEvent('PLAYER_ENTERING_WORLD')
 	SUCC_bag:SetScript('OnEvent', OnEvent)
 	SUCC_bag:SetScript('OnShow', function()
 		PlaySound('igInventoryOepn')

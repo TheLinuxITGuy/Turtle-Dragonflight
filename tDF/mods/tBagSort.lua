@@ -1,4 +1,4 @@
-local create_button = tDF.create_button
+local create_button = tDF.utils.create_button
 
 -- Create the button
 local button_tx = "Interface\\AddOns\\tDF\\img\\BagSort"

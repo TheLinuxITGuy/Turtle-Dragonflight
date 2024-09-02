@@ -1,6 +1,6 @@
 tDF = {}
-
-tDF.create_button = function(name,
+tDF.utils = {}
+tDF.utils.create_button = function(name,
     parent_frame,
     anchor,
     w,

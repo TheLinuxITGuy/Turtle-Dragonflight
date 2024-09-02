@@ -1,5 +1,5 @@
 local _G = ShaguTweaks.GetGlobalEnv()
-local create_button = tDF.create_button
+local create_button = tDF.utils.create_button
 
 -----------------Inside the bag Top Left Bag icon-----------------
 -- Create a local instance of ContainerFrame1PortraitButton
