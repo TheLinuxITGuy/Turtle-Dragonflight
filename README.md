@@ -39,7 +39,7 @@ TurtleWoW/
 - Stealth/Stance bars work, they are just invisible.
 - The zzz doesn't go away until zone change when under a tent.
 
-## Special Thanks
+## The Team
 - Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
-- Code from [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods)
-- Amazing fixes from [Ark](https://github.com/CrimsonHollow/tDF-more-mods) , [scorpzor](https://github.com/scorpzor) & [Gold](https://github.com/G0ldhart)
+- Dev Team: [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods) , [Ark](https://github.com/CrimsonHollow/tDF-more-mods) , [scorpzor](https://github.com/scorpzor)
+- Art Team: [Gold](https://github.com/G0ldhart) & [Edo](https://github.com/edizmetin)
