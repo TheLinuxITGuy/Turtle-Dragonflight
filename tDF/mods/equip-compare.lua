@@ -196,4 +196,11 @@ module.enable = function(self)
     ShoppingTooltip1:HookScript("OnShow", tDF.eqcompare.ShoppingTooltipShow)
     ShoppingTooltip2:HookScript("OnShow", tDF.eqcompare.ShoppingTooltipShow)
 
+    if AtlasLootTooltip then
+        AtlasLootTooltip.HookScript = AtlasLootTooltip.HookScript or ShaguTweaks.HookScript
+        AtlasLootTooltip2.HookScript = AtlasLootTooltip2.HookScript or ShaguTweaks.HookScript
+        AtlasLootTooltip:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
+        AtlasLootTooltip2:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
+    end
+
 end
