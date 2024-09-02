@@ -1,6 +1,11 @@
 # tDF (Turtle Dragonflight)
 The Dragonflight UI for Turtle WoW.
 
+## The Team
+- Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
+- Dev Team: [scorpzor](https://github.com/scorpzor) , [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods) , [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
+- Art Team: [Gold](https://github.com/G0ldhart) & [Edo](https://github.com/edizmetin)
+
 ## Installation
 This is a stand-alone addon made for the Turtle WoW 1.12.1 client. 
 
@@ -38,8 +43,3 @@ TurtleWoW/
 - Long mob names show behind the level on the TargetUnitFrame.
 - Stealth/Stance bars work, they are just invisible.
 - The zzz doesn't go away until zone change when under a tent.
-
-## The Team
-- Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
-- Dev Team: [scorpzor](https://github.com/scorpzor) , [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods) , [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
-- Art Team: [Gold](https://github.com/G0ldhart) & [Edo](https://github.com/edizmetin)
