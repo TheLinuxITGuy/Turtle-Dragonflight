@@ -27,11 +27,12 @@ module.enable = function(self)
 		SUCC_bagOptions.colors.bag['Enchanting Bag'] = {0.5, 0.4, 0.8}
 		SUCC_bagOptions.colors.override = false
 		SUCC_bagOptions.layout = {}
-		SUCC_bagOptions.layout.spacing = 4
+		SUCC_bagOptions.layout.spacing = 6
 		SUCC_bagOptions.layout.columns ={}
 		SUCC_bagOptions.layout.columns.bag = 8
 		SUCC_bagOptions.layout.columns.bank = 8
 		SUCC_bagOptions.Clean_Up = 1
+		
 		return SUCC_bagOptions
 	end
 
@@ -59,49 +60,77 @@ module.enable = function(self)
 	end
 
 	local function FrameTrimToSize(frame)
-		local frameName = frame:GetName()
-		local slot, height, width
-		if not frame.size or frame.size == 0 then
-			height = 64
-			width = 256
-		else
-			local slot = frame.size + 1
-			local button = getglobal(frameName .. 'Item'.. slot)
-			while button do
-				button:Hide()
-				slot = slot + 1
-				button = getglobal(frameName .. 'Item'.. slot)
-			end
-			if frame.size < frame.cols then
-				width = (37 + frame.space) * frame.size + 14 - frame.space
-			else
-				width = (37 + frame.space) * frame.cols + 14 - frame.space
-			end
-			height = (37 + frame.space) * math.ceil(frame.size / frame.cols)  + 32 - frame.space
-		end
-		frame:SetWidth(width)
-		frame:SetHeight(height)
-	end
+    local frameName = frame:GetName()
+    local slot, height, width
+    local leftRightPadding = 10  -- Add 10 pixels of padding to both left and right
+    local topBottomPadding = 26  -- Add 10 pixels of padding to both top and bottom
+
+    if not frame.size or frame.size == 0 then
+        height = 64
+        width = 256
+    else
+        local slot = frame.size + 1
+        local button = getglobal(frameName .. 'Item' .. slot)
+        while button do
+            button:Hide()
+            slot = slot + 1
+            button = getglobal(frameName .. 'Item' .. slot)
+        end
+
+        -- Calculate the width based on the number of slots and columns
+        if frame.size < frame.cols then
+            width = (37 + frame.space) * frame.size + 14 - frame.space
+        else
+            width = (37 + frame.space) * frame.cols + 14 - frame.space
+        end
+
+        -- Add padding to the width (left and right)
+        width = width + (2 * leftRightPadding)
+
+        -- Calculate the height based on the number of rows, adding top and bottom padding
+        height = (37 + frame.space) * math.ceil(frame.size / frame.cols) + 32 - frame.space
+
+        -- Add padding to the height (top and bottom)
+        height = height + (2 * topBottomPadding)
+    end
+
+    -- Set the frame's width and height with added padding
+    frame:SetWidth(width)
+    frame:SetHeight(height)
+
+    -- Adjust item positions to center them
+    if frame.size > 0 then
+        local totalItemWidth = (37 + frame.space) * math.min(frame.size, frame.cols) - frame.space
+        local leftOffset = (width - totalItemWidth) / 2 -- Center the items horizontally
+
+        -- Adjust the first item to start after the left padding and top padding
+        local firstButton = getglobal(frameName .. 'Item1')
+        if firstButton then
+            firstButton:ClearAllPoints()
+            firstButton:SetPoint("TOPLEFT", frame, "TOPLEFT", leftOffset, -25 - topBottomPadding)
+        end
+    end
+end
 
 	local function TitleLayout(frame)
 		if not frame.slotFrame then return end
 		if frame.cuBag and SUCC_bagOptions.Clean_Up == 1 then
 			frame.title:ClearAllPoints()
-			frame.title:SetPoint('LEFT', frame.cuBag, 'RIGHT', 3, 0)
-			frame.cuBag:SetPoint('LEFT', frame.toggleButton, 'RIGHT', 3, 0)
+			frame.title:SetPoint('CENTER', frame.cuBag, 'CENTER', 30, 0)
+			frame.cuBag:SetPoint('CENTER', frame.toggleButton, 'CENTER', 3, 0)
 			if not frame.cuBag:IsVisible() then frame.cuBag:Show() end
 		else
 			if frame.cuBag then frame.cuBag:Hide() end
 			frame.title:ClearAllPoints()
-			frame.title:SetPoint('LEFT', frame.toggleButton, 'RIGHT', 3, 0)
+			frame.title:SetPoint('TOP', SUCC_bag, 'TOP', 0, -5)
 		end
 	end
 
 	local function SlotFrameSetup(frame)
 		frame.slotFrame:SetFrameLevel(0)
-		frame.slotFrame:SetPoint('TOPRIGHT', frame, 'TOPLEFT', 8, -16)
+		frame.slotFrame:SetPoint('TOPRIGHT', frame, 'TOPLEFT', 10, -16)
 		frame.slotFrame:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\marble',
+			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background',
 			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\BagSlotFrame',
 			tile = true,
 			tileSize = 128,
@@ -113,9 +142,9 @@ module.enable = function(self)
 				bottom = 5
 			}
 		})
-		frame.slotFrame:SetBackdropBorderColor(unpack(SUCC_bagOptions.colors.border))
-		frame.slotFrame:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
-		frame.slotFrame:Hide()
+		--frame.slotFrame:SetBackdropBorderColor(unpack(SUCC_bagOptions.colors.border))
+		--frame.slotFrame:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
+		frame.slotFrame:Hide() --Show/Hide bagslots
 	end
 
 	local function FrameLayout(frame, cols)
@@ -274,7 +303,7 @@ module.enable = function(self)
 		else
 			button = CreateFrame('Button', name, parent, 'ContainerFrameItemButtonTemplate')
 		end
-		button:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Slot')
+		button:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Slot.tga')
 		button.bg = button:CreateTexture(nil, 'BACKGROUND')
 		--button.bg:SetTexture[[Interface\PaperDoll\UI-Backpack-EmptySlot]]
 		button.bg:SetTexture[[Interface\AddOns\tDF\img\bagbg2.tga]]
@@ -381,53 +410,55 @@ module.enable = function(self)
 
 	local function SUCC_search()
 		search = CreateFrame("Frame", nil, SUCC_bag)
-		search:SetPoint("TOPLEFT", SUCC_bag, "BOTTOMLEFT", 4, 4)
-		search:SetHeight(29)
-		search:SetWidth(115) -- 132
+		search:SetPoint("TOPLEFT", SUCC_bag, "TOPLEFT", 12, -22)
+		search:SetHeight(28)
+		search:SetWidth(332) -- 132
 		search:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\marble',
-			edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
+			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
+			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\TooltipBorder.tga',
 			tile = true, tileSize = 8, edgeSize = 16,
 			insets = { left = 3, right = 3, top = 3, bottom = 3 }
 		})
-		search:SetBackdropBorderColor(.5,.5,.5,1)
-		search:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
+		--search:SetBackdropBorderColor(.5,.5,.5,1)
+		--search:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
 
 		search.text = search:CreateFontString(nil, "HIGH", "GameTooltipTextSmall")
 		local font, size = search.text:GetFont()
 		
 		search.edit = CreateFrame("EditBox", nil, search, "InputBoxTemplate")
-		search.edit:SetMaxLetters(14)	
+		search.edit:SetMaxLetters(40)	
 		search.edit:SetPoint("LEFT", search, "LEFT", 10, 0)
 		search.edit:SetHeight(20)
-		search.edit:SetWidth(100)
-		search.edit:SetFont(font, size, "OUTLINE")
+		search.edit:SetWidth(317)
+		search.edit:SetFont(font, size)
 		search.edit:SetAutoFocus(false)
-		search.edit:SetText("Search")
-		search.edit:SetTextColor(1,1,1,1)
+		search.edit:SetText("Search, try hearthstone")
+		search.edit:SetTextColor(1,1,1,0.5)
 
 		search.button = CreateFrame("Button", nil, search.edit)
-		search.button:SetFrameStrata("LOW")	
-		search.button:SetWidth(25)
-		search.button:SetHeight(25)
-		search.button:SetPoint("LEFT", search.edit, "RIGHT", 0, 0)
+		search.button:SetFrameStrata("MEDIUM")	
+		search.button:SetWidth(18)
+		search.button:SetHeight(18)
+		search.button:SetPoint("LEFT", search.edit, "RIGHT", -17, 0)
 		search.button:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\marble',
-			edgeFile = 'Interface\\Tooltips\\UI-Tooltip-Border',
+			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
+			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\TooltipBorder.tga',
 			tile = true, tileSize = 8, edgeSize = 16,
 			insets = { left = 3, right = 3, top = 3, bottom = 3 }
 		})
-		search.button:SetBackdropBorderColor(.5,.5,.5,1)
-		search.button:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
 		search.button:EnableMouse(true) 
 		search.button:Hide()
-		
-		search.icon = search.edit:CreateTexture(nil, "OVERLAY")
-		search.icon:SetPoint("CENTER", search.button, "CENTER", 1, 0)
-		search.icon:SetWidth(27)
-		search.icon:SetHeight(27)
-		search.icon:SetTexture('Interface\\Buttons\\UI-Panel-MinimizeButton-Disabled')
-		search.icon:Hide()
+
+		-- Set the texture directly to the button
+		search.button:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal.tga')
+
+		-- Optionally, you can also set the highlight and pushed textures
+		search.button:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal.tga')
+		search.button:SetPushedTexture('Interface\\AddOns\\tDF\\Textures\\closebutonpushed.tga')
+
+		search.button:Show() -- Show the button when necessary
+
+
 
 		local function buttons(frame, a)
 			if frame:IsVisible() then
@@ -456,7 +487,7 @@ module.enable = function(self)
 		end
 
 		local function reset()        
-			search.edit:SetText("Search")
+			search.edit:SetText("Search, try hearthstone")
 			buttons(SUCC_bag, 1)
 			buttons(SUCC_bag.bank, 1)
 			buttons(SUCC_bag.keyring, 1)
@@ -464,12 +495,21 @@ module.enable = function(self)
 			search.icon:Hide()
 		end
 
-		search.edit:SetScript("OnEditFocusGained", function()
+			search.edit:SetScript("OnEditFocusGained", function()
+		-- If the current text is the placeholder, clear it
+		if search.edit:GetText() == "Search, try hearthstone" then
 			search.edit:SetText("")
+		end
+		-- Set the alpha to 1 (full opacity) when the box is active
+		search.edit:SetTextColor(1, 1, 1, 1)
 		end)
 
 		search.edit:SetScript("OnEditFocusLost", function()
-			reset()			
+			-- Reset to placeholder and alpha to 0.5 if the box is empty
+			if search.edit:GetText() == "" then
+				search.edit:SetText("Search, try hearthstone")
+				search.edit:SetTextColor(1, 1, 1, 0.5)
+			end
 		end)
 
 		search.edit:SetScript("OnTabPressed", function()
@@ -483,20 +523,36 @@ module.enable = function(self)
 		end)	
 
 		search.edit:SetScript("OnTextChanged", function()
-			if this:GetText() == "Search" then return end
-			buttons(SUCC_bag, .25)
-			buttons(SUCC_bag.bank, .25)
-			buttons(SUCC_bag.keyring, .25)
+    local text = search.edit:GetText()
 
-			searchBag(SUCC_bag)
-			searchBag(SUCC_bag.bank)
-			searchBag(SUCC_bag.keyring)
+    -- Check if the text is the placeholder or empty
+    if text == "Search, try hearthstone" or text == "" then
+        search.edit:SetTextColor(1, 1, 1, 0.5) -- Alpha 0.5 for placeholder
+        -- Reset all items to full opacity if nothing is typed
+        buttons(SUCC_bag, 1)
+        buttons(SUCC_bag.bank, 1)
+        buttons(SUCC_bag.keyring, 1)
+        search.button:Hide()
+        search.icon:Hide()
+    else
+        search.edit:SetTextColor(1, 1, 1, 1) -- Full opacity for typed text
+        -- Grey out all items except the ones matching the search
+        buttons(SUCC_bag, .25)
+        buttons(SUCC_bag.bank, .25)
+        buttons(SUCC_bag.keyring, .25)
 
-			if not search.button:IsVisible() then
-				search.button:Show()
-				search.icon:Show()
-			end
-		end)
+        -- Perform the search
+        searchBag(SUCC_bag)
+        searchBag(SUCC_bag.bank)
+        searchBag(SUCC_bag.keyring)
+
+        -- Show the close button and icon
+        if not search.button:IsVisible() then
+            search.button:Show()
+            search.icon:Show()
+        end
+    end
+end)
 	end
 
 	local function Essentials(frame)
@@ -509,8 +565,8 @@ module.enable = function(self)
 		frame:SetUserPlaced(true)
 		frame:SetClampedToScreen()
 		frame:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\marble',
-			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\BagFrame',
+			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
+			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\bagframe2.tga',
 			tile = true,
 			tileSize = 128,
 			edgeSize = 32,
@@ -521,46 +577,69 @@ module.enable = function(self)
 				bottom = 5
 			},
 		})
-		frame:SetBackdropBorderColor(unpack(SUCC_bagOptions.colors.border))
-		frame:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
+		--frame:SetBackdropBorderColor(unpack(SUCC_bagOptions.colors.border))
+		--frame:SetBackdropColor(unpack(SUCC_bagOptions.colors.backdrop))
 		frame:Hide()
 		tinsert(UISpecialFrames, t)
-		frame.closeButton = CreateFrame('Button', t .. 'CloseButton', frame, 'UIPanelCloseButton')
-		frame.closeButton:SetPoint('TOPRIGHT', frame, 4, 4)
+		frame.closeButton = CreateFrame('Button', t .. 'CloseButton', frame)
+		frame.closeButton:SetWidth(20)  -- Set width and height separately
+		frame.closeButton:SetHeight(20)
+		frame.closeButton:SetPoint('TOPRIGHT', frame, 'TOPRIGHT', -3, -1)  -- Adjust position as needed
+		-- Set the button textures
+		frame.closeButton:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal')
+		frame.closeButton:SetPushedTexture('Interface\\AddOns\\tDF\\Textures\\closebutonpushed')
+		frame.closeButton:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal')
 		frame.closeButton:SetScript('OnClick', function() SBFrameClose(frame) end)
 		frame.title = frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 		frame.title:SetPoint('TOPLEFT', frame, 11, -6)
 		frame.title.t = string.sub(t, 9, -1)
-		frame.title:SetText(frame.title.t ~= '' and frame.title.t ~= nil and frame.title.t or 'Bag')
+		local playerName = UnitName("player")
+		frame.title:SetText(frame.title.t ~= '' and frame.title.t ~= nil and frame.title.t or (playerName .. "'s Bags"))
+
 		if frame.slotFrame then
 			SlotFrameSetup(frame)
 			frame.toggleButton = CreateFrame('Button', t .. 'ToggleButton', frame)
-			frame.toggleButton:SetHeight(12)
-			frame.toggleButton:SetWidth(12)
-			frame.toggleButton:SetPoint('TOPLEFT', 10, -6)
-			frame.toggleButton:SetNormalTexture('Interface\\QuestFrame\\UI-Quest-BulletPoint')
-			frame.toggleButton:SetHighlightTexture('Interface\\Minimap\\UI-Minimap-ZoomButton-Highlight')
-			frame.toggleButton:SetPushedTexture('Interface\\QuestFrame\\UI-Quest-BulletPoint')
-			frame.toggleButton:GetNormalTexture():SetTexCoord(0.25, 0.75, 0.25, 0.75)
+			frame.toggleButton:SetHeight(20)
+			frame.toggleButton:SetWidth(20)
+			frame.toggleButton:SetPoint('TOPLEFT', 10, -1)
+			frame.toggleButton:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Bags.tga')
+			frame.toggleButton:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\Bags.tga')
+			--frame.toggleButton:SetPushedTexture('Interface\\QuestFrame\\UI-Quest-BulletPoint')
+			--frame.toggleButton:GetNormalTexture():SetTexCoord(0.25, 0.75, 0.25, 0.75)
 			frame.toggleButton:RegisterForClicks('LeftButtonUp', 'RightButtonUp')
 			frame.toggleButton:SetScript('OnClick', function()
 				local slotFrame = frame.slotFrame
-				if arg1 == 'RightButton' then
-					ToggleKeyRing()
-				else
-					PlaySound('igMainMenuOption')
-					if slotFrame:IsVisible() then
-						slotFrame:Hide()
-					else
-						slotFrame:Show()
-					end
-				end
+        PlaySound('igMainMenuOption')
+        if slotFrame:IsVisible() then
+            slotFrame:Hide()
+        else
+            slotFrame:Show()
+        end
+    end)
+			-- Create the keyring button
+			frame.keyringButton = CreateFrame('Button', t .. 'KeyringButton', frame)
+			frame.keyringButton:SetHeight(20)
+			frame.keyringButton:SetWidth(20)
+			frame.keyringButton:SetPoint('TOPLEFT', frame.toggleButton, 'TOPRIGHT', 7, 0) -- Position it next to the bags button
+			frame.keyringButton:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\bag_keys.tga')
+			frame.keyringButton:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\bag_keys.tga')
+			frame.keyringButton:RegisterForClicks('LeftButtonUp', 'RightButtonUp')
+			frame.keyringButton:SetScript('OnClick', function()
+				ToggleKeyRing()
 			end)
+
 			frame.toggleButton:SetScript('OnEnter', function()
 				GameTooltip:SetOwner(this, 'ANCHOR_LEFT')
-				GameTooltip:AddLine('Left Click: Open bags', 1, 1, 1)
-				GameTooltip:AddLine('Right Click: Open keyring' , 0.3, 0.8, 1)
+				GameTooltip:AddLine('Open bags', 1, 1, 1)
 				GameTooltip:Show()
+			end)
+			frame.keyringButton:SetScript('OnEnter', function()
+			GameTooltip:SetOwner(frame.keyringButton, 'ANCHOR_LEFT')
+			GameTooltip:AddLine('Open keyring', 1, 1, 1)
+			GameTooltip:Show()
+			end)
+			frame.keyringButton:SetScript('OnLeave', function()
+			GameTooltip:Hide()
 			end)
 			frame.toggleButton:SetScript('OnLeave', function() GameTooltip:Hide() end)
 			if Clean_Up then
@@ -593,7 +672,7 @@ module.enable = function(self)
 			frame.slotFrame:SetScript('OnShow', function() frame.toggleButton:GetNormalTexture():SetVertexColor(1, 0, 0) end)
 			TitleLayout(frame)
 			frame.moneyFrame = CreateFrame('Frame', t .. 'MoneyFrame', frame, 'SmallMoneyFrameTemplate')
-			frame.moneyFrame:SetPoint('RIGHT', frame.closeButton, 'LEFT', 12, 0)
+			frame.moneyFrame:SetPoint('BOTTOMRIGHT', SUCC_bag, 'BOTTOMRIGHT', 0, 10)
 		end
 	end
 
@@ -730,7 +809,7 @@ module.enable = function(self)
 		elseif event == 'PLAYER_ENTERING_WORLD' then
 		--elseif event == 'ADDON_LOADED' and arg1 == 'SUCC-bag' then
 			SUCC_bagOptions = SUCC_bagOptions or SUCC_bagDefaults()
-			--this:UnregisterEvent('ADDON_LOADED')
+			this:UnregisterEvent('ADDON_LOADED')
 			BankFrame:UnregisterEvent('BANKFRAME_OPENED')
 			this:RegisterEvent('BAG_CLOSED')
 			this:RegisterEvent('BAG_UPDATE')
@@ -1133,9 +1212,9 @@ module.enable = function(self)
 
 	--Start BagSort
 	-- Create the button
-	local button_tx = "Interface\\AddOns\\tDF\\img\\BagSort"
-	local tBagSort = create_button("tBagSort", SUCC_bag, "TOPLEFT", 18, 18,
-    button_tx, button_tx, button_tx, nil, nil, nil, 50, -3,
+	local button_tx = "Interface\\AddOns\\tDF\\Textures\\Sorting.tga"
+	local tBagSort = create_button("tBagSort", SUCC_bag, "TOPRIGHT", 18, 18,
+    button_tx, button_tx, button_tx, nil, nil, nil, -30, -3,
 	function()
 		GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
 		GameTooltip:SetText("Sort Bags", 1, 1, 1, 1, true)
