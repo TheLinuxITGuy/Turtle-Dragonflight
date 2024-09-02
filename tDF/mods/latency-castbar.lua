@@ -9,6 +9,6 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
-  castbar.lag:Show()
-  castbar.lagText:Show()
+  tDFImprovedCastbar.lag:Show()
+  tDFImprovedCastbar.lagText:Show()
 end

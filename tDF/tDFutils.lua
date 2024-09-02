@@ -188,6 +188,12 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
 
         this.text:SetText(cast)
         this.timerText:SetText(rem)
+        if this.lagText then
+            local _, _, lag = GetNetStats()
+            local width = castbar:GetWidth() / (duration/1000) * (lag/1000)
+            this.lag:SetWidth(math.min(castbar:GetWidth(), width))
+            this.lagText:SetText(lag .. "ms")
+        end
 
         if texture and this.unitstr == "target" then
             this.texture.icon:SetTexture(texture)
