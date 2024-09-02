@@ -41,5 +41,5 @@ TurtleWoW/
 
 ## The Team
 - Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
-- Dev Team: [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods) , [Ark](https://github.com/CrimsonHollow/tDF-more-mods) , [scorpzor](https://github.com/scorpzor)
+- Dev Team: [scorpzor](https://github.com/scorpzor) , [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods) , [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
 - Art Team: [Gold](https://github.com/G0ldhart) & [Edo](https://github.com/edizmetin)
