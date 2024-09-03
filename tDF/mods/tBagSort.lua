@@ -1,6 +1,6 @@
 local create_button = tDF.utils.create_button
 
--- Create the button
+-- Create the button for the main bags
 local button_tx = "Interface\\AddOns\\tDF\\img\\BagSort"
 local tBagSort = create_button("tBagSort", ContainerFrame1, "TOPRIGHT", 18, 18,
 button_tx, button_tx, button_tx, nil, nil, nil, -12, -30,
@@ -14,7 +14,27 @@ function()
     GameTooltip:Hide()
 end,
 function()
-    SortBags()
+    if BankFrame:IsVisible() then
+        SortBankBags()  -- Sorts the bank if the bank frame is open
+    else
+        SortBags()  -- Sorts the bags if the bank frame is not open
+    end
+end)
+
+-- Create the button specifically for the BankFrame
+local tBankSort = create_button("tBankSort", BankFrame, "TOPRIGHT", 18, 18,
+button_tx, button_tx, button_tx, nil, nil, nil, -45, -45,
+function()
+    GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+    GameTooltip:SetText("Sort Bank", 1, 1, 1, 1, true)
+    GameTooltip:AddLine("This button sorts your bank slots to keep all of your items well organized.", nil, nil, nil, true)
+    GameTooltip:Show()
+end,
+function()
+    GameTooltip:Hide()
+end,
+function()
+    SortBankBags()  -- Sorts the bank slots
 end)
 
 --SortBags
