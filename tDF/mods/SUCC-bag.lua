@@ -746,6 +746,14 @@ end)
 				GameTooltip:Hide()
 				ResetCursor()
 			end)
+			--- Add title to the bank frame, ensuring consistent font style with the bag frame
+    frame.bank.title = frame.bank:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
+    frame.bank.title:SetPoint('TOP', frame.bank, 11, -6)  -- Matching positioning with SUCC_bag
+    frame.bank.title.t = ''  -- Example custom text setup, adjust as needed
+    local playerName = UnitName("player")
+    frame.bank.title:SetText(frame.bank.title.t ~= '' and frame.bank.title.t ~= nil and frame.bank.title.t or (playerName .. "'s Bank"))
+	
+
 		end
 		StaticPopupDialogs['CONFIRM_BUY_SUCCBANK_SLOT'] = {
 			text = TEXT(CONFIRM_BUY_BANK_SLOT),
@@ -1208,21 +1216,60 @@ end)
 	end
 
 	--Start BagSort
-	-- Create the button
-	local button_tx = "Interface\\AddOns\\tDF\\Textures\\Sorting.tga"
-	local tBagSort = create_button("tBagSort", SUCC_bag, "TOPRIGHT", 18, 18,
+-- Create the bag sorting button
+local button_tx = "Interface\\AddOns\\tDF\\Textures\\Sorting.tga"
+local tBagSort = create_button("tBagSort", SUCC_bag, "TOPRIGHT", 18, 18,
     button_tx, button_tx, button_tx, nil, nil, nil, -30, -3,
-	function()
-		GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
-		GameTooltip:SetText("Sort Bags", 1, 1, 1, 1, true)
-		GameTooltip:AddLine("This button sorts your bags to keep all of your items well organized.", nil, nil, nil, true)
-		GameTooltip:Show()
-	end,
-	function()
-		GameTooltip:Hide()
-	end,
-	function()
-		SortBags()
-	end)
+    function()
+        GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+        GameTooltip:SetText("Sort Bags", 1, 1, 1, 1, true)
+        GameTooltip:AddLine("This button sorts your bags to keep all of your items well organized.", nil, nil, nil, true)
+        GameTooltip:Show()
+    end,
+    function()
+        GameTooltip:Hide()
+    end,
+    function()
+        SortBags()  -- Function to sort bags
+    end)
+
+-- Function to create a sorting button attached to a specified parent frame
+local function CreateSortButton(name, parent, tooltipTitle, tooltipText, sortFunction)
+    local button_tx = "Interface\\AddOns\\tDF\\Textures\\Sorting.tga"
+    create_button(name, parent, "TOPRIGHT", 18, 18,
+        button_tx, button_tx, button_tx, nil, nil, nil, -30, -3,
+        function()
+            GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
+            GameTooltip:SetText(tooltipTitle, 1, 1, 1, 1, true)
+            GameTooltip:AddLine(tooltipText, nil, nil, nil, true)
+            GameTooltip:Show()
+        end,
+        function()
+            GameTooltip:Hide()
+        end,
+        function()
+            sortFunction()  -- Function to sort items
+        end)
+end
+
+-- Event handler to prepare bank and create the bank sorting button when the bank frame is opened
+local function OnBankFrameOpened()
+    -- Initialize SUCC_bagBank if not already done
+    PrepareBank(SUCC_bag)
+    
+    -- Create the bank sorting button attached to SUCC_bagBank
+    CreateSortButton("tBankSort", SUCC_bagBank, "Sort Bank", "This button sorts your bank slots to keep all of your items well organized.", SortBankBags)
+end
+
+-- Register event to handle bank frame opening
+local eventFrame = CreateFrame("Frame")
+eventFrame:RegisterEvent("BANKFRAME_OPENED")
+eventFrame:SetScript("OnEvent", OnBankFrameOpened)
+
+
+
 
 end
+
+
+
