@@ -43,3 +43,6 @@ TurtleWoW/
 - Long mob names show behind the level on the TargetUnitFrame.
 - Stealth/Stance bars work, they are just invisible.
 - The zzz doesn't go away until zone change when under a tent.
+
+## Donate
+https://www.paypal.com/donate/?hosted_button_id=WPTX2BMBARSG2
