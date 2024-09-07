@@ -12,5 +12,7 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
-    local castbar = create_castbar("target", "tDFTargetCastbar", TargetFrame, "BOTTOM", -12, -4, 140, 10, 2)
+    local castbar = create_castbar("target", "tDFTargetCastbar", TargetFrame, "BOTTOM", -12, -10, 140, 10, 2)
+	-- Set the frame strata and level to ensure it's in front
+    castbar:SetFrameStrata("HIGH")  -- Set the frame strata to 'HIGH' to ensure it appears above most UI elements.
 end
