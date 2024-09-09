@@ -4,12 +4,7 @@
 
 The Dragonflight UI for Turtle WoW.
 
-## The Team
-- Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
-- Dev Team: [scorpzor](https://github.com/scorpzor) , [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods) , [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
-- Art Team: [Gold](https://github.com/G0ldhart) & [Edo](https://github.com/edizmetin)
-
-## Installation
+## 🛠️ Installation
 This is a stand-alone addon made for the Turtle WoW 1.12.1 client. 
 
 #### tDF Install
@@ -27,10 +22,10 @@ TurtleWoW/
     └── TargetingFrame
 </pre>
    
-## Video
+## 🎥 Video
 [![Video](https://img.youtube.com/vi/AD1jRnHu_lo/maxresdefault.jpg)](https://www.youtube.com/watch?v=AD1jRnHu_lo)
 
-## Features
+## ✨ Features
 - Dragonflight Minimap
 - Dragonflight ActionBars
 - Dragonflight Unitframes
@@ -42,10 +37,14 @@ TurtleWoW/
 - tDF Nameplates (Type `/tdfp` for options)
 - Customization Options (Escape -> "tDF Options" for a list of customization options)
 
-## Known issues
+## 🐞 Known issues
 - Long mob names show behind the level on the TargetUnitFrame.
 - Stealth/Stance bars work, they are just invisible.
 - The zzz doesn't go away until zone change when under a tent.
+## 🌟 Grateful to All Contributors
+A heartfelt thank you to everyone who has contributed to the development of tDF. Your dedication is truly appreciated, and you’re making this addon better for everyone!
 
-## Donate
+[![Contributors](https://contrib.rocks/image?repo=TheLinuxITGuy/Turtle-Dragonflight)](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/graphs/contributors)
+
+## 💖 Donate
 https://www.paypal.com/donate/?hosted_button_id=WPTX2BMBARSG2
