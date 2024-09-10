@@ -24,11 +24,12 @@ local f = CreateFrame("Frame")
     customMinimap.texture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapmask.tga")
     customMinimap.texture:SetAllPoints(customMinimap)
     customMinimap.texture:SetVertexColor(1, 1, 1, 0) -- Fully transparent
+	customMinimap:SetClampedToScreen(true) -- Clamp the frame to the screen
 
     -- Set the actual Minimap as the child frame (display the game world inside the mask)
     local actualMinimap = CreateFrame("Frame", "MyActualMinimap", customMinimap)
     actualMinimap:SetAllPoints(customMinimap)
-
+	
     -- Set the actual Minimap as the child frame's texture
     tMinimap:SetParent(actualMinimap)
     tMinimap:SetPoint("CENTER", 1, -3)
@@ -36,6 +37,7 @@ local f = CreateFrame("Frame")
     tMinimap:SetHeight(131*1.36)
     --Minimap:SetFrameStrata("LOW")
     tMinimap:SetFrameLevel(tMinimap:GetFrameLevel() - 1)
+	
 
     -- Add the Minimap border texture (displayed above the actual Minimap)
     local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
