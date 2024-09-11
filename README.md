@@ -5,7 +5,7 @@
 The Dragonflight UI for Turtle WoW.
 
 ## 🛠️ Installation
-This is a stand-alone addon made for the Turtle WoW 1.12.1 client. 
+This is a stand-alone addon made for the Turtle WoW 1.12.1 client. Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
 
 #### tDF Install
 1. Unpack the zip file included with this download.
