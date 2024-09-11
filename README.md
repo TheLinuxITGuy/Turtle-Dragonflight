@@ -5,7 +5,7 @@
 The Dragonflight UI for Turtle WoW.
 
 ## 🛠️ Installation
-This is a stand-alone addon made for the Turtle WoW 1.12.1 client. Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
+This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 
 #### tDF Install
 1. Unpack the zip file included with this download.
@@ -42,7 +42,7 @@ TurtleWoW/
 - Stealth/Stance bars work, they are just invisible.
 - The zzz doesn't go away until zone change when under a tent.
 ## 🌟 Grateful to All Contributors
-A heartfelt thank you to everyone who has contributed to the development of tDF. Your dedication is truly appreciated, and you’re making this addon better for everyone!
+A heartfelt thank you to everyone who has contributed to the development of tDF. Your dedication is truly appreciated, and you’re making this addon better for everyone! Based on [ShaguTweaks](https://shagu.org/ShaguTweaks/)
 
 [![Contributors](https://contrib.rocks/image?repo=TheLinuxITGuy/Turtle-Dragonflight)](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/graphs/contributors)
 
