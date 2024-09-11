@@ -1,3 +1,22 @@
+-- Function to save the frame's position into SUCC_bagOptions
+local function SaveFramePosition(frame)
+    local point, _, relativePoint, xOfs, yOfs = frame:GetPoint()
+    SUCC_bagOptions.position = {
+        point = point,
+        relativePoint = relativePoint,
+        xOfs = xOfs,
+        yOfs = yOfs,
+    }
+end
+
+-- Function to restore the frame's position from SUCC_bagOptions
+local function RestoreFramePosition(frame)
+    if SUCC_bagOptions.position and SUCC_bagOptions.position.point then
+        frame:ClearAllPoints()
+        frame:SetPoint(SUCC_bagOptions.position.point, UIParent, SUCC_bagOptions.position.relativePoint, SUCC_bagOptions.position.xOfs, SUCC_bagOptions.position.yOfs)
+    end
+end
+
 local _G = ShaguTweaks.GetGlobalEnv()
 local T = ShaguTweaks.T
 local create_button = tDF.utils.create_button
@@ -553,14 +572,22 @@ end)
 	end
 
 	local function Essentials(frame)
-		local t = frame:GetName()
-		frame:SetScript('OnMouseDown', function() this:StartMoving() end)
-		frame:SetScript('OnMouseUp', function() this:StopMovingOrSizing() end)
-		frame:SetToplevel()
-		frame:EnableMouse()
-		frame:SetMovable()
-		frame:SetUserPlaced(true)
-		frame:SetClampedToScreen()
+    local t = frame:GetName()
+    frame:SetScript('OnMouseDown', function() 
+        this:StartMoving() 
+    end)
+    frame:SetScript('OnMouseUp', function() 
+        this:StopMovingOrSizing() 
+        SaveFramePosition(this) -- Save the position on drag stop
+    end)
+    frame:SetToplevel()
+    frame:EnableMouse()
+    frame:SetMovable(true)
+    frame:SetUserPlaced(true)
+    frame:SetClampedToScreen(true)
+
+    -- Restore the position when the frame loads
+    RestoreFramePosition(frame)
 		frame:SetBackdrop({
 			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
 			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\bagframe2.tga',
@@ -1270,6 +1297,5 @@ eventFrame:SetScript("OnEvent", OnBankFrameOpened)
 
 
 end
-
 
 
