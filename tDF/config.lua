@@ -97,6 +97,18 @@ settings.defaults:SetScript("OnClick", function()
   settings:defaults()
 end)
 
+settings.plates = CreateFrame("Button", "AdvancedSettingsGUIPlates", settings, "GameMenuButtonTemplate")
+settings.plates:SetWidth(90)
+settings.plates:SetPoint("BOTTOMLEFT", settings, "BOTTOMLEFT", 107, 17)
+settings.plates:SetText("Plates")
+settings.plates:SetScript("OnClick", function()
+  if ShaguPlates.gui:IsShown() then
+    ShaguPlates.gui:Hide()
+  else
+    ShaguPlates.gui:Show()
+  end
+end)
+
 local opposite_table =
 {
   ["Colorful MicroMenu"] = {"Gray MicroMenu"},
