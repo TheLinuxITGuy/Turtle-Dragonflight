@@ -4,8 +4,8 @@
 ## Notes: The Dragonflight UI for Turtle WoW.
 ## Version: GIT
 ## DefaultState: enabled
-## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache
-## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB, SUCC_bagOptions
+## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache, SUCC_bagOptions
+## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB
 
 # locales
 locales\locales_deDE.lua
