@@ -43,16 +43,16 @@ function ShowTWBGQueueMenu()
 end
 
 function create_microbutton_eye(parent_frame, x, y)
-  LFT_Minimap:SetPoint("CENTER", tDFmicrobutton, x, y)
-  local overlay = CreateFrame("Frame", nil, LFT_MinimapEye:GetParent())
+  LFT:SetPoint("CENTER", tDFmicrobutton, x, y)
+  local overlay = CreateFrame("Frame", nil, LFTMinimapButtonEye:GetParent())
 
-  -- Set the frame strata to be higher than LFT_MinimapEye
+  -- Set the frame strata to be higher than LFTMinimapButtonEye 
   overlay:SetFrameStrata("DIALOG")
 
   -- Set the size and position of the overlay to match LFT_MinimapEye
-  overlay:SetWidth(LFT_MinimapEye:GetWidth())
-  overlay:SetHeight(LFT_MinimapEye:GetHeight())
-  overlay:SetPoint("CENTER", LFT_MinimapEye, "CENTER")
+  overlay:SetWidth(LFTMinimapButtonEye:GetWidth())
+  overlay:SetHeight(LFTMinimapButtonEye:GetHeight())
+  overlay:SetPoint("CENTER", LFTMinimapButtonEye, "CENTER")
 
   -- Set the texture for the overlay
   overlay.texture = overlay:CreateTexture()
@@ -142,27 +142,25 @@ function create_microbutton_eye(parent_frame, x, y)
         end
       end)  
       UpdateTexCoords()
-      LFT_Minimap:Hide()
+      LFTFrameMainButton:Hide()
     end
   end)
   ----------------ANIMATION----------------
-
     findGroupButton.HookScript = findGroupButton.HookScript or ShaguTweaks.HookScript
     findMoreButton.HookScript = findMoreButton.HookScript or ShaguTweaks.HookScript
     leaveQueueButton.HookScript = leaveQueueButton.HookScript or ShaguTweaks.HookScript
     findGroupButton:HookScript("OnClick", function(self, button, down)
-        LFT_Minimap:Show()
+        LFTFrameMainButton:Show()
         overlay.texture:Show()
         end)
     findMoreButton:HookScript("OnClick", function(self, button, down)
-        LFT_Minimap:Show()
+        LFTFrameMainButton:Show()
         overlay.texture:Show()
         end)
     leaveQueueButton:HookScript("OnClick", function(self, button, down)
-        LFT_Minimap:Hide()
+        LFTFrameMainButton:Hide()
         overlay.texture:Hide()
         end)
-
   return overlay
 end
 
@@ -206,20 +204,20 @@ function microbutton_removemi()
   EBC_Minimap:ClearAllPoints()
   EBC_Minimap:Hide()
   
-  LFT_Minimap:SetParent(UIParent)
-  LFT_Minimap:ClearAllPoints()
-  LFT_Minimap:Hide()
+  LFT:SetParent(UIParent)
+  LFT:ClearAllPoints()
+  LFT:Hide()
   
   EBC_Minimap:SetParent(UIParent)
   EBC_Minimap:ClearAllPoints()
   EBC_Minimap:Hide()
   
-  TWMinimapShopFrame:SetParent(UIParent)
-  TWMinimapShopFrame:ClearAllPoints()
-  TWMinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
-  TWMinimapShopFrame:SetAlpha(0)
-  TWMinimapShopFrame:SetHeight(0)
-  TWMinimapShopFrame:SetWidth(0)
+  MinimapShopFrame:SetParent(UIParent)
+  MinimapShopFrame:ClearAllPoints()
+  MinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
+  MinimapShopFrame:SetAlpha(0)
+  MinimapShopFrame:SetHeight(0)
+  MinimapShopFrame:SetWidth(0)
 
   TWMiniMapBattlefieldFrame:Hide()
 end
