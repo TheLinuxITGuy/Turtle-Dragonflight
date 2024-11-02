@@ -146,6 +146,8 @@ function create_microbutton_eye(parent_frame, x, y)
     end
   end)
   ----------------ANIMATION----------------
+  --TO-DO: Reimplement after TWoW fix Group Finder
+    --[[
     findGroupButton.HookScript = findGroupButton.HookScript or ShaguTweaks.HookScript
     findMoreButton.HookScript = findMoreButton.HookScript or ShaguTweaks.HookScript
     leaveQueueButton.HookScript = leaveQueueButton.HookScript or ShaguTweaks.HookScript
@@ -161,6 +163,7 @@ function create_microbutton_eye(parent_frame, x, y)
         LFTFrameMainButton:Hide()
         overlay.texture:Hide()
         end)
+    ]]--
   return overlay
 end
 

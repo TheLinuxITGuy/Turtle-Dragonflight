@@ -106,7 +106,7 @@ module.enable = function(self)
         GameTooltip:Hide()
       end,
       f_OnClick = function(self, button, down)
-        tws_toggle()
+        ShopFrame_Toggle()
       end
     },
     {
