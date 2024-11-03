@@ -34,7 +34,6 @@ TurtleWoW/
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
-- tDF Nameplates (Type `/tdfp` for options)
 - Customization Options (Escape -> "tDF Options" for a list of customization options)
 
 ## 🐞 Known issues
