@@ -1,6 +1,0 @@
-<Ui xmlns="http://www.blizzard.com/wow/ui/">
-  <Include file="..\modules\cooldown.lua"/>
-  <Include file="..\modules\settings.lua"/>
-  <Include file="..\modules\nameplates.lua"/>
-  <Include file="..\modules\superwow.lua"/>
-</Ui>
