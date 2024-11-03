@@ -1,11 +1,11 @@
 ## Interface: 11200
 ## Title: |cff008000Turtle |cff1974d2Dragonflight
-## Author: Youtube/@TheLinuxITGuy - built on ShaguTweaks
+## Author: Youtube/@TheLinuxITGuy
 ## Notes: The Dragonflight UI for Turtle WoW.
 ## Version: GIT
 ## DefaultState: enabled
-## SavedVariables: ShaguPlates_profiles, ShaguPlates_addon_profiles, ShaguPlates_cache, SUCC_bagOptions
-## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft, ShaguPlates_config, ShaguPlates_init, ShaguPlates_playerDB
+## SavedVariables: SUCC_bagOptions
+## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft
 
 # locales
 locales\locales_deDE.lua
@@ -40,7 +40,6 @@ libs\libdebuff-tDF.lua
 libs\libunitscan-tDF.lua
 libs\libhealth-tDF.lua
 libs\libnameplate-tDF.lua
-
 
 # custom
 mods\custom.lua
@@ -83,7 +82,6 @@ mods\tMicroMenu.lua
 mods\tBagSort.lua
 mods\actionbar-on-key-down.lua
 mods\tHideBags.lua
-mods\tLootAtMouse.lua
 mods\tTooltipAtMouse.lua
 mods\tHidetDFmicrobutton.lua
 mods\xpbar-active-tracking.lua
@@ -93,15 +91,6 @@ mods\SUCC-bag.lua
 mods\xpbar-show-full.lua
 mods\xpbar-xp-hide.lua
 mods\minimap-scale.lua
-
-
-# ShaguPlates
-ShaguPlates.lua
-init\env.xml
-init\compat.xml
-init\api.xml
-init\libs.xml
-init\modules.xml
 
 #Turtle Dragonflight
 tMinimap.lua
