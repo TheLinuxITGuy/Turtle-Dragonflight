@@ -97,6 +97,7 @@ settings.defaults:SetScript("OnClick", function()
   settings:defaults()
 end)
 
+--[[
 settings.plates = CreateFrame("Button", "AdvancedSettingsGUIPlates", settings, "GameMenuButtonTemplate")
 settings.plates:SetWidth(90)
 settings.plates:SetPoint("BOTTOMLEFT", settings, "BOTTOMLEFT", 107, 17)
@@ -108,6 +109,7 @@ settings.plates:SetScript("OnClick", function()
     ShaguPlates.gui:Show()
   end
 end)
+]]
 
 local opposite_table =
 {
