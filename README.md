@@ -9,10 +9,10 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 
 #### tDF Install
 1. Unpack the zip file included with this download.
-2. Copy the "tDF" folder to your AddOns folder.
+2. Copy the __tDF__ folder to your AddOns folder.
 
 #### Interface Install
-- Copy the contents of the included "Interface" folder into your Interface folder.
+- Copy the contents of the included __Interface__ folder into your Interface folder.
 - Folder structure:
   
 <pre>
@@ -34,7 +34,8 @@ TurtleWoW/
 - Dragonflight MicroMenu
 - Dragonflight Latency Bar
 - Dragonflight XP bar (Green: 150% rested, Blue: Below 150% Rested XP, Purple: Regular XP)
-- Customization Options (Escape -> "tDF Options" for a list of customization options)
+- For Customization Options, press __Escape__ and navigate to __tDF Options__
+- Move things with __CTRL + SHIFT__
 
 ## 🐞 Known issues
 - Long mob names show behind the level on the TargetUnitFrame.
