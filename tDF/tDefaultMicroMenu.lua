@@ -146,24 +146,7 @@ function create_microbutton_eye(parent_frame, x, y)
     end
   end)
   ----------------ANIMATION----------------
-  --TO-DO: Reimplement after TWoW fix Group Finder
-    --[[
-    findGroupButton.HookScript = findGroupButton.HookScript or ShaguTweaks.HookScript
-    findMoreButton.HookScript = findMoreButton.HookScript or ShaguTweaks.HookScript
-    leaveQueueButton.HookScript = leaveQueueButton.HookScript or ShaguTweaks.HookScript
-    findGroupButton:HookScript("OnClick", function(self, button, down)
-        LFTFrameMainButton:Show()
-        overlay.texture:Show()
-        end)
-    findMoreButton:HookScript("OnClick", function(self, button, down)
-        LFTFrameMainButton:Show()
-        overlay.texture:Show()
-        end)
-    leaveQueueButton:HookScript("OnClick", function(self, button, down)
-        LFTFrameMainButton:Hide()
-        overlay.texture:Hide()
-        end)
-    ]]--
+LFTMinimapButton:Hide()
   return overlay
 end
 
