@@ -44,15 +44,15 @@ end
 
 function create_microbutton_eye(parent_frame, x, y)
   LFT:SetPoint("CENTER", tDFmicrobutton, x, y)
-  local overlay = CreateFrame("Frame", nil, LFTMinimapButtonEye:GetParent())
+  local overlay = CreateFrame("Frame", nil, LFT_Minimap:GetParent())
 
-  -- Set the frame strata to be higher than LFTMinimapButtonEye 
+  -- Set the frame strata to be higher than LFT_Minimap
   overlay:SetFrameStrata("DIALOG")
 
-  -- Set the size and position of the overlay to match LFT_MinimapEye
-  overlay:SetWidth(LFTMinimapButtonEye:GetWidth())
-  overlay:SetHeight(LFTMinimapButtonEye:GetHeight())
-  overlay:SetPoint("CENTER", LFTMinimapButtonEye, "CENTER")
+  -- Set the size and position of the overlay to match LFT_Minimap
+  overlay:SetWidth(LFT_Minimap:GetWidth()+2)
+  overlay:SetHeight(LFT_Minimap:GetHeight()+2)
+  overlay:SetPoint("CENTER", LFT_Minimap, "CENTER")
 
   -- Set the texture for the overlay
   overlay.texture = overlay:CreateTexture()
@@ -142,11 +142,33 @@ function create_microbutton_eye(parent_frame, x, y)
         end
       end)  
       UpdateTexCoords()
-      LFTFrameMainButton:Hide()
+      LFT:Hide()
     end
   end)
   ----------------ANIMATION----------------
-LFTMinimapButton:Hide()
+
+  findGroupButton.HookScript = findGroupButton.HookScript or ShaguTweaks.HookScript
+  leaveQueueButton.HookScript = leaveQueueButton.HookScript or ShaguTweaks.HookScript
+  findMoreButton.HookScript = findMoreButton.HookScript or ShaguTweaks.HookScript
+
+  findGroupButton:HookScript("OnClick", function(self, button, down)
+    LFT_Minimap:Show()
+    overlay.texture:Show()
+  end)
+    
+  leaveQueueButton:HookScript("OnClick", function(self, button, down)
+    LFT_Minimap:Hide()
+    overlay.texture:Hide()
+  end)
+
+  findMoreButton:HookScript("OnClick", function(self, button, down)
+    LFT_Minimap:Show()
+    overlay.texture:Show()
+  end)
+
+  LFT_Minimap:Hide()
+  overlay.texture:Hide()
+
   return overlay
 end
 
@@ -198,12 +220,12 @@ function microbutton_removemi()
   EBC_Minimap:ClearAllPoints()
   EBC_Minimap:Hide()
   
-  MinimapShopFrame:SetParent(UIParent)
-  MinimapShopFrame:ClearAllPoints()
-  MinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
-  MinimapShopFrame:SetAlpha(0)
-  MinimapShopFrame:SetHeight(0)
-  MinimapShopFrame:SetWidth(0)
+  TWMinimapShopFrame:SetParent(UIParent)
+  TWMinimapShopFrame:ClearAllPoints()
+  TWMinimapShopFrame:SetPoint("TOPRIGHT", 5000, 5000)
+  TWMinimapShopFrame:SetAlpha(0)
+  TWMinimapShopFrame:SetHeight(0)
+  TWMinimapShopFrame:SetWidth(0)
 
   TWMiniMapBattlefieldFrame:Hide()
 end
