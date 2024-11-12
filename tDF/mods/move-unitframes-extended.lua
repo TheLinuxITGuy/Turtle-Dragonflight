@@ -23,7 +23,8 @@ local nonmovables = {
   "tDFbagMain", -- bags bar
   "BuffButton0", -- buffs
   "BuffButton16", -- debuffs
-  "TempEnchant1" -- weapon buffs
+  "TempEnchant1", -- weapon buffs
+  "xpbar"
 }
 
 module.enable = function(self)
