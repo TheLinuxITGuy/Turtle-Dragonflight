@@ -16,7 +16,8 @@ module.enable = function(self)
     xpbar_watcher_rest:RegisterEvent("PLAYER_UPDATE_RESTING")
     xpbar_watcher_rest:SetScript("OnEvent", function()
         if not xpbar_hide(xpbar) then
-            if IsResting() and ((GetXPExhaustion("player") / UnitXPMax("player") ~= 1.5) or GetXPExhaustion("Player") == 0)  then
+            local xpExhaustion = GetXPExhaustion("player")
+            if IsResting() and xpExhaustion and ((xpExhaustion / UnitXPMax("player") ~= 1.5) or xpExhaustion == 0) then
                 xpbar.text:Show()
                 xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
             else
