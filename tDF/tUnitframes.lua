@@ -22,45 +22,16 @@ end
 
 module.enable = function(self)
 --abbrev Names
-    local function abbrevname(t)
-        return string.sub(t,1,1)..". "
-    end
-
-    local function getNameString(unitstr)
-        local name = UnitName(unitstr)
-        local size = 8
-
-        -- first try to only abbreviate the first word
-        if name and strlen(name) > size then
-            name = string.gsub(name, "^(%S+) ", abbrevname)
-        end
-
-        -- abbreviate all if it still doesn't fit
-        if name and strlen(name) > size then
-            name = string.gsub(name, "(%S+) ", abbrevname)
-        end
-
-        return name
-    end
-
-    local function abbrevName(frame, unit)
-        local name = getNameString(unit)
-        if name and frame.name then
-            frame.name:SetText(name)
-        end
-    end
-
-    local target = CreateFrame("Frame")
-    target:RegisterEvent("PLAYER_TARGET_CHANGED")
-    target:SetScript("OnEvent", function()
-        abbrevName(TargetFrame, "target")
-    end)
-
-    local tot = CreateFrame("Frame", nil, TargetFrame)
-    tot:SetScript("OnUpdate", function()
-        abbrevName(TargetofTargetFrame, "targettarget")
-    end)
---end abbrev Names
+function abbreviateName(name)
+  if name and string.len(name) > 16 then
+      return string.sub(name, 1, 13) .. "..."
+  elseif name then
+      return name
+  else
+      return "No target"
+  end
+end
+--end abbrev
 
 -- DF Texture
 
@@ -246,12 +217,12 @@ TargetFrameBackground:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", 0, 0)
 local targetLevelText = TargetLevelText
 -- Adjust the position of the level text
 targetLevelText:ClearAllPoints()
-targetLevelText:SetPoint("CENTER", TargetFrame, "CENTER", -104, 25)
+targetLevelText:SetPoint("CENTER", TargetFrame, "CENTER", -106, 25)
   --Move Targetname
 local targetName = TargetFrame.name
 -- Adjust the position of the name text
 targetName:ClearAllPoints()
-targetName:SetPoint("CENTER", targetLevelText, "CENTER", 45, 0)
+targetName:SetPoint("CENTER", targetLevelText, "CENTER", 60, 0)
 
 --Resize Target portrait
 local targetPortrait = TargetFrame.portrait
