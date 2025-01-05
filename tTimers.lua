@@ -19,7 +19,7 @@ for i = 1, MIRRORTIMER_NUMTIMERS do
     frame:SetPoint("TOP", UIParent, "TOP", 0, -120-(i-1)*(10))
 
     frame.border = getglobal("MirrorTimer"..i.."Border")
-    frame.border:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame2.tga")
+    frame.border:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\CastingBarFrame2.tga")
     frame.border:SetWidth(frame:GetWidth()+5.5)
     frame.border:SetHeight(frame:GetHeight()+5.5)
     frame.border:ClearAllPoints()
@@ -33,7 +33,7 @@ for i = 1, MIRRORTIMER_NUMTIMERS do
     frame.bg:SetHeight(15)
 
     frame.statusbar = getglobal("MirrorTimer"..i.."StatusBar")
-    frame.statusbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
+    frame.statusbar:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\Timers.tga")
     frame.statusbar:SetAllPoints(frame)
     frame.statusbar:SetStatusBarColor(0, 0, 1)
 

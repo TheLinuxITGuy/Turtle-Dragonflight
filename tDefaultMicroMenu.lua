@@ -57,7 +57,7 @@ function create_microbutton_eye(parent_frame, x, y)
   -- Set the texture for the overlay
   overlay.texture = overlay:CreateTexture()
   overlay.texture:SetAllPoints()
-  overlay.texture:SetTexture("Interface\\AddOns\\tDF\\img\\uigroupfinderflipbookeye.tga")
+  overlay.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uigroupfinderflipbookeye.tga")
   overlay.texture:SetTexCoord(10/512, 55/512, 8/256, 55/256)
 
   ----------------ANIMATION----------------
@@ -199,7 +199,7 @@ function create_microbutton_latency(wow_latency_button, offset_x, offset_y)
 
   -- Set the normal texture and store a reference to it
   latency.texture = latency:CreateTexture(nil, "BACKGROUND")
-  latency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\Latency.tga")
+  latency:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Latency.tga")
   latency:ClearAllPoints()
   latency:SetPoint("BOTTOMRIGHT", tDFmicrobutton, offset_x, offset_y)
   latency:SetWidth(20)
@@ -210,11 +210,11 @@ function create_microbutton_latency(wow_latency_button, offset_x, offset_y)
     local _, _, latencyHome = GetNetStats()
     -- Change the color based on latency
     if latencyHome < 200 then
-      latency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyGreen.tga")
+      latency:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\LatencyGreen.tga")
     elseif latencyHome < 300 then
-        latency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyYellow.tga")
+        latency:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\LatencyYellow.tga")
     else
-        latency:SetNormalTexture("Interface\\AddOns\\tDF\\img\\LatencyRed.tga")
+        latency:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\LatencyRed.tga")
     end
   end)
 

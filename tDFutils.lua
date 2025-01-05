@@ -68,7 +68,7 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
 
     castbar = CreateFrame("StatusBar", name, parent)
     castbar:SetPoint(anchor, parent, anchor, x, y)
-    castbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Castbar\\Timers.tga")
+    castbar:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\Timers.tga")
     castbar:SetStatusBarColor(1, .8, 0, 1)
     castbar:SetWidth(w)
     castbar:SetHeight(h)
@@ -76,7 +76,7 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
     --castbar:Hide()
 
     castbar.bg = castbar:CreateTexture(nil, "BACKGROUND")
-    castbar.bg:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame-BG")
+    castbar.bg:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\CastingBarFrame-BG")
     castbar.bg:SetWidth(w*1.015)
     castbar.bg:SetHeight(h*2.2)
     --castbar.bg:SetPoint("TOPLEFT", castbar, "TOPLEFT", -1, h*0.26)
@@ -84,13 +84,13 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
     castbar.bg:SetPoint("TOPRIGHT", castbar, "TOPRIGHT", -1, 0)
     
     castbar.bg2 = castbar:CreateTexture(nil, "BACKGROUND")
-    castbar.bg2:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame-BG2")
+    castbar.bg2:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\CastingBarFrame-BG2")
     castbar.bg2:SetWidth(w*1.015)
     castbar.bg2:SetHeight(h*1.2)
     castbar.bg2:SetAllPoints(true)
 
     castbar.spark = castbar:CreateTexture(nil, "OVERLAY")
-    castbar.spark:SetTexture("Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarSpark")
+    castbar.spark:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\CastingBarSpark")
     castbar.spark:SetWidth(h*1.33)
     castbar.spark:SetHeight(h*1.33)
     castbar.spark:SetBlendMode("ADD")
@@ -100,7 +100,7 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
     castbar.backdrop:SetPoint("TOPLEFT", castbar, "TOPLEFT", -1, h*0.1)
     castbar.backdrop:SetPoint("BOTTOMRIGHT", castbar, "BOTTOMRIGHT", 0, h*-0.1)
     castbar.backdrop:SetBackdrop({
-      bgFile = "Interface\\AddOns\\tDF\\img\\Castbar\\CastingBarFrame2.tga"
+      bgFile = "Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\CastingBarFrame2.tga"
     })
     if ShaguTweaks.DarkMode then
         castbar.backdrop:SetBackdropColor( .3, .3, .3, .9)

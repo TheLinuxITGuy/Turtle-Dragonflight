@@ -5,7 +5,7 @@ local create_button = tDF.utils.create_button
 -- Create a local instance of ContainerFrame1PortraitButton
 local button = ContainerFrame1PortraitButton
 -- Reskin the button with a custom image
-button:SetNormalTexture("Interface\\AddOns\\tDF\\img\\bigbag")
+button:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\bigbag")
 button:SetPoint("TOPLEFT", ContainerFrame1, -1, 2)
 button:SetWidth(50)
 button:SetHeight(50)
@@ -18,8 +18,8 @@ KeyRingButton:Hide()
 ShaguTweaks_config = ShaguTweaks_config or {}
 ShaguTweaks_config["tDFbags_hide"] = ShaguTweaks_config["tDFbags_hide"] or 0
 
-local bags_texture = "Interface\\AddOns\\tDF\\img\\bagslots2x1.tga"
-local bags_keys_texture = "Interface\\AddOns\\tDF\\img\\bagslots2key.tga"
+local bags_texture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\bagslots2x1.tga"
+local bags_keys_texture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\bagslots2key.tga"
 local normal_txc = {295/512, 354/512, 64/128, 124/128}
 --local normal_txc = {296/512, 356/512, 2/128, 62/128}
 local pushed_txc = {422/512, 475/512, 65/128, 118/128}
@@ -218,7 +218,7 @@ loginFrame:SetScript("OnEvent", function()
                     -- Create a texture for the frame
                     local texture = frame:CreateTexture(nil, "BACKGROUND")
                     -- Set the texture to your custom image
-                    texture:SetTexture("Interface\\AddOns\\tDF\\img\\bagbg2.tga")
+                    texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\bagbg2.tga")
                     -- Set the size of the texture to match the size of the frame
                     texture:SetWidth(frame:GetWidth())
                     texture:SetHeight(frame:GetHeight())

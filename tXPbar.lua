@@ -27,14 +27,14 @@ function xpbar_update(xpbar, show_full)
         xpbar.restedbar:SetMinMaxValues(0, maxXP)
         xpbar.restedbar:SetValue(currentXP + maxExhXP)
         if xpMaxPercent == 1.5 then
-            xpbar.status:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\TentMax.tga")
-            xpbar.restedbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\TentMax.tga")
+            xpbar.status:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\TentMax.tga")
+            xpbar.restedbar:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\TentMax.tga")
         else
-            xpbar.status:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Rested1.tga")
-            xpbar.restedbar:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Rested1.tga")
+            xpbar.status:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Rested1.tga")
+            xpbar.restedbar:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Rested1.tga")
         end
     else
-        xpbar.status:SetStatusBarTexture("Interface\\AddOns\\tDF\\img\\Main1.tga")
+        xpbar.status:SetStatusBarTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Main1.tga")
         xpbar.restedbar:Hide()
     end
 
@@ -79,7 +79,7 @@ function xpbar_create(name)
     xpbar.leftFrame:SetPoint("LEFT", xpbar, "LEFT", 0, 0)
     xpbar.leftFrame:SetFrameLevel(2)
     xpbar.leftTexture = xpbar.leftFrame:CreateTexture(nil, "BACKGROUND")
-    xpbar.leftTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP\\leftFrame.tga")
+    xpbar.leftTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\XP\\leftFrame.tga")
     xpbar.leftTexture:SetAllPoints(xpbar.leftFrame)
     -- Create the right frame
     xpbar.rightFrame = CreateFrame("Frame", nil, xpbar)
@@ -88,16 +88,16 @@ function xpbar_create(name)
     xpbar.rightFrame:SetPoint("RIGHT", xpbar, "RIGHT", 0, 0)
     xpbar.rightFrame:SetFrameLevel(2)
     xpbar.rightTexture = xpbar.leftFrame:CreateTexture(nil, "BACKGROUND")
-    xpbar.rightTexture:SetTexture("Interface\\AddOns\\tDF\\img\\XP\\leftFrame.tga")
+    xpbar.rightTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\XP\\leftFrame.tga")
     xpbar.rightTexture:SetAllPoints(xpbar.rightFrame)
     xpbar.rightTexture:SetTexCoord(1, 0, 0, 1) --flip right
-    --ticker:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ticker.tga")
+    --ticker:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ticker.tga")
     --local tickerNormalTexture = ticker:GetNormalTexture()
     --ticker:SetWidth(TICKER_WIDTH)
     --ticker:SetHeight(TICKER_HEIGHT)
     --ticker:SetPoint("TOPLEFT", MyXPBarTexture, "TOPLEFT", 0, 5)
     --tickerNormalTexture:SetTexCoord(18/32, 28/32, 8/32, 30/32)
-    --ticker:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\ticker.tga")
+    --ticker:SetHighlightTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ticker.tga")
     --local tickerHighlightTexture = ticker:GetHighlightTexture()
     --tickerHighlightTexture:SetTexCoord(2/32, 16/32, 8/32, 23/32)
     -- Create the frame for the blue, purple, or green bar

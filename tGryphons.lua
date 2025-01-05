@@ -31,11 +31,11 @@ rightGryphon:SetPoint("RIGHT", MainMenuBarArtFrame, "RIGHT", 103, -2)
 -- Set texture based on race
 local texturePath
 if race == "Night Elf" then
-    texturePath = "Interface\\Addons\\tDF\\img\\GryphonNew.tga"
+    texturePath = "Interface\\Addons\\Turtle-Dragonflight\\img\\GryphonNew.tga"
 elseif race == "Human" or race == "Gnome" or race == "Dwarf" or race == "High Elf" then
-    texturePath = "Interface\\Addons\\tDF\\img\\GryphonNew.tga"
+    texturePath = "Interface\\Addons\\Turtle-Dragonflight\\img\\GryphonNew.tga"
 else
-    texturePath = "Interface\\Addons\\tDF\\img\\WyvernNew.tga"
+    texturePath = "Interface\\Addons\\Turtle-Dragonflight\\img\\WyvernNew.tga"
 end
 
 leftGryphon:SetTexture(texturePath)

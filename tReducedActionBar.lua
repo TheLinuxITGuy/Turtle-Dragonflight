@@ -7,7 +7,7 @@ Dragonflight.
 ]]
 
 -- general function to hide textures and frames
-  local addonpath = "Interface\\AddOns\\tDF"
+  local addonpath = "Interface\\AddOns\\Turtle-Dragonflight"
   local function hide(frame, texture)
     if not frame then return end
 

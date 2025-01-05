@@ -21,7 +21,7 @@ local f = CreateFrame("Frame")
 
     -- Set the minimap mask texture (with alpha channel)
     customMinimap.texture = customMinimap:CreateTexture(nil, "BACKGROUND")
-    customMinimap.texture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapmask.tga")
+    customMinimap.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uiminimapmask.tga")
     customMinimap.texture:SetAllPoints(customMinimap)
     customMinimap.texture:SetVertexColor(1, 1, 1, 0) -- Fully transparent
 	customMinimap:SetClampedToScreen(true) -- Clamp the frame to the screen
@@ -41,7 +41,7 @@ local f = CreateFrame("Frame")
 
     -- Add the Minimap border texture (displayed above the actual Minimap)
     local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
-    borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\uiminimapborder.tga")
+    borderTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uiminimapborder.tga")
     borderTexture:SetAllPoints(customMinimap)
 	
 -- Create a frame for the border around MinimapZoneText
@@ -53,7 +53,7 @@ borderFrame:Show()
 
 -- Add a texture to the borderFrame
 local borderTexture = borderFrame:CreateTexture(nil, "BACKGROUND")
-borderTexture:SetTexture("Interface\\AddOns\\tDF\\img\\MinimapBorder.tga")
+borderTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\MinimapBorder.tga")
 borderTexture:SetAllPoints(borderFrame) -- Make the texture fill the entire frame
 borderTexture:Show()
 
@@ -102,21 +102,21 @@ tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165, -170)
 tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150, -190)
 
 --Normal
-tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32.tga")
+tMinimapZoomIn:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ZoomIn32.tga")
 tMinimapZoomIn:SetWidth(16)
 tMinimapZoomIn:SetHeight(16)
 --Mouse over
-tMinimapZoomIn:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32-over.tga")
+tMinimapZoomIn:SetHighlightTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ZoomIn32-over.tga")
 --Mouse click
-tMinimapZoomIn:SetPushedTexture("Interface\\AddOns\\tDF\\img\\ZoomIn32-push.tga")
+tMinimapZoomIn:SetPushedTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ZoomIn32-push.tga")
 
-tMinimapZoomOut:SetNormalTexture("Interface\\AddOns\\tDF\\img\\ZoomOut32.tga")
+tMinimapZoomOut:SetNormalTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ZoomOut32.tga")
 tMinimapZoomOut:SetWidth(16)
 tMinimapZoomOut:SetHeight(16)
 --Mouse over
-tMinimapZoomOut:SetHighlightTexture("Interface\\AddOns\\tDF\\img\\ZoomOut32-push.tga")
+tMinimapZoomOut:SetHighlightTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ZoomOut32-push.tga")
 --Mouse click
-tMinimapZoomOut:SetPushedTexture("Interface\\AddOns\\tDF\\img\\ZoomOut32-push.tga")
+tMinimapZoomOut:SetPushedTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\ZoomOut32-push.tga")
 
 -------------Event-----------------
 -- Get the current minimap zoom level
@@ -199,7 +199,7 @@ end
 
 --"You've got mail!"" -AOL 1998
 -- Define the path to your custom icon
-local customMailIcon = "Interface\\AddOns\\tDF\\img\\mail.tga"
+local customMailIcon = "Interface\\AddOns\\Turtle-Dragonflight\\img\\mail.tga"
 
 --Set it
 MiniMapMailFrame:ClearAllPoints()

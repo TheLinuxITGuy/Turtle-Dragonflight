@@ -36,20 +36,20 @@ end
 -- DF Texture
 
 --Player Frame
-PlayerFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF.blp")
-PlayerStatusTexture:SetTexture[[Interface\Addons\tDF\img\UI-Player-Status]]
+PlayerFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrameDF.blp")
+PlayerStatusTexture:SetTexture[[Interface\Addons\Turtle-Dragonflight\img\UI-Player-Status]]
 PlayerFrameHealthBar:SetWidth(130)
 PlayerFrameHealthBar:SetHeight(30)
 PlayerFrameManaBar:SetWidth(125)
 PlayerFrameHealthBar:SetPoint("TOPLEFT", 100, -29)
 PlayerFrameManaBar:SetPoint("TOPLEFT", 103, -53)
-PlayerStatusTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Player-Status")
-PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]])               
-PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
+PlayerStatusTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\UI-Player-Status")
+PlayerFrameHealthBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\new-unitframes\healthDF2.tga]])               
+PlayerFrameManaBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-Player-PortraitOn-Bar-Mana-Status.tga]])
 --Player Frame Background Texture
 PlayerFrameBackground:SetWidth(256)
 PlayerFrameBackground:SetHeight(128)
-PlayerFrameBackground:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF-Background.blp")
+PlayerFrameBackground:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrameDF-Background.blp")
 PlayerFrameBackground:SetPoint("TOPLEFT", PlayerFrame, "TOPLEFT", 0, 0)
 
 --Move playername
@@ -81,7 +81,7 @@ overlay:SetPoint("CENTER", PlayerFrame, "CENTER", -20, 30) -- Position the NEW R
 -- Create a texture for the overlay
 local overlayTexture = overlay:CreateTexture(nil, "BACKGROUND")
 overlayTexture:SetAllPoints(overlay)
-overlayTexture:SetTexture("Interface\\AddOns\\tDF\\img\\Unitframe\\flipbookrested.tga")
+overlayTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Unitframe\\flipbookrested.tga")
 overlayTexture:SetTexCoord(100/512, 120/512, 34/64, 57/64)
 
 -- Show the overlay when the player is in a rested zone
@@ -120,8 +120,8 @@ PlayerRestIcon:SetPoint("TOPLEFT", PlayerFrame, -3000, 0)
 -- Set the texture for the overlay
 overlay.texture = overlay:CreateTexture()
 overlay.texture:SetAllPoints()
-overlay.texture:SetTexture("Interface\\AddOns\\tDF\\img\\Unitframe\\UIUnitFrameRestingFlipbook.tga")
---overlay.texture:SetTexture("Interface\\AddOns\\tDF\\img\\Unitframe\\flipbookrested-animation.tga")
+overlay.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Unitframe\\UIUnitFrameRestingFlipbook.tga")
+--overlay.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Unitframe\\flipbookrested-animation.tga")
 overlay.texture:SetTexCoord(0/512, 60/512, 0/512, 60/512)
 -----Reskins the zzz-----
 
@@ -199,18 +199,18 @@ UpdateRestingState()
 ----------------SHOW/HIDE ANIMATION----------------
 
 --Target Frame
-TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
+TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
 TargetFrameHealthBar:SetPoint("TOPRIGHT", -100, -29)
 TargetFrameHealthBar:SetWidth(130)
 TargetFrameHealthBar:SetHeight(31)
-TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\new-unitframes\healthDF2.tga]]) 
+TargetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\new-unitframes\healthDF2.tga]]) 
 TargetFrameManaBar:SetPoint("TOPRIGHT", -95, -53)
 TargetFrameManaBar:SetWidth(132)
-TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.blp]])
+TargetFrameManaBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-Target-PortraitOn-Bar-Mana-Status.blp]])
 --Target Frame Background Texture
 TargetFrameBackground:SetWidth(256)
 TargetFrameBackground:SetHeight(128)
-TargetFrameBackground:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1-Background.blp")
+TargetFrameBackground:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrameDF1-Background.blp")
 TargetFrameBackground:SetPoint("TOPRIGHT", TargetFrame, "TOPRIGHT", 0, 0)
 
 -- Move Target level text
@@ -261,14 +261,14 @@ local class = { r = 0, g = 1, b = 0, a = 1 }
   PetFrame_Update = function()
     -- Call the original function
     new_PetFrame_Update()
-    PetFrameTexture:SetTexture("Interface\\Addons\\tDF\\img\\pet")
+    PetFrameTexture:SetTexture("Interface\\Addons\\Turtle-Dragonflight\\img\\pet")
     PetFrameTexture:SetDrawLayer("BACKGROUND") -- Set the draw layer of the texture
     PetFrame:ClearAllPoints()
     PetFrame:SetPoint("BOTTOM", PlayerFrame, -10, -30)
     -- Change the frame strata of the HealthBar and ManaBar
 
     --PetFrameHealthBar:SetFrameStrata("MEDIUM")
-    PetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Health]])
+    PetFrameHealthBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Health]])
       -- Adjust the position of the PetFrameHealthBar
     PetFrameHealthBar:SetHeight(13)
     PetFrameHealthBar:ClearAllPoints()
@@ -276,9 +276,9 @@ local class = { r = 0, g = 1, b = 0, a = 1 }
     --PetFrameManaBar:SetFrameStrata("MEDIUM")
     local class = UnitClass("player")
     if class == "Hunter" then
-      PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Focus]])
+      PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Focus]])
     else
-      PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\tDF\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Mana]])
+      PetFrameManaBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Mana]])
     end
     -- Adjust the position of the PetFrameManaBar
     PetFrameManaBar:ClearAllPoints()
@@ -293,16 +293,16 @@ local original = TargetFrame_CheckClassification
 function TargetFrame_CheckClassification()
   local classification = UnitClassification("target")
   if ( classification == "worldboss" ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Boss.blp")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrame-Boss.blp")
   elseif ( classification == "rareelite"  ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-RareElite.blp")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrame-RareElite.blp")
   elseif ( classification == "elite"  ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Elite.blp")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrame-Elite.blp")
   elseif ( classification == "rare"  ) then
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrame-Rare.blp")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrame-Rare.blp")
   else
-    TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
-    --TargetFrameTexture:SetTexture("Interface\\AddOns\\tDF\\img\\UI-TargetingFrame2")
+    TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
+    --TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\UI-TargetingFrame2")
   end
 end
 

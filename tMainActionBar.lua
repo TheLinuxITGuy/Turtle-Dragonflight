@@ -28,9 +28,9 @@ for _, barName in pairs({"MainMenuBar", "BonusActionBarFrame"}) do
     local Lefttexture = Leftframe:CreateTexture(nil, "BACKGROUND")
     local Righttexture = Rightframe:CreateTexture(nil, "BACKGROUND")
 
-    -- Set the texture's image file (replace "Interface\\Addons\\tDF\\img\\MainActionBar3.tga" with the actual path)
-    Lefttexture:SetTexture("Interface\\Addons\\tDF\\img\\HDActionBar.tga")
-    Righttexture:SetTexture("Interface\\Addons\\tDF\\img\\HDActionBar.tga")
+    -- Set the texture's image file (replace "Interface\\Addons\\Turtle-Dragonflight\\img\\MainActionBar3.tga" with the actual path)
+    Lefttexture:SetTexture("Interface\\Addons\\Turtle-Dragonflight\\img\\HDActionBar.tga")
+    Righttexture:SetTexture("Interface\\Addons\\Turtle-Dragonflight\\img\\HDActionBar.tga")
 
     -- Set the texture to cover the entire frame
     Lefttexture:SetAllPoints(Leftframe)
