@@ -11,11 +11,11 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 
 #### tDF Install
 1. Unpack the zip file included with this download.
-2. Rename the __Turtle-Dragonflight-main__ to __tDF__.
-3. Copy the __tDF__ folder to your AddOns folder.
+2. Remove the -main from __Turtle-Dragonflight-main__.
+3. Copy the __Turtle-Dragonflight__ folder to your AddOns folder.
 
 #### Interface Install
-- Copy the contents of the included __~/tDF/Interface__ folder into your Turtle WoW Interface folder.
+- Copy the contents of the included __~/Turtle-Dragonflight/Interface__ folder into your Turtle WoW Interface folder.
 - Folder structure:
   
 <pre>
@@ -41,7 +41,6 @@ TurtleWoW/
 - Move things with __CTRL + SHIFT__
 
 ## 🐞 Known issues
-- Long mob names show behind the level on the TargetUnitFrame.
 - Stealth/Stance bars work, they are just invisible.
 - The zzz doesn't go away until zone change when under a tent.
 ## 🌟 Grateful to All Contributors
