@@ -11,10 +11,11 @@ This is a stand-alone addon made for the Turtle WoW 1.12.1 client.
 
 #### tDF Install
 1. Unpack the zip file included with this download.
-2. Copy the __tDF__ folder to your AddOns folder.
+2. Rename the __Turtle-Dragonflight-main__ to __tDF__.
+3. Copy the __tDF__ folder to your AddOns folder.
 
 #### Interface Install
-- Copy the contents of the included __Interface__ folder into your Interface folder.
+- Copy the contents of the included __~/tDF/Interface__ folder into your Turtle WoW Interface folder.
 - Folder structure:
   
 <pre>
