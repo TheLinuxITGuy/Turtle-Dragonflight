@@ -1,4 +1,4 @@
-local create_button = Turtle-Dragonflight.utils.create_button
+local create_button = tDF.utils.create_button
 
 -- Create the button for the main bags
 local button_tx = "Interface\\AddOns\\Turtle-Dragonflight\\img\\BagSort"
