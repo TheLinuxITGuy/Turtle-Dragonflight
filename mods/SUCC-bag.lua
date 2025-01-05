@@ -149,8 +149,8 @@ end
 		frame.slotFrame:SetFrameLevel(0)
 		frame.slotFrame:SetPoint('TOPRIGHT', frame, 'TOPLEFT', 10, -16)
 		frame.slotFrame:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background',
-			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\BagSlotFrame',
+			bgFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\background',
+			edgeFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\BagSlotFrame',
 			tile = true,
 			tileSize = 128,
 			edgeSize = 32,
@@ -322,10 +322,10 @@ end
 		else
 			button = CreateFrame('Button', name, parent, 'ContainerFrameItemButtonTemplate')
 		end
-		button:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Slot.tga')
+		button:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Slot.tga')
 		button.bg = button:CreateTexture(nil, 'BACKGROUND')
 		--button.bg:SetTexture[[Interface\PaperDoll\UI-Backpack-EmptySlot]]
-		button.bg:SetTexture[[Interface\AddOns\tDF\img\bagbg2.tga]]
+		button.bg:SetTexture[[Interface\AddOns\Turtle-Dragonflight\img\bagbg2.tga]]
 		button.bg:SetAlpha(.75)
 		button.bg:SetAllPoints()
 		button:SetAlpha(parent:GetParent():GetAlpha())
@@ -433,8 +433,8 @@ end
 		search:SetHeight(28)
 		search:SetWidth(332) -- 132
 		search:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
-			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\TooltipBorder.tga',
+			bgFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\background.tga',
+			edgeFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\TooltipBorder.tga',
 			tile = true, tileSize = 8, edgeSize = 16,
 			insets = { left = 3, right = 3, top = 3, bottom = 3 }
 		})
@@ -460,8 +460,8 @@ end
 		search.button:SetHeight(18)
 		search.button:SetPoint("LEFT", search.edit, "RIGHT", -17, 0)
 		search.button:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
-			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\TooltipBorder.tga',
+			bgFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\background.tga',
+			edgeFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\TooltipBorder.tga',
 			tile = true, tileSize = 8, edgeSize = 16,
 			insets = { left = 3, right = 3, top = 3, bottom = 3 }
 		})
@@ -469,11 +469,11 @@ end
 		search.button:Hide()
 
 		-- Set the texture directly to the button
-		search.button:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal.tga')
+		search.button:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal.tga')
 
 		-- Optionally, you can also set the highlight and pushed textures
-		search.button:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal.tga')
-		search.button:SetPushedTexture('Interface\\AddOns\\tDF\\Textures\\closebutonpushed.tga')
+		search.button:SetHighlightTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal.tga')
+		search.button:SetPushedTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonpushed.tga')
 
 		search.button:Show() -- Show the button when necessary
 
@@ -589,8 +589,8 @@ end)
     -- Restore the position when the frame loads
     RestoreFramePosition(frame)
 		frame:SetBackdrop({
-			bgFile = 'Interface\\AddOns\\tDF\\Textures\\background.tga',
-			edgeFile = 'Interface\\AddOns\\tDF\\Textures\\bagframe2.tga',
+			bgFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\background.tga',
+			edgeFile = 'Interface\\AddOns\\Turtle-Dragonflight\\Textures\\bagframe2.tga',
 			tile = true,
 			tileSize = 128,
 			edgeSize = 32,
@@ -610,9 +610,9 @@ end)
 		frame.closeButton:SetHeight(20)
 		frame.closeButton:SetPoint('TOPRIGHT', frame, 'TOPRIGHT', -3, -1)  -- Adjust position as needed
 		-- Set the button textures
-		frame.closeButton:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal')
-		frame.closeButton:SetPushedTexture('Interface\\AddOns\\tDF\\Textures\\closebutonpushed')
-		frame.closeButton:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\closebutonnormal')
+		frame.closeButton:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal')
+		frame.closeButton:SetPushedTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonpushed')
+		frame.closeButton:SetHighlightTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal')
 		frame.closeButton:SetScript('OnClick', function() SBFrameClose(frame) end)
 		frame.title = frame:CreateFontString(nil, 'ARTWORK', 'GameFontNormal')
 		frame.title:SetPoint('TOPLEFT', frame, 11, -6)
@@ -626,8 +626,8 @@ end)
 			frame.toggleButton:SetHeight(20)
 			frame.toggleButton:SetWidth(20)
 			frame.toggleButton:SetPoint('TOPLEFT', 10, -1)
-			frame.toggleButton:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Bags.tga')
-			frame.toggleButton:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\Bags.tga')
+			frame.toggleButton:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Bags.tga')
+			frame.toggleButton:SetHighlightTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Bags.tga')
 			--frame.toggleButton:SetPushedTexture('Interface\\QuestFrame\\UI-Quest-BulletPoint')
 			--frame.toggleButton:GetNormalTexture():SetTexCoord(0.25, 0.75, 0.25, 0.75)
 			frame.toggleButton:RegisterForClicks('LeftButtonUp', 'RightButtonUp')
@@ -645,8 +645,8 @@ end)
 			frame.keyringButton:SetHeight(20)
 			frame.keyringButton:SetWidth(20)
 			frame.keyringButton:SetPoint('TOPLEFT', frame.toggleButton, 'TOPRIGHT', 7, 0) -- Position it next to the bags button
-			frame.keyringButton:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\bag_keys.tga')
-			frame.keyringButton:SetHighlightTexture('Interface\\AddOns\\tDF\\Textures\\bag_keys.tga')
+			frame.keyringButton:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\bag_keys.tga')
+			frame.keyringButton:SetHighlightTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\bag_keys.tga')
 			frame.keyringButton:RegisterForClicks('LeftButtonUp', 'RightButtonUp')
 			frame.keyringButton:SetScript('OnClick', function()
 				ToggleKeyRing()
@@ -753,7 +753,7 @@ end)
 		for i = 1, NUM_BANKBAGSLOTS, 1 do
 			frame.bank.slotFrame.slot[i] = CreateFrame('CheckButton', 'SUCC_bagBBag' .. i, frame.bank.slotFrame, 'BankItemButtonBagTemplate')
 			frame.bank.slotFrame.slot[i]:SetID(i + 4)
-			frame.bank.slotFrame.slot[i]:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Slot')
+			frame.bank.slotFrame.slot[i]:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Slot')
 			frame.bank.slotFrame.slot[i]:SetCheckedTexture('Interface\\Buttons\\CheckButtonHilight')
 			frame.bank.slotFrame.slot[i]:SetScript('OnReceiveDrag', function()
 				PutItemInBag(this:GetInventorySlot())
@@ -887,7 +887,7 @@ end)
 	SUCC_bag.slotFrame.slot = {}
 	for i = 1, NUM_BAG_SLOTS, 1 do
 		SUCC_bag.slotFrame.slot[i] = CreateFrame('CheckButton', 'SUCC_bagIBag' .. i - 1 ..'Slot', SUCC_bag.slotFrame, 'BagSlotButtonTemplate')
-		SUCC_bag.slotFrame.slot[i]:SetNormalTexture('Interface\\AddOns\\tDF\\Textures\\Slot')
+		SUCC_bag.slotFrame.slot[i]:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Slot')
 		SUCC_bag.slotFrame.slot[i]:SetScript('OnClick', function()
 			local bagID = this:GetID()
 			if not CursorHasItem() then
@@ -1244,7 +1244,7 @@ end)
 
 	--Start BagSort
 -- Create the bag sorting button
-local button_tx = "Interface\\AddOns\\tDF\\Textures\\Sorting.tga"
+local button_tx = "Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Sorting.tga"
 local tBagSort = create_button("tBagSort", SUCC_bag, "TOPRIGHT", 18, 18,
     button_tx, button_tx, button_tx, nil, nil, nil, -30, -3,
     function()
@@ -1262,7 +1262,7 @@ local tBagSort = create_button("tBagSort", SUCC_bag, "TOPRIGHT", 18, 18,
 
 -- Function to create a sorting button attached to a specified parent frame
 local function CreateSortButton(name, parent, tooltipTitle, tooltipText, sortFunction)
-    local button_tx = "Interface\\AddOns\\tDF\\Textures\\Sorting.tga"
+    local button_tx = "Interface\\AddOns\\Turtle-Dragonflight\\Textures\\Sorting.tga"
     create_button(name, parent, "TOPRIGHT", 18, 18,
         button_tx, button_tx, button_tx, nil, nil, nil, -30, -3,
         function()

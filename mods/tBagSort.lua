@@ -1,7 +1,7 @@
-local create_button = tDF.utils.create_button
+local create_button = Turtle-Dragonflight.utils.create_button
 
 -- Create the button for the main bags
-local button_tx = "Interface\\AddOns\\tDF\\img\\BagSort"
+local button_tx = "Interface\\AddOns\\Turtle-Dragonflight\\img\\BagSort"
 local tBagSort = create_button("tBagSort", ContainerFrame1, "TOPRIGHT", 18, 18,
 button_tx, button_tx, button_tx, nil, nil, nil, -12, -30,
 function()

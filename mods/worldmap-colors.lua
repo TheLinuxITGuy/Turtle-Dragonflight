@@ -15,7 +15,7 @@ for _, name in pairs(tocs) do
   local current = string.format("ShaguTweaks%s", name)
   local _, title = GetAddOnInfo(current)
   if title then
-    addonpath = "Interface\\AddOns\\tDF"
+    addonpath = "Interface\\AddOns\\Turtle-Dragonflight"
     break
   end
 end
@@ -81,10 +81,10 @@ local function UpdateWorldMapColors()
 
       -- update texture according to raid/group state
       if ingroup and frame.texture.ingroup ~= "PARTY" then
-        frame.texture:SetTexture("Interface\\AddOns\\tDF\\img\\circleparty")
+        frame.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\circleparty")
         frame.texture.ingroup = "PARTY"
       elseif not ingroup and frame.texture.ingroup ~= "RAID" then
-        frame.texture:SetTexture("Interface\\AddOns\\tDF\\img\\circleraid")
+        frame.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\circleraid")
         frame.texture.ingroup = "RAID"
       end
 

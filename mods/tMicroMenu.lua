@@ -23,11 +23,11 @@ module.enable = function(self)
   {
     {
       Name = "mbHelp",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\question-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\question-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\question-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\question-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\question-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\question-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -44,11 +44,11 @@ module.enable = function(self)
     },
     {
       Name = "mbMainMenu",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\wow-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\wow-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\wow-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\wow-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -65,11 +65,11 @@ module.enable = function(self)
     },
     {
       Name = "mbPvP",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\book-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\book-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\book-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\book-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\book-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\book-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -90,11 +90,11 @@ module.enable = function(self)
     },
     {
       Name = "mbShop",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\horseshoe-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\horseshoe-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\horseshoe-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\horseshoe-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -111,11 +111,11 @@ module.enable = function(self)
     },
     {
       Name = "mbLFT",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\eye-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\eye-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\eye-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\eye-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -132,11 +132,11 @@ module.enable = function(self)
     },
     {
       Name = "mbEBC",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\uimicromenu2x.tga",
       NormalTextureCoord = {82/256, 119/256, 325/512, 374/512},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\uimicromenu2x.tga",
       PushedTextureCoord = {82/256, 119/256, 378/512, 429/512},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\uimicromenu2x.tga",
       HighlightTextureCoord = {82/256, 119/256, 378/512, 429/512},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -155,11 +155,11 @@ module.enable = function(self)
     },
     {
       Name = "mbWorldMap",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\shield-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\shield-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\shield-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\shield-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -176,11 +176,11 @@ module.enable = function(self)
     },
     {
       Name = "mbSocials",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\tabard-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\tabard-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\tabard-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\tabard-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -197,11 +197,11 @@ module.enable = function(self)
     },
     {
       Name = "mbQuestLog",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\quest-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\quest-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\quest-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\quest-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -218,11 +218,11 @@ module.enable = function(self)
     },
     {
       Name = "mbTalent",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\talents-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\talents-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\talents-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\talents-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -239,11 +239,11 @@ module.enable = function(self)
     },
     {
       Name = "mbSpellBook",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-regular.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\spellbook-regular.tga",
       NormalTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-faded.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\spellbook-faded.tga",
       PushedTextureCoord = {36/128, 86/128, 29/128, 98/128},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\colormicromenu\\spellbook-highlight.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\colormicromenu\\spellbook-highlight.tga",
       HighlightTextureCoord = {36/128, 86/128, 29/128, 98/128},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")
@@ -260,11 +260,11 @@ module.enable = function(self)
     },
     {
       Name = "mbCharacter",
-      NormalTexture = "Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga",
+      NormalTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\uimicromenu2x.tga",
       NormalTextureCoord = {2/256, 37/256, 324/512, 372/512},
-      PushedTexture = "Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga",
+      PushedTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\uimicromenu2x.tga",
       PushedTextureCoord = {82/256, 116/256, 216/512, 264/512},
-      HighlightTexture = "Interface\\AddOns\\tDF\\img\\uimicromenu2x.tga",
+      HighlightTexture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\uimicromenu2x.tga",
       HighlightTextureCoord = {82/256, 116/256, 216/512, 264/512},
       f_OnEnter = function()
         GameTooltip:SetOwner(this, "ANCHOR_RIGHT")

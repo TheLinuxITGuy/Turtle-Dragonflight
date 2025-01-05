@@ -41,7 +41,7 @@ local function UpdatePortraits(frame)
   -- update class icon if possible
   if class and frame.portrait then
     local iconCoords = CLASS_ICON_TCOORDS[class]
-    frame.portrait:SetTexture("Interface\\AddOns\\tDF\\img\\UI-Classes-Circles")
+    frame.portrait:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\UI-Classes-Circles")
     frame.portrait:SetTexCoord(unpack(iconCoords))
   elseif not class and frame.portrait then
     frame.portrait:SetTexCoord(0, 1, 0, 1)
