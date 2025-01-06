@@ -50,7 +50,7 @@ settings.title.tex:SetTexture("Interface\\DialogFrame\\UI-DialogBox-Header")
 settings.title.tex:SetAllPoints()
 
 settings.title.text = settings.title:CreateFontString(nil, "HIGH", "GameFontNormal")
-settings.title.text:SetText(T["tDF Options"])
+settings.title.text:SetText(T["|cff008000t|cff1974d2DF"] .. " |cffffffffOptions")
 settings.title.text:SetPoint("TOP", 0, -14)
 
 settings.cancel = CreateFrame("Button", "AdvancedSettingsGUICancel", settings, "GameMenuButtonTemplate")
@@ -96,20 +96,6 @@ settings.defaults:SetText(DEFAULTS)
 settings.defaults:SetScript("OnClick", function()
   settings:defaults()
 end)
-
---[[
-settings.plates = CreateFrame("Button", "AdvancedSettingsGUIPlates", settings, "GameMenuButtonTemplate")
-settings.plates:SetWidth(90)
-settings.plates:SetPoint("BOTTOMLEFT", settings, "BOTTOMLEFT", 107, 17)
-settings.plates:SetText("Plates")
-settings.plates:SetScript("OnClick", function()
-  if ShaguPlates.gui:IsShown() then
-    ShaguPlates.gui:Hide()
-  else
-    ShaguPlates.gui:Show()
-  end
-end)
-]]
 
 local opposite_table =
 {
@@ -269,7 +255,8 @@ end
 
 local advanced = CreateFrame("Button", "GameMenuButtonAdvancedOptions", GameMenuFrame, "GameMenuButtonTemplate")
 advanced:SetPoint("TOP", GameMenuButtonUIOptions, "BOTTOM", 0, -1)
-advanced:SetText(T["tDF Options"] .. "|cffffff00*")
+advanced:SetText(T["|cff008000t|cff1974d2DF"] .. " |cffffffffOptions" .. "|cff1974d2*")
+--|cff008000Turtle |cff1974d2Dragonflight
 advanced:SetScript("OnClick", function()
   HideUIPanel(GameMenuFrame)
   settings:Show()

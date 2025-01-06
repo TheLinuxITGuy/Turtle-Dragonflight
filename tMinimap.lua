@@ -1,3 +1,6 @@
+local _G = ShaguTweaks.GetGlobalEnv()
+local T = ShaguTweaks.T
+
 tMinimapZoomIn = MinimapZoomIn
 tMinimapZoomOut = MinimapZoomOut
 local tBuffButton0 = BuffButton0
@@ -7,42 +10,40 @@ local tMinimapCluster = MinimapCluster
 local tMinimap = Minimap
 
 local f = CreateFrame("Frame")
---f:RegisterEvent("PLAYER_LOGIN")
---f:SetScript("OnEvent", function()
-    -- Move the MinimapCluster off the screen
-    tMinimapCluster:ClearAllPoints()
-    tMinimapCluster:SetPoint("TOPRIGHT", 0, 5000) -- Move it far off to the right
-    tMinimapCluster:SetFrameStrata('BACKGROUND')
+-- Move the MinimapCluster off the screen
+tMinimapCluster:ClearAllPoints()
+tMinimapCluster:SetPoint("TOPRIGHT", 0, 5000) -- Move it far off to the right
+tMinimapCluster:SetFrameStrata('BACKGROUND')
 
-    local customMinimap = CreateFrame("Frame", "MyCustomMinimap", UIParent)
-    customMinimap:SetWidth(150*1.36) -- Set the desired size for your minimap (mask size)
-    customMinimap:SetHeight(150*1.36)
-    customMinimap:SetPoint("TOPRIGHT", 0, -20) -- Position your minimap
+local customMinimap = CreateFrame("Frame", "MyCustomMinimap", UIParent)
+customMinimap:SetWidth(150*1.36) -- Set the desired size for your minimap (mask size)
+customMinimap:SetHeight(150*1.36)
+customMinimap:SetPoint("TOPRIGHT", 0, -20) -- Position your minimap
 
-    -- Set the minimap mask texture (with alpha channel)
-    customMinimap.texture = customMinimap:CreateTexture(nil, "BACKGROUND")
-    customMinimap.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uiminimapmask.tga")
-    customMinimap.texture:SetAllPoints(customMinimap)
-    customMinimap.texture:SetVertexColor(1, 1, 1, 0) -- Fully transparent
-	customMinimap:SetClampedToScreen(true) -- Clamp the frame to the screen
+-- Set the minimap mask texture (with alpha channel)
+customMinimap.texture = customMinimap:CreateTexture(nil, "BACKGROUND")
+customMinimap.texture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uiminimapmask.tga")
+customMinimap.texture:SetAllPoints(customMinimap)
+customMinimap.texture:SetVertexColor(1, 1, 1, 0) -- Fully transparent
+customMinimap:SetClampedToScreen(true) -- Clamp the frame to the screen
 
-    -- Set the actual Minimap as the child frame (display the game world inside the mask)
-    local actualMinimap = CreateFrame("Frame", "MyActualMinimap", customMinimap)
-    actualMinimap:SetAllPoints(customMinimap)
-	
-    -- Set the actual Minimap as the child frame's texture
-    tMinimap:SetParent(actualMinimap)
-    tMinimap:SetPoint("CENTER", 1, -3)
-    tMinimap:SetWidth(131*1.36)
-    tMinimap:SetHeight(131*1.36)
-    --Minimap:SetFrameStrata("LOW")
-    tMinimap:SetFrameLevel(tMinimap:GetFrameLevel() - 1)
-	
+-- Set the actual Minimap as the child frame (display the game world inside the mask)
+local actualMinimap = CreateFrame("Frame", "MyActualMinimap", customMinimap)
+actualMinimap:SetAllPoints(customMinimap)
 
-    -- Add the Minimap border texture (displayed above the actual Minimap)
-    local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
-    borderTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uiminimapborder.tga")
-    borderTexture:SetAllPoints(customMinimap)
+-- Set the actual Minimap as the child frame's texture
+tMinimap:SetParent(actualMinimap)
+tMinimap:SetPoint("CENTER", 1, -3)
+tMinimap:SetWidth(131*1.36)
+tMinimap:SetHeight(131*1.36)
+--Minimap:SetFrameStrata("LOW")
+tMinimap:SetFrameLevel(tMinimap:GetFrameLevel() - 1)
+
+
+-- Add the Minimap border texture (displayed above the actual Minimap)
+local borderTexture = customMinimap:CreateTexture(nil, "OVERLAY")
+borderTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\uiminimapborder.tga")
+borderTexture:SetAllPoints(customMinimap)
 	
 -- Create a frame for the border around MinimapZoneText
 local borderFrame = CreateFrame("Frame", "BorderFrameForZoneText", UIParent)
@@ -68,32 +69,25 @@ MinimapZoneText:SetJustifyH("LEFT") -- Ensure the text justifies to the left and
 MinimapToggleButton:Hide()
 
 --MiniMapTrackingFrame
-    -- Clear existing points
-    MiniMapTrackingFrame:ClearAllPoints()
-    -- Set new point relative to MiniMapZoneText
-    MiniMapTrackingFrame:SetPoint("LEFT", borderFrame, -35, 12)
-    -- Set the scale to 50%
-    MiniMapTrackingFrame:SetScale(0.6)
-    -- Hide the border textures based on dimensions
-    local regions = {MiniMapTrackingFrame:GetRegions()}
-    for _, region in ipairs(regions) do
-        if region and region:GetObjectType() == "Texture" then
-            local width, height = region:GetWidth(), region:GetHeight()
-            if width > 30 and height > 30 then
-                region:Hide()
-            end
+-- Clear existing points
+MiniMapTrackingFrame:ClearAllPoints()
+-- Set new point relative to MiniMapZoneText
+MiniMapTrackingFrame:SetPoint("LEFT", borderFrame, -35, 12)
+-- Set the scale to 50%
+MiniMapTrackingFrame:SetScale(0.6)
+-- Hide the border textures based on dimensions
+local regions = {MiniMapTrackingFrame:GetRegions()}
+for _, region in ipairs(regions) do
+    if region and region:GetObjectType() == "Texture" then
+        local width, height = region:GetWidth(), region:GetHeight()
+        if width > 30 and height > 30 then
+            region:Hide()
         end
     end
+end
 --MiniMapTrackingFrame
 
-
-
-
-
-    -- Show your custom minimap
-    customMinimap:Show()
---end
---)
+customMinimap:Show()
 
 --Sets the ZoomIn and ZoomOut buttons
 tMinimapZoomIn:ClearAllPoints()
@@ -126,7 +120,7 @@ local frame = CreateFrame("Frame")
 -- Set the OnUpdate script
 frame:SetScript("OnUpdate", function(self, elapsed)
     local zoomLevel = tMinimap:GetZoom()
--- Check if the zoom level is 0 or 5
+        -- Check if the zoom level is 0 or 5
         if zoomLevel == 0 then
             --print("The minimap is zoomed out to the maximum.")
             tMinimapZoomOut:Hide()
@@ -198,7 +192,7 @@ else if pfBrowserIcon then
 end
 
 --"You've got mail!"" -AOL 1998
--- Define the path to your custom icon
+-- tDF mail icon
 local customMailIcon = "Interface\\AddOns\\Turtle-Dragonflight\\img\\mail.tga"
 
 --Set it
@@ -208,3 +202,37 @@ MiniMapMailBorder:Hide()
 MiniMapMailIcon:SetTexture(customMailIcon)
 MiniMapMailIcon:SetWidth(32)
 MiniMapMailIcon:SetHeight(32)
+
+-- durability frame
+_G.durability = CreateFrame("Frame", "tDFDurability", UIParent)
+if customMinimap then
+_G.durability:SetPoint("TOPLEFT", customMinimap, "BOTTOMRIGHT", -75, 0)
+else
+_G.durability:SetPoint("LEFT", UIParent, "RIGHT", -120, 120)
+end
+--UpdateMovable(_G.durability)
+_G.durability:SetWidth(80)
+_G.durability:SetHeight(70)
+_G.durability:SetFrameStrata("BACKGROUND")
+DurabilityFrame:SetParent(_G.durability)
+DurabilityFrame:SetAllPoints(_G.durability)
+DurabilityFrame:SetFrameLevel(1)
+DurabilityFrame.SetPoint = function() return end
+-- end durability frame
+
+--quest tracker
+_G.qwf = CreateFrame("Frame", "tDFquestwatchframe", UIParent)
+if customMinimap then
+    _G.qwf:SetPoint("LEFT", customMinimap, 0, -200)
+else
+    _G.qwf:SetPoint("LEFT", customMinimap, 0, -200)
+end
+--UpdateMovable(_G.qwf)
+_G.qwf:SetWidth(80)
+_G.qwf:SetHeight(70)
+_G.qwf:SetFrameStrata("BACKGROUND")
+QuestWatchFrame:SetParent(_G.qwf)
+QuestWatchFrame:SetAllPoints(_G.qwf)
+QuestWatchFrame:SetFrameLevel(1)
+QuestWatchFrame.SetPoint = function() return end
+--end quest tracker
