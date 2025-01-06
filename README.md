@@ -7,7 +7,7 @@
 The Dragonflight UI for Turtle WoW. 
 
 ## 🛠️ Installation
-This is a stand-alone addon made for the Turtle WoW 1.12.1 client. You can get this add-on from the official TWOW Launcher. If you want to download directly from GitHub, follow the manual install steps below.
+This is a stand-alone addon made for the Turtle WoW 1.12.1 client. You can get this addon from the official TWOW Launcher. If you want to download directly from GitHub, follow the manual install steps below.
 
 #### Manual tDF Install
 1. Unpack the zip file included with this download.
