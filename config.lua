@@ -100,7 +100,9 @@ end)
 local opposite_table =
 {
   ["Colorful MicroMenu"] = {"Gray MicroMenu"},
-  ["Gray MicroMenu"] = {"Colorful MicroMenu"}
+  ["Gray MicroMenu"] = {"Colorful MicroMenu"},
+  ["Minimap Smaller"] = {"Minimap Bigger"},
+  ["Minimap Bigger"] = {"Minimap Smaller"}
 }
 
 local linked_table =
