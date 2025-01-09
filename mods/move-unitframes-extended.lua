@@ -25,7 +25,9 @@ local nonmovables = {
   "BuffButton8", -- buffrow2
   "BuffButton16", -- debuffs
   "TempEnchant1", -- weapon buffs
-  "xpbar"
+  "xpbar",
+  "tDFquestwatchframe",
+  "tDFDurability"
 }
 
 module.enable = function(self)
