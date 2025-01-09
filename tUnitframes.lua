@@ -367,17 +367,17 @@ end)
     wait:UnregisterAllEvents()
     wait:Hide()
 
--- Party space fix with pet
+  -- Party space fix with pet
   if PetFrame:IsVisible() then
     if PartyMemberFrame1:IsVisible() then
-      PartyMemberFrame1:ClearAllPoints()
-      PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
+      --PartyMemberFrame1:ClearAllPoints()
+      --PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
     else
       --print("partyMember1 does not exist")
     end
   else
-      PartyMemberFrame1:ClearAllPoints()
-      PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
+      --PartyMemberFrame1:ClearAllPoints()
+      --PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
   end
 
   end)
