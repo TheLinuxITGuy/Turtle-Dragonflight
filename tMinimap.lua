@@ -223,9 +223,9 @@ DurabilityFrame.SetPoint = function() return end
 --quest tracker
 _G.qwf = CreateFrame("Frame", "tDFquestwatchframe", UIParent)
 if customMinimap then
-    _G.qwf:SetPoint("LEFT", customMinimap, 0, -200)
+    _G.qwf:SetPoint("LEFT", customMinimap, -40, -200)
 else
-    _G.qwf:SetPoint("LEFT", customMinimap, 0, -200)
+    _G.qwf:SetPoint("LEFT", customMinimap, -40, -200)
 end
 --UpdateMovable(_G.qwf)
 _G.qwf:SetWidth(80)
