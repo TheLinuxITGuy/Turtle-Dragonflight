@@ -196,7 +196,7 @@ repStatusBar:SetFrameLevel(1)
 -- Create a font string for the custom text
 local customRepText = repbar:CreateFontString(nil, "OVERLAY")
 customRepText:SetFont("Fonts\\FRIZQT__.TTF", 10, "OUTLINE")
-customRepText:SetPoint("CENTER", repbar, "CENTER", 0, 0)
+customRepText:SetPoint("CENTER", repbar, "CENTER", 0, 1)
 customRepText:SetJustifyH("CENTER")
 
 -- Function to update the custom text and status bar with the current faction info
