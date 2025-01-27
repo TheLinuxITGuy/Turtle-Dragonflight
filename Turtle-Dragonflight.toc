@@ -2,7 +2,7 @@
 ## Title: |cff008000Turtle |cff1974d2Dragonflight
 ## Author: Youtube/@TheLinuxITGuy
 ## Notes: The Dragonflight UI for Turtle WoW.
-## Version: 2.9
+## Version: 2.9.2
 ## DefaultState: enabled
 ## SavedVariables: SUCC_bagOptions
 ## SavedVariablesPerCharacter: ShaguTweaks_config, ShaguTweaks_cache, SortBagsRightToLeft
@@ -85,19 +85,18 @@ mods\tHideBags.lua
 mods\tTooltipAtMouse.lua
 mods\tHidetDFmicrobutton.lua
 mods\xpbar-active-tracking.lua
-mods\latency-castbar.lua
+mods\tCastbar.lua
+#mods\latency-castbar.lua
 mods\bag-search.lua
 mods\SUCC-bag.lua
 mods\xpbar-show-full.lua
 mods\xpbar-xp-hide.lua
-#mods\minimap-scale.lua
 mods\minimap-smaller.lua
 mods\minimap-bigger.lua
+mods\tTimers.lua
 
 #Turtle Dragonflight
 tMinimap.lua
-tCastbar.lua
-tTimers.lua
 tActionBars.lua
 tXPbar.lua
 tDefaultMicroMenu.lua
