@@ -1,6 +1,6 @@
 local gfind = string.gmatch or string.gfind
 
-ShaguTweaks.GetExpansion = function()
+tDFUI.GetExpansion = function()
   local _, _, _, client = GetBuildInfo()
   client = client or 11200
 
@@ -14,18 +14,18 @@ ShaguTweaks.GetExpansion = function()
   end
 end
 
-ShaguTweaks.GetGlobalEnv = function()
-  if ShaguTweaks.GetExpansion() == 'vanilla' then
+tDFUI.GetGlobalEnv = function()
+  if tDFUI.GetExpansion() == 'vanilla' then
     return getfenv(0)
   else
     return _G or getfenv(0)
   end
 end
 
-local _G = ShaguTweaks.GetGlobalEnv()
+local _G = tDFUI.GetGlobalEnv()
 
 local gradientcolors = {}
-ShaguTweaks.GetColorGradient = function(perc)
+tDFUI.GetColorGradient = function(perc)
   perc = perc > 1 and 1 or perc
   perc = perc < 0 and 0 or perc
   perc = floor(perc*100)/100
@@ -44,10 +44,10 @@ ShaguTweaks.GetColorGradient = function(perc)
       r2, g2, b2 = 0, 1, 0
     end
 
-    local r = ShaguTweaks.round(r1 + (r2 - r1) * perc, 4)
-    local g = ShaguTweaks.round(g1 + (g2 - g1) * perc, 4)
-    local b = ShaguTweaks.round(b1 + (b2 - b1) * perc, 4)
-    local h = ShaguTweaks.rgbhex(r,g,b)
+    local r = tDFUI.round(r1 + (r2 - r1) * perc, 4)
+    local g = tDFUI.round(g1 + (g2 - g1) * perc, 4)
+    local b = tDFUI.round(b1 + (b2 - b1) * perc, 4)
+    local h = tDFUI.rgbhex(r,g,b)
 
     gradientcolors[index] = {}
     gradientcolors[index].r = r
@@ -62,7 +62,7 @@ ShaguTweaks.GetColorGradient = function(perc)
     gradientcolors[index].h
 end
 
-ShaguTweaks.GetExpansion = function()
+tDFUI.GetExpansion = function()
   local _, _, _, client = GetBuildInfo()
   client = client or 11200
 
@@ -76,7 +76,7 @@ ShaguTweaks.GetExpansion = function()
   end
 end
 
-ShaguTweaks.HookScript = function(f, script, func)
+tDFUI.HookScript = function(f, script, func)
   local prev = f:GetScript(script)
   f:SetScript(script, function(a1,a2,a3,a4,a5,a6,a7,a8,a9)
     if prev then prev(a1,a2,a3,a4,a5,a6,a7,a8,a9) end
@@ -84,7 +84,7 @@ ShaguTweaks.HookScript = function(f, script, func)
   end)
 end
 
-ShaguTweaks.HookAddonOrVariable = function(addon, func)
+tDFUI.HookAddonOrVariable = function(addon, func)
   local lurker = CreateFrame("Frame", nil)
   lurker.func = func
   lurker:RegisterEvent("ADDON_LOADED")
@@ -99,7 +99,7 @@ ShaguTweaks.HookAddonOrVariable = function(addon, func)
 end
 
 local hooks = {}
-ShaguTweaks.hooksecurefunc = function(name, func, append)
+tDFUI.hooksecurefunc = function(name, func, append)
   if not _G[name] then return end
 
   hooks[tostring(func)] = {}
@@ -122,7 +122,7 @@ ShaguTweaks.hooksecurefunc = function(name, func, append)
 end
 
 local sanitize_cache = {}
-ShaguTweaks.SanitizePattern = function(pattern)
+tDFUI.SanitizePattern = function(pattern)
   if not sanitize_cache[pattern] then
     local ret = pattern
     -- escape magic characters
@@ -143,7 +143,7 @@ ShaguTweaks.SanitizePattern = function(pattern)
 end
 
 local capture_cache = {}
-ShaguTweaks.GetCaptures = function(pat)
+tDFUI.GetCaptures = function(pat)
   local r = capture_cache
   if not r[pat] then
     for a, b, c, d, e in gfind(gsub(pat, "%((.+)%)", "%1"), gsub(pat, "%d%$", "%%(.-)$")) do
@@ -155,10 +155,10 @@ ShaguTweaks.GetCaptures = function(pat)
   return r[pat][1], r[pat][2], r[pat][3], r[pat][4], r[pat][5]
 end
 
-ShaguTweaks.cmatch = function(str, pat)
+tDFUI.cmatch = function(str, pat)
   -- read capture indexes
-  local a,b,c,d,e = ShaguTweaks.GetCaptures(pat)
-  local _, _, va, vb, vc, vd, ve = string.find(str, ShaguTweaks.SanitizePattern(pat))
+  local a,b,c,d,e = tDFUI.GetCaptures(pat)
+  local _, _, va, vb, vc, vd, ve = string.find(str, tDFUI.SanitizePattern(pat))
 
   -- put entries into the proper return values
   local ra, rb, rc, rd, re
@@ -173,7 +173,7 @@ end
 
 
 local timer
-ShaguTweaks.QueueFunction = function(a1,a2,a3,a4,a5,a6,a7,a8,a9)
+tDFUI.QueueFunction = function(a1,a2,a3,a4,a5,a6,a7,a8,a9)
   if not timer then
     timer = CreateFrame("Frame")
     timer.queue = {}
@@ -199,7 +199,7 @@ ShaguTweaks.QueueFunction = function(a1,a2,a3,a4,a5,a6,a7,a8,a9)
   timer:Show() -- start the OnUpdate
 end
 
-ShaguTweaks.strsplit = function(delimiter, subject)
+tDFUI.strsplit = function(delimiter, subject)
   if not subject then return nil end
   local delimiter, fields = delimiter or ":", {}
   local pattern = string.format("([^%s]+)", delimiter)
@@ -207,7 +207,7 @@ ShaguTweaks.strsplit = function(delimiter, subject)
   return unpack(fields)
 end
 
-ShaguTweaks.rgbhex = function(r, g, b, a)
+tDFUI.rgbhex = function(r, g, b, a)
   if type(r) == "table" then
     if r.r then
       _r, _g, _b, _a = r.r, r.g, r.b, (r.a or 1)
@@ -235,9 +235,9 @@ local border = {
   tile = true, tileSize = 8, edgeSize = 12,
   insets = { left = 0, right = 0, top = 0, bottom = 0 }
 }
-ShaguTweaks.AddBorder = function(frame, inset, color)
+tDFUI.AddBorder = function(frame, inset, color)
   if not frame then return end
-  if frame.ShaguTweaks_border then return frame.ShaguTweaks_border end
+  if frame.tDFUI_border then return frame.tDFUI_border end
 
   local top, right, bottom, left
 
@@ -246,21 +246,21 @@ ShaguTweaks.AddBorder = function(frame, inset, color)
     left, bottom = -left, -bottom
   end
 
-  if not frame.ShaguTweaks_border then
-    frame.ShaguTweaks_border = CreateFrame("Frame", nil, frame)
-    frame.ShaguTweaks_border:SetPoint("TOPLEFT", frame, "TOPLEFT", (left or -inset), (top or inset))
-    frame.ShaguTweaks_border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", (right or inset), (bottom or -inset))
-    frame.ShaguTweaks_border:SetBackdrop(border)
+  if not frame.tDFUI_border then
+    frame.tDFUI_border = CreateFrame("Frame", nil, frame)
+    frame.tDFUI_border:SetPoint("TOPLEFT", frame, "TOPLEFT", (left or -inset), (top or inset))
+    frame.tDFUI_border:SetPoint("BOTTOMRIGHT", frame, "BOTTOMRIGHT", (right or inset), (bottom or -inset))
+    frame.tDFUI_border:SetBackdrop(border)
 
     if color then
-      frame.ShaguTweaks_border:SetBackdropBorderColor(color.r, color.g, color.b, 1)
+      frame.tDFUI_border:SetBackdropBorderColor(color.r, color.g, color.b, 1)
     end
   end
 
-  return frame.ShaguTweaks_border
+  return frame.tDFUI_border
 end
 
-ShaguTweaks.round = function(input, places)
+tDFUI.round = function(input, places)
   if not places then places = 0 end
   if type(input) == "number" and type(places) == "number" then
     local pow = 1
@@ -269,22 +269,22 @@ ShaguTweaks.round = function(input, places)
   end
 end
 
-ShaguTweaks.Abbreviate = function(number, eachk)
+tDFUI.Abbreviate = function(number, eachk)
   local sign = number < 0 and -1 or 1
   number = math.abs(number)
 
   if number > 1000000 then
-    return ShaguTweaks.round(number/1000000*sign,2) .. "m"
+    return tDFUI.round(number/1000000*sign,2) .. "m"
   elseif not eachk and number > 10000 then
-    return ShaguTweaks.round(number/1000*sign,2) .. "k"
+    return tDFUI.round(number/1000*sign,2) .. "k"
   elseif eachk and number > 1000 then
-    return ShaguTweaks.round(number/1000*sign,2) .. "k"
+    return tDFUI.round(number/1000*sign,2) .. "k"
   end
 
   return number
 end
 
-ShaguTweaks.TimeConvert = function(remaining)
+tDFUI.TimeConvert = function(remaining)
   local color = "|cffffffff"
 
   if remaining < 5 then
@@ -335,6 +335,6 @@ local function orderedNext(t, state)
   return
 end
 
-ShaguTweaks.spairs = function(t)
+tDFUI.spairs = function(t)
   return orderedNext, t, nil
 end

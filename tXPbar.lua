@@ -7,9 +7,9 @@ Dragonflight.
 
 MainMenuExpBar:SetAlpha(0) -- Required for XPbar.lua to work
 
-ShaguTweaks_config = ShaguTweaks_config or {}
-ShaguTweaks_config["Hide XP outdoors"] = ShaguTweaks_config["Hide XP outdoors"] or 0
-ShaguTweaks_config["Always show detailed XP"] = ShaguTweaks_config["Always show detailed XP"] or 0
+tDFUI_config = tDFUI_config or {}
+tDFUI_config["Hide XP outdoors"] = tDFUI_config["Hide XP outdoors"] or 0
+tDFUI_config["Always show detailed XP"] = tDFUI_config["Always show detailed XP"] or 0
 
 function xpbar_update(xpbar, show_full)
     local currentXP = UnitXP("player")
@@ -139,13 +139,13 @@ xpbar_watcher:RegisterEvent("PLAYER_XP_UPDATE")
 xpbar_watcher:SetScript("OnEvent", function()
     xpbar = xpbar or xpbar_create()
     if not xpbar_hide(xpbar) then
-        xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
+        xpbar_update(xpbar, tDFUI_config["Always show detailed XP"] == 1 and true or nil)
     end
 end)
 
 MainMenuExpBar:SetScript("OnEnter", function(self)
     xpbar.text:Show()
-    xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
+    xpbar_update(xpbar, tDFUI_config["Always show detailed XP"] == 1 and true or nil)
     xpbar_watcher:SetScript("OnUpdate", function()
         if IsShiftKeyDown() then
             xpbar_update(xpbar, true)
@@ -154,8 +154,8 @@ MainMenuExpBar:SetScript("OnEnter", function(self)
     end)
 end)
 MainMenuExpBar:SetScript("OnLeave", function(self)
-    xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
-    if ShaguTweaks_config["Hide XP outdoors"] == 1 and not IsResting() then
+    xpbar_update(xpbar, tDFUI_config["Always show detailed XP"] == 1 and true or nil)
+    if tDFUI_config["Hide XP outdoors"] == 1 and not IsResting() then
         xpbar.text:Hide()
     end
     xpbar_watcher:SetScript("OnUpdate", nil)

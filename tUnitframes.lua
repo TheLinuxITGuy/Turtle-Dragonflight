@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Turtle Dragonflight (default)"],
   description = T["Turtle Dragonflight Unitframes. Uncheck this if you want to use the other Unit Frame options."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -12,7 +12,7 @@ local module = ShaguTweaks:register({
 local addonpath
 local tocs = { "", "-master", "-tbc", "-wotlk" }
 for _, name in pairs(tocs) do
-  local current = string.format("ShaguTweaks%s", name)
+  local current = string.format("tDFUI%s", name)
   local _, title = GetAddOnInfo(current)
   if title then
     addonpath = "Interface\\AddOns\\" .. current
@@ -309,7 +309,7 @@ end
 local wait = CreateFrame("Frame")
 wait:RegisterEvent("PLAYER_ENTERING_WORLD")
 wait:SetScript("OnEvent", function()
-  if ShaguTweaks.DarkMode then
+  if tDFUI.DarkMode then
     PlayerFrameTexture:SetVertexColor(.3,.3,.3,.9)
     TargetFrameTexture:SetVertexColor(.3,.3,.3,.9)
   end

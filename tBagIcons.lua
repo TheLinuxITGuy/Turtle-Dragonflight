@@ -1,4 +1,4 @@
-local _G = ShaguTweaks.GetGlobalEnv()
+local _G = tDFUI.GetGlobalEnv()
 local create_button = tDF.utils.create_button
 
 -----------------Inside the bag Top Left Bag icon-----------------
@@ -15,8 +15,8 @@ MainMenuBarBackpackButton:Hide()
 KeyRingButton:ClearAllPoints()
 KeyRingButton:Hide()
 
-ShaguTweaks_config = ShaguTweaks_config or {}
-ShaguTweaks_config["tDFbags_hide"] = ShaguTweaks_config["tDFbags_hide"] or 0
+tDFUI_config = tDFUI_config or {}
+tDFUI_config["tDFbags_hide"] = tDFUI_config["tDFbags_hide"] or 0
 
 local bags_texture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\bagslots2x1.tga"
 local bags_keys_texture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\bagslots2key.tga"
@@ -100,13 +100,13 @@ end
 
 local function bags_toggle()
     local tx = tDFbagArrow:GetNormalTexture()
-    if ShaguTweaks_config["tDFbags_hide"] == 1 then
+    if tDFUI_config["tDFbags_hide"] == 1 then
         bags_showall()
-        ShaguTweaks_config["tDFbags_hide"] = 0
+        tDFUI_config["tDFbags_hide"] = 0
         tx:SetTexCoord(488/512, 504/512, 38/128, 70/128)
     else
         bags_hideall()
-        ShaguTweaks_config["tDFbags_hide"] = 1
+        tDFUI_config["tDFbags_hide"] = 1
         tx:SetTexCoord(487/512, 503/512, 2/128, 33/128)
     end
 end
@@ -196,9 +196,9 @@ loginFrame:SetScript("OnEvent", function()
 
         freeSlots(tDFbagFreeSlots)
 
-        if ShaguTweaks_config["Hide Bags"] == 0 then
+        if tDFUI_config["Hide Bags"] == 0 then
             local tx = tDFbagArrow:GetNormalTexture()
-            if ShaguTweaks_config["tDFbags_hide"] == 1 then
+            if tDFUI_config["tDFbags_hide"] == 1 then
                 bags_hideall()
                 tx:SetTexCoord(487/512, 503/512, 2/128, 33/128)
             else

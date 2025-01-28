@@ -1,10 +1,4 @@
---[[
-Author: ShaguTweaks
-Modified by: YouTube.com/@TheLinuxITGuy
-Built on: Linux Mint Debian Edition 12
-This lua file hides the original Blizzard art work from 1.12. I've created new buttons and textured them to match
-Dragonflight.
-]]
+
 
 -- general function to hide textures and frames
   local addonpath = "Interface\\AddOns\\Turtle-Dragonflight"

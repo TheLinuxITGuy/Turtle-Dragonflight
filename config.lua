@@ -1,6 +1,6 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 local mod = math.mod or mod
 
 local current_config = {}
@@ -72,12 +72,12 @@ settings.okay:SetScript("OnClick", function()
   -- save temporary config to real config
   for k, v in pairs(current_config) do
     -- check if reload is required
-    if current_config[k] ~= ShaguTweaks_config[k] then
+    if current_config[k] ~= tDFUI_config[k] then
       reload = true
     end
 
     -- set new config
-    ShaguTweaks_config[k] = v
+    tDFUI_config[k] = v
   end
 
   -- reload the UI if required
@@ -123,11 +123,11 @@ end
 
 settings.load = function(self)
   settings.entries = settings.entries or {}
-  local expansion = ShaguTweaks:GetExpansion()
+  local expansion = tDFUI:GetExpansion()
 
   -- sort all configs into categories
   local gui = {}
-  for title, module in pairs(ShaguTweaks.mods) do
+  for title, module in pairs(tDFUI.mods) do
     if module.expansions[expansion] then
       local category = module.category or T["General"]
       gui[category] = gui[category] or {}
@@ -137,7 +137,7 @@ settings.load = function(self)
 
   local yoff = 25
   local entrysize = 25
-  for category, entries in ShaguTweaks.spairs(gui) do
+  for category, entries in tDFUI.spairs(gui) do
     local entry, spacing = 1, 20
     yoff = yoff + 12
 
@@ -152,7 +152,7 @@ settings.load = function(self)
       insets = { left = 3, right = 3, top = 3, bottom = 3 }
     })
 
-    if ShaguTweaks.DarkMode then
+    if tDFUI.DarkMode then
       settings.category[category]:SetBackdropColor(.1,.1,.1,1)
       settings.category[category]:SetBackdropBorderColor(.2,.2,.2,1)
     else
@@ -166,7 +166,7 @@ settings.load = function(self)
     settings.category[category].text:SetPoint("TOPLEFT", 5, 10)
     yoff = yoff + spacing/2
 
-    for title, module in ShaguTweaks.spairs(entries) do
+    for title, module in tDFUI.spairs(entries) do
       if not settings.entries[title] then
         settings.entries[title] = CreateFrame("CheckButton", "AdvancedSettingsGUI" .. title, settings.category[category], "OptionsCheckButtonTemplate")
         settings.entries[title]:SetHeight(24)
@@ -231,7 +231,7 @@ end
 
 settings.defaults = function()
   -- read default settings from modules
-  for title, mod in pairs(ShaguTweaks.mods) do
+  for title, mod in pairs(tDFUI.mods) do
     current_config[title] = mod.enabled and 1 or 0
   end
 
@@ -240,7 +240,7 @@ end
 
 settings:SetScript("OnShow", function()
   -- read current config to temporary config
-  for k, v in pairs(ShaguTweaks_config) do
+  for k, v in pairs(tDFUI_config) do
     current_config[k] = v
   end
 

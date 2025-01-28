@@ -1,4 +1,4 @@
-local _G = ShaguTweaks.GetGlobalEnv()
+local _G = tDFUI.GetGlobalEnv()
 
 for i = 1, 5 do
     local frame = _G["ContainerFrame"..i]

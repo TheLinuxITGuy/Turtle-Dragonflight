@@ -63,8 +63,8 @@ end
 
 tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, font_mod)
     local font_size_mod = font_mod or 0
-    local UnitCastingInfo = ShaguTweaks.UnitCastingInfo
-    local UnitChannelInfo = ShaguTweaks.UnitChannelInfo
+    local UnitCastingInfo = tDFUI.UnitCastingInfo
+    local UnitChannelInfo = tDFUI.UnitChannelInfo
 
     castbar = CreateFrame("StatusBar", name, parent)
     castbar:SetPoint(anchor, parent, anchor, x, y)
@@ -102,7 +102,7 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
     castbar.backdrop:SetBackdrop({
       bgFile = "Interface\\AddOns\\Turtle-Dragonflight\\img\\Castbar\\CastingBarFrame2.tga"
     })
-    if ShaguTweaks.DarkMode then
+    if tDFUI.DarkMode then
         castbar.backdrop:SetBackdropColor( .3, .3, .3, .9)
     end
 
@@ -152,7 +152,7 @@ tDF.utils.create_castbar = function(unitstr, name, parent, anchor, x, y, w, h, f
         local query = this.unitstr or nil
         if not name then return end
         -- try to read cast and guid from SuperWoW (except for self casts)
-        if ShaguTweaks.superwow_active and this.unitstr and not UnitIsUnit(this.unitstr, 'player') then
+        if tDFUI.superwow_active and this.unitstr and not UnitIsUnit(this.unitstr, 'player') then
             local _, guid = UnitExists(this.unitstr)
             query = guid or query
         end

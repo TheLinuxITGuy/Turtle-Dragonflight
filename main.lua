@@ -13,44 +13,44 @@ error = function(msg)
 end
 seterrorhandler(error)
 
-ShaguTweaks = CreateFrame("Frame")
-ShaguTweaks.mods = {}
+tDFUI = CreateFrame("Frame")
+tDFUI.mods = {}
 
  -- load translation tables
- ShaguTweaks.L = (ShaguTweaks_locale[GetLocale()] or ShaguTweaks_locale["enUS"])
- ShaguTweaks.T = (ShaguTweaks_translation[GetLocale()] or ShaguTweaks_translation["enUS"])
+ tDFUI.L = (tDFUI_locale[GetLocale()] or tDFUI_locale["enUS"])
+ tDFUI.T = (tDFUI_translation[GetLocale()] or tDFUI_translation["enUS"])
 
  -- use table index key as translation fallback
- ShaguTweaks.T = setmetatable(ShaguTweaks.T, { __index = function(tab,key)
+ tDFUI.T = setmetatable(tDFUI.T, { __index = function(tab,key)
    local value = tostring(key)
    rawset(tab, key, value)
    return value
  end})
 
- ShaguTweaks:RegisterEvent("VARIABLES_LOADED")
- ShaguTweaks:SetScript("OnEvent", function()
+ tDFUI:RegisterEvent("VARIABLES_LOADED")
+ tDFUI:SetScript("OnEvent", function()
 
    -- load current expansion
-  local expansion = ShaguTweaks:GetExpansion()
+  local expansion = tDFUI:GetExpansion()
 
   -- initialize empty config
-  if not ShaguTweaks_config then ShaguTweaks_config = {} end
+  if not tDFUI_config then tDFUI_config = {} end
 
   -- read all registered mods
-  for title, mod in pairs(ShaguTweaks.mods) do
+  for title, mod in pairs(tDFUI.mods) do
     -- write initial default config
-    if not ShaguTweaks_config[title] then
-      ShaguTweaks_config[title] = mod.enabled and 1 or 0
+    if not tDFUI_config[title] then
+      tDFUI_config[title] = mod.enabled and 1 or 0
     end
 
     -- load enabled mods
-    if mod.expansions[expansion] and ShaguTweaks_config[title] == 1 then
+    if mod.expansions[expansion] and tDFUI_config[title] == 1 then
       mod:enable()
     end
   end
 end)
 
-ShaguTweaks.register = function(self, mod)
-  ShaguTweaks.mods[mod.title] = mod
-  return ShaguTweaks.mods[mod.title]
+tDFUI.register = function(self, mod)
+  tDFUI.mods[mod.title] = mod
+  return tDFUI.mods[mod.title]
 end

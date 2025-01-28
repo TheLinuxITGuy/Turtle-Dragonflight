@@ -1,9 +1,4 @@
---[[
-Author: YouTube.com/@TheLinuxITGuy
-Built on: Linux Mint Debian Edition 12
-Mod: scorpzor
-Description: Micromenu lib
-]]
+
 tDFmicrobutton = CreateFrame("Frame", "tDFmicrobutton", UIParent)
 tDFmicrobutton:SetPoint("BOTTOMRIGHT", UIParent, "BOTTOMRIGHT", -10, 8)
 tDFmicrobutton:SetHeight(30)
@@ -173,7 +168,7 @@ function create_microbutton_eye(parent_frame, x, y)
     end
   end
 
-  LFTFrameMainButton.HookScript = LFTFrameMainButton.HookScript or ShaguTweaks.HookScript
+  LFTFrameMainButton.HookScript = LFTFrameMainButton.HookScript or tDFUI.HookScript
 
   LFTFrameMainButton:HookScript("OnClick", function(self, button, down)
     -- Call the function to check the button text and execute the corresponding code

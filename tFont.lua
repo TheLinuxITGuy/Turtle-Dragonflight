@@ -1,7 +1,7 @@
     local restyle = CreateFrame("Frame", nil, UIParent)
     local addonpath = "Interface\\AddOns\\Turtle-Dragonflight"
 	local customfont = addonpath .. "\\fonts\\Prototype.ttf"
-    local _G = ShaguTweaks.GetGlobalEnv()
+    local _G = tDFUI.GetGlobalEnv()
 
     function restyle:buttons()
         local function style(button)

@@ -1,5 +1,5 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
 tMinimapZoomIn = MinimapZoomIn
 tMinimapZoomOut = MinimapZoomOut

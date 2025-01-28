@@ -1,8 +1,4 @@
---[[
-Author: YouTube.com/@TheLinuxITGuy
-Built on: Linux Mint Debian Edition 12
-This lua file replaces the original 1.12.1 Gryphons with the ones from Dragonflight.
-]]
+
 
 -- Hide the original gryphons
 MainMenuBarLeftEndCap:Hide()
