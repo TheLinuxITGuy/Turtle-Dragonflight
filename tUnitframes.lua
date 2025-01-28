@@ -281,12 +281,15 @@ for i = 1, 4 do
   local customBorder = frame:CreateTexture(nil, "OVERLAY")
   customBorder:SetTexture("Interface\\Addons\\Turtle-Dragonflight\\img\\pet") -- Path to your custom texture
   customBorder:SetDrawLayer("BORDER", 1)
-  customBorder:SetAllPoints(frame)
+  customBorder:SetPoint("CENTER", frame, 0, 0)
+  --customBorder:SetAllPoints(frame)
+  customBorder:SetWidth(128)
+  customBorder:SetHeight(64)
   
   -- Resize the portrait
   local portrait = _G["PartyMemberFrame" .. i .. "Portrait"]
   if portrait then
-    portrait:SetHeight(30)
+    portrait:SetHeight(32)
     portrait:SetWidth(35) -- sets the size of the portraits
     portrait:SetDrawLayer("BACKGROUND",1)
   end
@@ -294,7 +297,7 @@ for i = 1, 4 do
   --Adjust Name Text
   if name and frame then
     name:ClearAllPoints()
-    name:SetPoint("CENTER", frame, "CENTER", 6, 20) 
+    name:SetPoint("CENTER", frame, "CENTER", 6, 23) 
     name:SetDrawLayer("BORDER", 2)
   end
 
@@ -306,7 +309,7 @@ for i = 1, 4 do
     -- Adjust the position and size of the health bar
     healthBar:SetHeight(8)
     healthBar:ClearAllPoints()
-    healthBar:SetPoint("CENTER", frame, "CENTER", 15, 8)
+    healthBar:SetPoint("CENTER", frame, "CENTER", 15, 10)
     --healthBar:SetDrawLayer("BACKGROUND", 1)
 
     -- Adjust the position of the mana bar
