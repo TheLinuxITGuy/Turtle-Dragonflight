@@ -67,34 +67,28 @@ local playerPortrait = PlayerFrame.portrait
 playerPortrait:SetHeight(62)
 playerPortrait:SetWidth(62)
 
---[[
-------------------------RESTED NON-ANIMATION ------------------------
--- Create a frame for the overlay if it doesn't already exist
-PlayerRestIcon:SetTexture("")
-PlayerRestIcon:ClearAllPoints()
-PlayerRestIcon:SetPoint("TOPLEFT", PlayerFrame, -3000, 0)
-local overlay = CreateFrame("Frame", "overlay", UIParent)
-overlay:SetHeight(64)
-overlay:SetWidth(64)
-overlay:SetPoint("CENTER", PlayerFrame, "CENTER", -20, 30) -- Position the NEW RESTED icon
+--adds red to ranged
+local function updatePortraitBlink()
+  if UnitAffectingCombat("player") then
+      PlayerFrameTexture:SetVertexColor(1, 0, 0)  -- Red
+  else
+      PlayerFrameTexture:SetVertexColor(1, 1, 1)  -- Normal color
+  end
+end
 
--- Create a texture for the overlay
-local overlayTexture = overlay:CreateTexture(nil, "BACKGROUND")
-overlayTexture:SetAllPoints(overlay)
-overlayTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\Unitframe\\flipbookrested.tga")
-overlayTexture:SetTexCoord(100/512, 120/512, 34/64, 57/64)
-
--- Show the overlay when the player is in a rested zone
-overlay:RegisterEvent("PLAYER_UPDATE_RESTING")
-overlay:SetScript("OnEvent", function(self, event)
-    if IsResting() then
-        this:Show()
-    else
-        this:Hide()
-    end
-end)
-------------------------RESTED------------------------
-]]
+local f = CreateFrame("Frame")
+f:RegisterEvent("PLAYER_REGEN_DISABLED")  -- Entering combat
+f:RegisterEvent("PLAYER_REGEN_ENABLED")  -- Leaving combat
+f:RegisterEvent("UNIT_SPELLCAST_START")  -- Casting spells
+f:RegisterEvent("UNIT_SPELLCAST_STOP")  -- Stopping cast
+f:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START")  -- Starting channel
+f:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP")  -- Stopping channel
+f:RegisterEvent("UNIT_COMBAT")  -- Any combat action
+f:RegisterEvent("UNIT_ATTACK_START")  -- Starting melee attack
+f:RegisterEvent("UNIT_ATTACK_STOP")  -- Stopping melee attack
+f:RegisterEvent("UNIT_RANGEDDAMAGE")  -- Shooting ranged attack
+f:SetScript("OnEvent", updatePortraitBlink)
+--adds red to ranged
 
 -----Reskins the zzz-----
 -- Create a new frame
@@ -108,14 +102,6 @@ overlay:SetPoint("CENTER", PlayerFrame, "CENTER", -20, 30) -- Position the NEW R
 PlayerRestIcon:SetTexture("")
 PlayerRestIcon:ClearAllPoints()
 PlayerRestIcon:SetPoint("TOPLEFT", PlayerFrame, -3000, 0)
-
--- Set the frame strata to be higher than PlayerRestIcon
---overlay:SetFrameStrata("DIALOG")
-
--- Set the size and position of the overlay to match PlayerRestIcon
---overlay:SetWidth(PlayerRestIcon:GetWidth())
---overlay:SetHeight(PlayerRestIcon:GetHeight())
---overlay:SetPoint("CENTER", PlayerRestIcon, "CENTER")
 
 -- Set the texture for the overlay
 overlay.texture = overlay:CreateTexture()
@@ -139,18 +125,6 @@ local texCoords = {
   --{0/512, 60/512, 360/512, 410/512}, {60/512, 120/512, 360/512, 410/512}, {120/512, 180/512, 360/512, 410/512}, {180/512, 240/512, 360/512, 410/512}, {240/512, 300/512, 360/512, 410/512}, {300/512, 360/512, 360/512, 410/512}, --zzz
 
 }
---[[
--- Define the TexCoords for each frame of the animation
-local texCoords = {
-  -- 512 is the x, 64 is the y
-  {100/512, 120/512, 34/64, 57/64}, --z
-  {163/512, 200/512, 19/64, 57/64}, --zz
-  {227/512, 280/512, 4/64, 57/64}, --zzz
-  {302/512, 344/512, 3/64, 46/64}, --zz
-  {379/512, 408/512, 3/64, 36/64}, --z
-
-}
-]]
 
 -- Function to update the texture coordinates
 local currentFrame = 1
@@ -302,7 +276,6 @@ function TargetFrame_CheckClassification()
     TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrame-Rare.blp")
   else
     TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\new-unitframes\\UI-TargetingFrameDF1.blp")
-    --TargetFrameTexture:SetTexture("Interface\\AddOns\\Turtle-Dragonflight\\img\\UI-TargetingFrame2")
   end
 end
 
@@ -366,19 +339,6 @@ end)
     TargetFrame_CheckFaction(PlayerFrame)
     wait:UnregisterAllEvents()
     wait:Hide()
-
-  -- Party space fix with pet
-  if PetFrame:IsVisible() then
-    if PartyMemberFrame1:IsVisible() then
-      --PartyMemberFrame1:ClearAllPoints()
-      --PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
-    else
-      --print("partyMember1 does not exist")
-    end
-  else
-      --PartyMemberFrame1:ClearAllPoints()
-      --PartyMemberFrame1:SetPoint("TOPLEFT", UIParent, 30, -150)
-  end
 
   end)
 end
