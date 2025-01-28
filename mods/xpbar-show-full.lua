@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Always show detailed XP"],
     description = T["Always show detailed XP info, otherwise shift-mouseover on the XP bar."],
     expansions = { ["vanilla"] = true, ["tbc"] = true },

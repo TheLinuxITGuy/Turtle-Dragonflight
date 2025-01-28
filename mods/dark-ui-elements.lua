@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local HookAddonOrVariable = ShaguTweaks.HookAddonOrVariable
-local GetExpansion = ShaguTweaks.GetExpansion
-local AddBorder = ShaguTweaks.AddBorder
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local HookAddonOrVariable = tDFUI.HookAddonOrVariable
+local GetExpansion = tDFUI.GetExpansion
+local AddBorder = tDFUI.AddBorder
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Darkened UI"],
   description = T["Turns the entire interface into darker colors."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -177,9 +177,9 @@ module.enable = function(self)
     name = buttonName and index and buttonName .. index or this:GetName()
     original = _G[name.."Border"]
 
-    if original and this.ShaguTweaks_border then
+    if original and this.tDFUI_border then
       r, g, b = original:GetVertexColor()
-      this.ShaguTweaks_border:SetBackdropBorderColor(r, g, b, 1)
+      this.tDFUI_border:SetBackdropBorderColor(r, g, b, 1)
       original:SetAlpha(0)
     elseif not original and _G[name] then
       -- tbc buff buttons don't have borders, so we
@@ -202,7 +202,7 @@ module.enable = function(self)
   DarkenFrame(DropDownList2)
   DarkenFrame(DropDownList3)
 
-  ShaguTweaks.DarkMode = true
+  tDFUI.DarkMode = true
 
   for _, button in pairs({ MinimapZoomOut, MinimapZoomIn }) do
     for _, func in pairs({ "GetNormalTexture", "GetDisabledTexture", "GetPushedTexture" }) do
@@ -244,7 +244,7 @@ module.enable = function(self)
     DarkenFrame(_G["GameTooltipStatusBarBackdrop"])
   end)
 
-  table.insert(ShaguTweaks.libnameplate.OnUpdate, function()
+  table.insert(tDFUI.libnameplate.OnUpdate, function()
     if not this.darkened then
       this.darkened = true
       DarkenFrame(this)

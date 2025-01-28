@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local L = ShaguTweaks.L
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local L = tDFUI.L
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Equip Compare"],
     description = T["Shows currently equipped items on tooltips while the shift key is pressed."],
     expansions = { ["vanilla"] = true, ["tbc"] = nil },
@@ -102,11 +102,11 @@ module.enable = function(self)
                     if v.value ~= target.value and v.widget:GetText() then
                         if v.value > target.value then
                             if not strfind(v.widget:GetText(), "|cff88ff88") and not strfind(v.widget:GetText(), "|cffff8888") then
-                                v.widget:SetText(v.widget:GetText() .. "|cff88ff88 (+" .. ShaguTweaks.round(v.value - target.value, 1) .. ")")
+                                v.widget:SetText(v.widget:GetText() .. "|cff88ff88 (+" .. tDFUI.round(v.value - target.value, 1) .. ")")
                             end
                         elseif not v.widget.compSet then
                             if not strfind(v.widget:GetText(), "|cff88ff88") and not strfind(v.widget:GetText(), "|cffff8888") then
-                                v.widget:SetText(v.widget:GetText() .. "|cffff8888 (-" .. ShaguTweaks.round(target.value - v.value, 1) .. ")")
+                                v.widget:SetText(v.widget:GetText() .. "|cffff8888 (-" .. tDFUI.round(target.value - v.value, 1) .. ")")
                             end
                         end
                         target.processed = true
@@ -181,9 +181,9 @@ module.enable = function(self)
         end
     end
 
-    GameTooltip.HookScript = GameTooltip.HookScript or ShaguTweaks.HookScript
-    ShoppingTooltip1.HookScript = ShoppingTooltip1.HookScript or ShaguTweaks.HookScript
-    ShoppingTooltip2.HookScript = ShoppingTooltip2.HookScript or ShaguTweaks.HookScript
+    GameTooltip.HookScript = GameTooltip.HookScript or tDFUI.HookScript
+    ShoppingTooltip1.HookScript = ShoppingTooltip1.HookScript or tDFUI.HookScript
+    ShoppingTooltip2.HookScript = ShoppingTooltip2.HookScript or tDFUI.HookScript
 
     tDF.eqcompare.ShoppingTooltipShow = function()
         if not tDF.eqcompare.tooltip then return end
@@ -197,8 +197,8 @@ module.enable = function(self)
     ShoppingTooltip2:HookScript("OnShow", tDF.eqcompare.ShoppingTooltipShow)
 
     if AtlasLootTooltip then
-        AtlasLootTooltip.HookScript = AtlasLootTooltip.HookScript or ShaguTweaks.HookScript
-        AtlasLootTooltip2.HookScript = AtlasLootTooltip2.HookScript or ShaguTweaks.HookScript
+        AtlasLootTooltip.HookScript = AtlasLootTooltip.HookScript or tDFUI.HookScript
+        AtlasLootTooltip2.HookScript = AtlasLootTooltip2.HookScript or tDFUI.HookScript
         AtlasLootTooltip:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
         AtlasLootTooltip2:HookScript("OnShow", tDF.eqcompare.GameTooltipShow)
     end

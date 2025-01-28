@@ -1,14 +1,14 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 local gfind = string.gmatch or string.gfind
-local GetUnitData = ShaguTweaks.GetUnitData
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
-local GetExpansion = ShaguTweaks.GetExpansion
-local cmatch = ShaguTweaks.cmatch
-local rgbhex = ShaguTweaks.rgbhex
-local strsplit = ShaguTweaks.strsplit
+local GetUnitData = tDFUI.GetUnitData
+local hooksecurefunc = tDFUI.hooksecurefunc
+local GetExpansion = tDFUI.GetExpansion
+local cmatch = tDFUI.cmatch
+local rgbhex = tDFUI.rgbhex
+local strsplit = tDFUI.strsplit
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Chat Hyperlinks"],
   description = T["Copy website URLs from the chat, transforms CLINKs into real items and handles quest and player links."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -93,7 +93,7 @@ local function HandleLink(text)
   return text
 end
 
-local CopyLinkDialog = CreateFrame("Frame", "ShaguTweaksURLCopy", UIParent)
+local CopyLinkDialog = CreateFrame("Frame", "tDFUIURLCopy", UIParent)
 CopyLinkDialog:Hide()
 
 CopyLinkDialog:SetWidth(300)
@@ -111,7 +111,7 @@ CopyLinkDialog:SetScript("OnShow", function()
   this.text:HighlightText()
 end)
 
-CopyLinkDialog.text = CreateFrame("EditBox", "ShaguTweaksURLCopyEditBox", CopyLinkDialog)
+CopyLinkDialog.text = CreateFrame("EditBox", "tDFUIURLCopyEditBox", CopyLinkDialog)
 CopyLinkDialog.text:SetTextColor(1,.8,0)
 CopyLinkDialog.text:SetJustifyH("CENTER")
 CopyLinkDialog.text:SetBackdrop({
@@ -138,7 +138,7 @@ CopyLinkDialog.text:SetScript("OnEditFocusLost", function(self)
   CopyLinkDialog:Hide()
 end)
 
-CopyLinkDialog.close = CreateFrame("Button", "ShaguTweaksURLCopyClose", CopyLinkDialog, "UIPanelButtonTemplate")
+CopyLinkDialog.close = CreateFrame("Button", "tDFUIURLCopyClose", CopyLinkDialog, "UIPanelButtonTemplate")
 CopyLinkDialog.close:SetPoint("BOTTOMRIGHT", CopyLinkDialog, "BOTTOMRIGHT", -20, 20)
 CopyLinkDialog.close:SetWidth(70)
 CopyLinkDialog.close:SetHeight(18)

@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Debuff Timer"],
   description = T["Show debuff durations on the target unit frame."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },
@@ -9,9 +9,9 @@ local module = ShaguTweaks:register({
   enabled = true,
 })
 
-local libdebuff = ShaguTweaks.libdebuff
+local libdebuff = tDFUI.libdebuff
 local UnitDebuff = libdebuff and libdebuff.UnitDebuff
-local TimeConvert = ShaguTweaks.TimeConvert
+local TimeConvert = tDFUI.TimeConvert
 
 local function CreateTextCooldown(cooldown)
   if cooldown.readable then return end

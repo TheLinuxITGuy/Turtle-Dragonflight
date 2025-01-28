@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Sell Junk"],
   description = T["Adds a “Sell Junk” button to every merchant window, that sells all grey items."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -86,7 +86,7 @@ module.enable = function(self)
     -- get value
     local _, icount = GetContainerItemInfo(bag, slot)
     local _, _, id = string.find(GetContainerItemLink(bag, slot), "item:(%d+):%d+:%d+:%d+")
-    local price = ShaguTweaks.SellValueDB[tonumber(id)] or 0
+    local price = tDFUI.SellValueDB[tonumber(id)] or 0
     if this.price then
       this.price = this.price + ( price * ( icount or 1 ) )
       this.count = this.count + 1

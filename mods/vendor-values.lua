@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Vendor Values"],
   description = T["Shows the vendor sell values on all item tooltips."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -3866,7 +3866,7 @@ if GetExpansion() == "tbc" then
   for k,v in pairs(data_tbc) do data[k] = v end
 end
 
-ShaguTweaks.SellValueDB = data
+tDFUI.SellValueDB = data
 
 local function GetItemLinkByName(name)
   for itemID = 1, 25818 do
@@ -3879,8 +3879,8 @@ local function GetItemLinkByName(name)
 end
 
 local function AddVendorPrices(frame, id, count)
-  if ShaguTweaks.SellValueDB[id] and ShaguTweaks.SellValueDB[id] > 0 then
-    SetTooltipMoney(frame, ShaguTweaks.SellValueDB[id] * count)
+  if tDFUI.SellValueDB[id] and tDFUI.SellValueDB[id] > 0 then
+    SetTooltipMoney(frame, tDFUI.SellValueDB[id] * count)
     frame:Show()
   end
 end

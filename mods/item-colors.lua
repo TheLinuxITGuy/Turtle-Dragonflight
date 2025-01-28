@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
-local AddBorder = ShaguTweaks.AddBorder
-local HookAddonOrVariable = ShaguTweaks.HookAddonOrVariable
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
+local AddBorder = tDFUI.AddBorder
+local HookAddonOrVariable = tDFUI.HookAddonOrVariable
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Item Rarity Borders"],
   description = T["Show item rarity as the border color on bags, bank, character and inspect frames."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -46,7 +46,7 @@ module.enable = function(self)
       for i, slot in pairs(paperdoll_slots) do
         local button = _G["Character"..slot]
         if button then
-          local border = button.ShaguTweaks_border
+          local border = button.tDFUI_border
 
           if not border then
             border = AddBorder(button, 3, { r = .5, g = .5, b = .5 })
@@ -78,7 +78,7 @@ module.enable = function(self)
       for i, v in pairs(inspect_slots) do
         local button = _G["Inspect"..v]
         local link = GetInventoryItemLink("target", i)
-        local border = button.ShaguTweaks_border
+        local border = button.tDFUI_border
 
         if not border then
           border = AddBorder(button, 3, { r = .5, g = .5, b = .5 })
@@ -132,10 +132,10 @@ module.enable = function(self)
             local button = _G[name.."Item"..i]
 
             if not defcolor["bag"] then
-              defcolor["bag"] = { button.ShaguTweaks_border:GetBackdropBorderColor() }
+              defcolor["bag"] = { button.tDFUI_border:GetBackdropBorderColor() }
             end
 
-            button.ShaguTweaks_border:SetBackdropBorderColor(defcolor["bag"][1], defcolor["bag"][2], defcolor["bag"][3], 1)
+            button.tDFUI_border:SetBackdropBorderColor(defcolor["bag"][1], defcolor["bag"][2], defcolor["bag"][3], 1)
 
             local link = GetContainerItemLink(id, button:GetID())
             if button and button:IsShown() and link then
@@ -143,7 +143,7 @@ module.enable = function(self)
               local _, _, quality = GetItemInfo(istring)
               if quality then
                 local r, g, b = GetItemQualityColor(quality)
-                button.ShaguTweaks_border:SetBackdropBorderColor(r,g,b)
+                button.tDFUI_border:SetBackdropBorderColor(r,g,b)
               end
             end
           end
@@ -173,17 +173,17 @@ module.enable = function(self)
 		    local link = GetContainerItemLink(-1, i)
         if button then
           if not defcolor["bank"] then
-            defcolor["bank"] = { button.ShaguTweaks_border:GetBackdropBorderColor() }
+            defcolor["bank"] = { button.tDFUI_border:GetBackdropBorderColor() }
           end
 
-          button.ShaguTweaks_border:SetBackdropBorderColor(defcolor["bag"][1], defcolor["bag"][2], defcolor["bag"][3], 1)
+          button.tDFUI_border:SetBackdropBorderColor(defcolor["bag"][1], defcolor["bag"][2], defcolor["bag"][3], 1)
 
           if link then
             local _, _, istring = string.find(link, "|H(.+)|h")
             local _, _, q = GetItemInfo(istring)
             if q and q > 1 then
               local r, g, b = GetItemQualityColor(q)
-              button.ShaguTweaks_border:SetBackdropBorderColor(r,g,b)
+              button.tDFUI_border:SetBackdropBorderColor(r,g,b)
             end
           end
         end
@@ -210,12 +210,12 @@ module.enable = function(self)
 
       -- update weapon enchant 1
       local r, g, b = GetItemQualityColor(GetInventoryItemQuality("player", TempEnchant1:GetID()) or 1)
-      TempEnchant1.ShaguTweaks_border:SetBackdropBorderColor(r,g,b,1)
+      TempEnchant1.tDFUI_border:SetBackdropBorderColor(r,g,b,1)
       TempEnchant1Border:SetAlpha(0)
 
       -- update weapon enchant 2
       local r, g, b = GetItemQualityColor(GetInventoryItemQuality("player", TempEnchant2:GetID()) or 1)
-      TempEnchant2.ShaguTweaks_border:SetBackdropBorderColor(r,g,b,1)
+      TempEnchant2.tDFUI_border:SetBackdropBorderColor(r,g,b,1)
       TempEnchant2Border:SetAlpha(0)
     end
   end

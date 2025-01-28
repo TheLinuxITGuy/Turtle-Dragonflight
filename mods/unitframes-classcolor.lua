@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Unit Frame Class Colors"],
   description = T["Adds class colors to the player, target and party unit frames."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

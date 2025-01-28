@@ -1,7 +1,7 @@
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Latency Castbar"],
   description = T["Adds a remaining cast time to the cast bar."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

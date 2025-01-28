@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local hooksecurefunc = tDFUI.hooksecurefunc
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["On Key Down Actions"],
     description = T["Action buttons will be activated on key down."],
     expansions = { ["vanilla"] = true, ["tbc"] = nil },

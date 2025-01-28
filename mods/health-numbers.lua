@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local Abbreviate = ShaguTweaks.Abbreviate
-local GetColorGradient = ShaguTweaks.GetColorGradient
-local vanilla = ShaguTweaks.GetExpansion() == "vanilla" or nil
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local Abbreviate = tDFUI.Abbreviate
+local GetColorGradient = tDFUI.GetColorGradient
+local vanilla = tDFUI.GetExpansion() == "vanilla" or nil
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Real Health Numbers"],
   description = T["Estimates health numbers, and shows numbers on player, pet and target unit frames."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -59,7 +59,7 @@ module.enable = function(self)
       local percent = max > 0 and floor(cur/max*100) or 0
 
       if sb:GetName() == "TargetFrameHealthBar" then
-        cur, max = ShaguTweaks.libhealth:GetUnitHealth(sb.unit)
+        cur, max = tDFUI.libhealth:GetUnitHealth(sb.unit)
       end
 
       if cur == percent and strfind(sb:GetName(), "Health") then

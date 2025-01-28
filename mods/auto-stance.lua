@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local strsplit = ShaguTweaks.strsplit
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local strsplit = tDFUI.strsplit
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Auto Stance"],
   description = T["Automatically switch to the required warrior or druid stance on spell cast."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

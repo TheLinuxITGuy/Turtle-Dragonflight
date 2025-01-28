@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Bag Search"],
     description = T["Adds a search box to the backpack for searching your bags, keyring and bank. Press Esc or Tab to finish searching."],
     expansions = { ["vanilla"] = true, ["tbc"] = nil },

@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Minimap Smaller"],
     description = T["Makes the Minimap Smaller."],
     expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -9,7 +9,7 @@ local module = ShaguTweaks:register({
     enabled = nil,
 })
 
-ShaguTweaks_config = ShaguTweaks_config or {}
+tDFUI_config = tDFUI_config or {}
 
 module.enable = function(self)
     local tMinimap = Minimap
@@ -31,7 +31,7 @@ module.enable = function(self)
 
     MiniMapMailFrame:SetPoint("TOPRIGHT", tMinimap, "TOPRIGHT", -200, -200)
 
-    if ShaguTweaks_config["MiniMap Square"] == 0 then
+    if tDFUI_config["MiniMap Square"] == 0 then
         tMinimapZoomIn:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 165 * scaletMinimapZoomInOut, -170 * scaletMinimapZoomInOut)
         tMinimapZoomOut:SetPoint("TOPRIGHT", MinimapZoneText, "TOPLEFT", 150 * scaletMinimapZoomInOut, -182 * scaletMinimapZoomInOut)
     else

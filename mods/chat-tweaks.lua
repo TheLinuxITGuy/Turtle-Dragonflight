@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 local scrollspeed = 1
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Chat Tweaks"],
   description = T["Allows to scroll using the mouse wheel, enables sticky chat channels and repeats message on arrow up."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

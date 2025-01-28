@@ -5,7 +5,7 @@
 if true then return end
 
 -- This table holds the meta-data of the module:
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = "Custom Settings",
   description = "Custom code: Have a look at mods/custom.lua",
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -16,7 +16,7 @@ local module = ShaguTweaks:register({
 -- Global code:
 --   This is where you can put your most basic variable assignments.
 --   Code in this scope will *always* run, no matter if the module is enabled or not.
-local _G = ShaguTweaks.GetGlobalEnv()
+local _G = tDFUI.GetGlobalEnv()
 
 module.enable = function(self)
   -- Module code:

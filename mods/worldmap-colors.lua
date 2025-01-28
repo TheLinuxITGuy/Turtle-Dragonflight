@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["WorldMap Class Colors"],
   description = T["Show class colored circles on world and battlefield map."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -12,7 +12,7 @@ local module = ShaguTweaks:register({
 local addonpath
 local tocs = { "", "-master", "-tbc", "-wotlk" }
 for _, name in pairs(tocs) do
-  local current = string.format("ShaguTweaks%s", name)
+  local current = string.format("tDFUI%s", name)
   local _, title = GetAddOnInfo(current)
   if title then
     addonpath = "Interface\\AddOns\\Turtle-Dragonflight"

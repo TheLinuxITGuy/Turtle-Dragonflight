@@ -1,15 +1,10 @@
---[[
-Author: YouTube.com/@TheLinuxITGuy
-Built on: Linux Mint Debian Edition 12
-This lua file hides the original Blizzard art work from 1.12. I've created new buttons and textured them to match
-Dragonflight.
-]]
 
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 local create_button = tDF.utils.create_button
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Colorful MicroMenu"],
   description = T["Dragonflight MicroMenu."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

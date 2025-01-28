@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local Abbreviate = ShaguTweaks.Abbreviate
-local GetColorGradient = ShaguTweaks.GetColorGradient
-local vanilla = ShaguTweaks.GetExpansion() == "vanilla" or nil
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local Abbreviate = tDFUI.Abbreviate
+local GetColorGradient = tDFUI.GetColorGradient
+local vanilla = tDFUI.GetExpansion() == "vanilla" or nil
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Unit Frame Health Colors"],
   description = T["Change health text color based on its value."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

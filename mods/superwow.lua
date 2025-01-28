@@ -8,9 +8,9 @@
 -- Skip module initialization if SuperWoW is not running.
 if not GetPlayerBuffID or not CombatLogAdd or not SpellInfo then return end
 
-local T = ShaguTweaks.T
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Super WoW Compatibility"],
   description = T["Adds compatibility for the SuperWoW client mod."],
   expansions = { ["vanilla"] = true, ["tbc"] = false },
@@ -19,7 +19,7 @@ local module = ShaguTweaks:register({
 })
 
 module.enable = function(self)
-  local libcast = ShaguTweaks.libcast
+  local libcast = tDFUI.libcast
 
   local unitcast = CreateFrame("Frame")
   unitcast:RegisterEvent("UNIT_CASTEVENT")
@@ -63,7 +63,7 @@ module.enable = function(self)
       libcast.db[guid].channel = event_type == "CHANNEL" or false
 
       -- write state variable
-      ShaguTweaks.superwow_active = true
+      tDFUI.superwow_active = true
     elseif arg3 == "FAIL" then
       local guid = arg1
 

@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["WorldMap Coordinates"],
   description = T["Adds coordinates to the bottom of the World Map."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

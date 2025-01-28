@@ -1,8 +1,8 @@
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 local create_castbar = tDF.utils.create_castbar
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["tDF Castbar"],
   description = T["Dragonflight castbar."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

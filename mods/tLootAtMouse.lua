@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Loot Table at Mouse"],
     description = T["The loot table displays to the right of the cursor."],
     expansions = { ["vanilla"] = true, ["tbc"] = true },

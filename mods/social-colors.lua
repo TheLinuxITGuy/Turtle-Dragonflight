@@ -1,21 +1,21 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local L = ShaguTweaks.L
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local L = tDFUI.L
 local gfind = string.gmatch or string.gfind
-local GetUnitData = ShaguTweaks.GetUnitData
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
-local GetExpansion = ShaguTweaks.GetExpansion
-local cmatch = ShaguTweaks.cmatch
-local rgbhex = ShaguTweaks.rgbhex
-local strsplit = ShaguTweaks.strsplit
+local GetUnitData = tDFUI.GetUnitData
+local hooksecurefunc = tDFUI.hooksecurefunc
+local GetExpansion = tDFUI.GetExpansion
+local cmatch = tDFUI.cmatch
+local rgbhex = tDFUI.rgbhex
+local strsplit = tDFUI.strsplit
 local friendinfo = gsub(gsub(FRIENDS_LEVEL_TEMPLATE,"%%s","%%s %%s"),"%%d","%%s")
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Social Colors"],
   description = T["Show class colors in Who, Guild, Friends and Chat."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
   category = T["Social & Chat"],
-  enabled = nil,
+  enabled = true,
 })
 
 module.enable = function(self)
@@ -45,11 +45,11 @@ module.enable = function(self)
     end
   end
 
-  ShaguTweaks_cache = ShaguTweaks_cache or {}
-  ShaguTweaks_cache["players"] = ShaguTweaks_cache["players"] or {}
+  tDFUI_cache = tDFUI_cache or {}
+  tDFUI_cache["players"] = tDFUI_cache["players"] or {}
 
-  local playerdb = ShaguTweaks_cache["players"]
-  local socialmod = CreateFrame("Frame", "ShaguTweaksSocialMod", UIParent)
+  local playerdb = tDFUI_cache["players"]
+  local socialmod = CreateFrame("Frame", "tDFUISocialMod", UIParent)
   socialmod:RegisterEvent("CHAT_MSG_SYSTEM")
   socialmod:SetScript("OnEvent", function()
     local name = cmatch(arg1, _G.ERR_FRIEND_ONLINE_SS)

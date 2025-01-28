@@ -1,9 +1,9 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 local create_castbar = tDF.utils.create_castbar
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Enemy Castbars"],
     description = T["Shows an enemy castbar on target unit frame."],
     expansions = { ["vanilla"] = true, ["tbc"] = nil },

@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Blue Shaman Class Colors"],
   description = T["Changes the class color code of shamans to blue, as known from TBC+."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

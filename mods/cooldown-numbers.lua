@@ -1,11 +1,11 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local hooksecurefunc = hooksecurefunc or ShaguTweaks.hooksecurefunc
-local GetExpansion = ShaguTweaks.GetExpansion
-local AddBorder = ShaguTweaks.AddBorder
-local TimeConvert = ShaguTweaks.TimeConvert
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local hooksecurefunc = hooksecurefunc or tDFUI.hooksecurefunc
+local GetExpansion = tDFUI.GetExpansion
+local AddBorder = tDFUI.AddBorder
+local TimeConvert = tDFUI.TimeConvert
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Cooldown Numbers"],
   description = T["Display  the remaining duration as text on every cooldown."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local round = ShaguTweaks.round
-local rgbhex = ShaguTweaks.rgbhex
-local Abbreviate = ShaguTweaks.Abbreviate
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local round = tDFUI.round
+local rgbhex = tDFUI.rgbhex
+local Abbreviate = tDFUI.Abbreviate
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Tooltip Details"],
   description = T["Display health, class color, guild name, guild rank and current target on unit tooltips."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -151,7 +151,7 @@ module.enable = function(self)
     if hpmax > 100 or (round(hpmax/100*hp) ~= hp) then
       rhp, rhpmax = hp, hpmax
     else
-      rhp, rhpmax, estimated = ShaguTweaks.libhealth:GetUnitHealthByName(this.name, this.level, tonumber(hp), tonumber(hpmax))
+      rhp, rhpmax, estimated = tDFUI.libhealth:GetUnitHealthByName(this.name, this.level, tonumber(hp), tonumber(hpmax))
     end
 
     if ( estimated or hpmax > 100 or round(hpmax/100*hp) ~= hp ) then

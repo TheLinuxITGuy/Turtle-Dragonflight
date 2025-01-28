@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["Continuous rest XP"],
     description = T["Continuously track rested XP while resting."],
     expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -9,7 +9,7 @@ local module = ShaguTweaks:register({
     enabled = true,
 })
 
-ShaguTweaks_config = ShaguTweaks_config or {}
+tDFUI_config = tDFUI_config or {}
 
 module.enable = function(self)
     xpbar_watcher_rest:RegisterEvent("UPDATE_EXHAUSTION")
@@ -19,9 +19,9 @@ module.enable = function(self)
             local xpExhaustion = GetXPExhaustion("player")
             if IsResting() and xpExhaustion and ((xpExhaustion / UnitXPMax("player") ~= 1.5) or xpExhaustion == 0) then
                 xpbar.text:Show()
-                xpbar_update(xpbar, ShaguTweaks_config["Always show detailed XP"] == 1 and true or nil)
+                xpbar_update(xpbar, tDFUI_config["Always show detailed XP"] == 1 and true or nil)
             else
-                if ShaguTweaks_config["Hide XP outdoors"] == 1 then
+                if tDFUI_config["Hide XP outdoors"] == 1 then
                     xpbar.text:Hide()
                 end
             end

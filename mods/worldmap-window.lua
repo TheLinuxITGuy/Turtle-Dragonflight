@@ -1,8 +1,8 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
-local HookScript = ShaguTweaks.HookScript
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
+local HookScript = tDFUI.HookScript
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["WorldMap Window"],
   description = T["Turns the world map into a movable window. The map can be scaled with <Ctrl> + Mousewheel."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

@@ -1,7 +1,7 @@
-local T = ShaguTweaks.T
-local GetExpansion = ShaguTweaks.GetExpansion
+local T = tDFUI.T
+local GetExpansion = tDFUI.GetExpansion
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["tDF Timers"],
   description = T["Dragonflight Timers, Breath, etc."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

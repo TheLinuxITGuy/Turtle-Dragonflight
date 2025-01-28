@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Movable Unit Frames"],
   description = T["Player and Target unit frames can be moved while <Shift> and <Ctrl> are pressed together."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

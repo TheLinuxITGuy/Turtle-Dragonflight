@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Movable Unit Frames Extended"],
   description = T["mufe_desc"],
   expansions = { ["vanilla"] = true, ["tbc"] = true },
@@ -31,9 +31,9 @@ local nonmovables = {
 }
 
 module.enable = function(self)
-  ShaguTweaks_config = ShaguTweaks_config or {}
-  ShaguTweaks_config["MoveUnitframesExtended"] = ShaguTweaks_config["MoveUnitframesExtended"] or {}
-  local movedb = ShaguTweaks_config["MoveUnitframesExtended"]
+  tDFUI_config = tDFUI_config or {}
+  tDFUI_config["MoveUnitframesExtended"] = tDFUI_config["MoveUnitframesExtended"] or {}
+  local movedb = tDFUI_config["MoveUnitframesExtended"]
 
   local unlocker = CreateFrame("Frame", nil, UIParent)
   unlocker:SetAllPoints(UIParent)

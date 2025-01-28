@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["MiniMap Square"],
   description = T["Draw the mini map in a squared shape instead of a round one."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

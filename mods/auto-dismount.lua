@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Auto Dismount"],
   description = T["Automatically dismounts whenever a spell is casted."],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },
@@ -10,7 +10,7 @@ local module = ShaguTweaks:register({
 
 module.enable = function(self)
   local dismount = CreateFrame("Frame")
-  ShaguTweaks.dismount = dismount
+  tDFUI.dismount = dismount
 
   -- mount tooltip texts
   dismount.strings = {
@@ -49,7 +49,7 @@ module.enable = function(self)
     SPELL_NOT_SHAPESHIFTED_NOSPACE, ERR_CANT_INTERACT_SHAPESHIFTED, ERR_NOT_WHILE_SHAPESHIFTED,
     ERR_NO_ITEMS_WHILE_SHAPESHIFTED, ERR_TAXIPLAYERSHAPESHIFTED,ERR_MOUNT_SHAPESHIFTED }
 
-  dismount.scanner = ShaguTweaks.libtipscan:GetScanner("dismount")
+  dismount.scanner = tDFUI.libtipscan:GetScanner("dismount")
 
   dismount:RegisterEvent("UI_ERROR_MESSAGE")
   dismount:SetScript("OnEvent", function()

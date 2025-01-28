@@ -8,10 +8,10 @@
 -- Skip module initialization on every other client than TurtleWoW.
 if not TargetHPText or not TargetHPPercText then return end
 
-local T = ShaguTweaks.T
+local T = tDFUI.T
 local selldata
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Turtle WoW Compatibility"],
   description = T["Adds compatibility to Turtle WoW's custom changes."],
   expansions = { ["vanilla"] = true, ["tbc"] = false },
@@ -21,7 +21,7 @@ local module = ShaguTweaks:register({
 
 module.enable = function(self)
   -- hide turtle-wow's target status texts
-  if ShaguTweaks_config[T["Real Health Numbers"]] == 1 then
+  if tDFUI_config[T["Real Health Numbers"]] == 1 then
     TargetHPText:Hide()
     TargetHPText.Show = function() return end
 
@@ -36,7 +36,7 @@ module.enable = function(self)
     HookWorldMapFrame_Maximize()
 
     -- re-apply worldmap window
-    if ShaguTweaks_config[T["WorldMap Window"]] == 1 then
+    if tDFUI_config[T["WorldMap Window"]] == 1 then
       WorldMapFrame:SetMovable(true)
       WorldMapFrame:EnableMouse(true)
 
@@ -57,16 +57,16 @@ module.enable = function(self)
   WorldMapFrame_Maximize()
 
   -- replace sell values with turtle-wow's item data
-  ShaguTweaks.SellValueDB = selldata
+  tDFUI.SellValueDB = selldata
 
   -- add tree of life druid form to autoshift
-  if ShaguTweaks.dismount then
-    table.insert(ShaguTweaks.dismount.shapeshifts, "ability_druid_treeoflife")
+  if tDFUI.dismount then
+    table.insert(tDFUI.dismount.shapeshifts, "ability_druid_treeoflife")
   end
 end
 
 -- Turtle WoW specific libdebuff patches
-local libdebuff = ShaguTweaks.libdebuff
+local libdebuff = tDFUI.libdebuff
 local libdebuff_twow = CreateFrame("Frame")
 libdebuff_twow:RegisterEvent("CHAT_MSG_SPELL_SELF_DAMAGE")
 libdebuff_twow:SetScript("OnEvent", function()
@@ -76,7 +76,7 @@ libdebuff_twow:SetScript("OnEvent", function()
   -- Holy Strike is a spell, but can refresh paladin judgements
   -- Credits to @geojak
   if string.find(arg1, "Holy Strike") then
-    for seal in ShaguTweaks.L["judgements"] do
+    for seal in tDFUI.L["judgements"] do
       local name = UnitName("target")
       local level = UnitLevel("target")
       if name and libdebuff.objects[name] then

@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
 local addonpath
 local tocs = { "", "-master", "-tbc", "-wotlk" }
 for _, name in pairs(tocs) do
-  local current = string.format("ShaguTweaks%s", name)
+  local current = string.format("tDFUI%s", name)
   local _, title = GetAddOnInfo(current)
   if title then
     addonpath = "Interface\\AddOns\\" .. current
@@ -25,7 +25,7 @@ local CLASS_ICON_TCOORDS = {
   ["DEATHKNIGHT"] = { 0.25, .5, 0.5, .75 },
 }
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Unit Frame Class Portraits"],
   description = T["Replace unitframe portraits with class icons."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["MiniMap Tweaks"],
   description = T["Hides unnecessary mini map buttons and allows to zoom using the mouse wheel."],
   expansions = { ["vanilla"] = true, ["tbc"] = true },

@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 --[[
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
   title = T["Reduced Actionbar Size"],
   description = T["Reduces the actionbar size by removing several items such as the bag panel and microbar"],
   expansions = { ["vanilla"] = true, ["tbc"] = nil },

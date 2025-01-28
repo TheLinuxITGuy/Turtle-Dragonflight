@@ -17,11 +17,11 @@ local function RestoreFramePosition(frame)
     end
 end
 
-local _G = ShaguTweaks.GetGlobalEnv()
-local T = ShaguTweaks.T
+local _G = tDFUI.GetGlobalEnv()
+local T = tDFUI.T
 local create_button = tDF.utils.create_button
 
-local module = ShaguTweaks:register({
+local module = tDFUI:register({
     title = T["All-In-One-Bag"],
     description = T["Displays all of your bags as one."],
     expansions = { ["vanilla"] = true, ["tbc"] = nil },
