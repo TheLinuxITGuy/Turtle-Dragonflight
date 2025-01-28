@@ -2,7 +2,7 @@
 ## Title: |cff008000Turtle |cff1974d2Dragonflight
 ## Author: Youtube.com/@TheLinuxITGuy
 ## Notes: The Dragonflight UI for Turtle WoW.
-## Version: 2.9.5
+## Version: 2.9.6
 ## DefaultState: enabled
 ## SavedVariables: SUCC_bagOptions
 ## SavedVariablesPerCharacter: tDFUI_config, tDFUI_cache, SortBagsRightToLeft
