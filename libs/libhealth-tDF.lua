@@ -1,6 +1,6 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local L = ShaguTweaks.L
-local GetExpansion = ShaguTweaks.GetExpansion
+local _G = tDFUI.GetGlobalEnv()
+local L = tDFUI.L
+local GetExpansion = tDFUI.GetExpansion
 
 local mobdb = {}
 local target, dmg, perc, diff = nil, 0, 0, 0, 0
@@ -16,9 +16,9 @@ libhealth:RegisterEvent("PLAYER_ENTERING_WORLD")
 libhealth:SetScript("OnEvent", function()
   if event == "PLAYER_ENTERING_WORLD" then
     -- create initial health cache tables
-    ShaguTweaks_cache = ShaguTweaks_cache or {}
-    ShaguTweaks_cache["libhealth"] = ShaguTweaks_cache["libhealth"] or {}
-    mobdb = ShaguTweaks_cache["libhealth"]
+    tDFUI_cache = tDFUI_cache or {}
+    tDFUI_cache["libhealth"] = tDFUI_cache["libhealth"] or {}
+    mobdb = tDFUI_cache["libhealth"]
 
     -- load enable state and set functions
     libhealth.enabled = true
@@ -103,6 +103,6 @@ local function GetUnitHealthByName(self, unit, level, cur, max)
 end
 
 -- add api calls to global tree
-ShaguTweaks.libhealth = libhealth
-ShaguTweaks.libhealth.GetUnitHealth = GetUnitHealth
-ShaguTweaks.libhealth.GetUnitHealthByName = GetUnitHealthByName
+tDFUI.libhealth = libhealth
+tDFUI.libhealth.GetUnitHealth = GetUnitHealth
+tDFUI.libhealth.GetUnitHealthByName = GetUnitHealthByName

@@ -1,7 +1,7 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local GetExpansion = ShaguTweaks.GetExpansion
-local libtipscan = ShaguTweaks.libtipscan
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
+local _G = tDFUI.GetGlobalEnv()
+local GetExpansion = tDFUI.GetExpansion
+local libtipscan = tDFUI.libtipscan
+local hooksecurefunc = tDFUI.hooksecurefunc
 
 local scanner = libtipscan:GetScanner("libspell")
 local libspell = {}
@@ -126,4 +126,4 @@ function libspell.GetSpellInfo(index, bookType)
   return name, rank, icon, castingTime, minRange, maxRange
 end
 
-ShaguTweaks.libspell = libspell
+tDFUI.libspell = libspell

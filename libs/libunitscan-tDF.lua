@@ -1,13 +1,13 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local GetExpansion = ShaguTweaks.GetExpansion
-local L = ShaguTweaks.L
+local _G = tDFUI.GetGlobalEnv()
+local GetExpansion = tDFUI.GetExpansion
+local L = tDFUI.L
 
 local units = { players = {}, mobs = {} }
 local queue = { }
 
-local libunitscan = CreateFrame("Frame", "ShaguTweaksUnitScan", UIParent)
+local libunitscan = CreateFrame("Frame", "tDFUIUnitScan", UIParent)
 
-function ShaguTweaks.GetUnitData(name, active)
+function tDFUI.GetUnitData(name, active)
   if units["players"][name] then
     local ret = units["players"][name]
     return ret.class, ret.level, ret.elite, true
@@ -41,9 +41,9 @@ libunitscan:RegisterEvent("UPDATE_MOUSEOVER_UNIT")
 libunitscan:SetScript("OnEvent", function()
   if event == "PLAYER_ENTERING_WORLD" then
     -- load database
-    ShaguTweaks_cache = ShaguTweaks_cache or {}
-    ShaguTweaks_cache["players"] = ShaguTweaks_cache["players"] or {}
-    units.players = ShaguTweaks_cache["players"]
+    tDFUI_cache = tDFUI_cache or {}
+    tDFUI_cache["players"] = tDFUI_cache["players"] or {}
+    units.players = tDFUI_cache["players"]
 
     -- update own character details
     local name = UnitName("player")

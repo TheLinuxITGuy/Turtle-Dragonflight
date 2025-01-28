@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local L = ShaguTweaks.L
-local GetExpansion = ShaguTweaks.GetExpansion
-local libtipscan = ShaguTweaks.libtipscan
-local libspell = ShaguTweaks.libspell
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
-local cmatch = ShaguTweaks.cmatch
+local _G = tDFUI.GetGlobalEnv()
+local L = tDFUI.L
+local GetExpansion = tDFUI.GetExpansion
+local libtipscan = tDFUI.libtipscan
+local libspell = tDFUI.libspell
+local hooksecurefunc = tDFUI.hooksecurefunc
+local cmatch = tDFUI.cmatch
 
 -- return instantly if we're not on a vanilla client
 if GetExpansion() ~= "vanilla" then return end
@@ -34,10 +34,10 @@ for i=1,40 do valid_units["raidpet" .. i .. "target"] = true end
 local lastcasttex, lastrank, _
 local scanner = libtipscan:GetScanner("libcast")
 
-local libcast = CreateFrame("Frame", "ShaguTweaksEnemyCast")
+local libcast = CreateFrame("Frame", "tDFUIEnemyCast")
 local player = UnitName("player")
 
-ShaguTweaks.UnitChannelInfo = _G.UnitChannelInfo or function(unit)
+tDFUI.UnitChannelInfo = _G.UnitChannelInfo or function(unit)
   -- convert to name if unitstring was given
   unit = valid_units[unit] and UnitName(unit) or unit
 
@@ -67,7 +67,7 @@ ShaguTweaks.UnitChannelInfo = _G.UnitChannelInfo or function(unit)
   return cast, nameSubtext, text, texture, startTime, endTime, isTradeSkill
 end
 
-ShaguTweaks.UnitCastingInfo = _G.UnitCastingInfo or function(unit)
+tDFUI.UnitCastingInfo = _G.UnitCastingInfo or function(unit)
   -- convert to name if unitstring was given
   unit = valid_units[unit] and UnitName(unit) or unit
 
@@ -360,7 +360,7 @@ end
 
 local function CastCustom(spell)
   if not spell then return end
-  if not ShaguTweaks.UnitCastingInfo(UnitName("player")) then
+  if not tDFUI.UnitCastingInfo(UnitName("player")) then
     for custom, func in pairs(libcast.customcast) do
       if strfind(strlower(spell), custom) or strlower(spell) == custom then
         func(true)
@@ -406,4 +406,4 @@ hooksecurefunc("UseAction", function(slot, target, button)
   CastCustom(spellName)
 end, true)
 
-ShaguTweaks.libcast = libcast
+tDFUI.libcast = libcast

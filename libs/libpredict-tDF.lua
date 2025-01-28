@@ -1,10 +1,10 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local L = ShaguTweaks.L
-local GetExpansion = ShaguTweaks.GetExpansion
-local libtipscan = ShaguTweaks.libtipscan
-local libspell = ShaguTweaks.libspell
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
-local cmatch = ShaguTweaks.cmatch
+local _G = tDFUI.GetGlobalEnv()
+local L = tDFUI.L
+local GetExpansion = tDFUI.GetExpansion
+local libtipscan = tDFUI.libtipscan
+local libspell = tDFUI.libspell
+local hooksecurefunc = tDFUI.hooksecurefunc
+local cmatch = tDFUI.cmatch
 
 local senttarget
 local heals, ress, events = {}, {}, {}
@@ -243,12 +243,12 @@ resetcache:RegisterEvent("UNIT_INVENTORY_CHANGED")
 resetcache:SetScript("OnEvent", function()
   if event == "PLAYER_ENTERING_WORLD" then
     -- load and initialize previous caches of spell amounts
-    ShaguTweaks_cache = ShaguTweaks_cache or {}
-    ShaguTweaks_cache["prediction"] = ShaguTweaks_cache["prediction"] or {}
-    ShaguTweaks_cache["prediction"][realm] = ShaguTweaks_cache["prediction"][realm] or {}
-    ShaguTweaks_cache["prediction"][realm][player] = ShaguTweaks_cache["prediction"][realm][player] or {}
-    ShaguTweaks_cache["prediction"][realm][player]["heals"] = ShaguTweaks_cache["prediction"][realm][player]["heals"] or {}
-    cache = ShaguTweaks_cache["prediction"][realm][player]["heals"]
+    tDFUI_cache = tDFUI_cache or {}
+    tDFUI_cache["prediction"] = tDFUI_cache["prediction"] or {}
+    tDFUI_cache["prediction"][realm] = tDFUI_cache["prediction"][realm] or {}
+    tDFUI_cache["prediction"][realm][player] = tDFUI_cache["prediction"][realm][player] or {}
+    tDFUI_cache["prediction"][realm][player]["heals"] = tDFUI_cache["prediction"][realm][player]["heals"] or {}
+    cache = tDFUI_cache["prediction"][realm][player]["heals"]
     return
   end
 
@@ -326,7 +326,7 @@ hooksecurefunc("UseAction", function(slot, target, selfcast)
   spell_queue[3] = selfcast and UnitName("player") or UnitName("target") and UnitCanAssist("player", "target") and UnitName("target") or UnitName("player")
 end, true)
 
-libpredict.sender = CreateFrame("Frame", "ShaguTweaksPredictionSender", UIParent)
+libpredict.sender = CreateFrame("Frame", "tDFUIPredictionSender", UIParent)
 libpredict.sender.enabled = true
 libpredict.sender.SendHealCommMsg = function(self, msg)
   SendAddonMessage("HealComm", msg, "RAID")
@@ -465,4 +465,4 @@ libpredict.sender:SetScript("OnEvent", function()
   end
 end)
 
-ShaguTweaks.libpredict = libpredict
+tDFUI.libpredict = libpredict

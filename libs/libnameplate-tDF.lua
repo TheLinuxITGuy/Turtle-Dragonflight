@@ -1,6 +1,6 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local GetExpansion = ShaguTweaks.GetExpansion
-local GetUnitData = ShaguTweaks.GetUnitData
+local _G = tDFUI.GetGlobalEnv()
+local GetExpansion = tDFUI.GetExpansion
+local GetUnitData = tDFUI.GetUnitData
 
 local NAMEPLATE_OBJECTORDER = { "border", "glow", "name", "level", "levelicon", "raidicon" }
 local NAMEPLATE_TYPE = "Button"
@@ -24,11 +24,11 @@ end
 local registry = {}
 local initialized = 0
 local parentcount, childs, plate
-ShaguTweaks.libnameplate = CreateFrame("Frame", nil, UIParent)
-ShaguTweaks.libnameplate.OnInit = {}
-ShaguTweaks.libnameplate.OnShow = {}
-ShaguTweaks.libnameplate.OnUpdate = {}
-ShaguTweaks.libnameplate:SetScript("OnUpdate", function()
+tDFUI.libnameplate = CreateFrame("Frame", nil, UIParent)
+tDFUI.libnameplate.OnInit = {}
+tDFUI.libnameplate.OnShow = {}
+tDFUI.libnameplate.OnUpdate = {}
+tDFUI.libnameplate:SetScript("OnUpdate", function()
   parentcount = WorldFrame:GetNumChildren()
   if initialized < parentcount then
     childs = { WorldFrame:GetChildren() }
@@ -44,7 +44,7 @@ ShaguTweaks.libnameplate:SetScript("OnUpdate", function()
         end
 
         -- run OnInit functions
-        for id, func in pairs(ShaguTweaks.libnameplate.OnInit) do
+        for id, func in pairs(tDFUI.libnameplate.OnInit) do
           func(plate)
         end
 
@@ -52,7 +52,7 @@ ShaguTweaks.libnameplate:SetScript("OnUpdate", function()
         local oldUpdate = plate:GetScript("OnUpdate")
         plate:SetScript("OnUpdate", function(self, elapsed)
           if oldUpdate then oldUpdate(self, elapsed) end
-          for id, func in pairs(ShaguTweaks.libnameplate.OnUpdate) do
+          for id, func in pairs(tDFUI.libnameplate.OnUpdate) do
             func(self, elapsed)
           end
         end)
@@ -61,7 +61,7 @@ ShaguTweaks.libnameplate:SetScript("OnUpdate", function()
         local oldShow = plate:GetScript("OnShow")
         plate:SetScript("OnShow", function(self)
           if oldShow then oldShow(self) end
-          for id, func in pairs(ShaguTweaks.libnameplate.OnShow) do
+          for id, func in pairs(tDFUI.libnameplate.OnShow) do
             func(self)
           end
         end)

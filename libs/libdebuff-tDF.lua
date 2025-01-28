@@ -1,11 +1,11 @@
-local _G = ShaguTweaks.GetGlobalEnv()
-local L = ShaguTweaks.L
-local GetExpansion = ShaguTweaks.GetExpansion
-local libtipscan = ShaguTweaks.libtipscan
-local libspell = ShaguTweaks.libspell
-local hooksecurefunc = ShaguTweaks.hooksecurefunc
-local QueueFunction = ShaguTweaks.QueueFunction
-local cmatch = ShaguTweaks.cmatch
+local _G = tDFUI.GetGlobalEnv()
+local L = tDFUI.L
+local GetExpansion = tDFUI.GetExpansion
+local libtipscan = tDFUI.libtipscan
+local libspell = tDFUI.libspell
+local hooksecurefunc = tDFUI.hooksecurefunc
+local QueueFunction = tDFUI.QueueFunction
+local cmatch = tDFUI.cmatch
 
 -- return instantly if we're not on a vanilla client
 if GetExpansion() ~= "vanilla" then return end
@@ -15,7 +15,7 @@ if GetLocale() == "ruRU" then
   SPELLREFLECTSELFOTHER = gsub(SPELLREFLECTSELFOTHER, "%%2s", "%%2%$s")
 end
 
-local libdebuff = CreateFrame("Frame", "ShaguTweaksDebuffsScanner", UIParent)
+local libdebuff = CreateFrame("Frame", "tDFUIDebuffsScanner", UIParent)
 local scanner = libtipscan:GetScanner("libdebuff")
 local _, class = UnitClass("player")
 local lastspell
@@ -267,4 +267,4 @@ function libdebuff:UnitDebuff(unit, id)
   return effect, rank, texture, stacks, dtype, duration, timeleft
 end
 
-ShaguTweaks.libdebuff = libdebuff
+tDFUI.libdebuff = libdebuff

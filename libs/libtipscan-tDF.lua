@@ -1,6 +1,6 @@
-local _G = ShaguTweaks.GetGlobalEnv()
+local _G = tDFUI.GetGlobalEnv()
 local libtipscan = {}
-local baseName = "ShaguTweaksTooltip"
+local baseName = "tDFUITooltip"
 local methods = {
   "SetBagItem", "SetAction", "SetAuctionItem", "SetAuctionSellItem", "SetBuybackItem",
   "SetCraftItem", "SetCraftSpell", "SetHyperlink", "SetInboxItem", "SetInventoryItem",
@@ -166,4 +166,4 @@ function libtipscan:List()
   end
 end
 
-ShaguTweaks.libtipscan = libtipscan
+tDFUI.libtipscan = libtipscan
