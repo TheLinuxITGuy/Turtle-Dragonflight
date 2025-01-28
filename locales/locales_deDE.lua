@@ -1,7 +1,7 @@
-ShaguTweaks_locale = ShaguTweaks_locale or {}
-ShaguTweaks_locale["deDE"] = {}
+tDFUI_locale = tDFUI_locale or {}
+tDFUI_locale["deDE"] = {}
 
-ShaguTweaks_locale["deDE"]["class"] = {
+tDFUI_locale["deDE"]["class"] = {
   ["Hexenmeister"] = "WARLOCK",
   ["Krieger"] = "WARRIOR",
   ["Jäger"] = "HUNTER",
@@ -13,13 +13,13 @@ ShaguTweaks_locale["deDE"]["class"] = {
   ["Schurke"] = "ROGUE",
 }
 
-ShaguTweaks_locale["deDE"]["bagtypes"] = {
+tDFUI_locale["deDE"]["bagtypes"] = {
   ["Köcher"] = "QUIVER",
   ["Seelentasche"] = "SOULBAG",
   ["Behälter"] = "DEFAULT",
 }
 
-ShaguTweaks_locale["deDE"]["itemtypes"] = {
+tDFUI_locale["deDE"]["itemtypes"] = {
   ["INVTYPE_WAND"] = "Zauberstab",
   ["INVTYPE_THROWN"] = "Wurfwaffe",
   ["INVTYPE_GUN"] = "Schusswaffe",
@@ -27,17 +27,17 @@ ShaguTweaks_locale["deDE"]["itemtypes"] = {
   ["INVTYPE_PROJECTILE"] = "Projektil",
 }
 
-ShaguTweaks_locale["deDE"]["hunterpaging"] = {
+tDFUI_locale["deDE"]["hunterpaging"] = {
   ["MELEE"] = "Zurechtstutzen",
   ["RANGED"] = "Arkaner Schuss",
 }
 
-ShaguTweaks_locale["deDE"]["customcast"] = {
+tDFUI_locale["deDE"]["customcast"] = {
   ["AIMEDSHOT"] = "Gezielter Schuss",
   ["MULTISHOT"] = "Mehrfach-Schuss",
 }
 
-ShaguTweaks_locale["deDE"]["critters"] = {
+tDFUI_locale["deDE"]["critters"] = {
   'Otter',
   'Käfer',
   'Turmfledermaus',
@@ -123,7 +123,7 @@ ShaguTweaks_locale["deDE"]["critters"] = {
   'Irrwisch',
 }
 
-ShaguTweaks_locale["deDE"]["dyndebuffs"] = {
+tDFUI_locale["deDE"]["dyndebuffs"] = {
   ["Rupture"] = "Blutung",
   ["Kidney Shot"] = "Nierenhieb",
   ["Rend"] = "Verwunden",
@@ -133,14 +133,14 @@ ShaguTweaks_locale["deDE"]["dyndebuffs"] = {
   ["Gouge"] = "Solarplexus",
 }
 
-ShaguTweaks_locale["deDE"]["judgements"] = {
+tDFUI_locale["deDE"]["judgements"] = {
   ["Richturteil der Gerechtigkeit"] = true,
   ["Richturteil des Lichts"] = true,
   ["Richturteil der Weisheit"] = true,
   ["Richturteil des Kreuzfahrers"] = true,
 }
 
-ShaguTweaks_locale["deDE"]["interrupts"] = {
+tDFUI_locale["deDE"]["interrupts"] = {
   ["Schildhieb"] = true,
   ["Zuschlagen"] = true,
   ["Tritt"] = true,
@@ -189,14 +189,14 @@ ShaguTweaks_locale["deDE"]["interrupts"] = {
   ["Goblin-Mörser"] = true,
 }
 
-ShaguTweaks_locale["deDE"]["resurrections"] = {
+tDFUI_locale["deDE"]["resurrections"] = {
   ["Auferstehung"] = true,
   ["Wiedergeburt"] = true,
   ["Erlösung"] = true,
   ["Geist der Ahnen"] = true,
 }
 
-ShaguTweaks_locale["deDE"]["spells"] = {
+tDFUI_locale["deDE"]["spells"] = {
   ['Dämmerungstrickfalle']={t=1500,icon='Temp'},
   ['Aasskarabäus beschwören']={t=2000,icon='Spell_Shadow_CarrionSwarm'},
   ['Abbau-Schwarm']={t=3000,icon='Spell_Holy_Dizzy'},
@@ -1451,7 +1451,7 @@ ShaguTweaks_locale["deDE"]["spells"] = {
   ['Überragender Heilungszauberschutz']={t=2000,icon='Spell_Holy_LayOnHands'},
 }
 
-ShaguTweaks_locale["deDE"]["debuffs"] = {
+tDFUI_locale["deDE"]["debuffs"] = {
   ['AE Charm']={[0]=300.0,},
   ['Ablenkende Spucke']={[0]=15.0,},
   ['Ablenkender Schmerz']={[0]=15.0,},
@@ -2384,9 +2384,9 @@ ShaguTweaks_locale["deDE"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-ShaguTweaks_locale["deDE"]["debuffs"]['Kältekegel']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["deDE"]["debuffs"]['Kältekegel']={[0]=8.0,} -- Cone of Cold
 
-ShaguTweaks_locale["deDE"]["totems"] = {
+tDFUI_locale["deDE"]["totems"] = {
   ["Totem der Krankheitsreinigung"] = "spell_nature_diseasecleansingtotem",
   ["Totem des Erdelementars"] = "spell_nature_earthelemental_totem",
   ["Totem der Erdbindung"] = "spell_nature_strengthofearthtotem02",

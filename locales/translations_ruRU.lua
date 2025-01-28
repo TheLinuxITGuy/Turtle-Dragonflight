@@ -1,5 +1,5 @@
-ShaguTweaks_translation = ShaguTweaks_translation or {}
-ShaguTweaks_translation["ruRU"] = {
+tDFUI_translation = tDFUI_translation or {}
+tDFUI_translation["ruRU"] = {
   ["Action Bar"] = "Панели команд",
   ["Action buttons will be activated on key down."] = "Действия будут зарегистрированы сразу при нажатии клавиши",
   ["Adds a castbar to the nameplate based on combat log estimations."] = "Добавляет панель применения к индикатору здоровья на основе оценок журнала боя.",

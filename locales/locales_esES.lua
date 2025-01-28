@@ -1,7 +1,7 @@
-ShaguTweaks_locale = ShaguTweaks_locale or {}
-ShaguTweaks_locale["esES"] = {}
+tDFUI_locale = tDFUI_locale or {}
+tDFUI_locale["esES"] = {}
 
-ShaguTweaks_locale["esES"]["class"] = {
+tDFUI_locale["esES"]["class"] = {
   ["Brujo"] = "WARLOCK",
   ["Guerrero"] = "WARRIOR",
   ["Cazador"] = "HUNTER",
@@ -13,13 +13,13 @@ ShaguTweaks_locale["esES"]["class"] = {
   ["Pícaro"] = "ROGUE",
 }
 
-ShaguTweaks_locale["esES"]["bagtypes"] = {
+tDFUI_locale["esES"]["bagtypes"] = {
   ["Carcaj"] = "QUIVER",
   ["Bolsa de almas"] = "SOULBAG",
   ["Bolsa"] = "DEFAULT",
 }
 
-ShaguTweaks_locale["esES"]["itemtypes"] = {
+tDFUI_locale["esES"]["itemtypes"] = {
   ["INVTYPE_WAND"] = "Varita",
   ["INVTYPE_THROWN"] = "Arma arrojadiza",
   ["INVTYPE_GUN"] = "Arma de fuego",
@@ -27,17 +27,17 @@ ShaguTweaks_locale["esES"]["itemtypes"] = {
   ["INVTYPE_PROJECTILE"] = "Proyectil",
 }
 
-ShaguTweaks_locale["esES"]["hunterpaging"] = {
+tDFUI_locale["esES"]["hunterpaging"] = {
   ["MELEE"] = "Cortar alas",
   ["RANGED"] = "Disparo Arcano",
 }
 
-ShaguTweaks_locale["esES"]["customcast"] = {
+tDFUI_locale["esES"]["customcast"] = {
   ["AIMEDSHOT"] = "Disparo de puntería",
   ["MULTISHOT"] = "Multidisparo",
 }
 
-ShaguTweaks_locale["esES"]["critters"] = {
+tDFUI_locale["esES"]["critters"] = {
   'Víboris',
   'Alfazaque',
   'Murciélago Timbralevín',
@@ -123,7 +123,7 @@ ShaguTweaks_locale["esES"]["critters"] = {
   'Fuego fatuo',
 }
 
-ShaguTweaks_locale["esES"]["dyndebuffs"] = {
+tDFUI_locale["esES"]["dyndebuffs"] = {
   ["Rupture"] = "Ruptura",
   ["Kidney Shot"] = "Golpe en los riñones",
   ["Rend"] = "Desgarrar",
@@ -133,14 +133,14 @@ ShaguTweaks_locale["esES"]["dyndebuffs"] = {
   ["Gouge"] = "Incapacitación",
 }
 
-ShaguTweaks_locale["esES"]["judgements"] = {
+tDFUI_locale["esES"]["judgements"] = {
   ["Sentencia de Justicia"] = true,
   ["Sentencia de Luz"] = true,
   ["Sentencia de Sabiduría"] = true,
   ["Sentencia del Cruzado"] = true,
 }
 
-ShaguTweaks_locale["esES"]["interrupts"] = {
+tDFUI_locale["esES"]["interrupts"] = {
   ["Azote de escudo"] = true,
   ["Zurrar"] = true,
   ["Patada"] = true,
@@ -189,14 +189,14 @@ ShaguTweaks_locale["esES"]["interrupts"] = {
   ["Mortero goblin"] = true,
 }
 
-ShaguTweaks_locale["esES"]["resurrections"] = {
+tDFUI_locale["esES"]["resurrections"] = {
   ["Resurrección"] = true,
   ["Renacer"] = true,
   ["Redención"] = true,
   ["Espíritu ancestral"] = true,
 }
 
-ShaguTweaks_locale["esES"]["spells"] = {
+tDFUI_locale["esES"]["spells"] = {
   ['"Desplumado" mantiene forma de pollo']={t=1000,icon='Ability_Racial_BearForm'},
   ['Abrazo de la viuda']={t=500,icon='Spell_Arcane_Blink'},
   ['Abrellamas']={t=2500,icon='Spell_Fire_Fire'},
@@ -1460,7 +1460,7 @@ ShaguTweaks_locale["esES"]["spells"] = {
   ['Éxtasis melódico']={t=1000,icon='Temp'},
 }
 
-ShaguTweaks_locale["esES"]["debuffs"] = {
+tDFUI_locale["esES"]["debuffs"] = {
   ['Abrazo de la viuda']={[0]=30.0,},
   ['Abrazo vampírico']={[0]=60.0,},
   ['Acido tunelador']={[0]=30.0,},
@@ -2388,9 +2388,9 @@ ShaguTweaks_locale["esES"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-ShaguTweaks_locale["esES"]["debuffs"]['Cono de frío']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["esES"]["debuffs"]['Cono de frío']={[0]=8.0,} -- Cone of Cold
 
-ShaguTweaks_locale["esES"]["totems"] = {
+tDFUI_locale["esES"]["totems"] = {
   ["Tótem de limpieza de enfermedades"] = "spell_nature_diseasecleansingtotem",
   ["Tótem Elemental de Tierra"] = "spell_nature_earthelemental_totem",
   ["Tótem Nexo terrestre"] = "spell_nature_strengthofearthtotem02",

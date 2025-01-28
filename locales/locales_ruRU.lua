@@ -1,7 +1,7 @@
-ShaguTweaks_locale = ShaguTweaks_locale or {}
-ShaguTweaks_locale["ruRU"] = {}
+tDFUI_locale = tDFUI_locale or {}
+tDFUI_locale["ruRU"] = {}
 
-ShaguTweaks_locale["ruRU"]["class"] = {
+tDFUI_locale["ruRU"]["class"] = {
   ["Чернокнижник"] = "WARLOCK",
   ["Воин"] = "WARRIOR",
   ["Охотник"] = "HUNTER",
@@ -13,13 +13,13 @@ ShaguTweaks_locale["ruRU"]["class"] = {
   ["Разбойник"] = "ROGUE",
 }
 
-ShaguTweaks_locale["ruRU"]["bagtypes"] = {
+tDFUI_locale["ruRU"]["bagtypes"] = {
   ["Колчан"] = "QUIVER",
   ["Сумка душ"] = "SOULBAG",
   ["Сумка"] = "DEFAULT",
 }
 
-ShaguTweaks_locale["ruRU"]["itemtypes"] = {
+tDFUI_locale["ruRU"]["itemtypes"] = {
   ["INVTYPE_WAND"] = "Жезл",
   ["INVTYPE_THROWN"] = "Метательное",
   ["INVTYPE_GUN"] = "Огнестрельное",
@@ -27,17 +27,17 @@ ShaguTweaks_locale["ruRU"]["itemtypes"] = {
   ["INVTYPE_PROJECTILE"] = "Боеприпасы",
 }
 
-ShaguTweaks_locale["ruRU"]["hunterpaging"] = {
+tDFUI_locale["ruRU"]["hunterpaging"] = {
   ["MELEE"] = "Подрезать крылья",
   ["RANGED"] = "Чародейский выстрел",
 }
 
-ShaguTweaks_locale["ruRU"]["customcast"] = {
+tDFUI_locale["ruRU"]["customcast"] = {
   ["AIMEDSHOT"] = "Прицельный выстрел",
   ["MULTISHOT"] = "Залп",
 }
 
-ShaguTweaks_locale["ruRU"]["critters"] = {
+tDFUI_locale["ruRU"]["critters"] = {
   'Аспид',
   'Жук',
   'Чердачный нетопырь',
@@ -123,7 +123,7 @@ ShaguTweaks_locale["ruRU"]["critters"] = {
   'Огонек',
 }
 
-ShaguTweaks_locale["ruRU"]["dyndebuffs"] = {
+tDFUI_locale["ruRU"]["dyndebuffs"] = {
   ["Rupture"] = "Рваная рана",
   ["Kidney Shot"] = "Удар по почкам",
   ["Rend"] = "Кровопускание",
@@ -133,14 +133,14 @@ ShaguTweaks_locale["ruRU"]["dyndebuffs"] = {
   ["Gouge"] = "Парализующий удар",
 }
 
-ShaguTweaks_locale["ruRU"]["judgements"] = {
+tDFUI_locale["ruRU"]["judgements"] = {
   ["Правосудие справедливости"] = true,
   ["Правосудие света"] = true,
   ["Правосудие мудрости"] = true,
   ["Правосудие воина света"] = true,
 }
 
-ShaguTweaks_locale["ruRU"]["interrupts"] = {
+tDFUI_locale["ruRU"]["interrupts"] = {
   ["Удар щитом"] = true,
   ["Зуботычина"] = true,
   ["Пинок"] = true,
@@ -189,14 +189,14 @@ ShaguTweaks_locale["ruRU"]["interrupts"] = {
   ["Гоблинская мортира"] = true,
 }
 
-ShaguTweaks_locale["ruRU"]["resurrections"] = {
+tDFUI_locale["ruRU"]["resurrections"] = {
   ["Воскрешение"] = true,
   ["Возрождение"] = true,
   ["Искупление"] = true,
   ["Дух предков"] = true,
 }
 
-ShaguTweaks_locale["ruRU"]["spells"] = {
+tDFUI_locale["ruRU"]["spells"] = {
   [' Пробуждение каменного дворфа - визуальный эффект']={t=1500,icon='Spell_Nature_Earthquake'},
   ['"Отчаянный" снова принимает облик цыпленка"']={t=1000,icon='Ability_Racial_BearForm'},
   ['[PH] Активатор Опоры']={t=5000,icon='Temp'},
@@ -1458,7 +1458,7 @@ ShaguTweaks_locale["ruRU"]["spells"] = {
   ['Ящеричья молния']={t=2000,icon='Spell_Nature_Lightning'},
 }
 
-ShaguTweaks_locale["ruRU"]["debuffs"] = {
+tDFUI_locale["ruRU"]["debuffs"] = {
   ['"Дар Артаса"']={[0]=180.0,},
   ['Windsor Dismisses Horse DND']={[0]=55.0,},
   ['[PH] Хрустальное тело - таймер']={[0]=7200.0,},
@@ -2389,9 +2389,9 @@ ShaguTweaks_locale["ruRU"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-ShaguTweaks_locale["ruRU"]["debuffs"]['Конус холода']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["ruRU"]["debuffs"]['Конус холода']={[0]=8.0,} -- Cone of Cold
 
-ShaguTweaks_locale["ruRU"]["totems"] = {
+tDFUI_locale["ruRU"]["totems"] = {
   ["Тотем очищения от болезней"] = "spell_nature_diseasecleansingtotem",
   ["Тотем элементаля земли"] = "spell_nature_earthelemental_totem",
   ["Тотем оков земли"] = "spell_nature_strengthofearthtotem02",

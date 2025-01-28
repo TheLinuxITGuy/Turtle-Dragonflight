@@ -1,7 +1,7 @@
-ShaguTweaks_locale = ShaguTweaks_locale or {}
-ShaguTweaks_locale["frFR"] = {}
+tDFUI_locale = tDFUI_locale or {}
+tDFUI_locale["frFR"] = {}
 
-ShaguTweaks_locale["frFR"]["class"] = {
+tDFUI_locale["frFR"]["class"] = {
   ["Démoniste"] = "WARLOCK",
   ["Guerrier"] = "WARRIOR",
   ["Chasseur"] = "HUNTER",
@@ -13,13 +13,13 @@ ShaguTweaks_locale["frFR"]["class"] = {
   ["Voleur"] = "ROGUE",
 }
 
-ShaguTweaks_locale["frFR"]["bagtypes"] = {
+tDFUI_locale["frFR"]["bagtypes"] = {
   ["Carquois"] = "QUIVER",
   ["Sac d'âme"] = "SOULBAG",
   ["Conteneur"] = "DEFAULT",
 }
 
-ShaguTweaks_locale["frFR"]["itemtypes"] = {
+tDFUI_locale["frFR"]["itemtypes"] = {
   ["INVTYPE_WAND"] = "Baguette",
   ["INVTYPE_THROWN"] = "Armes de jet",
   ["INVTYPE_GUN"] = "Arme à feu",
@@ -27,17 +27,17 @@ ShaguTweaks_locale["frFR"]["itemtypes"] = {
   ["INVTYPE_PROJECTILE"] = "Projectile",
 }
 
-ShaguTweaks_locale["frFR"]["hunterpaging"] = {
+tDFUI_locale["frFR"]["hunterpaging"] = {
   ["MELEE"] = "Coupure d'ailes",
   ["RANGED"] = "Tir des arcanes",
 }
 
-ShaguTweaks_locale["frFR"]["customcast"] = {
+tDFUI_locale["frFR"]["customcast"] = {
   ["AIMEDSHOT"] = "Visée",
   ["MULTISHOT"] = "Flèches multiples",
 }
 
-ShaguTweaks_locale["frFR"]["critters"] = {
+tDFUI_locale["frFR"]["critters"] = {
   'Aspic',
   'Hanneton',
   'Chauve-souris de clocher',
@@ -118,7 +118,7 @@ ShaguTweaks_locale["frFR"]["critters"] = {
   'Feu follet',
 }
 
-ShaguTweaks_locale["frFR"]["dyndebuffs"] = {
+tDFUI_locale["frFR"]["dyndebuffs"] = {
   ["Rupture"] = "Rupture",
   ["Kidney Shot"] = "Aiguillon perfide",
   ["Rend"] = "Pourfendre",
@@ -128,14 +128,14 @@ ShaguTweaks_locale["frFR"]["dyndebuffs"] = {
   ["Gouge"] = "Suriner",
 }
 
-ShaguTweaks_locale["frFR"]["judgements"] = {
+tDFUI_locale["frFR"]["judgements"] = {
   ["Jugement de justice"] = true,
   ["Jugement de lumière"] = true,
   ["Jugement de sagesse"] = true,
   ["Jugement du Croisé"] = true,
 }
 
-ShaguTweaks_locale["frFR"]["interrupts"] = {
+tDFUI_locale["frFR"]["interrupts"] = {
   ["Coup de bouclier"] = true,
   ["Volée de coups"] = true,
   ["Coup de pied"] = true,
@@ -184,14 +184,14 @@ ShaguTweaks_locale["frFR"]["interrupts"] = {
   ["Mortier des gobelins"] = true,
 }
 
-ShaguTweaks_locale["frFR"]["resurrections"] = {
+tDFUI_locale["frFR"]["resurrections"] = {
   ["Résurrection"] = true,
   ["Renaissance"] = true,
   ["Rédemption"] = true,
   ["Esprit ancestral"] = true,
 }
 
-ShaguTweaks_locale["frFR"]["spells"] = {
+tDFUI_locale["frFR"]["spells"] = {
   ['Accomplissement véritable']={t=500,icon='Spell_Shadow_Charm'},
   ['Acide corrosif']={t=1500,icon='Spell_Nature_Acid_01'},
   ['Acide d\'Hakkar']={t=1000,icon='Spell_Nature_Acid_01'},
@@ -1452,7 +1452,7 @@ ShaguTweaks_locale["frFR"]["spells"] = {
   ['Œil d\'Immol\'thar']={t=2000,icon='Spell_Shadow_AntiMagicShell'},
 }
 
-ShaguTweaks_locale["frFR"]["debuffs"] = {
+tDFUI_locale["frFR"]["debuffs"] = {
   ['AE Charme']={[0]=300.0,},
   ['Accomplissement véritable']={[0]=20.0,},
   ['Acide corrosif']={[0]=300.0,},
@@ -2381,9 +2381,9 @@ ShaguTweaks_locale["frFR"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-ShaguTweaks_locale["frFR"]["debuffs"]['Cône de froid']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["frFR"]["debuffs"]['Cône de froid']={[0]=8.0,} -- Cone of Cold
 
-ShaguTweaks_locale["frFR"]["totems"] = {
+tDFUI_locale["frFR"]["totems"] = {
   ["Totem de Purification des maladies"] = "spell_nature_diseasecleansingtotem",
   ["Totem élémentaire de terre"] = "spell_nature_earthelemental_totem",
   ["Totem de lien terrestre"] = "spell_nature_strengthofearthtotem02",

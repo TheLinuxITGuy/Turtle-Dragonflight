@@ -1,7 +1,7 @@
-ShaguTweaks_locale = ShaguTweaks_locale or {}
-ShaguTweaks_locale["zhCN"] = {}
+tDFUI_locale = tDFUI_locale or {}
+tDFUI_locale["zhCN"] = {}
 
-ShaguTweaks_locale["zhCN"]["class"] = {
+tDFUI_locale["zhCN"]["class"] = {
   ["术士"] = "WARLOCK",
   ["战士"] = "WARRIOR",
   ["猎人"] = "HUNTER",
@@ -13,13 +13,13 @@ ShaguTweaks_locale["zhCN"]["class"] = {
   ["盗贼"] = "ROGUE",
 }
 
-ShaguTweaks_locale["zhCN"]["bagtypes"] = {
+tDFUI_locale["zhCN"]["bagtypes"] = {
   ["箭袋"] = "QUIVER",
   ["灵魂袋"] = "SOULBAG",
   ["容器"] = "DEFAULT",
 }
 
-ShaguTweaks_locale["zhCN"]["itemtypes"] = {
+tDFUI_locale["zhCN"]["itemtypes"] = {
   ["INVTYPE_WAND"] = "魔杖",
   ["INVTYPE_THROWN"] = "投掷武器",
   ["INVTYPE_GUN"] = "枪械",
@@ -27,17 +27,17 @@ ShaguTweaks_locale["zhCN"]["itemtypes"] = {
   ["INVTYPE_PROJECTILE"] = "弹药",
 }
 
-ShaguTweaks_locale["zhCN"]["hunterpaging"] = {
+tDFUI_locale["zhCN"]["hunterpaging"] = {
   ["MELEE"] = "摔绊",
   ["RANGED"] = "奥术射击",
 }
 
-ShaguTweaks_locale["zhCN"]["customcast"] = {
+tDFUI_locale["zhCN"]["customcast"] = {
   ["AIMEDSHOT"] = "瞄准射击",
   ["MULTISHOT"] = "多重射击",
 }
 
-ShaguTweaks_locale["zhCN"]["critters"] = {
+tDFUI_locale["zhCN"]["critters"] = {
   '蝰蛇',
   '甲壳虫',
   '钟楼蝙蝠',
@@ -118,7 +118,7 @@ ShaguTweaks_locale["zhCN"]["critters"] = {
   '小精灵',
 }
 
-ShaguTweaks_locale["zhCN"]["dyndebuffs"] = {
+tDFUI_locale["zhCN"]["dyndebuffs"] = {
   ["Rupture"] = "割裂",
   ["Kidney Shot"] = "肾击",
   ["Rend"] = "撕裂",
@@ -128,14 +128,14 @@ ShaguTweaks_locale["zhCN"]["dyndebuffs"] = {
   ["Gouge"] = "凿击",
 }
 
-ShaguTweaks_locale["zhCN"]["judgements"] = {
+tDFUI_locale["zhCN"]["judgements"] = {
   ["公正审判"] = true,
   ["圣光审判"] = true,
   ["智慧审判"] = true,
   ["十字军审判"] = true,
 }
 
-ShaguTweaks_locale["zhCN"]["interrupts"] = {
+tDFUI_locale["zhCN"]["interrupts"] = {
   ["盾击"] = true,
   ["拳击"] = true,
   ["脚踢"] = true,
@@ -184,14 +184,14 @@ ShaguTweaks_locale["zhCN"]["interrupts"] = {
   ["地精迫击炮"] = true,
 }
 
-ShaguTweaks_locale["zhCN"]["resurrections"] = {
+tDFUI_locale["zhCN"]["resurrections"] = {
   ["复活术"] = true,
   ["复生"] = true,
   ["救赎"] = true,
   ["先祖之魂"] = true,
 }
 
-ShaguTweaks_locale["zhCN"]["spells"] = {
+tDFUI_locale["zhCN"]["spells"] = {
   ['"Plucky" Resumes Chicken Form']={t=1000,icon='Ability_Racial_BearForm'},
   ['Aqual Quintessence - Dowse Molten Core Rune']={t=1000,icon='Temp'},
   ['Archaedas Awaken Visual']={t=1500,icon='Spell_Nature_Earthquake'},
@@ -1438,7 +1438,7 @@ ShaguTweaks_locale["zhCN"]["spells"] = {
   ['龙翼攻击']={t=1000,icon='INV_Misc_MonsterScales_14'},
 }
 
-ShaguTweaks_locale["zhCN"]["debuffs"] = {
+tDFUI_locale["zhCN"]["debuffs"] = {
   ['AE Charm']={[0]=300.0,},
   ['Alliance Flag Captured']={[0]=10.0,},
   ['Armor IV']={[0]=3600.0,},
@@ -2391,9 +2391,9 @@ ShaguTweaks_locale["zhCN"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-ShaguTweaks_locale["zhCN"]["debuffs"]['冰锥']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["zhCN"]["debuffs"]['冰锥']={[0]=8.0,} -- Cone of Cold
 
-ShaguTweaks_locale["zhCN"]["totems"] = {
+tDFUI_locale["zhCN"]["totems"] = {
   ["祛病图腾"] = "spell_nature_diseasecleansingtotem",
   ["土元素图腾"] = "spell_nature_earthelemental_totem",
   ["地缚图腾"] = "spell_nature_strengthofearthtotem02",

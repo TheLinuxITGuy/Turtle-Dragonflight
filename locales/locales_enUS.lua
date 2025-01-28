@@ -1,7 +1,7 @@
-ShaguTweaks_locale = ShaguTweaks_locale or {}
-ShaguTweaks_locale["enUS"] = {}
+tDFUI_locale = tDFUI_locale or {}
+tDFUI_locale["enUS"] = {}
 
-ShaguTweaks_locale["enUS"]["class"] = {
+tDFUI_locale["enUS"]["class"] = {
   ["Warlock"] = "WARLOCK",
   ["Warrior"] = "WARRIOR",
   ["Hunter"] = "HUNTER",
@@ -13,13 +13,13 @@ ShaguTweaks_locale["enUS"]["class"] = {
   ["Rogue"] = "ROGUE",
 }
 
-ShaguTweaks_locale["enUS"]["bagtypes"] = {
+tDFUI_locale["enUS"]["bagtypes"] = {
   ["Quiver"] = "QUIVER",
   ["Soul Bag"] = "SOULBAG",
   ["Bag"] = "DEFAULT",
 }
 
-ShaguTweaks_locale["enUS"]["itemtypes"] = {
+tDFUI_locale["enUS"]["itemtypes"] = {
   ["INVTYPE_WAND"] = "Wand",
   ["INVTYPE_THROWN"] = "Thrown",
   ["INVTYPE_GUN"] = "Gun",
@@ -27,17 +27,17 @@ ShaguTweaks_locale["enUS"]["itemtypes"] = {
   ["INVTYPE_PROJECTILE"] = "Projectile",
 }
 
-ShaguTweaks_locale["enUS"]["hunterpaging"] = {
+tDFUI_locale["enUS"]["hunterpaging"] = {
   ["MELEE"] = "Wing Clip",
   ["RANGED"] = "Arcane Shot",
 }
 
-ShaguTweaks_locale["enUS"]["customcast"] = {
+tDFUI_locale["enUS"]["customcast"] = {
   ["AIMEDSHOT"] = "Aimed Shot",
   ["MULTISHOT"] = "Multi-Shot",
 }
 
-ShaguTweaks_locale["enUS"]["critters"] = {
+tDFUI_locale["enUS"]["critters"] = {
   'Adder',
   'Beetle',
   'Belfry Bat',
@@ -123,7 +123,7 @@ ShaguTweaks_locale["enUS"]["critters"] = {
   'Wisp',
 }
 
-ShaguTweaks_locale["enUS"]["dyndebuffs"] = {
+tDFUI_locale["enUS"]["dyndebuffs"] = {
   ["Rupture"] = "Rupture",
   ["Kidney Shot"] = "Kidney Shot",
   ["Rend"] = "Rend",
@@ -133,14 +133,14 @@ ShaguTweaks_locale["enUS"]["dyndebuffs"] = {
   ["Gouge"] = "Gouge",
 }
 
-ShaguTweaks_locale["enUS"]["judgements"] = {
+tDFUI_locale["enUS"]["judgements"] = {
   ["Judgement of Justice"] = true,
   ["Judgement of Light"] = true,
   ["Judgement of Wisdom"] = true,
   ["Judgement of the Crusader"] = true,
 }
 
-ShaguTweaks_locale["enUS"]["interrupts"] = {
+tDFUI_locale["enUS"]["interrupts"] = {
   ["Shield Bash"] = true,
   ["Pummel"] = true,
   ["Kick"] = true,
@@ -189,14 +189,14 @@ ShaguTweaks_locale["enUS"]["interrupts"] = {
   ["Goblin Mortar"] = true,
 }
 
-ShaguTweaks_locale["enUS"]["resurrections"] = {
+tDFUI_locale["enUS"]["resurrections"] = {
   ["Resurrection"] = true,
   ["Rebirth"] = true,
   ["Redemption"] = true,
   ["Ancestral Spirit"] = true,
 }
 
-ShaguTweaks_locale["enUS"]["spells"] = {
+tDFUI_locale["enUS"]["spells"] = {
   ['"Plucky" Resumes Chicken Form']={t=1000,icon='Ability_Racial_BearForm'},
   ['Abomination Spit']={t=2500,icon='Spell_Nature_CorrosiveBreath'},
   ['Acid Spit']={t=3000,icon='Spell_Nature_Acid_01'},
@@ -1464,7 +1464,7 @@ ShaguTweaks_locale["enUS"]["spells"] = {
   ['[PH] Teleport to Undercity']={t=2000,icon='Temp'},
 }
 
-ShaguTweaks_locale["enUS"]["debuffs"] = {
+tDFUI_locale["enUS"]["debuffs"] = {
   ['AE Charm']={[0]=300.0,},
   ['Abomination Spit']={[0]=10.0,},
   ['Acid Slime']={[0]=30.0,},
@@ -2400,9 +2400,9 @@ ShaguTweaks_locale["enUS"]["debuffs"] = {
 }
 
 -- custom entries not detected by DBC extractor
-ShaguTweaks_locale["enUS"]["debuffs"]['Cone of Cold']={[0]=8.0,} -- Cone of Cold
+tDFUI_locale["enUS"]["debuffs"]['Cone of Cold']={[0]=8.0,} -- Cone of Cold
 
-ShaguTweaks_locale["enUS"]["totems"] = {
+tDFUI_locale["enUS"]["totems"] = {
   ["Disease Cleansing Totem"] = "spell_nature_diseasecleansingtotem",
   ["Earth Elemental Totem"] = "spell_nature_earthelemental_totem",
   ["Earthbind Totem"] = "spell_nature_strengthofearthtotem02",

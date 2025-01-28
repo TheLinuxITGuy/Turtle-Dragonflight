@@ -1,5 +1,5 @@
-ShaguTweaks_translation = ShaguTweaks_translation or {}
-ShaguTweaks_translation["zhTW"] = {
+tDFUI_translation = tDFUI_translation or {}
+tDFUI_translation["zhTW"] = {
   ["Action Bar"] = nil,
   ["Action buttons will be activated on key down."] = nil,
   ["Adds a castbar to the nameplate based on combat log estimations."] = nil,
