@@ -263,6 +263,67 @@ local class = { r = 0, g = 1, b = 0, a = 1 }
   end 
 --DF Pet ends
 
+--Party frames
+-- Loop through all four party member frames
+for i = 1, 4 do
+  local frame = _G["PartyMemberFrame" .. i]
+  local name = _G["PartyMemberFrame" .. i .. "Name"]
+  local healthBar = _G["PartyMemberFrame" .. i .. "HealthBar"]
+  local manaBar = _G["PartyMemberFrame" .. i .. "ManaBar"]
+  
+  -- Hide the original frame border
+  local borderTexture = _G["PartyMemberFrame" .. i .. "Texture"]
+  if borderTexture then
+      borderTexture:SetAlpha(0)
+  end
+
+  -- Create a new texture for the custom border
+  local customBorder = frame:CreateTexture(nil, "OVERLAY")
+  customBorder:SetTexture("Interface\\Addons\\Turtle-Dragonflight\\img\\pet") -- Path to your custom texture
+  customBorder:SetDrawLayer("BORDER", 1)
+  customBorder:SetAllPoints(frame)
+  
+  -- Resize the portrait
+  local portrait = _G["PartyMemberFrame" .. i .. "Portrait"]
+  if portrait then
+    portrait:SetHeight(30)
+    portrait:SetWidth(35) -- sets the size of the portraits
+    portrait:SetDrawLayer("BACKGROUND",1)
+  end
+
+  --Adjust Name Text
+  if name and frame then
+    name:ClearAllPoints()
+    name:SetPoint("CENTER", frame, "CENTER", 6, 20) 
+    name:SetDrawLayer("BORDER", 2)
+  end
+
+  if healthBar and manaBar and frame then
+    -- Set custom texture for the health bar
+    healthBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Health]])
+    manaBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-TargetofTarget-PortraitOn-Bar-Mana]])
+    manaBar:SetStatusBarTexture([[Interface\Addons\Turtle-Dragonflight\img\Unitframe\UI-HUD-UnitFrame-Target-MinusMob-PortraitOn-Bar-Health-Status.tga]])
+    -- Adjust the position and size of the health bar
+    healthBar:SetHeight(8)
+    healthBar:ClearAllPoints()
+    healthBar:SetPoint("CENTER", frame, "CENTER", 15, 8)
+    --healthBar:SetDrawLayer("BACKGROUND", 1)
+
+    -- Adjust the position of the mana bar
+    manaBar:SetHeight(5)
+    manaBar:ClearAllPoints()
+    manaBar:SetPoint("CENTER", frame, "CENTER", 15, 0.5)
+    --manaBar:SetDrawLayer("BACKGROUND", 1)
+  end
+
+end
+--Party frames
+
+
+
+
+
+
 local original = TargetFrame_CheckClassification
 function TargetFrame_CheckClassification()
   local classification = UnitClassification("target")
