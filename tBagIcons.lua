@@ -169,6 +169,7 @@ local bags_arrow = create_button("tDFbagArrow", tDFbagMain, "CENTER", 10, 15,
     {0, 0, 0, 0},
     {0, 0, 0, 0},
     -28, 0, nil, nil, bags_toggle)
+    tDFbagArrow:SetPoint("CENTER", tDFbagMain, -30, 0)
 
 -----------------Inside the bag empty slot icon-----------------
 -- Iterate through each bag (0 is backpack, 1-4 are the bag slots)
