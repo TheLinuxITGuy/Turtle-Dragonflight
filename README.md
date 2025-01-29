@@ -49,6 +49,7 @@ Code from:
 [ShaguTweaks](https://shagu.org/ShaguTweaks)
 [Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods)
 [Ark](https://github.com/CrimsonHollow/tDF-more-mods)
+[ZiiMs](https://github.com/ZiiMs/TargetFrameBuff)
 
 [![Contributors](https://contrib.rocks/image?repo=TheLinuxITGuy/Turtle-Dragonflight)](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/graphs/contributors)
 
