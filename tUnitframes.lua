@@ -289,9 +289,11 @@ for i = 1, 4 do
   -- Resize the portrait
   local portrait = _G["PartyMemberFrame" .. i .. "Portrait"]
   if portrait then
-    portrait:SetHeight(32)
+    portrait:SetHeight(35)
     portrait:SetWidth(35) -- sets the size of the portraits
     portrait:SetDrawLayer("BACKGROUND",1)
+    portrait:ClearAllPoints()
+    portrait:SetPoint("CENTER", frame, -40, 8.25)
   end
 
   --Adjust Name Text
@@ -310,13 +312,11 @@ for i = 1, 4 do
     healthBar:SetHeight(8)
     healthBar:ClearAllPoints()
     healthBar:SetPoint("CENTER", frame, "CENTER", 15, 10)
-    --healthBar:SetDrawLayer("BACKGROUND", 1)
 
     -- Adjust the position of the mana bar
     manaBar:SetHeight(5)
     manaBar:ClearAllPoints()
     manaBar:SetPoint("CENTER", frame, "CENTER", 15, 0.5)
-    --manaBar:SetDrawLayer("BACKGROUND", 1)
   end
 
 end
