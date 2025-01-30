@@ -6,7 +6,7 @@ local REP_BAR_WIDTH = 256
 local REP_BAR_HEIGHT = 18
 
 -- Create the main reputation bar frame
-local repbar = CreateFrame("Frame", "CustomReputationBar", UIParent)
+repbar = CreateFrame("Frame", "CustomReputationBar", UIParent)
 repbar:SetWidth(REP_BAR_WIDTH * 2)
 repbar:SetHeight(REP_BAR_HEIGHT)
 repbar:SetPoint("CENTER", ReputationWatchBar, "CENTER", 0, -60) -- Position the bar at the bottom
