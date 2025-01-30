@@ -27,7 +27,9 @@ local nonmovables = {
   "TempEnchant1", -- weapon buffs
   "xpbar",
   "tDFquestwatchframe",
-  "tDFDurability"
+  "tDFDurability",
+  "MiniMapMailFrame",
+  "repbar"
 }
 
 module.enable = function(self)
