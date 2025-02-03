@@ -104,3 +104,13 @@ if lftFrameCloseButton then
     lftFrameCloseButton:SetHeight(20)
     lftFrameCloseButton:SetPoint('TOPRIGHT', _G["LFTFrame"], 'TOPRIGHT', -7, -15)
 end
+
+local tDFquestFrameCloseButton = _G["QuestFrameCloseButton"]
+if tDFquestFrameCloseButton then
+    tDFquestFrameCloseButton:SetNormalTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal')
+    tDFquestFrameCloseButton:SetPushedTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonpushed')
+    tDFquestFrameCloseButton:SetHighlightTexture('Interface\\AddOns\\Turtle-Dragonflight\\Textures\\closebutonnormal')
+    tDFquestFrameCloseButton:SetWidth(20)
+    tDFquestFrameCloseButton:SetHeight(20)
+    tDFquestFrameCloseButton:SetPoint('TOPRIGHT', _G["QuestFrame"], 'TOPRIGHT', -32, -20)
+end
