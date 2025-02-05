@@ -2,6 +2,7 @@
 -- Credit to Ko0z (https://github.com/Ko0z/)
 
 local T = tDFUI.T
+local HookScript = tDFUI.HookScript
 
 local module = tDFUI:register({
     title = T["Improved Interface Options"],
@@ -11,15 +12,7 @@ local module = tDFUI:register({
 })
 
 module.enable = function(self)
-    UIOptionsFrame:SetScript("OnShow", function()
-        -- default events
-        UIOptionsFrame_Load();
-        MultiActionBar_Update();
-        MultiActionBar_ShowAllGrids();
-        Disable_BagButtons();
-        UpdateMicroButtons();
-
-        -- customize
+    HookScript(UIOptionsFrame, "OnShow", function()
         UIOptionsBlackground:Hide()
         UIOptionsFrame:SetScale(.8)
     end)
