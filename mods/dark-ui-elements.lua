@@ -252,4 +252,16 @@ module.enable = function(self)
   end)
   MinimapClock:SetBackdropBorderColor(.9,.8,.5,0) --Sets Alpha to 0
   MinimapClock:SetBackdropColor(.4,.4,.4,0) --Sets Alpha to 0
+
+  --Party frames
+  -- Loop through all four party member frames
+  for i = 1, 4 do
+    local frame = _G["PartyMemberFrame" .. i]
+
+    -- Hide the original frame border
+    local borderTexture = _G["PartyMemberFrame" .. i .. "Texture"]
+    if borderTexture then
+      borderTexture:SetAlpha(0)
+      end
+  end
 end
