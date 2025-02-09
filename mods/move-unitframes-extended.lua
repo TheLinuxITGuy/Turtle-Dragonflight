@@ -23,7 +23,7 @@ local nonmovables = {
   "tDFbagMain", -- bags bar
   "BuffButton0", -- buffrow1
   "BuffButton8", -- buffrow2
-  "BuffButton16", -- debuffs
+  --"BuffButton16", -- debuffs
   "TempEnchant1", -- weapon buffs
   "xpbar",
   "tDFquestwatchframe",
