@@ -53,5 +53,5 @@ Code from:
 
 [![Contributors](https://contrib.rocks/image?repo=TheLinuxITGuy/Turtle-Dragonflight)](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/graphs/contributors)
 
-## 💖 Donate
+## 💖 Sponsor
 https://www.paypal.com/donate/?hosted_button_id=WPTX2BMBARSG2
