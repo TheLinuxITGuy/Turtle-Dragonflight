@@ -21,29 +21,28 @@ tDFUI_config["tDFbags_hide"] = tDFUI_config["tDFbags_hide"] or 0
 local bags_texture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\bagslots2x1.tga"
 local bags_keys_texture = "Interface\\AddOns\\Turtle-Dragonflight\\img\\bagslots2key.tga"
 local normal_txc = {295/512, 354/512, 64/128, 124/128}
---local normal_txc = {296/512, 356/512, 2/128, 62/128}
 local pushed_txc = {422/512, 475/512, 65/128, 118/128}
 local highlight_txc = {358/512, 414/512, 1/128, 56/128}
 local bags_data =
 {
     {
         Name = "tDFbag1",
-        offset_x = -50,
+        offset_x = -50,  -- changed from -50
         f_OnClick = function() ToggleBag(1) end
     },
     {
         Name = "tDFbag2",
-        offset_x = -85,
+        offset_x = -80,  -- changed from -85
         f_OnClick = function() ToggleBag(2) end
     },
     {
         Name = "tDFbag3",
-        offset_x = -120,
+        offset_x = -110,  -- changed from -120
         f_OnClick = function() ToggleBag(3) end
     },
     {
         Name = "tDFbag4",
-        offset_x = -155,
+        offset_x = -140,  -- changed from -155
         f_OnClick = function() ToggleBag(4) end
     },
 }
@@ -53,13 +52,9 @@ local function bags_override(frame, parent_frame)
     frame:SetPushedTexture("")
     frame:SetHighlightTexture("")
     frame:ClearAllPoints()
-    frame:SetWidth(18)
-    frame:SetHeight(18)
+    frame:SetWidth(16)  -- changed from 18
+    frame:SetHeight(16) -- changed from 18
     frame:SetPoint("CENTER", parent_frame, -.75, .75)
-    --frame:SetWidth(25)
-    --frame:SetHeight(25)
-    --frame:SetPoint("CENTER", parent_frame, -2, 2)
-    --frame:SetFrameLevel(2)
 end
 
 local function bags_main_onclick()
@@ -126,12 +121,12 @@ local function freeSlots()
     end
 end
 
-local bags_main = create_button("tDFbagMain", UIParent, "BOTTOMRIGHT", 50, 50,
+local bags_main = create_button("tDFbagMain", UIParent, "BOTTOMRIGHT", 40, 40,
     bags_texture, bags_texture, bags_texture,
     {4/512, 90/512, 2/128, 94/128},
     {204/512, 280/512, 4/128, 88/128},
     {104/512, 185/512, 4/128, 90/128},
-    -15, 50, nil, nil, bags_main_onclick)
+    -10, 40, nil, nil, bags_main_onclick)
 
 -- Create a frame to display the number of free bag slots
 local tDFbagFreeSlots = CreateFrame("Frame", "tDFbagFreeSlots", tDFbagMain)
@@ -141,11 +136,12 @@ tDFbagFreeSlots:SetPoint("CENTER", tDFbagMain, "CENTER", 0, -12)
 tDFbagFreeSlots.text = tDFbagFreeSlots:CreateFontString(nil, "OVERLAY", "GameFontNormal")
 tDFbagFreeSlots.text:SetPoint("CENTER", tDFbagFreeSlots, "CENTER", 0, 0)
 tDFbagFreeSlots.text:SetVertexColor(1, 1, 1)
+tDFbagFreeSlots.text:SetFont("Fonts\\FRIZQT__.TTF", 10)  -- added to set font size to 10
 tDFbagFreeSlots:RegisterEvent("BAG_UPDATE")
 tDFbagFreeSlots:SetScript("OnEvent", freeSlots)
 
 for i, button in ipairs(bags_data) do
-    local frame = create_button(button.Name, bags_main, "CENTER", 35, 35,
+    local frame = create_button(button.Name, bags_main, "CENTER", 30, 30,  -- changed from 35, 35
     bags_texture, bags_texture, bags_texture,
     normal_txc, pushed_txc, highlight_txc,
     button.offset_x, 0, nil, nil, button.f_OnClick)
@@ -156,12 +152,12 @@ for i, button in ipairs(bags_data) do
     bags_override(_G["CharacterBag" .. i - 1 .. "Slot"], frame)
 end
 
-local bags_keys = create_button("tDFbagKeys", tDFbagMain, "CENTER", 35, 35,
+local bags_keys = create_button("tDFbagKeys", tDFbagMain, "CENTER", 30, 30,
     bags_keys_texture, bags_keys_texture, bags_keys_texture,
     {4/128, 62/128, 63/128, 124/128},
     {68/128, 122/128, 63/128, 124/128},
     {4/128, 62/128, 1/128, 56/128},
-    -190, 0, nil, nil, function() ToggleKeyRing() end)
+    -170, 0, nil, nil, function() ToggleKeyRing() end) --was -190
 
 local bags_arrow = create_button("tDFbagArrow", tDFbagMain, "CENTER", 10, 15,
     bags_texture, bags_texture, bags_texture,
