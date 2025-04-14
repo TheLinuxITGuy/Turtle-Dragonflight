@@ -261,7 +261,7 @@ end
 					end
 				end
 			end
-			button:GetNormalTexture():SetVertexColor(unpack(v))
+			button:GetNormalTexture():SetVertexColor(0.5, 0.5, 0.5)
 		end
 	end
 
