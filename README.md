@@ -45,11 +45,11 @@ TurtleWoW/
 - The zzz doesn't go away until zone change when under a tent.
 ## 🌟 Grateful to All Contributors
 A heartfelt thank you to everyone who has contributed to the development of tDF. Your dedication is truly appreciated, and you’re making this addon better for everyone!
-Code from: 
-[ShaguTweaks](https://shagu.org/ShaguTweaks)
-[Grylls](https://github.com/GryllsAddons/ShaguTweaks-mods)
-[Ark](https://github.com/CrimsonHollow/tDF-more-mods)
-[ZiiMs](https://github.com/ZiiMs/TargetFrameBuff)
+Special thanks to
+ShaguTweaks,
+Grylls,
+Ark,
+and ZiiMs
 
 [![Contributors](https://contrib.rocks/image?repo=TheLinuxITGuy/Turtle-Dragonflight)](https://github.com/TheLinuxITGuy/Turtle-Dragonflight/graphs/contributors)
 
