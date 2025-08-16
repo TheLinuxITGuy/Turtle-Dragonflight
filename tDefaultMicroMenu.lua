@@ -38,7 +38,7 @@ function ShowTWBGQueueMenu()
 end
 
 function create_microbutton_eye(parent_frame, x, y)
-  LFT:SetPoint("CENTER", tDFmicrobutton, x, y)
+  --LFT:SetPoint("CENTER", tDFmicrobutton, x, y)
   local overlay = CreateFrame("Frame", nil, LFTMinimapButton:GetParent())
 
   -- Set the frame strata to be higher than LFT_Minimap
@@ -221,9 +221,9 @@ function microbutton_removemi()
   EBC_Minimap:ClearAllPoints()
   EBC_Minimap:Hide()
   
-  LFT:SetParent(UIParent)
-  LFT:ClearAllPoints()
-  LFT:Hide()
+  --LFT:SetParent(UIParent)
+  --LFT:ClearAllPoints()
+  --LFT:Hide()
   
   EBC_Minimap:SetParent(UIParent)
   EBC_Minimap:ClearAllPoints()
