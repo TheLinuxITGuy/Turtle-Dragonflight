@@ -6,6 +6,8 @@
 
 The Dragonflight UI for Turtle WoW. 
 
+## :hourglass_flowing_sand: NOTICE: __I no longer play Turtle WoW. The 1.12.1 is very old and outdated. I now play Project Epoch instead which uses a much better 3.3.5a client for Classic+ WoW. Here's the Dragonflight UI for it: https://github.com/TheLinuxITGuy/Chromie-Dragonflight__ :hourglass_flowing_sand:
+
 ## 🛠️ Installation
 This is a stand-alone addon made for the Turtle WoW 1.12.1 client. You can get this addon from the official TWOW Launcher. If you want to download directly from GitHub, follow the manual install steps below.
 
